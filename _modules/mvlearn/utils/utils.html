@@ -1,0 +1,656 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mvlearn.utils.utils &mdash; mvlearn alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../install.html#including-optional-torch-dependencies-for-full-functionality">Including optional torch dependencies for full functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#python-package-dependencies">Python package dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#hardware-requirements">Hardware requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#os-requirements">OS Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Examples Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-cluster">Examples on cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-datasets">Examples on datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-decomposition">Examples on decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/pipeline/plot_pipeline_sklearn_integration.html">Integrating mvlearn with scikit-learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-plotting">Examples on plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../references/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/cluster.html">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spectral-clustering">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#co-regularized-multiview-spectral-clustering">Co-Regularized Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-k-means">Multiview K Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spherical-k-means">Multiview Spherical K Means</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/semi_supervised.html">Semi-Supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-classifier">Cotraining Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-regressor">Cotraining Regressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dcca-utilities">DCCA Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dimension-selection">Dimension Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/decomposition.html">Decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#multiview-ica">Multiview ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#permutation-ica">Permutation ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-ica">Group ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-pca">Group PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/construct.html">View Construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-gaussian-projection">Random Gaussian Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-subspace-method">Random Subspace Method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/model_selection.html">Model Selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/model_selection.html#cross-validation">Cross Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/compose.html">Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#averagemerger">AverageMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#concatmerger">ConcatMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#simplesplitter">SimpleSplitter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/preprocessing.html">Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/preprocessing.html#viewtransformer">ViewTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/datasets.html">Multiview Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#data-simulator">Data Simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/plotting.html">Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#quick-visualize">Quick Visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#crossviews-plot">Crossviews Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/utils.html#io">IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to mvlearn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#how-to-make-a-good-bug-report">How to make a good bug report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#contributing-code">Contributing Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#pull-request-checklist">Pull Request Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#coding-guidelines">Coding Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#docstring-guidelines">Docstring Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#api-of-mvlearn-objects">API of mvlearn Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#estimators">Estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#additional-functionality">Additional Functionality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id1">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id4">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id9">mvlearn.preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#patch-0-2-1">Patch 0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-2-0">Version 0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-1-0">Version 0.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Useful Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mvlearn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvlearn.utils.utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvlearn.utils.utils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2019 NeuroData (http://neurodata.io)</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">check_X_y</span><span class="p">,</span> <span class="n">check_array</span>
+
+
+<div class="viewcode-block" id="check_Xs"><a class="viewcode-back" href="../../../references/utils.html#mvlearn.utils.check_Xs">[docs]</a><span class="k">def</span> <span class="nf">check_Xs</span><span class="p">(</span>
+    <span class="n">Xs</span><span class="p">,</span>
+    <span class="n">multiview</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">enforce_views</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">return_dimensions</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks Xs and ensures it to be a list of 2D matrices.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Xs : nd-array, list</span>
+<span class="sd">        Input data.</span>
+
+<span class="sd">    multiview : boolean, (default=False)</span>
+<span class="sd">        If True, throws error if just 1 data matrix given.</span>
+
+<span class="sd">    enforce_views : int, (default=not checked)</span>
+<span class="sd">        If provided, ensures this number of views in Xs. Otherwise not</span>
+<span class="sd">        checked.</span>
+
+<span class="sd">    copy : boolean, (default=False)</span>
+<span class="sd">        If True, the returned Xs is a copy of the input Xs,</span>
+<span class="sd">        and operations on the output will not affect</span>
+<span class="sd">        the input.</span>
+<span class="sd">        If False, the returned Xs is a view of the input Xs,</span>
+<span class="sd">        and operations on the output will change the input.</span>
+
+<span class="sd">    return_dimensions : boolean, (default=False)</span>
+<span class="sd">        If True, the function also returns the dimensions of the multiview</span>
+<span class="sd">        dataset. The dimensions are n_views, n_samples, n_features where</span>
+<span class="sd">        n_samples and n_views are respectively the number of views and the</span>
+<span class="sd">        number of samples, and n_features is a list of length n_views</span>
+<span class="sd">        containing the number of features of each view.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Xs_converted : object</span>
+<span class="sd">        The converted and validated Xs (list of data arrays).</span>
+
+<span class="sd">    n_views : int</span>
+<span class="sd">        The number of views in the dataset. Returned only if</span>
+<span class="sd">        ``return_dimensions`` is ``True``.</span>
+
+<span class="sd">    n_samples : int</span>
+<span class="sd">        The number of samples in the dataset. Returned only if</span>
+<span class="sd">        ``return_dimensions`` is ``True``.</span>
+
+<span class="sd">    n_features : list</span>
+<span class="sd">        List of length ``n_views`` containing the number of features in</span>
+<span class="sd">        each view. Returned only if ``return_dimensions`` is ``True``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;If not list, input must be of type np.ndarray,</span><span class="se">\</span>
+<span class="s2">                not </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">Xs</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">Xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">Xs</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Xs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+
+    <span class="n">n_views</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n_views</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Length of input list must be greater than 0&quot;</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">multiview</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n_views</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Must provide at least two data matrices&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">enforce_views</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">n_views</span> <span class="o">!=</span> <span class="n">enforce_views</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Wrong number of views. Expected </span><span class="si">{}</span><span class="s2"> but found </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">enforce_views</span><span class="p">,</span> <span class="n">n_views</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="n">Xs_converted</span> <span class="o">=</span> <span class="p">[</span><span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs_converted</span><span class="p">]))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;All views must have the same number of samples&quot;</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">return_dimensions</span><span class="p">:</span>
+        <span class="n">n_samples</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">n_features</span> <span class="o">=</span> <span class="p">[</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">Xs_converted</span><span class="p">,</span> <span class="n">n_views</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Xs_converted</span></div>
+
+
+<div class="viewcode-block" id="check_Xs_y"><a class="viewcode-back" href="../../../references/utils.html#mvlearn.utils.check_Xs_y">[docs]</a><span class="k">def</span> <span class="nf">check_Xs_y</span><span class="p">(</span>
+    <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">multiview</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">enforce_views</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_dimensions</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks Xs and y for consistent length. Xs is set to be of dimension 3.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Xs : nd-array, list</span>
+<span class="sd">        Input data.</span>
+
+<span class="sd">    y : nd-array, list</span>
+<span class="sd">        Labels.</span>
+
+<span class="sd">    multiview : boolean, (default=False)</span>
+<span class="sd">        If True, throws error if just 1 data matrix given.</span>
+
+<span class="sd">    enforce_views : int, (default=not checked)</span>
+<span class="sd">        If provided, ensures this number of views in Xs. Otherwise not</span>
+<span class="sd">        checked.</span>
+
+<span class="sd">    return_dimensions : boolean, (default=False)</span>
+<span class="sd">        If True, the function also returns the dimensions of the multiview</span>
+<span class="sd">        dataset. The dimensions are n_views, n_samples, n_features where</span>
+<span class="sd">        n_samples and n_views are respectively the number of views and the</span>
+<span class="sd">        number of samples, and n_features is a list of length n_views</span>
+<span class="sd">        containing the number of features of each view.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Xs_converted : object</span>
+<span class="sd">        The converted and validated Xs (list of data arrays).</span>
+
+<span class="sd">    y_converted : object</span>
+<span class="sd">        The converted and validated y.</span>
+
+<span class="sd">    n_views : int</span>
+<span class="sd">        The number of views in the dataset. Returned only if</span>
+<span class="sd">        ``return_dimensions`` is ``True``.</span>
+
+<span class="sd">    n_samples : int</span>
+<span class="sd">        The number of samples in the dataset. Returned only if</span>
+<span class="sd">        ``return_dimensions`` is ``True``.</span>
+
+<span class="sd">    n_features : list</span>
+<span class="sd">        List of length ``n_views`` containing the number of features in</span>
+<span class="sd">        each view. Returned only if ``return_dimensions`` is ``True``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">return_dimensions</span><span class="p">:</span>
+        <span class="n">Xs_converted</span><span class="p">,</span> <span class="n">n_views</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span>
+            <span class="n">Xs</span><span class="p">,</span>
+            <span class="n">multiview</span><span class="o">=</span><span class="n">multiview</span><span class="p">,</span>
+            <span class="n">enforce_views</span><span class="o">=</span><span class="n">enforce_views</span><span class="p">,</span>
+            <span class="n">return_dimensions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Xs_converted</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span>
+            <span class="n">Xs</span><span class="p">,</span> <span class="n">multiview</span><span class="o">=</span><span class="n">multiview</span><span class="p">,</span> <span class="n">enforce_views</span><span class="o">=</span><span class="n">enforce_views</span>
+        <span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">y_converted</span> <span class="o">=</span> <span class="n">check_X_y</span><span class="p">(</span><span class="n">Xs_converted</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">return_dimensions</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Xs_converted</span><span class="p">,</span> <span class="n">y_converted</span><span class="p">,</span> <span class="n">n_views</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Xs_converted</span><span class="p">,</span> <span class="n">y_converted</span></div>
+
+
+<div class="viewcode-block" id="check_Xs_y_nan_allowed"><a class="viewcode-back" href="../../../references/utils.html#mvlearn.utils.check_Xs_y_nan_allowed">[docs]</a><span class="k">def</span> <span class="nf">check_Xs_y_nan_allowed</span><span class="p">(</span>
+    <span class="n">Xs</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">,</span>
+    <span class="n">multiview</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">enforce_views</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">num_classes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">max_classes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">min_classes</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks Xs and y for consistent length. Xs is set to be of dimension 3.</span>
+<span class="sd">    The labels (y) are allowed to be np.nan.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Xs : nd-array, list</span>
+<span class="sd">        Input data.</span>
+
+<span class="sd">    y : nd-array, list</span>
+<span class="sd">        Labels.</span>
+
+<span class="sd">    multiview : boolean, default=False</span>
+<span class="sd">        If True, throws error if just 1 data matrix given.</span>
+
+<span class="sd">    enforce_views : int, (default=not checked)</span>
+<span class="sd">        If provided, ensures this number of views in Xs. Otherwise not</span>
+<span class="sd">        checked.</span>
+
+<span class="sd">    num_classes : int, default=None</span>
+<span class="sd">        Number of classes that must appear in the labels. If none, then</span>
+<span class="sd">        not checked.</span>
+
+<span class="sd">    max_classes : int, default=None</span>
+<span class="sd">        Maximum number of classes that must appear in labels. If none, then</span>
+<span class="sd">        not checked.</span>
+
+<span class="sd">    min_classes : int, default=None</span>
+<span class="sd">        Minimum number of classes that must appear in labels. If none, then</span>
+<span class="sd">        not checked.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Xs_converted : object</span>
+<span class="sd">        The converted and validated Xs (list of data arrays).</span>
+
+<span class="sd">    y_converted : object</span>
+<span class="sd">        The converted and validated y.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">Xs_converted</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span>
+        <span class="n">Xs</span><span class="p">,</span> <span class="n">multiview</span><span class="o">=</span><span class="n">multiview</span><span class="p">,</span> <span class="n">enforce_views</span><span class="o">=</span><span class="n">enforce_views</span>
+    <span class="p">)</span>
+
+    <span class="n">y_converted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_converted</span><span class="p">)</span> <span class="o">!=</span> <span class="n">Xs_converted</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;Incompatible label length </span><span class="si">{}</span><span class="s2"> for &quot;</span>
+            <span class="s2">&quot; data with </span><span class="si">{}</span><span class="s2"> samples&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="nb">len</span><span class="p">(</span><span class="n">y_converted</span><span class="p">),</span> <span class="n">Xs_converted</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">num_classes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># if not exactly correct number of class labels, raise error</span>
+        <span class="n">classes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">y</span><span class="p">)]))</span>
+        <span class="n">n_classes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">classes</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n_classes</span> <span class="o">!=</span> <span class="n">num_classes</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Wrong number of class labels. Expected </span><span class="si">{}</span><span class="s2">,</span><span class="se">\</span>
+<span class="s2">             found </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">num_classes</span><span class="p">,</span> <span class="n">n_classes</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+    <span class="k">if</span> <span class="n">max_classes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># if not exactly correct number of class labels, raise error</span>
+        <span class="n">classes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">y</span><span class="p">)]))</span>
+        <span class="n">n_classes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">classes</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n_classes</span> <span class="o">&gt;</span> <span class="n">max_classes</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Wrong number of class labels. Expected no</span><span class="se">\</span>
+<span class="s2">             more than </span><span class="si">{}</span><span class="s2">, found </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">num_classes</span><span class="p">,</span> <span class="n">n_classes</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Xs_converted</span><span class="p">,</span> <span class="n">y_converted</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019-2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<p style="text-align: center; margin: .5rem;">
+    <a href="https://www.netlify.com">
+        <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
+    </a>
+</p>
+ 
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

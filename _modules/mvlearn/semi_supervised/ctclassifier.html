@@ -1,0 +1,845 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mvlearn.semi_supervised.ctclassifier &mdash; mvlearn alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../install.html#including-optional-torch-dependencies-for-full-functionality">Including optional torch dependencies for full functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#python-package-dependencies">Python package dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#hardware-requirements">Hardware requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#os-requirements">OS Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Examples Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-cluster">Examples on cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-datasets">Examples on datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-decomposition">Examples on decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/pipeline/plot_pipeline_sklearn_integration.html">Integrating mvlearn with scikit-learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-plotting">Examples on plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../references/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/cluster.html">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spectral-clustering">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#co-regularized-multiview-spectral-clustering">Co-Regularized Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-k-means">Multiview K Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spherical-k-means">Multiview Spherical K Means</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/semi_supervised.html">Semi-Supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-classifier">Cotraining Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-regressor">Cotraining Regressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dcca-utilities">DCCA Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dimension-selection">Dimension Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/decomposition.html">Decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#multiview-ica">Multiview ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#permutation-ica">Permutation ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-ica">Group ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-pca">Group PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/construct.html">View Construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-gaussian-projection">Random Gaussian Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-subspace-method">Random Subspace Method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/model_selection.html">Model Selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/model_selection.html#cross-validation">Cross Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/compose.html">Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#averagemerger">AverageMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#concatmerger">ConcatMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#simplesplitter">SimpleSplitter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/preprocessing.html">Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/preprocessing.html#viewtransformer">ViewTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/datasets.html">Multiview Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#data-simulator">Data Simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/plotting.html">Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#quick-visualize">Quick Visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#crossviews-plot">Crossviews Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/utils.html#io">IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to mvlearn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#how-to-make-a-good-bug-report">How to make a good bug report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#contributing-code">Contributing Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#pull-request-checklist">Pull Request Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#coding-guidelines">Coding Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#docstring-guidelines">Docstring Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#api-of-mvlearn-objects">API of mvlearn Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#estimators">Estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#additional-functionality">Additional Functionality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id1">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id4">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id9">mvlearn.preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#patch-0-2-1">Patch 0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-2-0">Version 0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-1-0">Version 0.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Useful Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mvlearn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvlearn.semi_supervised.ctclassifier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvlearn.semi_supervised.ctclassifier</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2019 NeuroData (http://neurodata.io)</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+<span class="c1"># Implements multi-view co-training classification for 2-view data.</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseCoTrainEstimator</span>
+<span class="kn">from</span> <span class="nn">..utils.utils</span> <span class="kn">import</span> <span class="n">check_Xs</span><span class="p">,</span> <span class="n">check_Xs_y_nan_allowed</span>
+
+
+<div class="viewcode-block" id="CTClassifier"><a class="viewcode-back" href="../../../references/semi_supervised.html#mvlearn.semi_supervised.CTClassifier">[docs]</a><span class="k">class</span> <span class="nc">CTClassifier</span><span class="p">(</span><span class="n">BaseCoTrainEstimator</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class implements the co-training classifier for supervised and</span>
+<span class="sd">    semi-supervised learning with the framework as described in [#1CTC]_.</span>
+<span class="sd">    The best use case is when the 2 views of input data are sufficiently</span>
+<span class="sd">    distinct and independent as detailed in [#1CTC]_. However, this can</span>
+<span class="sd">    also be successful when a single matrix of input data is given as</span>
+<span class="sd">    both views and two estimators are chosen which are quite different.</span>
+<span class="sd">    [#2CTC]_. See the examples below.</span>
+
+<span class="sd">    In the semi-supervised case, performance can vary greatly, so using</span>
+<span class="sd">    a separate validation set or cross validation procedure is</span>
+<span class="sd">    recommended to ensure the classifier has fit well.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    estimator1 : classifier object, (default=sklearn GaussianNB)</span>
+<span class="sd">        The classifier object which will be trained on view 1 of the data.</span>
+<span class="sd">        This classifier should support the predict_proba() function so that</span>
+<span class="sd">        classification probabilities can be computed and co-training can be</span>
+<span class="sd">        performed effectively.</span>
+
+<span class="sd">    estimator2 : classifier object, (default=sklearn GaussianNB)</span>
+<span class="sd">        The classifier object which will be trained on view 2 of the data.</span>
+<span class="sd">        Does not need to be of the same type as ``estimator1``, but should</span>
+<span class="sd">        support predict_proba().</span>
+
+<span class="sd">    p : int, optional (default=None)</span>
+<span class="sd">        The number of positive classifications from the unlabeled_pool</span>
+<span class="sd">        training set which will be given a positive &quot;label&quot;. If None, the</span>
+<span class="sd">        default is the floor of the ratio of positive to negative examples</span>
+<span class="sd">        in the labeled training data (at least 1). If only one of ``p`` or</span>
+<span class="sd">        ``n`` is not None, the other will be set to be the same. When the</span>
+<span class="sd">        labels are 0 or 1, positive is defined as 1, and in general, positive</span>
+<span class="sd">        is the larger label.</span>
+
+<span class="sd">    n : int, optional (default=None)</span>
+<span class="sd">        The number of negative classifications from the unlabeled_pool</span>
+<span class="sd">        training set which will be given a negative &quot;label&quot;. If None, the</span>
+<span class="sd">        default is the floor of the ratio of positive to negative examples</span>
+<span class="sd">        in the labeled training data (at least 1). If only one of ``p`` or</span>
+<span class="sd">        ``n`` is not None, the other will be set to be the same. When the</span>
+<span class="sd">        labels are 0 or 1, negative is defined as 0, and in general, negative</span>
+<span class="sd">        is the smaller label.</span>
+
+<span class="sd">    unlabeled_pool_size : int, optional (default=75)</span>
+<span class="sd">        The number of unlabeled_pool samples which will be kept in a</span>
+<span class="sd">        separate pool for classification and selection by the updated</span>
+<span class="sd">        classifier at each training iteration.</span>
+
+<span class="sd">    num_iter : int, optional (default=50)</span>
+<span class="sd">        The maximum number of training iterations to run.</span>
+
+<span class="sd">    random_state : int (default=None)</span>
+<span class="sd">        The starting random seed for fit() and class operations, passed to</span>
+<span class="sd">        numpy.random.seed().</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    estimator1_ : classifier object</span>
+<span class="sd">        The classifier used on view 1.</span>
+
+<span class="sd">    estimator2_ : classifier object</span>
+<span class="sd">        The classifier used on view 2.</span>
+
+<span class="sd">    class_name_: string</span>
+<span class="sd">        The name of the class.</span>
+
+<span class="sd">    p_ : int, optional (default=None)</span>
+<span class="sd">        The number of positive classifications from the unlabeled_pool</span>
+<span class="sd">        training set which will be given a positive &quot;label&quot; each round.</span>
+
+<span class="sd">    n_ : int, optional (default=None)</span>
+<span class="sd">        The number of negative classifications from the unlabeled_pool</span>
+<span class="sd">        training set which will be given a negative &quot;label&quot; each round.</span>
+
+<span class="sd">    classes_ : array-like of shape (n_classes,)</span>
+<span class="sd">        Unique class labels.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; # Supervised learning of single-view data with 2 distinct estimators</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.semi_supervised import CTClassifier</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.datasets import load_UCImultifeature</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from sklearn.ensemble import RandomForestClassifier</span>
+<span class="sd">    &gt;&gt;&gt; from sklearn.naive_bayes import GaussianNB</span>
+<span class="sd">    &gt;&gt;&gt; from sklearn.model_selection import train_test_split</span>
+<span class="sd">    &gt;&gt;&gt; data, labels = load_UCImultifeature(select_labeled=[0,1])</span>
+<span class="sd">    &gt;&gt;&gt; X1 = data[0]  # Only using the first view</span>
+<span class="sd">    &gt;&gt;&gt; X1_train, X1_test, l_train, l_test = train_test_split(X1, labels)</span>
+
+<span class="sd">    &gt;&gt;&gt; # Supervised learning with a single view of data and 2 estimator types</span>
+<span class="sd">    &gt;&gt;&gt; estimator1 = GaussianNB()</span>
+<span class="sd">    &gt;&gt;&gt; estimator2 = RandomForestClassifier()</span>
+<span class="sd">    &gt;&gt;&gt; ctc = CTClassifier(estimator1, estimator2, random_state=1)</span>
+<span class="sd">    &gt;&gt;&gt; # Use the same matrix for each view</span>
+<span class="sd">    &gt;&gt;&gt; ctc = ctc.fit([X1_train, X1_train], l_train)</span>
+<span class="sd">    &gt;&gt;&gt; preds = ctc.predict([X1_test, X1_test])</span>
+<span class="sd">    &gt;&gt;&gt; print(&quot;Accuracy: &quot;, sum(preds==l_test) / len(preds))</span>
+<span class="sd">    Accuracy:  0.97</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Multi-view co-training is most helpful for tasks in semi-supervised</span>
+<span class="sd">    learning where each view offers unique information not seen in the</span>
+<span class="sd">    other. As is shown in the example notebooks for using this algorithm,</span>
+<span class="sd">    multi-view co-training can provide good classification results even</span>
+<span class="sd">    when number of unlabeled samples far exceeds the number of labeled</span>
+<span class="sd">    samples. This classifier uses 2 classifiers which work individually</span>
+<span class="sd">    on each view but which share information and thus result in improved</span>
+<span class="sd">    performance over looking at the views completely separately or even</span>
+<span class="sd">    when concatenating the views to get more features in a single-view</span>
+<span class="sd">    setting. The classifier can be initialized with or without the</span>
+<span class="sd">    classifiers desired for each view being specified, but if the</span>
+<span class="sd">    classifier for a certain view is specified, then it must support a</span>
+<span class="sd">    predict_proba() method in order to give a sense of the most likely labels</span>
+<span class="sd">    for different examples. This is because the algorithm must be able to</span>
+<span class="sd">    determine which of the training samples it is most confident about during</span>
+<span class="sd">    training epochs. The algorithm, as first proposed by Blum and Mitchell,</span>
+<span class="sd">    is described in detail below.</span>
+
+<span class="sd">    *Algorithm*</span>
+
+<span class="sd">    Given:</span>
+
+<span class="sd">        * a set *L* of labeled training samples (with 2 views)</span>
+<span class="sd">        * a set *U* of unlabeled samples (with 2 views)</span>
+
+<span class="sd">    Create a pool *U&#39;* of examples by choosing *u* examples at random</span>
+<span class="sd">    from *U*</span>
+
+<span class="sd">    Loop for *k* iterations</span>
+
+<span class="sd">        * Use *L* to train a classifier *h1* (``estimator1``) that considers</span>
+<span class="sd">          only the view 1 portion of the data (i.e. Xs[0])</span>
+<span class="sd">        * Use *L* to train a classifier *h2* (``estimator2``) that considers</span>
+<span class="sd">          only the view 2 portion of the data (i.e. Xs[1])</span>
+<span class="sd">        * Allow *h1* to label *p* (``self.p_``) positive and *n* (``self.n_``)</span>
+<span class="sd">          negative samples from view 1 of *U&#39;*</span>
+<span class="sd">        * Allow *h2* to label *p* positive and *n* negative samples</span>
+<span class="sd">          from view 2 of *U&#39;*</span>
+<span class="sd">        * Add these self-labeled samples to *L*</span>
+<span class="sd">        * Randomly take 2*p* + 2*n* samples from *U* to replenish *U&#39;*</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [#1CTC] Blum, A., &amp; Mitchell, T. (1998, July). Combining labeled and</span>
+<span class="sd">            unlabeled_pool data with co-training. In Proceedings of the</span>
+<span class="sd">            eleventh annual conference on Computational learning theory</span>
+<span class="sd">            (pp. 92-100). ACM.</span>
+<span class="sd">    .. [#2CTC] Goldman, Sally, and Yan Zhou. &quot;Enhancing supervised</span>
+<span class="sd">            learning with unlabeled data.&quot; ICML. 2000.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">estimator1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">estimator2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">p</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">unlabeled_pool_size</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+                 <span class="n">num_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                 <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span>
+                 <span class="p">):</span>
+
+        <span class="c1"># initialize a BaseCTEstimator object</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">estimator1</span><span class="p">,</span> <span class="n">estimator2</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span>
+
+        <span class="c1"># if not given, set classifiers as gaussian naive bayes estimators</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator1_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">estimator1_</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator2_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">estimator2_</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+
+        <span class="c1"># If only 1 of p or n is not None, set them equal</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">n</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">p</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">p_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_</span> <span class="o">=</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">p</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">n</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">n</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">p_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_</span> <span class="o">=</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">p_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_</span> <span class="o">=</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_views</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># only 2 view learning supported currently</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">class_name_</span> <span class="o">=</span> <span class="s2">&quot;CTClassifier&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unlabeled_pool_size</span> <span class="o">=</span> <span class="n">unlabeled_pool_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_iter</span> <span class="o">=</span> <span class="n">num_iter</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_params</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_check_params</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks that cotraining parameters are valid. Throws AttributeError</span>
+<span class="sd">        if estimators are invalid. Throws ValueError if any other parameters</span>
+<span class="sd">        are not valid. The checks performed are:</span>
+<span class="sd">            - estimator1 and estimator2 have predict_proba methods</span>
+<span class="sd">            - p and n are both positive</span>
+<span class="sd">            - unlabeled_pool_size is positive</span>
+<span class="sd">            - num_iter is positive</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># verify that estimator1 and estimator2 have predict_proba</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator1_</span><span class="p">,</span> <span class="s1">&#39;predict_proba&#39;</span><span class="p">)</span> <span class="ow">or</span>
+                <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator2_</span><span class="p">,</span> <span class="s1">&#39;predict_proba&#39;</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Co-training classifier must be initialized &quot;</span>
+                                 <span class="s2">&quot;with classifiers supporting &quot;</span>
+                                 <span class="s2">&quot;predict_proba().&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p_</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">n_</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Both p and n must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">unlabeled_pool_size</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;unlabeled_pool_size must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_iter</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;num_iter must be positive.&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CTClassifier.fit"><a class="viewcode-back" href="../../../references/semi_supervised.html#mvlearn.semi_supervised.CTClassifier.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fit the classifier object to the data in Xs, y.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            A list of the different views of data to train on.</span>
+
+<span class="sd">        y : array, shape (n_samples,)</span>
+<span class="sd">            The labels of the training data. Unlabeled examples should</span>
+<span class="sd">            have label np.nan.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : returns an instance of self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># verify Xs and y</span>
+        <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">check_Xs_y_nan_allowed</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span>
+                                       <span class="n">y</span><span class="p">,</span>
+                                       <span class="n">multiview</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                       <span class="n">enforce_views</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_views</span><span class="p">,</span>
+                                       <span class="n">max_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_classes</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">y</span><span class="p">)]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_classes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+
+        <span class="c1"># extract the multiple views given</span>
+        <span class="n">X1</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">X2</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># if don&#39;t have 2 classes of labeled data, then just fit and return,</span>
+        <span class="c1"># since can&#39;t do any iterations of cotraining</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_classes</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+
+            <span class="c1"># if both p &amp; n are none, set as ratio of one class to the other</span>
+            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p_</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="n">num_class_n</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">y_n</span> <span class="ow">in</span> <span class="n">y</span> <span class="k">if</span> <span class="n">y_n</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">num_class_p</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">y_p</span> <span class="ow">in</span> <span class="n">y</span> <span class="k">if</span> <span class="n">y_p</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">p_over_n_ratio</span> <span class="o">=</span> <span class="n">num_class_p</span> <span class="o">//</span> <span class="n">num_class_n</span>
+                <span class="k">if</span> <span class="n">p_over_n_ratio</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">p_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_</span> <span class="o">=</span> <span class="n">p_over_n_ratio</span><span class="p">,</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">n_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_</span> <span class="o">=</span> <span class="n">num_class_n</span> <span class="o">//</span> <span class="n">num_class_p</span><span class="p">,</span> <span class="mi">1</span>
+
+            <span class="c1"># the full set of unlabeled samples</span>
+            <span class="n">U</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">y_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">y_i</span><span class="p">)]</span>
+
+            <span class="c1"># shuffle unlabeled_pool data for easy random access</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
+
+            <span class="c1"># the small pool of unlabled samples to draw from in training</span>
+            <span class="n">unlabeled_pool</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="o">-</span><span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">U</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">unlabeled_pool_size</span><span class="p">):]</span>
+
+            <span class="c1"># the labeled samples</span>
+            <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">y_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">y_i</span><span class="p">)]</span>
+
+            <span class="c1"># remove the pool from overall unlabeled data</span>
+            <span class="n">U</span> <span class="o">=</span> <span class="n">U</span><span class="p">[:</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">unlabeled_pool</span><span class="p">)]</span>
+
+            <span class="c1"># number of rounds of co-training</span>
+            <span class="n">it</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="c1"># machine epsilon</span>
+            <span class="n">eps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span>
+
+            <span class="k">while</span> <span class="n">it</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_iter</span> <span class="ow">and</span> <span class="n">U</span><span class="p">:</span>
+                <span class="n">it</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                <span class="c1"># fit each model to its respective view</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">estimator1_</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">L</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">L</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">estimator2_</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X2</span><span class="p">[</span><span class="n">L</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">L</span><span class="p">])</span>
+
+                <span class="c1"># predict log probability for greater spread in confidence</span>
+
+                <span class="n">y1_prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator1_</span><span class="o">.</span>
+                                 <span class="n">predict_proba</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">unlabeled_pool</span><span class="p">])</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span>
+                <span class="n">y2_prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator2_</span><span class="o">.</span>
+                                 <span class="n">predict_proba</span><span class="p">(</span><span class="n">X2</span><span class="p">[</span><span class="n">unlabeled_pool</span><span class="p">])</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span>
+
+                <span class="n">n</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+
+                <span class="c1"># take the most confident labeled examples from the</span>
+                <span class="c1"># unlabeled pool in each category and put them in L</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="n">y1_prob</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">argsort</span><span class="p">())[</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">n_</span><span class="p">:]:</span>
+                    <span class="k">if</span> <span class="n">y1_prob</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.5</span><span class="p">):</span>
+                        <span class="n">n</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="n">y1_prob</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">argsort</span><span class="p">())[</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">p_</span><span class="p">:]:</span>
+                    <span class="k">if</span> <span class="n">y1_prob</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.5</span><span class="p">):</span>
+                        <span class="n">p</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="n">y2_prob</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">argsort</span><span class="p">())[</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">n_</span><span class="p">:]:</span>
+                    <span class="k">if</span> <span class="n">y2_prob</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.5</span><span class="p">):</span>
+                        <span class="n">n</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="n">y2_prob</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">argsort</span><span class="p">())[</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">p_</span><span class="p">:]:</span>
+                    <span class="k">if</span> <span class="n">y2_prob</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.5</span><span class="p">):</span>
+                        <span class="n">p</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+                <span class="c1"># create new labels for new additions to the labeled group</span>
+                <span class="n">y</span><span class="p">[[</span><span class="n">unlabeled_pool</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">n</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">y</span><span class="p">[[</span><span class="n">unlabeled_pool</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">L</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">unlabeled_pool</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="p">])</span>
+                <span class="n">L</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">unlabeled_pool</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">n</span><span class="p">])</span>
+
+                <span class="c1"># remove newly labeled samples from unlabeled_pool</span>
+                <span class="n">unlabeled_pool</span> <span class="o">=</span> <span class="p">[</span><span class="n">elem</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">unlabeled_pool</span>
+                                  <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">elem</span> <span class="ow">in</span> <span class="n">p</span> <span class="ow">or</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">n</span><span class="p">)]</span>
+
+                <span class="c1"># add new elements to unlabeled_pool</span>
+                <span class="n">add_counter</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">num_to_add</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+                <span class="k">while</span> <span class="n">add_counter</span> <span class="o">!=</span> <span class="n">num_to_add</span> <span class="ow">and</span> <span class="n">U</span><span class="p">:</span>
+                    <span class="n">add_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">unlabeled_pool</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+
+        <span class="c1"># if only had 1 class in the labeled examples</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># the labeled sample indices</span>
+            <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">y_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">y_i</span><span class="p">)]</span>
+
+        <span class="c1"># fit the overall model on fully &quot;labeled&quot; data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">estimator1_</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">L</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">L</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">estimator2_</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X2</span><span class="p">[</span><span class="n">L</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">L</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="CTClassifier.predict"><a class="viewcode-back" href="../../../references/semi_supervised.html#mvlearn.semi_supervised.CTClassifier.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Predict the classes of the examples in the two input views.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            A list of the different views of data to predict.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y_pred : array-like (n_samples,)</span>
+<span class="sd">            The predicted class of each input example. If the two classifiers</span>
+<span class="sd">            don&#39;t agree, pick the one with the highest predicted probability</span>
+<span class="sd">            from predict_proba().</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span>
+                      <span class="n">multiview</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                      <span class="n">enforce_views</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_views</span><span class="p">)</span>
+
+        <span class="n">X1</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">X2</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># predict each view independently</span>
+        <span class="n">y1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator1_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
+        <span class="n">y2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator2_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span>
+
+        <span class="c1"># initialize</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],)</span>
+
+        <span class="c1"># predict samples based on trained classifiers</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">y1_i</span><span class="p">,</span> <span class="n">y2_i</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">)):</span>
+            <span class="c1"># if classifiers agree, use their prediction</span>
+            <span class="k">if</span> <span class="n">y1_i</span> <span class="o">==</span> <span class="n">y2_i</span><span class="p">:</span>
+                <span class="n">y_pred</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y1_i</span>
+            <span class="c1"># if classifiers don&#39;t agree, take the more confident</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">y1_probs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator1_</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">([</span><span class="n">X1</span><span class="p">[</span><span class="n">i</span><span class="p">]])[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">y2_probs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator2_</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">([</span><span class="n">X2</span><span class="p">[</span><span class="n">i</span><span class="p">]])[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">sum_y_probs</span> <span class="o">=</span> <span class="p">[</span><span class="n">prob1</span> <span class="o">+</span> <span class="n">prob2</span> <span class="k">for</span> <span class="p">(</span><span class="n">prob1</span><span class="p">,</span> <span class="n">prob2</span><span class="p">)</span> <span class="ow">in</span>
+                               <span class="nb">zip</span><span class="p">(</span><span class="n">y1_probs</span><span class="p">,</span> <span class="n">y2_probs</span><span class="p">)]</span>
+                <span class="n">max_sum_prob</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">sum_y_probs</span><span class="p">)</span>
+                <span class="n">y_pred</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="p">[</span><span class="n">sum_y_probs</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">max_sum_prob</span><span class="p">)]</span>
+
+        <span class="k">return</span> <span class="n">y_pred</span></div>
+
+<div class="viewcode-block" id="CTClassifier.predict_proba"><a class="viewcode-back" href="../../../references/semi_supervised.html#mvlearn.semi_supervised.CTClassifier.predict_proba">[docs]</a>    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Predict the probability of each example belonging to a each class.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            A list of the different views of data to predict.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y_proba : array-like (n_samples, n_classes)</span>
+<span class="sd">            The probability of each sample being in each class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span>
+                      <span class="n">multiview</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                      <span class="n">enforce_views</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_views</span><span class="p">)</span>
+
+        <span class="n">X1</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">X2</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># predict each probability independently</span>
+        <span class="n">y1_proba</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator1_</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
+        <span class="n">y2_proba</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator2_</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span>
+        <span class="c1"># return the average probability for the sample</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">y1_proba</span> <span class="o">+</span> <span class="n">y2_proba</span><span class="p">)</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019-2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<p style="text-align: center; margin: .5rem;">
+    <a href="https://www.netlify.com">
+        <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
+    </a>
+</p>
+ 
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

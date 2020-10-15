@@ -1,0 +1,1192 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mvlearn.decomposition.ajive &mdash; mvlearn alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../install.html#including-optional-torch-dependencies-for-full-functionality">Including optional torch dependencies for full functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#python-package-dependencies">Python package dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#hardware-requirements">Hardware requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#os-requirements">OS Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Examples Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-cluster">Examples on cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-datasets">Examples on datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-decomposition">Examples on decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/pipeline/plot_pipeline_sklearn_integration.html">Integrating mvlearn with scikit-learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-plotting">Examples on plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../references/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/cluster.html">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spectral-clustering">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#co-regularized-multiview-spectral-clustering">Co-Regularized Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-k-means">Multiview K Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spherical-k-means">Multiview Spherical K Means</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/semi_supervised.html">Semi-Supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-classifier">Cotraining Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-regressor">Cotraining Regressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dcca-utilities">DCCA Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dimension-selection">Dimension Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/decomposition.html">Decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#multiview-ica">Multiview ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#permutation-ica">Permutation ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-ica">Group ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-pca">Group PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/construct.html">View Construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-gaussian-projection">Random Gaussian Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-subspace-method">Random Subspace Method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/model_selection.html">Model Selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/model_selection.html#cross-validation">Cross Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/compose.html">Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#averagemerger">AverageMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#concatmerger">ConcatMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#simplesplitter">SimpleSplitter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/preprocessing.html">Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/preprocessing.html#viewtransformer">ViewTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/datasets.html">Multiview Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#data-simulator">Data Simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/plotting.html">Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#quick-visualize">Quick Visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#crossviews-plot">Crossviews Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/utils.html#io">IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to mvlearn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#how-to-make-a-good-bug-report">How to make a good bug report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#contributing-code">Contributing Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#pull-request-checklist">Pull Request Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#coding-guidelines">Coding Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#docstring-guidelines">Docstring Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#api-of-mvlearn-objects">API of mvlearn Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#estimators">Estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#additional-functionality">Additional Functionality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id1">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id4">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id9">mvlearn.preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#patch-0-2-1">Patch 0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-2-0">Version 0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-1-0">Version 0.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Useful Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mvlearn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvlearn.decomposition.ajive</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvlearn.decomposition.ajive</h1><div class="highlight"><pre>
+<span></span><span class="c1"># MIT License</span>
+
+<span class="c1"># Copyright (c) [2017] [Iain Carmichael]</span>
+
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<span class="c1"># in the Software without restriction, including without limitation the rights</span>
+<span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
+<span class="c1"># furnished to do so, subject to the following conditions:</span>
+
+<span class="c1"># The above copyright notice and this permission notice shall be included in</span>
+<span class="c1"># all copies or substantial portions of the Software.</span>
+
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
+<span class="c1"># SOFTWARE.</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">svds</span>
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">svd</span>
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseDecomposer</span>
+<span class="kn">from</span> <span class="nn">..utils.utils</span> <span class="kn">import</span> <span class="n">check_Xs</span>
+<span class="kn">from</span> <span class="nn">..embed.utils</span> <span class="kn">import</span> <span class="n">select_dimension</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+
+
+<div class="viewcode-block" id="AJIVE"><a class="viewcode-back" href="../../../references/decomposition.html#mvlearn.decomposition.AJIVE">[docs]</a><span class="k">class</span> <span class="nc">AJIVE</span><span class="p">(</span><span class="n">BaseDecomposer</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An implementation of Angle-based Joint and Individual Variation Explained</span>
+<span class="sd">    [#1ajive]_. This algorithm takes multiple views and decomposes them into 3</span>
+<span class="sd">    distinct matrices representing:</span>
+<span class="sd">        - Low rank approximation of joint variation between views</span>
+<span class="sd">        - Low rank approximation of individual variation within each view</span>
+<span class="sd">        - Residual noise</span>
+<span class="sd">    AJIVE can handle any number of views, not just two.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    init_signal_ranks : list, default = None</span>
+<span class="sd">        Initial guesses as to the rank of each view&#39;s signal.</span>
+
+<span class="sd">    joint_rank : int, default = None</span>
+<span class="sd">        Rank of the joint variation matrix. If None, will estimate the</span>
+<span class="sd">        joint rank.</span>
+
+<span class="sd">    individual_ranks : list, default = None</span>
+<span class="sd">        Ranks of individual variation matrices. If None, will estimate the</span>
+<span class="sd">        individual ranks. Otherwise, will use provided individual ranks.</span>
+
+<span class="sd">    n_elbows : int, optional, default = 2</span>
+<span class="sd">        If `init_signal_ranks=None`, then computes the initial signal rank</span>
+<span class="sd">        guess using :func:`mvlearn.embed.utils.select_dimension` with</span>
+<span class="sd">        n_elbows for each view.</span>
+
+<span class="sd">    reconsider_joint_components : boolean, default = True</span>
+<span class="sd">        Triggers `_reconsider_joint_components` function to run and removes</span>
+<span class="sd">        columns of joint scores according to identifiability constraint.</span>
+
+<span class="sd">    wedin_percentile : int, default = 5</span>
+<span class="sd">        Percentile used for wedin (lower) bound cutoff for squared</span>
+<span class="sd">        singular values used to estimate joint rank.</span>
+
+<span class="sd">    n_wedin_samples : int, default = 1000</span>
+<span class="sd">        Number of wedin bound samples to draw.</span>
+
+<span class="sd">    randdir_percentile : int, default = 95</span>
+<span class="sd">        Percentile for random direction (lower) bound cutoff for squared</span>
+<span class="sd">        singular values used to estimate joint rank.</span>
+
+<span class="sd">    n_randdir_samples : int, default = 1000</span>
+<span class="sd">        Number of random direction samples to draw.</span>
+
+<span class="sd">    verbose : boolean, default = False</span>
+<span class="sd">        Prints information during runtime if True.</span>
+
+<span class="sd">    n_jobs : int (positive) or None, default=None</span>
+<span class="sd">        The number of jobs to run in parallel. `None` will run 1 job, `-1`</span>
+<span class="sd">        uses all processors.</span>
+
+<span class="sd">    random_state : int, RandomState instance or None, default=None</span>
+<span class="sd">        Used to seed a random initialization for reproducible results.</span>
+<span class="sd">        If None, a random initialization is used.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    means_ : numpy.ndarray</span>
+<span class="sd">        The means of each view.</span>
+
+<span class="sd">    sv_thresholds_ : list of floats</span>
+<span class="sd">        The singular value thresholds for each view based on</span>
+<span class="sd">        initial SVD. Used to estimate the individual ranks.</span>
+
+<span class="sd">    all_joint_svals_ : list of floats</span>
+<span class="sd">        All singular values from the concatenated joint matrix.</span>
+
+<span class="sd">    random_sv_samples_ : list of floats</span>
+<span class="sd">        Random singular value samples from random direction bound.</span>
+
+<span class="sd">    rand_cutoff_ : float</span>
+<span class="sd">        Singular value squared cutoff for the random direction bound.</span>
+
+<span class="sd">    wedin_samples_ : list of numpy.ndarray</span>
+<span class="sd">        The wedin samples for each view.</span>
+
+<span class="sd">    wedin_cutoff_ : float</span>
+<span class="sd">        Singular value squared cutoff for the wedin bound.</span>
+
+<span class="sd">    svalsq_cutoff_ : float</span>
+<span class="sd">        max(rand_cutoff_, wedin_cutoff_)</span>
+
+<span class="sd">    joint_rank_wedin_est_ : int</span>
+<span class="sd">        The joint rank estimated using the wedin/random direction bound</span>
+
+<span class="sd">    init_signal_ranks_ : list of ints</span>
+<span class="sd">        Provided or estimated init_signal_ranks</span>
+
+<span class="sd">    joint_rank_ : int</span>
+<span class="sd">        The rank of the joint matrix</span>
+
+<span class="sd">    joints_scores_ : numpy.ndarray</span>
+<span class="sd">        Left singular vectors of the joint matrix</span>
+
+<span class="sd">    individual_ranks_ : list of ints</span>
+<span class="sd">        Ranks of the individual matrices for each view.</span>
+
+<span class="sd">    individual_scores_ : list of numpy.ndarrays</span>
+<span class="sd">        Left singular vectors of each view after joint matrix is removed</span>
+
+<span class="sd">    individual_svals_ = list of numpy.ndarrays</span>
+<span class="sd">        Singular values of each view after joint matrix is removed</span>
+
+<span class="sd">    individual_loadings_ : list of numpy.ndarrays</span>
+<span class="sd">        Right singular vectors of each view after joint matrix is removed</span>
+
+<span class="sd">    individual_mats_ : list of numpy.ndarrays</span>
+<span class="sd">        Individual matrices for each view, reconstructed from the SVD</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+
+<span class="sd">    Angle-Based Joint and Individual Variation Explained (AJIVE) is a specfic</span>
+<span class="sd">    variation of the Joint and Individual Variation Explained (JIVE) algorithm.</span>
+<span class="sd">    This algorithm takes :math:`k` different views with :math:`n` observations</span>
+<span class="sd">    and :math:`d` variables and finds a basis that represents the joint</span>
+<span class="sd">    variation and :math:`k` bases with their own ranks representing the</span>
+<span class="sd">    individual variation of each view. Each of these individual bases is</span>
+<span class="sd">    orthonormal to the joint basis. These bases are then used to create the</span>
+<span class="sd">    following :math:`k` statements:</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            X^{(i)}= J^{(i)} + I^{(i)} + E^{(i)}</span>
+
+<span class="sd">    where :math:`X^{(i)}` represents the i-th view of data and :math:`J^{(i)}`,</span>
+<span class="sd">    :math:`I^{(i)}`, and :math:`E^{(i)}` represent its joint, individual, and</span>
+<span class="sd">    noise signal estimates respectively.</span>
+
+<span class="sd">    The AJIVE algorithm calculations can be split into three seperate steps:</span>
+<span class="sd">        - Signal Space Initial Extraction</span>
+<span class="sd">        - Score Space Segmentation</span>
+<span class="sd">        - Final Decomposition and Outputs</span>
+
+<span class="sd">    In the **Signal Space Initial Extraction** step we compute a rank</span>
+<span class="sd">    :math:`r_{initial}^{(i)}` singular value decomposition for each</span>
+<span class="sd">    :math:`X^{(i)}`, the value of :math:`r_{initial}^{(i)}` can be found by</span>
+<span class="sd">    looking at the scree plots of each view or thresholding based on singular</span>
+<span class="sd">    value. From each singular value decomposition, the first</span>
+<span class="sd">    :math:`r_{initial}^{(i)}` columns of of the scores matrix</span>
+<span class="sd">    (:math:`U^{(i)}`) are taken to form :math:`\widetilde{U}^{(i)}`.</span>
+
+<span class="sd">    After this, the **Score Space Segmentation** step concatenates the</span>
+<span class="sd">    *k* :math:`\widetilde{U}^{(i)}` matrices found in the first step as</span>
+<span class="sd">    follows:</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            M = [\widetilde{U}^{(1)}, \dots, \widetilde{U}^{(k)}]</span>
+
+<span class="sd">    From here, the :math:`r_{joint}` singular value decomposition is taken.</span>
+<span class="sd">    :math:`r_{joint}` is estimated individually or using the wedin bound which</span>
+<span class="sd">    quantifies how the theoretical singular subspaces are affected by noise as</span>
+<span class="sd">    thereby quantifying the distance between rank of the original input and the</span>
+<span class="sd">    estimation. For the scores of the singular value decomposition of</span>
+<span class="sd">    :math:`M`, the first :math:`r_{joint}` columns are taken to obtain the</span>
+<span class="sd">    basis, :math:`U_{joint}`. The :math:`J^{(i)}` matrix</span>
+<span class="sd">    (joint signal estimate) can be found by projecting :math:`X^{(i)}` onto</span>
+<span class="sd">    :math:`U_{joint}`.</span>
+
+<span class="sd">    In the *Final Decomposition and Outputs* step, we project each</span>
+<span class="sd">    :math:`X^{i}` matrix onto the orthogonal complement of :math:`U_{joint}`:</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            X^{(i), orthog} = (I - U_{joint}U_{joint}^T)X^{(i)}</span>
+
+
+<span class="sd">    :math:`I` in the above equation represents the identity matrix.</span>
+<span class="sd">    From here, the :math:`I^{(i)}` matrix (individual signal estimate) can be</span>
+<span class="sd">    found by performing the rank :math:`r_{individual}^{(i)}` singular value</span>
+<span class="sd">    decomposition of :math:`X^{(i), orthog}`. :math:`r_{individual}^{(i)}` can</span>
+<span class="sd">    be found by using the aforementioned singular value thresholding method.</span>
+
+<span class="sd">    Finally, we can solve for the noise estimates, :math:`E^{(i)}` by using</span>
+<span class="sd">    the equation:</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            E^{(i)}= X^{(i)} - (J^{(i)} + I^{(i)})</span>
+
+<span class="sd">    Much of this implementation has been adapted from **Iain Carmichael**</span>
+<span class="sd">    Ph.D.&#39;s pip-installable package, *jive*, the code for which is</span>
+<span class="sd">    `linked here &lt;https://github.com/idc9/py_jive&gt;`_.</span>
+
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.factorization.ajive import AJIVE</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.datasets import load_UCImultifeature</span>
+<span class="sd">    &gt;&gt;&gt; Xs, _ = load_UCImultifeature()</span>
+<span class="sd">    &gt;&gt;&gt; print(len(Xs)) # number of views</span>
+<span class="sd">    6</span>
+<span class="sd">    &gt;&gt;&gt; print(Xs[0].shape, Xs[1].shape) # number of samples in each view</span>
+<span class="sd">    (2000, 76) (2000, 216)</span>
+<span class="sd">    &gt;&gt;&gt; ajive = AJIVE()</span>
+<span class="sd">    &gt;&gt;&gt; Xs_transformed = ajive.fit_transform(Xs)</span>
+<span class="sd">    &gt;&gt;&gt; print(Xs_transformed[0].shape)</span>
+<span class="sd">    (2000, 76)</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [#1ajive] Feng, Qing, et al. “Angle-Based Joint and Individual</span>
+<span class="sd">            Variation Explained.” Journal of Multivariate Analysis,</span>
+<span class="sd">            vol. 166, 2018, pp. 241–265., doi:10.1016/j.jmva.2018.03.008.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">init_signal_ranks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">joint_rank</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">individual_ranks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">n_elbows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                 <span class="n">reconsider_joint_components</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">wedin_percentile</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                 <span class="n">n_wedin_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+                 <span class="n">randdir_percentile</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span>
+                 <span class="n">n_randdir_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+                 <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks</span> <span class="o">=</span> <span class="n">init_signal_ranks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">joint_rank</span> <span class="o">=</span> <span class="n">joint_rank</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">individual_ranks</span> <span class="o">=</span> <span class="n">individual_ranks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_elbows</span> <span class="o">=</span> <span class="n">n_elbows</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wedin_percentile</span> <span class="o">=</span> <span class="n">wedin_percentile</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_wedin_samples</span> <span class="o">=</span> <span class="n">n_wedin_samples</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">randdir_percentile</span> <span class="o">=</span> <span class="n">randdir_percentile</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_randdir_samples</span> <span class="o">=</span> <span class="n">n_randdir_samples</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reconsider_joint_components</span> <span class="o">=</span> <span class="n">reconsider_joint_components</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_params</span><span class="p">()</span>
+
+<div class="viewcode-block" id="AJIVE.fit"><a class="viewcode-back" href="../../../references/decomposition.html#mvlearn.decomposition.AJIVE.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Learns a decomposition of the views into joint and individual</span>
+<span class="sd">        matrices.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">             - Xs length: n_views</span>
+<span class="sd">             - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            The data to fit to.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            Ignored variable.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+<span class="sd">            Returns the instance itself.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check data</span>
+        <span class="n">Xs</span><span class="p">,</span> <span class="n">n_views</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span>
+            <span class="n">Xs</span><span class="p">,</span> <span class="n">return_dimensions</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view_shapes_</span> <span class="o">=</span> <span class="p">[(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">n_features</span><span class="p">]</span>
+
+        <span class="c1"># Check parameters with data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_fit_params</span><span class="p">(</span><span class="n">n_views</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span><span class="p">)</span>
+
+        <span class="c1"># Estimate signal ranks if not given</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks_</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span><span class="p">:</span>
+                <span class="n">elbows</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">select_dimension</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">n_elbows</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_elbows</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elbows</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks</span>
+
+        <span class="c1"># Center columns and store</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">means_</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span><span class="p">]</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">X</span> <span class="o">-</span> <span class="n">mean</span> <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">mean</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">means_</span><span class="p">)]</span>
+
+        <span class="c1"># SVD to extract signal on each view</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sv_thresholds_</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">score_matrices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">sval_matrices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">loading_matrices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">signal_rank</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+            <span class="nb">zip</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks_</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="k">if</span> <span class="n">signal_rank</span> <span class="o">&gt;=</span> <span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Given rank </span><span class="si">{</span><span class="n">signal_rank</span><span class="si">}</span><span class="s2"> greater or equal to </span><span class="se">\</span>
+<span class="s2">                    maximum possible full rank </span><span class="si">{</span><span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="si">}</span><span class="s2">. Using </span><span class="se">\</span>
+<span class="s2">                    1 minus full instead&quot;</span><span class="p">,</span> <span class="ne">RuntimeWarning</span><span class="p">)</span>
+                <span class="n">signal_rank</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">signal_rank</span>
+            <span class="c1"># signal rank + 1 to get individual rank sv threshold</span>
+            <span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">_svd_wrapper</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">signal_rank</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+            <span class="c1"># The SV threshold is halfway between the signal_rank</span>
+            <span class="c1"># and signal_rank + 1 singular value.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sv_thresholds_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="n">signal_rank</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="n">signal_rank</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+                <span class="p">)</span>
+
+            <span class="c1"># Store SVD results</span>
+            <span class="n">score_matrices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">U</span><span class="p">[:,</span> <span class="p">:</span><span class="n">signal_rank</span><span class="p">])</span>
+            <span class="n">sval_matrices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">D</span><span class="p">[:</span><span class="n">signal_rank</span><span class="p">])</span>
+            <span class="n">loading_matrices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">V</span><span class="p">[:,</span> <span class="p">:</span><span class="n">signal_rank</span><span class="p">])</span>
+
+        <span class="c1"># SVD of joint signal matrix. Here we are trying to estimate joint</span>
+        <span class="c1"># rank and find an apt joint basis.</span>
+        <span class="n">joint_scores_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">score_matrices</span><span class="p">)</span>
+        <span class="n">joint_scores</span><span class="p">,</span> <span class="n">joint_svals</span><span class="p">,</span> <span class="n">joint_loadings</span> <span class="o">=</span> \
+            <span class="n">_svd_wrapper</span><span class="p">(</span><span class="n">joint_scores_matrix</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">all_joint_svals_</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">joint_svals</span><span class="p">)</span>
+
+        <span class="c1"># estimate joint rank using wedin bound and random direction if a</span>
+        <span class="c1"># joint rank estimate has not already been provided</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_rank</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Calculate sv samples</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">random_sv_samples_</span> <span class="o">=</span> \
+                <span class="n">_sample_randdir</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks_</span><span class="p">,</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">n_randdir_samples</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)</span>
+
+            <span class="c1"># Compute wedin samples</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">wedin_samples_</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">_get_wedin_samples</span><span class="p">(</span>
+                    <span class="n">X</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_wedin_samples</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span>
+                    <span class="p">)</span>
+                <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">rank</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+                    <span class="n">Xs</span><span class="p">,</span> <span class="n">score_matrices</span><span class="p">,</span> <span class="n">sval_matrices</span><span class="p">,</span> <span class="n">loading_matrices</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks_</span><span class="p">)</span>
+                <span class="p">]</span>
+
+            <span class="c1"># Joint singular value lower bounds (Lemma 3)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">wedin_sv_samples_</span> <span class="o">=</span> <span class="n">n_views</span> <span class="o">-</span> \
+                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">sum</span><span class="p">([</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">wedin_samples_</span><span class="p">])</span>
+                         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_wedin_samples</span><span class="p">)])</span>
+
+            <span class="c1"># Now calculate joint matrix rank</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">wedin_cutoff_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wedin_sv_samples_</span><span class="p">,</span>
+                                               <span class="bp">self</span><span class="o">.</span><span class="n">wedin_percentile</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rand_cutoff_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_sv_samples_</span><span class="p">,</span>
+                                              <span class="bp">self</span><span class="o">.</span><span class="n">randdir_percentile</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">svalsq_cutoff_</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wedin_cutoff_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rand_cutoff_</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">joint_rank_wedin_est_</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">joint_svals</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">&gt;</span>
+                                             <span class="bp">self</span><span class="o">.</span><span class="n">svalsq_cutoff_</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">joint_rank_</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_rank_wedin_est_</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">joint_rank_</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_rank</span><span class="p">)</span>
+
+        <span class="c1"># check identifiability constraint</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reconsider_joint_components</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">joint_scores_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_rank_</span> <span class="o">=</span> \
+                <span class="n">_reconsider_joint_components</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sv_thresholds_</span><span class="p">,</span>
+                                             <span class="n">joint_scores</span><span class="p">,</span> <span class="n">joint_svals</span><span class="p">,</span>
+                                             <span class="n">joint_loadings</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_rank_</span><span class="p">,</span>
+                                             <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="c1"># Joint basis</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">joint_scores_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_scores_</span><span class="p">[:,</span> <span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_rank_</span><span class="p">]</span>
+
+        <span class="c1"># view estimates</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">individual_scores_</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">individual_svals_</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">individual_loadings_</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_ranks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">individual_ranks_</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">individual_ranks_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_ranks</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">sv_threshold</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sv_thresholds_</span><span class="p">)):</span>
+            <span class="c1"># View specific joint space creation</span>
+            <span class="c1"># projecting X onto the joint space then compute SVD</span>
+            <span class="c1"># Then find the orthogonal complement to the joint matrix</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_rank_</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_scores_</span><span class="p">,</span>
+                                    <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_scores_</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">X</span><span class="p">)))</span>
+                <span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">_svd_wrapper</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_rank_</span><span class="p">)</span>
+                <span class="n">X_orthog</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">J</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="n">X_orthog</span> <span class="o">=</span> <span class="n">X</span>
+
+            <span class="c1"># estimate individual rank using sv threshold, then compute SVD</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_ranks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">max_rank</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_rank_</span>
+                <span class="k">if</span> <span class="n">max_rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">rank</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">_svd_wrapper</span><span class="p">(</span><span class="n">X_orthog</span><span class="p">,</span> <span class="n">max_rank</span><span class="p">)</span>
+                    <span class="n">rank</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">D</span> <span class="o">&gt;</span> <span class="n">sv_threshold</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">U</span> <span class="o">=</span> <span class="n">U</span><span class="p">[:,</span> <span class="p">:</span><span class="n">rank</span><span class="p">]</span>
+                    <span class="n">D</span> <span class="o">=</span> <span class="n">D</span><span class="p">[:</span><span class="n">rank</span><span class="p">]</span>
+                    <span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span> <span class="p">:</span><span class="n">rank</span><span class="p">]</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">individual_ranks_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># if user inputs rank list for individual matrices</span>
+                <span class="n">rank</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_ranks_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">_svd_wrapper</span><span class="p">(</span><span class="n">X_orthog</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">individual_scores_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">individual_svals_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">individual_loadings_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="AJIVE.transform"><a class="viewcode-back" href="../../../references/decomposition.html#mvlearn.decomposition.AJIVE.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Returns the joint matrices from each view.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">        Xs: list of array-likes</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            Data to be transformed</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+
+<span class="sd">        Js : list of numpy.ndarray</span>
+<span class="sd">            Joint matrices of each inputted view.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_rank_</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">Js</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">view_shapes_</span><span class="p">]</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Joint rank is 0, returning zero matrix.&quot;</span><span class="p">,</span> <span class="ne">RuntimeWarning</span>
+                <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Js</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_scores_</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_scores_</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span>
+                  <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">mean</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">means_</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">Js</span></div>
+
+<div class="viewcode-block" id="AJIVE.inverse_transform"><a class="viewcode-back" href="../../../references/decomposition.html#mvlearn.decomposition.AJIVE.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs_transformed</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Recover original data from transformed data.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs_transformed: list of array-likes</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            Estimated joint views</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xs : list of arrays</span>
+<span class="sd">            The summed individual and joint blocks and mean</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">Xs_transformed</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs_transformed</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="n">X</span> <span class="o">+</span> <span class="n">I</span> <span class="o">+</span> <span class="n">mean</span> <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">mean</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+            <span class="n">Xs_transformed</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_mats_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">means_</span><span class="p">)]</span></div>
+
+    <span class="k">def</span> <span class="nf">_check_params</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_rank</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span>
+                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">joint_rank</span> <span class="o">&gt;</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks</span><span class="p">))</span> <span class="ow">or</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">joint_rank</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;joint_rank must be between 0 and the sum of the </span><span class="se">\</span>
+<span class="s2">                init_signal_ranks&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_elbows</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Either init_signal_ranks must be provided a </span><span class="se">\</span>
+<span class="s2">                list or n_elbows must be a positive integer&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_wedin_samples</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> \
+                <span class="bp">self</span><span class="o">.</span><span class="n">n_wedin_samples</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_wedin_samples must be a positive integer&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_randdir_samples</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> \
+                <span class="bp">self</span><span class="o">.</span><span class="n">n_randdir_samples</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_randdir_samples must be a positive integer&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> \
+                <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;init_signal_ranks must be of type list if </span><span class="se">\</span>
+<span class="s2">                not None&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_ranks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> \
+                <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">individual_ranks</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;individual_ranks must be of type list if </span><span class="se">\</span>
+<span class="s2">                not None&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_check_fit_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_views</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span><span class="p">):</span>
+        <span class="n">max_ranks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span>
+            <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks</span><span class="p">))</span> <span class="ow">or</span> <span class="ow">not</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">max_ranks</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;init_signal_ranks must all be between 1 and the minimum </span><span class="se">\</span>
+<span class="s2">                of the number of rows and columns for each view&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_ranks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> \
+                <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">individual_ranks</span><span class="p">)</span> <span class="o">!=</span> <span class="n">n_views</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;individual_ranks must be of length </span><span class="se">\</span>
+<span class="s2">                n_views&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> \
+                <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">init_signal_ranks</span><span class="p">)</span> <span class="o">!=</span> <span class="n">n_views</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;init_signal_ranks must be of length </span><span class="se">\</span>
+<span class="s2">                n_views&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">individual_mats_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Computes full individual matrices from saved decompositions&quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">Is</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">individual_ranks_</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">r</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">Is</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">view_shapes_</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">Is</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">individual_scores_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">@</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">individual_svals_</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">@</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">individual_loadings_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+                <span class="p">)</span>
+        <span class="k">return</span> <span class="n">Is</span></div>
+
+
+<span class="k">def</span> <span class="nf">_reconsider_joint_components</span><span class="p">(</span>
+    <span class="n">Xs</span><span class="p">,</span> <span class="n">sv_thresholds</span><span class="p">,</span> <span class="n">joint_scores</span><span class="p">,</span> <span class="n">joint_svals</span><span class="p">,</span> <span class="n">joint_loadings</span><span class="p">,</span> <span class="n">joint_rank</span><span class="p">,</span>
+    <span class="n">verbose</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks the identifiability constraint on the joint singular values and</span>
+<span class="sd">    removes columns that fail. Set `verbose=True` to print removed columns.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># check identifiability constraint</span>
+    <span class="n">to_keep</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">joint_rank</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">sv_threshold</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">sv_thresholds</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">to_keep</span><span class="p">:</span>
+            <span class="c1"># This might be joint_sv</span>
+            <span class="n">score</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">joint_scores</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span>
+            <span class="n">sv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+
+            <span class="c1"># if sv is below the threshold for any data block remove j</span>
+            <span class="k">if</span> <span class="n">sv</span> <span class="o">&lt;</span> <span class="n">sv_threshold</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Excluding column </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">, below identifiability </span><span class="se">\</span>
+<span class="s2">                        threshold&quot;</span><span class="p">)</span>
+                <span class="n">to_keep</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+                <span class="k">break</span>
+
+    <span class="c1"># remove columns of joint_scores that don&#39;t satisfy the constraint</span>
+    <span class="n">joint_rank</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">to_keep</span><span class="p">)</span>
+    <span class="n">joint_scores</span> <span class="o">=</span> <span class="n">joint_scores</span><span class="p">[:,</span> <span class="nb">list</span><span class="p">(</span><span class="n">to_keep</span><span class="p">)]</span>
+    <span class="n">joint_loadings</span> <span class="o">=</span> <span class="n">joint_loadings</span><span class="p">[:,</span> <span class="nb">list</span><span class="p">(</span><span class="n">to_keep</span><span class="p">)]</span>
+    <span class="n">joint_svals</span> <span class="o">=</span> <span class="n">joint_svals</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">to_keep</span><span class="p">)]</span>
+
+    <span class="k">return</span> <span class="n">joint_scores</span><span class="p">,</span> <span class="n">joint_svals</span><span class="p">,</span> <span class="n">joint_loadings</span><span class="p">,</span> <span class="n">joint_rank</span>
+
+
+<span class="k">def</span> <span class="nf">_sample_randdir</span><span class="p">(</span><span class="n">num_obs</span><span class="p">,</span> <span class="n">signal_ranks</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draws samples for the random direction bound.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    num_obs: int</span>
+<span class="sd">        Number of observations.</span>
+
+<span class="sd">    signal_ranks: list of ints</span>
+<span class="sd">        The initial signal ranks for each block.</span>
+
+<span class="sd">    R: int</span>
+<span class="sd">        Number of samples to draw.</span>
+
+<span class="sd">    n_jobs: int, None</span>
+<span class="sd">        Number of jobs for parallel processing using</span>
+<span class="sd">        sklearn.externals.joblib.Parallel. If None, will not use parallel</span>
+<span class="sd">        processing.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    random_sv_samples: numpy.ndarray, shape (R,)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">random_sv_samples</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">)(</span>
+        <span class="n">delayed</span><span class="p">(</span><span class="n">_get_randdir_sample</span><span class="p">)(</span><span class="n">num_obs</span><span class="p">,</span> <span class="n">signal_ranks</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">random_sv_samples</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_randdir_sample</span><span class="p">(</span><span class="n">num_obs</span><span class="p">,</span> <span class="n">signal_ranks</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes squared largest singular value of random joint matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">signal_ranks</span><span class="p">))]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">signal_ranks</span><span class="p">)):</span>
+        <span class="c1"># sample random orthonormal basis</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">num_obs</span><span class="p">,</span> <span class="n">signal_ranks</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span>
+        <span class="n">M</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">Z</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bmat</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">svs</span><span class="p">,</span> <span class="n">__</span> <span class="o">=</span> <span class="n">_svd_wrapper</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">svs</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+<span class="k">def</span> <span class="nf">_get_wedin_samples</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes the wedin bound using the sample-project procedure. This method</span>
+<span class="sd">    does not require the full SVD.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : array-like, shape (n_samples, n_features)</span>
+<span class="sd">        The data</span>
+
+<span class="sd">    U, D, V : array-likes</span>
+<span class="sd">        The partial SVD of X=UDV^T</span>
+
+<span class="sd">    rank : int</span>
+<span class="sd">        The rank of the signal space</span>
+
+<span class="sd">    R : int</span>
+<span class="sd">        Number of samples for resampling procedure</span>
+
+<span class="sd">    n_jobs: int, None</span>
+<span class="sd">        Number of jobs for parallel processing using</span>
+<span class="sd">        sklearn.externals.joblib.Parallel. If None, will not use parallel</span>
+<span class="sd">        processing.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    wedin_bound_samples : list of resampled wedin bounds</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># resample for U and V</span>
+    <span class="n">U_norm_samples</span> <span class="o">=</span> <span class="n">_norms_sample_project</span><span class="p">(</span>
+        <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">[:,</span> <span class="p">:</span><span class="n">rank</span><span class="p">],</span> <span class="n">R</span><span class="p">,</span> <span class="n">n_jobs</span>
+    <span class="p">)</span>
+
+    <span class="n">V_norm_samples</span> <span class="o">=</span> <span class="n">_norms_sample_project</span><span class="p">(</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">V</span><span class="p">[:,</span> <span class="p">:</span><span class="n">rank</span><span class="p">],</span> <span class="n">R</span><span class="p">,</span> <span class="n">n_jobs</span>
+    <span class="p">)</span>
+
+    <span class="n">sigma_min</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">rank</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">wedin_bound_samples</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="nb">min</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">U_norm_samples</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">V_norm_samples</span><span class="p">[</span><span class="n">r</span><span class="p">])</span> <span class="o">/</span> <span class="n">sigma_min</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">wedin_bound_samples</span>
+
+
+<span class="k">def</span> <span class="nf">_norms_sample_project</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">basis</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Samples vectors from space orthogonal to signal space as follows</span>
+<span class="sd">    - sample random vector from isotropic distribution</span>
+<span class="sd">    - project onto orthogonal complement of signal space and normalize</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ---------</span>
+<span class="sd">    X: array-like, shape (N, D)</span>
+<span class="sd">        The observed data</span>
+
+<span class="sd">    B: array-like</span>
+<span class="sd">        The basis for the signal col/rows space (e.g. the left/right singular\</span>
+<span class="sd">        vectors)</span>
+
+<span class="sd">    rank: int</span>
+<span class="sd">        Number of columns to resample</span>
+
+<span class="sd">    R: int</span>
+<span class="sd">        Number of samples</span>
+
+<span class="sd">    n_jobs: int, None</span>
+<span class="sd">        Number of jobs for parallel processing.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    samples : list of the resampled noise norms</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">samples</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">)(</span>
+        <span class="n">delayed</span><span class="p">(</span><span class="n">_get_noise_sample</span><span class="p">)(</span><span class="n">X</span><span class="p">,</span> <span class="n">basis</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_noise_sample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">basis</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Estimates magnitude of noise matrix projected onto signal matrix.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># sample from isotropic distribution</span>
+    <span class="n">vecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">basis</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="c1"># project onto space orthogonal to cols of B</span>
+    <span class="c1"># vecs = (np.eye(dim) - np.dot(basis, basis.T)).dot(vecs)</span>
+    <span class="n">vecs</span> <span class="o">=</span> <span class="n">vecs</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">basis</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">basis</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">vecs</span><span class="p">))</span>
+
+    <span class="c1"># orthonormalize</span>
+    <span class="n">vecs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">vecs</span><span class="p">)</span>
+
+    <span class="c1"># compute operator L2 norm</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vecs</span><span class="p">),</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_svd_wrapper</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes the full or partial SVD of a matrix. Handles the case where</span>
+<span class="sd">    X is either dense or sparse.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : array-like, shape (N, D)</span>
+
+<span class="sd">    rank : int</span>
+<span class="sd">        rank of the desired SVD. If `None`, the full SVD is used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    U : array-like, shape (N, rank)</span>
+<span class="sd">        Orthonormal matrix of left singular vectors.</span>
+
+<span class="sd">    D : list, shape (rank,)</span>
+<span class="sd">        Singular values in decreasing order</span>
+
+<span class="sd">    V : array-like, shape (D, rank)</span>
+<span class="sd">        Orthonormal matrix of right singular vectors</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">full</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">rank</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">rank</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
+        <span class="n">full</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">full</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">rank</span> <span class="o">&lt;=</span> <span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># svds cannot compute the full svd</span>
+        <span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">svds</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
+
+        <span class="c1"># Sort in decreasing order</span>
+        <span class="n">sv_reordering</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">D</span><span class="p">)</span>
+        <span class="n">U</span> <span class="o">=</span> <span class="n">U</span><span class="p">[:,</span> <span class="n">sv_reordering</span><span class="p">]</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">sv_reordering</span><span class="p">]</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">[:,</span> <span class="n">sv_reordering</span><span class="p">]</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">rank</span><span class="p">:</span>
+            <span class="n">U</span> <span class="o">=</span> <span class="n">U</span><span class="p">[:,</span> <span class="p">:</span><span class="n">rank</span><span class="p">]</span>
+            <span class="n">D</span> <span class="o">=</span> <span class="n">D</span><span class="p">[:</span><span class="n">rank</span><span class="p">]</span>
+            <span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">[:,</span> <span class="p">:</span><span class="n">rank</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019-2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<p style="text-align: center; margin: .5rem;">
+    <a href="https://www.netlify.com">
+        <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
+    </a>
+</p>
+ 
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

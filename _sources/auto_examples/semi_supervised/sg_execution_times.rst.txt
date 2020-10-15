@@ -1,0 +1,16 @@
+
+:orphan:
+
+.. _sphx_glr_auto_examples_semi_supervised_sg_execution_times:
+
+Computation times
+=================
+**00:30.820** total execution time for **auto_examples_semi_supervised** files:
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_semi_supervised_plot_cotraining_regression.py` (``plot_cotraining_regression.py``)                                         | 00:25.884 | 0.0 MB |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_semi_supervised_plot_cotraining_classification.py` (``plot_cotraining_classification.py``)                                 | 00:04.935 | 0.0 MB |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_semi_supervised_cotraining_classification_simulatedperformance.py` (``cotraining_classification_simulatedperformance.py``) | 00:00.000 | 0.0 MB |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+

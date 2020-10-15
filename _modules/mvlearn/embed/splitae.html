@@ -1,0 +1,773 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mvlearn.embed.splitae &mdash; mvlearn alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../install.html#including-optional-torch-dependencies-for-full-functionality">Including optional torch dependencies for full functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#python-package-dependencies">Python package dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#hardware-requirements">Hardware requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#os-requirements">OS Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Examples Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-cluster">Examples on cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-datasets">Examples on datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-decomposition">Examples on decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/pipeline/plot_pipeline_sklearn_integration.html">Integrating mvlearn with scikit-learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-plotting">Examples on plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../references/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/cluster.html">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spectral-clustering">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#co-regularized-multiview-spectral-clustering">Co-Regularized Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-k-means">Multiview K Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spherical-k-means">Multiview Spherical K Means</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/semi_supervised.html">Semi-Supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-classifier">Cotraining Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-regressor">Cotraining Regressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dcca-utilities">DCCA Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dimension-selection">Dimension Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/decomposition.html">Decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#multiview-ica">Multiview ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#permutation-ica">Permutation ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-ica">Group ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-pca">Group PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/construct.html">View Construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-gaussian-projection">Random Gaussian Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-subspace-method">Random Subspace Method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/model_selection.html">Model Selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/model_selection.html#cross-validation">Cross Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/compose.html">Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#averagemerger">AverageMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#concatmerger">ConcatMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#simplesplitter">SimpleSplitter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/preprocessing.html">Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/preprocessing.html#viewtransformer">ViewTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/datasets.html">Multiview Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#data-simulator">Data Simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/plotting.html">Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#quick-visualize">Quick Visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#crossviews-plot">Crossviews Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/utils.html#io">IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to mvlearn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#how-to-make-a-good-bug-report">How to make a good bug report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#contributing-code">Contributing Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#pull-request-checklist">Pull Request Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#coding-guidelines">Coding Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#docstring-guidelines">Docstring Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#api-of-mvlearn-objects">API of mvlearn Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#estimators">Estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#additional-functionality">Additional Functionality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id1">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id4">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id9">mvlearn.preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#patch-0-2-1">Patch 0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-2-0">Version 0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-1-0">Version 0.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Useful Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mvlearn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvlearn.embed.splitae</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvlearn.embed.splitae</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2019 NeuroData (http://neurodata.io)</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># XXX  I would use a nested import for matplotlib to make it a soft dep</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">tqdm</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">torch</span>
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">. torch dependencies required for this function. </span><span class="se">\</span>
+<span class="s2">    Please consult the mvlearn installation instructions at </span><span class="se">\</span>
+<span class="s2">    https://github.com/mvlearn/mvlearn to correctly install torch </span><span class="se">\</span>
+<span class="s2">    dependencies.&quot;</span>
+    <span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseEmbed</span>
+<span class="kn">from</span> <span class="nn">..utils.utils</span> <span class="kn">import</span> <span class="n">check_Xs</span>
+
+
+<span class="k">class</span> <span class="nc">_FullyConnectedNet</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    General torch module for a fully connected neural network.</span>
+<span class="sd">    - input_size: number of nodes in the first layer</span>
+<span class="sd">    - num_hidden_layers: number of hidden layers</span>
+<span class="sd">    - hidden_size: number of nodes in each hidden layer</span>
+<span class="sd">    - embedding_size: number of nodes in the output layer.</span>
+<span class="sd">    All are ints. Each hidden layer has the same number of nodes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">num_hidden_layers</span><span class="p">,</span> <span class="n">embedding_size</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="n">num_hidden_layers</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;can&#39;t have negative hidden layer count&quot;</span>
+        <span class="k">assert</span> <span class="n">hidden_size</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;hidden size must involve &gt;= 1 node&quot;</span>
+        <span class="k">assert</span> <span class="n">embedding_size</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;embedding size must involve &gt;= 1 node&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layers</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">num_hidden_layers</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">embedding_size</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_hidden_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">embedding_size</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="c1"># Forward pass for the network. Pytorch automatically calculates</span>
+        <span class="c1"># backwards pass</span>
+        <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">()(</span><span class="n">layer</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">](</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># no activation on last layer</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+    <span class="k">def</span> <span class="nf">param_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">()])</span>
+
+
+<div class="viewcode-block" id="SplitAE"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.SplitAE">[docs]</a><span class="k">class</span> <span class="nc">SplitAE</span><span class="p">(</span><span class="n">BaseEmbed</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implements an autoencoder that creates an embedding of a view View1 and</span>
+<span class="sd">    from that embedding reconstructs View1 and another view View2, as</span>
+<span class="sd">    described in [#1Split]_.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    hidden_size : int (default=64)</span>
+<span class="sd">        number of nodes in the hidden layers</span>
+<span class="sd">    num_hidden_layers : int (default=2)</span>
+<span class="sd">        number of hidden layers in each encoder or decoder net</span>
+<span class="sd">    embed_size : int (default=20)</span>
+<span class="sd">        size of the bottleneck vector in the autoencoder</span>
+<span class="sd">    training_epochs : int (default=10)</span>
+<span class="sd">        how many times the network trains on the full dataset</span>
+<span class="sd">    batch_size : int (default=16):</span>
+<span class="sd">        batch size while training the network</span>
+<span class="sd">    learning_rate : float (default=0.001)</span>
+<span class="sd">        learning rate of the Adam optimizer</span>
+<span class="sd">    print_info : bool (default=True)</span>
+<span class="sd">        whether or not to print errors as the network trains.</span>
+<span class="sd">    print_graph : bool (default=True)</span>
+<span class="sd">        whether or not to graph training loss</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    view1_encoder_ : torch.nn.Module</span>
+<span class="sd">        the View1 embedding network as a PyTorch module</span>
+<span class="sd">    view1_decoder_ : torch.nn.Module</span>
+<span class="sd">        the View1 decoding network as a PyTorch module</span>
+<span class="sd">    view2_decoder_ : torch.nn.Module</span>
+<span class="sd">        the View2 decoding network as a PyTorch module</span>
+
+<span class="sd">    Warns</span>
+<span class="sd">    -----</span>
+<span class="sd">    In order to run SplitAE, pytorch and other certain optional dependencies</span>
+<span class="sd">    must be installed. See the installation page for details.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    .. figure:: /figures/splitAE.png</span>
+<span class="sd">        :width: 250px</span>
+<span class="sd">        :alt: SplitAE diagram</span>
+<span class="sd">        :align: center</span>
+
+<span class="sd">    In this figure :math:`\textbf{x}` is View1 and :math:`\textbf{y}`</span>
+<span class="sd">    is View2</span>
+
+<span class="sd">    Each encoder / decoder network is a fully connected neural net with</span>
+<span class="sd">    paramater count equal to:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \left(\text{input_size} + \text{embed_size}\right) \cdot</span>
+<span class="sd">        \text{hidden_size} +</span>
+<span class="sd">        \sum_{1}^{\text{num_hidden_layers}-1}\text{hidden_size}^2</span>
+
+<span class="sd">    Where :math:`\text{input_size}` is the number of features in View1</span>
+<span class="sd">    or View2.</span>
+
+<span class="sd">    The loss that is reduced via gradient descent is:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        J = \left(p(f(\textbf{x})) - \textbf{x}\right)^2 +</span>
+<span class="sd">        \left(q(f(\textbf{x})) - \textbf{y}\right)^2</span>
+
+<span class="sd">    Where :math:`f` is the encoder, :math:`p` and :math:`q` are</span>
+<span class="sd">    the decoders, :math:`\textbf{x}` is View1,</span>
+<span class="sd">    and :math:`\textbf{y}` is View2.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [#1Split] Weiran Wang, Raman Arora, Karen Livescu, and Jeff Bilmes.</span>
+<span class="sd">        &quot;`On Deep Multi-View Representation Learning.</span>
+<span class="sd">        &lt;http://proceedings.mlr.press/v37/wangb15.pdf&gt;`_&quot;,</span>
+<span class="sd">        ICML, 2015.</span>
+
+<span class="sd">    For more extensive examples, see the ``tutorials`` for SplitAE in this</span>
+<span class="sd">    documentation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">hidden_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+        <span class="n">num_hidden_layers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">embed_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">training_epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+        <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
+        <span class="n">print_info</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">print_graph</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span> <span class="o">=</span> <span class="n">hidden_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span> <span class="o">=</span> <span class="n">embed_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_hidden_layers</span> <span class="o">=</span> <span class="n">num_hidden_layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">training_epochs</span> <span class="o">=</span> <span class="n">training_epochs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span> <span class="o">=</span> <span class="n">learning_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_info</span> <span class="o">=</span> <span class="n">print_info</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_graph</span> <span class="o">=</span> <span class="n">print_graph</span>
+
+<div class="viewcode-block" id="SplitAE.fit"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.SplitAE.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">validation_Xs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Given two views, create and train the autoencoder.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray.</span>
+<span class="sd">             - Xs[0] is View1 and Xs[1] is View2</span>
+<span class="sd">             - Xs length: n_views, only 2 is currently supported for splitAE.</span>
+<span class="sd">             - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">        validation_Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">            optional validation data in the same shape of Xs. If</span>
+<span class="sd">            :code:`print_info=True`, then validation error, calculated with</span>
+<span class="sd">            this data, will be printed as the network trains.</span>
+<span class="sd">        y : ignored</span>
+<span class="sd">            Included for API compliance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">multiview</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">enforce_views</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span>
+        <span class="p">),</span> <span class="s2">&quot;&quot;&quot;batch size must be &lt;= to</span>
+<span class="s2">            number of samples&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;&quot;&quot;can&#39;t have negative batch size&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">training_epochs</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+        <span class="p">),</span> <span class="s2">&quot;&quot;&quot;can&#39;t train for negative amount of</span>
+<span class="s2">            times&quot;&quot;&quot;</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda:0&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+
+        <span class="n">view1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">view2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">view1_encoder_</span> <span class="o">=</span> <span class="n">_FullyConnectedNet</span><span class="p">(</span>
+            <span class="n">view1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">num_hidden_layers</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view1_decoder_</span> <span class="o">=</span> <span class="n">_FullyConnectedNet</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">num_hidden_layers</span><span class="p">,</span> <span class="n">view1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view2_decoder_</span> <span class="o">=</span> <span class="n">_FullyConnectedNet</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">num_hidden_layers</span><span class="p">,</span> <span class="n">view2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">view1_encoder_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">view1_encoder_</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view1_decoder_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">view1_decoder_</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view2_decoder_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">view2_decoder_</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_graph</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">&quot;Parameter counts: </span><span class="se">\n</span><span class="s2">view1_encoder: </span><span class="si">{:,}</span><span class="se">\n</span><span class="s2">view1_decoder: </span><span class="si">{:,}</span><span class="s2">&quot;</span>
+                <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">view2_decoder: </span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">view1_encoder_</span><span class="o">.</span><span class="n">param_count</span><span class="p">(),</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">view1_decoder_</span><span class="o">.</span><span class="n">param_count</span><span class="p">(),</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">view2_decoder_</span><span class="o">.</span><span class="n">param_count</span><span class="p">(),</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">view1_encoder_</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">view1_decoder_</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">view2_decoder_</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span>
+        <span class="p">]</span>
+        <span class="n">optim</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span>
+            <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">parameters</span><span class="p">),</span> <span class="n">lr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span>
+        <span class="p">)</span>
+        <span class="n">n_samples</span> <span class="o">=</span> <span class="n">view1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">epoch_train_errors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">epoch_test_errors</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span>
+            <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">training_epochs</span><span class="p">),</span> <span class="n">disable</span><span class="o">=</span><span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_info</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="n">batch_errors</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">batch_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">):</span>
+                <span class="n">optim</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+                <span class="n">view1_batch</span> <span class="o">=</span> <span class="n">view1</span><span class="p">[</span>
+                    <span class="n">batch_num</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">:</span>
+                    <span class="p">(</span><span class="n">batch_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span>
+                <span class="p">]</span>
+                <span class="n">view2_batch</span> <span class="o">=</span> <span class="n">view2</span><span class="p">[</span>
+                    <span class="n">batch_num</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">:</span>
+                    <span class="p">(</span><span class="n">batch_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span>
+                <span class="p">]</span>
+                <span class="n">embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">view1_encoder_</span><span class="p">(</span><span class="n">view1_batch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
+                <span class="n">view1_reconstruction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">view1_decoder_</span><span class="p">(</span><span class="n">embedding</span><span class="p">)</span>
+                <span class="n">view2_reconstruction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">view2_decoder_</span><span class="p">(</span><span class="n">embedding</span><span class="p">)</span>
+                <span class="n">view1_error</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()(</span>
+                    <span class="n">view1_reconstruction</span><span class="p">,</span> <span class="n">view1_batch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="n">view2_error</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()(</span>
+                    <span class="n">view2_reconstruction</span><span class="p">,</span> <span class="n">view2_batch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="n">total_error</span> <span class="o">=</span> <span class="n">view1_error</span> <span class="o">+</span> <span class="n">view2_error</span>
+                <span class="n">total_error</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+                <span class="n">optim</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+                <span class="n">batch_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">total_error</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_info</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="s2">&quot;Average train error during epoch </span><span class="si">{}</span><span class="s2"> was </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">epoch</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">batch_errors</span><span class="p">)</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+            <span class="n">epoch_train_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">batch_errors</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">validation_Xs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">test_error</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_test_error</span><span class="p">(</span><span class="n">validation_Xs</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_info</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="s2">&quot;Average test  error during epoch </span><span class="si">{}</span><span class="s2"> was </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                            <span class="n">epoch</span><span class="p">,</span> <span class="n">test_error</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+                <span class="n">epoch_test_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_error</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_graph</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epoch_train_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;train error&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">validation_Xs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epoch_test_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;test error&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Errors during training&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Epoch&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+    <span class="k">def</span> <span class="nf">_test_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">):</span>
+        <span class="c1"># Calculates the error of the network on a set of data Xs</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda:0&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+        <span class="n">n_samples</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">validation_batch_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span>
+        <span class="n">test_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
+            <span class="n">n_samples</span><span class="p">,</span> <span class="n">validation_batch_size</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+        <span class="n">view1_batch</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">test_indices</span><span class="p">])</span>
+        <span class="n">view2_batch</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">test_indices</span><span class="p">])</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">view1_encoder_</span><span class="p">(</span><span class="n">view1_batch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
+            <span class="n">view1_reconstruction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">view1_decoder_</span><span class="p">(</span><span class="n">embedding</span><span class="p">)</span>
+            <span class="n">view2_reconstruction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">view2_decoder_</span><span class="p">(</span><span class="n">embedding</span><span class="p">)</span>
+            <span class="n">view1_error</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()(</span>
+                <span class="n">view1_reconstruction</span><span class="p">,</span> <span class="n">view1_batch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">view2_error</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()(</span>
+                <span class="n">view2_reconstruction</span><span class="p">,</span> <span class="n">view2_batch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">total_error</span> <span class="o">=</span> <span class="n">view1_error</span> <span class="o">+</span> <span class="n">view2_error</span>
+        <span class="k">return</span> <span class="n">total_error</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+<div class="viewcode-block" id="SplitAE.transform"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.SplitAE.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Transform the given view with the trained autoencoder. Provide</span>
+<span class="sd">        a single view within a list.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : a list of exactly one array-like, or an np.ndarray</span>
+<span class="sd">            Represents the View1 of some data. The array must have the same</span>
+<span class="sd">            number of columns  (features) as the View1 presented</span>
+<span class="sd">            in the :code:`fit(...)` step.</span>
+<span class="sd">             - Xs length: 1</span>
+<span class="sd">             - Xs[0] shape: (n_samples, n_features_0)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ----------</span>
+<span class="sd">        embedding : np.ndarray of shape (n_samples, embedding_size)</span>
+<span class="sd">            the embedding of the View1 data</span>
+<span class="sd">        view1_reconstructions : np.ndarray of shape (n_samples, n_features_0)</span>
+<span class="sd">            the reconstructed View1</span>
+<span class="sd">        view2_prediction : np.ndarray of shape (n_samples, n_features_1)</span>
+<span class="sd">            the predicted View2</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">enforce_views</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda:0&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+        <span class="n">view1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">view1_encoder_</span><span class="p">(</span><span class="n">view1</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
+            <span class="n">view1_reconstruction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">view1_decoder_</span><span class="p">(</span><span class="n">embedding</span><span class="p">)</span>
+            <span class="n">view2_prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">view2_decoder_</span><span class="p">(</span><span class="n">embedding</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">embedding</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
+            <span class="n">view1_reconstruction</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
+            <span class="n">view2_prediction</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="SplitAE.fit_transform"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.SplitAE.fit_transform">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :code:`fit(Xs)` and then :code:`transform(Xs[:1])`.</span>
+<span class="sd">        Note that this method will be</span>
+<span class="sd">        embedding data that the autoencoder was trained on.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : see :code:`fit(...)` Xs parameters</span>
+
+<span class="sd">        y : ignored</span>
+<span class="sd">            Included for API compliance.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ----------</span>
+<span class="sd">        See :code:`transform(...)` return values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xs</span><span class="p">[:</span><span class="mi">1</span><span class="p">])</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019-2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<p style="text-align: center; margin: .5rem;">
+    <a href="https://www.netlify.com">
+        <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
+    </a>
+</p>
+ 
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,793 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mvlearn.cluster.mv_spectral &mdash; mvlearn alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../install.html#including-optional-torch-dependencies-for-full-functionality">Including optional torch dependencies for full functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#python-package-dependencies">Python package dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#hardware-requirements">Hardware requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#os-requirements">OS Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Examples Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-cluster">Examples on cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-datasets">Examples on datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-decomposition">Examples on decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/pipeline/plot_pipeline_sklearn_integration.html">Integrating mvlearn with scikit-learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-plotting">Examples on plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../references/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/cluster.html">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spectral-clustering">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#co-regularized-multiview-spectral-clustering">Co-Regularized Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-k-means">Multiview K Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spherical-k-means">Multiview Spherical K Means</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/semi_supervised.html">Semi-Supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-classifier">Cotraining Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-regressor">Cotraining Regressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dcca-utilities">DCCA Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dimension-selection">Dimension Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/decomposition.html">Decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#multiview-ica">Multiview ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#permutation-ica">Permutation ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-ica">Group ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-pca">Group PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/construct.html">View Construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-gaussian-projection">Random Gaussian Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-subspace-method">Random Subspace Method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/model_selection.html">Model Selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/model_selection.html#cross-validation">Cross Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/compose.html">Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#averagemerger">AverageMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#concatmerger">ConcatMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#simplesplitter">SimpleSplitter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/preprocessing.html">Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/preprocessing.html#viewtransformer">ViewTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/datasets.html">Multiview Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#data-simulator">Data Simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/plotting.html">Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#quick-visualize">Quick Visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#crossviews-plot">Crossviews Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/utils.html#io">IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to mvlearn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#how-to-make-a-good-bug-report">How to make a good bug report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#contributing-code">Contributing Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#pull-request-checklist">Pull Request Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#coding-guidelines">Coding Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#docstring-guidelines">Docstring Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#api-of-mvlearn-objects">API of mvlearn Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#estimators">Estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#additional-functionality">Additional Functionality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id1">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id4">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id9">mvlearn.preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#patch-0-2-1">Patch 0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-2-0">Version 0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-1-0">Version 0.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Useful Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mvlearn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvlearn.cluster.mv_spectral</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvlearn.cluster.mv_spectral</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2019 NeuroData (http://neurodata.io)</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+<span class="c1"># Implements multi-view spectral clustering algorithm for data with</span>
+<span class="c1"># multiple views.</span>
+
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">cdist</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">rbf_kernel</span><span class="p">,</span> <span class="n">polynomial_kernel</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">NearestNeighbors</span>
+
+<span class="kn">from</span> <span class="nn">..utils.utils</span> <span class="kn">import</span> <span class="n">check_Xs</span>
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseCluster</span>
+
+<span class="n">AFFINITY_METRICS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;nearest_neighbors&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="MultiviewSpectralClustering"><a class="viewcode-back" href="../../../references/cluster.html#mvlearn.cluster.MultiviewSpectralClustering">[docs]</a><span class="k">class</span> <span class="nc">MultiviewSpectralClustering</span><span class="p">(</span><span class="n">BaseCluster</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;An implementation of multi-view spectral clustering.</span>
+
+<span class="sd">    An implementation of multi-view spectral clustering using the</span>
+<span class="sd">    basic co-training framework as described in [#1Clu]_.</span>
+<span class="sd">    Additionally, this can be effective when the dataset naturally</span>
+<span class="sd">    contains features that are of 2 different data types, such as</span>
+<span class="sd">    continuous features and categorical features [#3Clu]_, and then the</span>
+<span class="sd">    original features are separated into two views in this way.</span>
+
+<span class="sd">    This algorithm can handle 2 or more views of data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_clusters : int</span>
+<span class="sd">        The number of clusters</span>
+
+<span class="sd">    random_state : int, optional, default=None</span>
+<span class="sd">        Determines random number generation for k-means.</span>
+
+<span class="sd">    info_view : int, optional, default=None</span>
+<span class="sd">        The most informative view. Must be between 0 and n_views-1</span>
+<span class="sd">        If given, then the final clustering will be performed on the</span>
+<span class="sd">        designated view alone. Otherwise, the algorithm will concatenate</span>
+<span class="sd">        across all views and cluster on the result.</span>
+
+<span class="sd">    max_iter : int, optional, default=10</span>
+<span class="sd">        The maximum number of iterations to run the clustering</span>
+<span class="sd">        algorithm.</span>
+
+<span class="sd">    n_init : int, optional, default=10</span>
+<span class="sd">        The number of random initializations to use for k-means clustering.</span>
+
+<span class="sd">    affinity : string, optional, default=&#39;rbf&#39;</span>
+<span class="sd">        The affinity metric used to construct the affinity matrix. Options</span>
+<span class="sd">        include &#39;rbf&#39; (radial basis function), &#39;nearest_neighbors&#39;, and</span>
+<span class="sd">        &#39;poly&#39; (polynomial)</span>
+
+<span class="sd">    gamma : float, optional, default=None</span>
+<span class="sd">        Kernel coefficient for rbf and polynomial kernels. If None then</span>
+<span class="sd">        gamma is computed as 1 / (2 * median(pair_wise_distances(X))^2)</span>
+<span class="sd">        for each data view X.</span>
+
+<span class="sd">    n_neighbors : int, optional, default=10</span>
+<span class="sd">        Only used if nearest neighbors is selected for affinity. The</span>
+<span class="sd">        number of neighbors to use for the nearest neighbors kernel.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    labels_ : array-like, shape (n_samples)</span>
+<span class="sd">        Cluster labels for each sample in the fitted data.</span>
+
+<span class="sd">    embedding_ : array-like, shape (n_samples, n_clusters)</span>
+<span class="sd">        The final spectral representation of the data to be used as input</span>
+<span class="sd">        for the KMeans clustering step.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Multi-view spectral clustering adapts the spectral clustering algorithm</span>
+<span class="sd">    to applications where more than one view of data is available. This</span>
+<span class="sd">    algorithm relies on the basic assumptions of the co-training, which are:</span>
+<span class="sd">    (a) Sufficiency: each view is sufficient for classification on its own,</span>
+<span class="sd">    (b) Compatibility: the target functions in both views predict the same</span>
+<span class="sd">    labels for co-occurring features with high probability, and (c)</span>
+<span class="sd">    Conditional independence: the views are conditionally independent given</span>
+<span class="sd">    the class labels. In contrast to multi-view k-means clustering,</span>
+<span class="sd">    multi-view spectral clustering performs well on arbitrary shaped clusters,</span>
+<span class="sd">    and can therefore be readily used in applications where clusters are not</span>
+<span class="sd">    expected to be convex. However multi-view spectral clustering tends to be</span>
+<span class="sd">    computationally expensive unless the similarity graph for the data is</span>
+<span class="sd">    sparse.</span>
+
+<span class="sd">    Multi-view spectral clustering works by using the spectral embedding</span>
+<span class="sd">    from one view to constrain the similarity graph in the other view. By</span>
+<span class="sd">    iteratively applying this procedure, the clustering of the two views</span>
+<span class="sd">    tend to each other. Here we outline the algorithm for the Multi-view</span>
+<span class="sd">    Spectral clustering algorithm for 2 views.</span>
+
+<span class="sd">    |</span>
+
+<span class="sd">    *Multi-view Spectral Clustering Algorithm (for 2 views)*</span>
+
+<span class="sd">    Input: Similarity matrix for both views: :math:`\mathbf{K}_1, \mathbf{K}_2`</span>
+
+<span class="sd">    Output: Assignments to k clusters</span>
+
+<span class="sd">    #. Initialize: :math:`\mathbf{L}_v = \mathbf{D}_v^{-1/2}</span>
+<span class="sd">       \mathbf{K}_v\mathbf{D}_v^{-1/2}` for :math:`v = 1, 2`</span>
+<span class="sd">       :math:`\mathbf{U}_v^0` is an :math:`n \times k` matrix with the</span>
+<span class="sd">       top k eigenvectors of :math:`\mathbf{L}_v` for :math:`v = 1, 2`</span>
+
+<span class="sd">    #. For :math:`i = 1` to iter:</span>
+
+<span class="sd">        a. :math:`\mathbf{S}_1 = sym(\mathbf{U}_2^{i-1}</span>
+<span class="sd">           {\mathbf{U}_2^{i-1}}^T\mathbf{K}_1)`</span>
+
+<span class="sd">        b. :math:`\mathbf{S}_2 = sym(\mathbf{U}_1^{i-1}</span>
+<span class="sd">           {\mathbf{U}_1^{i-1}}^T\mathbf{K}_2)`</span>
+
+<span class="sd">        c. Use :math:`\mathbf{S}_1` and :math:`\mathbf{S}_2` as the new</span>
+<span class="sd">           graph similarities and compute the Laplacians. Solve for the</span>
+<span class="sd">           largest k eigenvectors to obtain :math:`\mathbf{U}_1^i` and</span>
+<span class="sd">           :math:`\mathbf{U}_2^i`.</span>
+
+<span class="sd">    #. Row-normalize :math:`\mathbf{U}_1^i` and :math:`\mathbf{U}_2^i`.</span>
+
+<span class="sd">    #. Form matrix :math:`\mathbf{V} = \mathbf{U}_v^i`, where :math:`v` is</span>
+<span class="sd">       believed to be the most informative view a priori. If there is no</span>
+<span class="sd">       prior knowledge on the view informativeness, matrix</span>
+<span class="sd">       :math:`\mathbf{V}` can also be set to the column-wise concatenation</span>
+<span class="sd">       of the two :math:`\mathbf{U}_v^i` s.</span>
+
+<span class="sd">    #. Assign example j to cluster c if the j-th row of :math:`\mathbf{V}`</span>
+<span class="sd">       is assigned to cluster c by the k-means algorithm.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [#1Clu] Abhishek Kumar and Hal Daumé. A Co-training Approach for</span>
+<span class="sd">            Multiview Spectral Clustering. In International Conference</span>
+<span class="sd">            on Machine Learning, 2011</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.datasets import load_UCImultifeature</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.cluster import MultiviewSpectralClustering</span>
+<span class="sd">    &gt;&gt;&gt; from sklearn.metrics import normalized_mutual_info_score as nmi_score</span>
+<span class="sd">    &gt;&gt;&gt; # Get 5-class data</span>
+<span class="sd">    &gt;&gt;&gt; data, labels = load_UCImultifeature(select_labeled = list(range(5)))</span>
+<span class="sd">    &gt;&gt;&gt; mv_data = data[:2]  # first 2 views only</span>
+<span class="sd">    &gt;&gt;&gt; mv_spectral = MultiviewSpectralClustering(n_clusters=5,</span>
+<span class="sd">    ...     random_state=10, n_init=100)</span>
+<span class="sd">    &gt;&gt;&gt; mv_clusters = mv_spectral.fit_predict(mv_data)</span>
+<span class="sd">    &gt;&gt;&gt; nmi = nmi_score(labels, mv_clusters)</span>
+<span class="sd">    &gt;&gt;&gt; print(&#39;{0:.3f}&#39;.format(nmi))</span>
+<span class="sd">    0.872</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">info_view</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">affinity</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span>
+                 <span class="n">gamma</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span> <span class="o">=</span> <span class="n">n_clusters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info_view</span> <span class="o">=</span> <span class="n">info_view</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span> <span class="o">=</span> <span class="n">max_iter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_init</span> <span class="o">=</span> <span class="n">n_init</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">affinity</span> <span class="o">=</span> <span class="n">affinity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">=</span> <span class="n">gamma</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">n_neighbors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">labels_</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embedding_</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">_affinity_mat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+
+        <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Computes the affinity matrix based on the selected</span>
+<span class="sd">        kernel type.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : array-like, shape (n_samples, n_features)</span>
+<span class="sd">            The data matrix from which we will compute the</span>
+<span class="sd">            affinity matrix.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        sims : array-like, shape (n_samples, n_samples)</span>
+<span class="sd">            The resulting affinity kernel.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="n">sims</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># If gamma is None, then compute default gamma value for this view</span>
+        <span class="n">gamma</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">distances</span> <span class="o">=</span> <span class="n">cdist</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+            <span class="n">gamma</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">distances</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="c1"># Produce the affinity matrix based on the selected kernel type</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">affinity</span> <span class="o">==</span> <span class="s1">&#39;rbf&#39;</span><span class="p">):</span>
+            <span class="n">sims</span> <span class="o">=</span> <span class="n">rbf_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">)</span>
+        <span class="k">elif</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">affinity</span> <span class="o">==</span> <span class="s1">&#39;nearest_neighbors&#39;</span><span class="p">):</span>
+            <span class="n">neighbor</span> <span class="o">=</span> <span class="n">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_neighbors</span><span class="p">)</span>
+            <span class="n">neighbor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+            <span class="n">sims</span> <span class="o">=</span> <span class="n">neighbor</span><span class="o">.</span><span class="n">kneighbors_graph</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sims</span> <span class="o">=</span> <span class="n">polynomial_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">sims</span>
+
+    <span class="k">def</span> <span class="nf">_compute_eigs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+
+        <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Computes the top several eigenvectors of the</span>
+<span class="sd">        normalized graph laplacian of a given similarity matrix.</span>
+<span class="sd">        The number of eigenvectors returned is equal to n_clusters.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : array-like, shape(n_samples, n_samples)</span>
+<span class="sd">            The similarity matrix for the data in a single view.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        la_eigs : array-like, shape(n_samples, n_clusters)</span>
+<span class="sd">            The top n_cluster eigenvectors of the normalized graph</span>
+<span class="sd">            laplacian.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="c1"># Compute the normalized laplacian</span>
+        <span class="n">d_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="c1"># Double check why we take absolute value of d_mat</span>
+        <span class="n">d_alt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">d_mat</span><span class="p">)))</span>
+        <span class="n">laplacian</span> <span class="o">=</span> <span class="n">d_alt</span> <span class="o">@</span> <span class="n">X</span> <span class="o">@</span> <span class="n">d_alt</span>
+
+        <span class="c1"># Make the resulting matrix symmetric</span>
+        <span class="n">laplacian</span> <span class="o">=</span> <span class="p">(</span><span class="n">laplacian</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">laplacian</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span>
+
+        <span class="c1"># Obtain the top n_cluster eigenvectors of the laplacian</span>
+        <span class="n">u_mat</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svds</span><span class="p">(</span><span class="n">laplacian</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">)</span>
+        <span class="n">la_eigs</span> <span class="o">=</span> <span class="n">u_mat</span><span class="p">[:,</span> <span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">la_eigs</span>
+
+    <span class="k">def</span> <span class="nf">_param_checks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">):</span>
+
+        <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Performs bulk of checks and exception handling for</span>
+<span class="sd">        inputted user parameters.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+
+<span class="sd">            This list must be of size n_views, corresponding to the number</span>
+<span class="sd">            of views of data. Each view can have a different number of</span>
+<span class="sd">            features, but they must have the same number of samples.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+
+<span class="sd">        The data in the appropriate format.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Xs must have at least 2 views&#39;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_views</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;n_clusters must be a positive integer&#39;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;random_state must be convertible to 32 bit unsigned integer&#39;</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">info_view</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info_view</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span>
+                    <span class="p">(</span><span class="bp">self</span><span class="o">.</span> <span class="n">info_view</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">info_view</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_views</span><span class="p">)):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;info_view must be an integer between 0 and n_clusters-1&#39;</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;max_iter must be a positive integer&#39;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_init</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_init</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;n_init must be a positive integer&#39;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">affinity</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">AFFINITY_METRICS</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;affinity must be a valid affinity metric&#39;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">((</span><span class="nb">isinstance</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>
+                                           <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;gamma must be a positive float&#39;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_neighbors</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_neighbors</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;n_neighbors must be a positive integer&#39;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Xs</span>
+
+<div class="viewcode-block" id="MultiviewSpectralClustering.fit"><a class="viewcode-back" href="../../../references/cluster.html#mvlearn.cluster.MultiviewSpectralClustering.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Performs clustering on the multiple views of data.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+
+<span class="sd">            This list must be of size n_views, corresponding to the number</span>
+<span class="sd">            of views of data. Each view can have a different number of</span>
+<span class="sd">            features, but they must have the same number of samples.</span>
+
+<span class="sd">        y : Ignored</span>
+<span class="sd">            Not used, present for API consistency by convention.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : returns an instance of self.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="c1"># Perform checks on the data and inputted parameters</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_param_checks</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+
+        <span class="c1"># Compute the similarity matrices</span>
+        <span class="n">sims</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_affinity_mat</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span><span class="p">]</span>
+
+        <span class="c1"># Initialize matrices of eigenvectors</span>
+        <span class="n">U_mats</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_compute_eigs</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span> <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="n">sims</span><span class="p">]</span>
+
+        <span class="c1"># Iteratively compute new graph similarities, laplacians,</span>
+        <span class="c1"># and eigenvectors</span>
+        <span class="k">for</span> <span class="nb">iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="p">):</span>
+
+            <span class="c1"># Compute the sums of the products of the spectral embeddings</span>
+            <span class="c1"># and their transposes</span>
+            <span class="n">eig_sums</span> <span class="o">=</span> <span class="p">[</span><span class="n">u_mat</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">u_mat</span><span class="p">)</span> <span class="k">for</span> <span class="n">u_mat</span> <span class="ow">in</span> <span class="n">U_mats</span><span class="p">]</span>
+            <span class="n">U_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">eig_sums</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">new_sims</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+            <span class="k">for</span> <span class="n">view</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_views</span><span class="p">):</span>
+                <span class="c1"># Compute new graph similarity representation</span>
+                <span class="n">mat1</span> <span class="o">=</span> <span class="n">sims</span><span class="p">[</span><span class="n">view</span><span class="p">]</span> <span class="o">@</span> <span class="p">(</span><span class="n">U_sum</span> <span class="o">-</span> <span class="n">eig_sums</span><span class="p">[</span><span class="n">view</span><span class="p">])</span>
+                <span class="n">mat1</span> <span class="o">=</span> <span class="p">(</span><span class="n">mat1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">mat1</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span>
+                <span class="n">new_sims</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span>
+                <span class="c1"># Recompute eigenvectors</span>
+                <span class="n">U_mats</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_compute_eigs</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
+                          <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="n">new_sims</span><span class="p">]</span>
+
+        <span class="c1"># Row normalize</span>
+        <span class="k">for</span> <span class="n">view</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_views</span><span class="p">):</span>
+            <span class="n">U_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">U_mats</span><span class="p">[</span><span class="n">view</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="n">U_norm</span><span class="p">[</span><span class="n">U_norm</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">U_mats</span><span class="p">[</span><span class="n">view</span><span class="p">]</span> <span class="o">/=</span> <span class="n">U_norm</span>
+
+        <span class="c1"># Performing k-means clustering</span>
+        <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_init</span><span class="p">,</span>
+                        <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">info_view</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Use a single view if one was previously designated</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">embedding_</span> <span class="o">=</span> <span class="n">U_mats</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">info_view</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">labels_</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embedding_</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Otherwise, perform columwise concatenation across views</span>
+            <span class="c1"># and use result for clustering</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">embedding_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">U_mats</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">labels_</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embedding_</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019-2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<p style="text-align: center; margin: .5rem;">
+    <a href="https://www.netlify.com">
+        <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
+    </a>
+</p>
+ 
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

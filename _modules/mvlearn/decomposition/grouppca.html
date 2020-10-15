@@ -1,0 +1,754 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mvlearn.decomposition.grouppca &mdash; mvlearn alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../install.html#including-optional-torch-dependencies-for-full-functionality">Including optional torch dependencies for full functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#python-package-dependencies">Python package dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#hardware-requirements">Hardware requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#os-requirements">OS Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Examples Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-cluster">Examples on cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-datasets">Examples on datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-decomposition">Examples on decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/pipeline/plot_pipeline_sklearn_integration.html">Integrating mvlearn with scikit-learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-plotting">Examples on plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../references/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/cluster.html">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spectral-clustering">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#co-regularized-multiview-spectral-clustering">Co-Regularized Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-k-means">Multiview K Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spherical-k-means">Multiview Spherical K Means</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/semi_supervised.html">Semi-Supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-classifier">Cotraining Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-regressor">Cotraining Regressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dcca-utilities">DCCA Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dimension-selection">Dimension Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/decomposition.html">Decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#multiview-ica">Multiview ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#permutation-ica">Permutation ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-ica">Group ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-pca">Group PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/construct.html">View Construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-gaussian-projection">Random Gaussian Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-subspace-method">Random Subspace Method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/model_selection.html">Model Selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/model_selection.html#cross-validation">Cross Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/compose.html">Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#averagemerger">AverageMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#concatmerger">ConcatMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#simplesplitter">SimpleSplitter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/preprocessing.html">Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/preprocessing.html#viewtransformer">ViewTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/datasets.html">Multiview Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#data-simulator">Data Simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/plotting.html">Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#quick-visualize">Quick Visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#crossviews-plot">Crossviews Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/utils.html#io">IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to mvlearn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#how-to-make-a-good-bug-report">How to make a good bug report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#contributing-code">Contributing Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#pull-request-checklist">Pull Request Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#coding-guidelines">Coding Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#docstring-guidelines">Docstring Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#api-of-mvlearn-objects">API of mvlearn Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#estimators">Estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#additional-functionality">Additional Functionality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id1">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id4">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id9">mvlearn.preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#patch-0-2-1">Patch 0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-2-0">Version 0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-1-0">Version 0.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Useful Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mvlearn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvlearn.decomposition.grouppca</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvlearn.decomposition.grouppca</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Group Principal Component Analysis.&quot;&quot;&quot;</span>
+<span class="c1"># Copyright 2019 NeuroData (http://neurodata.io)</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1"># Authors: Pierre Ablin, Hugo Richard</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span>
+
+
+<span class="kn">from</span> <span class="nn">..utils.utils</span> <span class="kn">import</span> <span class="n">check_Xs</span>
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseDecomposer</span>
+
+
+<div class="viewcode-block" id="GroupPCA"><a class="viewcode-back" href="../../../references/decomposition.html#mvlearn.decomposition.GroupPCA">[docs]</a><span class="k">class</span> <span class="nc">GroupPCA</span><span class="p">(</span><span class="n">BaseDecomposer</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Group Principal Component Analysis.</span>
+
+<span class="sd">    As an optional preprocessing, each dataset in `Xs` is reduced with</span>
+<span class="sd">    usual PCA. Then, datasets are concatenated in the features direction,</span>
+<span class="sd">    and a PCA is performed on this matrix, yielding a single output dataset.</span>
+<span class="sd">    Linear coefficients linking the output dataset and each view are computed</span>
+<span class="sd">    using least squares estimation, which permits to return one dataset per</span>
+<span class="sd">    view.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_components : int, optional</span>
+<span class="sd">        Number of components to extract. If None, n_components is set to</span>
+<span class="sd">        the minimum number of features in the dataset.</span>
+
+<span class="sd">    n_individual_components : int or list of int or &#39;auto&#39;, optional</span>
+<span class="sd">        The number of individual components to extract as a preprocessing.</span>
+<span class="sd">        If None, no preprocessing is applied. If an `int`, each dataset</span>
+<span class="sd">        is reduced to this dimension. If a list, the dataset `i` is</span>
+<span class="sd">        reduced to the dimension `n_individual_components[i]`.</span>
+<span class="sd">        If `&#39;auto&#39;`, set to the minimum between n_components and the</span>
+<span class="sd">        smallest number of features in each dataset.</span>
+
+<span class="sd">    multiview_output : bool, optional (default True)</span>
+<span class="sd">        If True, the `.transform` method returns one dataset per view.</span>
+<span class="sd">        Otherwise, it returns one dataset, of shape (n_samples, n_components)</span>
+
+<span class="sd">    prewhiten : bool, optional (default False)</span>
+<span class="sd">        Whether the data should be whitened after the original preprocessing.</span>
+
+<span class="sd">    whiten : bool, optional (default False)</span>
+<span class="sd">        When True (False by default) the `components_` vectors are multiplied</span>
+<span class="sd">        by the square root of n_samples and then divided by the singular values</span>
+<span class="sd">        to ensure uncorrelated outputs with unit component-wise variances.</span>
+<span class="sd">        Whitening will remove some information from the transformed signal</span>
+<span class="sd">        (the relative variance scales of the components) but can sometime</span>
+<span class="sd">        improve the predictive accuracy of the downstream estimators by</span>
+<span class="sd">        making their data respect some hard-wired assumptions.</span>
+
+<span class="sd">    random_state : int, RandomState instance, default=None</span>
+<span class="sd">        Used when ``svd_solver`` == &#39;arpack&#39; or &#39;randomized&#39;. Pass an int</span>
+<span class="sd">        for reproducible results across multiple function calls.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    components_ : array, shape (n_components, n_total_features)</span>
+<span class="sd">        Principal axes in feature space, representing the directions of</span>
+<span class="sd">        maximum variance in the data. The components are sorted by</span>
+<span class="sd">        ``explained_variance_``. `n_total_features` is the sum of all</span>
+<span class="sd">        the number of input features.</span>
+
+<span class="sd">    explained_variance_ : array, shape (n_components,)</span>
+<span class="sd">        The amount of variance explained by each of the selected components.</span>
+
+<span class="sd">    explained_variance_ratio_ : array, shape (n_components,)</span>
+<span class="sd">        Percentage of variance explained by each of the selected components.</span>
+<span class="sd">        If ``n_components`` is not set then all components are stored and the</span>
+<span class="sd">        sum of the ratios is equal to 1.0.</span>
+
+<span class="sd">    individual_components_ : list of array</span>
+<span class="sd">        Individual components for each individual PCA.</span>
+<span class="sd">        `individual_components_[i]` is an array of shape</span>
+<span class="sd">        (n_individual_components, n_features) where n_features is the number of</span>
+<span class="sd">        features in the dataset `i`.</span>
+
+<span class="sd">    individual_explained_variance_ : list of array</span>
+<span class="sd">        Individual explained variance for each individual PCA.</span>
+<span class="sd">        `individual_explained_variance_[i]` is an array of shape</span>
+<span class="sd">        (n_individual_components, ).</span>
+
+<span class="sd">    individual_explained_variance_ratio_ : list of array</span>
+<span class="sd">        Individual explained variance ratio for each individual PCA.</span>
+<span class="sd">        `individual_explained_variance_ratio_[i]` is an array of shape</span>
+<span class="sd">        (n_individual_components, ) where n_features is the number of</span>
+<span class="sd">        features in the dataset `i`.</span>
+
+<span class="sd">    individual_mean_ : list of array</span>
+<span class="sd">        Mean of each dataset, estimated on the training data</span>
+<span class="sd">        `individual_mean_[i]` is an array of shape</span>
+<span class="sd">        (n_features) where n_features is the number of</span>
+<span class="sd">        features in the dataset `i`.</span>
+
+<span class="sd">    individual_projections_ : list of array</span>
+<span class="sd">        List containing the linear transform linking the dataset to the output.</span>
+<span class="sd">        Xs[i].dot(individual_projections_[i].T) gives the estimated reduced</span>
+<span class="sd">        dataset for view i. This is obtained by least squares estimation.</span>
+
+<span class="sd">    individual_embeddings_ : list of array</span>
+<span class="sd">       List containing the pseudo-inverses of individual_projections_.</span>
+<span class="sd">       Allows to recover each original dataset from reduced data.</span>
+
+<span class="sd">    n_components_ : int</span>
+<span class="sd">        The estimated number of components.</span>
+
+<span class="sd">    n_features_ : list of int</span>
+<span class="sd">        Number of features in each training dataset.</span>
+
+<span class="sd">    n_samples_ : int</span>
+<span class="sd">        Number of samples in the training data.</span>
+
+<span class="sd">    n_views_ : int</span>
+<span class="sd">        Number of views in the training data</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [#1grouppca] Calhoun, Vince, et al. &quot;A method for making group</span>
+<span class="sd">                    inferences from functional MRI data using independent</span>
+<span class="sd">                    component analysis.&quot;</span>
+<span class="sd">                    Human brain mapping 14.3 (2001): 140-151.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.datasets import load_UCImultifeature</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.decomposition import GroupPCA</span>
+<span class="sd">    &gt;&gt;&gt; Xs, _ = load_UCImultifeature()</span>
+<span class="sd">    &gt;&gt;&gt; pca = GroupPCA(n_components=3)</span>
+<span class="sd">    &gt;&gt;&gt; Xs_transformed = pca.fit_transform(Xs)</span>
+<span class="sd">    &gt;&gt;&gt; print(len(Xs_transformed))</span>
+<span class="sd">    6</span>
+<span class="sd">    &gt;&gt;&gt; print(Xs_transformed[0].shape)</span>
+<span class="sd">    (2000, 3)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">n_components</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">n_individual_components</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+        <span class="n">multiview_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">prewhiten</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">whiten</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">n_components</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_individual_components</span> <span class="o">=</span> <span class="n">n_individual_components</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">multiview_output</span> <span class="o">=</span> <span class="n">multiview_output</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prewhiten</span> <span class="o">=</span> <span class="n">prewhiten</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">whiten</span> <span class="o">=</span> <span class="n">whiten</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
+
+<div class="viewcode-block" id="GroupPCA.fit"><a class="viewcode-back" href="../../../references/decomposition.html#mvlearn.decomposition.GroupPCA.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fit  to the data.</span>
+
+<span class="sd">        This merges datasets together and reduces the dimensionality.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">             - Xs length: n_views</span>
+<span class="sd">             - Xs[i] shape: (n_samples, n_features_i)</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            Ignored variable.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+<span class="sd">            Returns the instance itself.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X_transformed</span><span class="p">,</span> <span class="n">n_views</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span>
+            <span class="n">Xs</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_dimensions</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_views_</span> <span class="o">=</span> <span class="n">n_views</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_features_</span> <span class="o">=</span> <span class="n">n_features</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_samples_</span> <span class="o">=</span> <span class="n">n_samples</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_components_</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_components_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_individual_components</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_individual_components_</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">n_components_</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_individual_components_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_individual_components</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_individual_components_</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">prewhiten</span><span class="p">:</span>
+            <span class="c1"># Still need to whiten data</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_individual_components_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_features_</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">individual_pca_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_individual_components_</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">individual_mean_</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_pca_</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_individual_components_</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+                <span class="n">one_dimension</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">one_dimension</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">individual_components_</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">individual_explained_variance_</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">individual_explained_variance_ratio_</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">X</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">Xs</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">one_dimension</span><span class="p">:</span>
+                    <span class="n">dimension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_individual_components_</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">dimension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_individual_components_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span>
+                    <span class="n">dimension</span><span class="p">,</span>
+                    <span class="n">whiten</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">prewhiten</span><span class="p">,</span>
+                    <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">X_transformed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">individual_components_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">individual_explained_variance_ratio_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">individual_explained_variance_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_</span>
+                <span class="p">)</span>
+        <span class="n">X_stack</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">X_transformed</span><span class="p">)</span>
+        <span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components_</span><span class="p">,</span> <span class="n">whiten</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">whiten</span><span class="p">)</span>
+        <span class="n">X_transformed</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_stack</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">individual_projections_</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">individual_embeddings_</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">transformed_pinv</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">X_transformed</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">mean</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_mean_</span><span class="p">):</span>
+            <span class="n">lstq_solution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">transformed_pinv</span><span class="p">,</span> <span class="n">X</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">individual_projections_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">lstq_solution</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">individual_embeddings_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lstq_solution</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">components_</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">components_</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">explained_variance_</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">explained_variance_ratio_</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="GroupPCA.transform"><a class="viewcode-back" href="../../../references/decomposition.html#mvlearn.decomposition.GroupPCA.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Apply groupPCA to Xs.</span>
+
+<span class="sd">        Xs is projected on the principal components learned</span>
+<span class="sd">        from the training set.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs: list of array-likes</span>
+<span class="sd">            - Xs shape: (n_views,)</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            Ignored variable.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        X_transformed : list of array-likes or numpy.ndarray</span>
+<span class="sd">            The transformed data.</span>
+<span class="sd">            If `multiview_output` is True, it is a list with the estimated</span>
+<span class="sd">            individual principal components.</span>
+<span class="sd">            If `multiview_output` is False, it is a single array containing the</span>
+<span class="sd">            shared principal components.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">multiview_output</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">mean</span><span class="p">,</span> <span class="n">W</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">W</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">mean</span> <span class="ow">in</span> <span class="p">(</span>
+                    <span class="nb">zip</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">individual_projections_</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_mean_</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_pca_</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">components_</span><span class="p">,</span> <span class="n">explained_variance_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+                <span class="nb">zip</span><span class="p">(</span>
+                    <span class="n">Xs</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">individual_mean_</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">individual_components_</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">individual_explained_variance_</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">):</span>
+                <span class="n">X</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">mean</span>
+                <span class="n">X_transformed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">components_</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">prewhiten</span><span class="p">:</span>
+                    <span class="n">X_transformed</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">explained_variance_</span><span class="p">)</span>
+                <span class="n">Xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_transformed</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">X</span> <span class="o">-</span> <span class="n">mean</span> <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">mean</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_mean_</span><span class="p">)]</span>
+        <span class="n">X_stack</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+        <span class="n">X_transformed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_stack</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">components_</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">whiten</span><span class="p">:</span>
+            <span class="n">X_transformed</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">explained_variance_</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">X_transformed</span></div>
+
+<div class="viewcode-block" id="GroupPCA.inverse_transform"><a class="viewcode-back" href="../../../references/decomposition.html#mvlearn.decomposition.GroupPCA.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_transformed</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Recover multiview data from transformed data.</span>
+
+<span class="sd">        Returns an array Xs such that the transform of Xs would be</span>
+<span class="sd">        X_transformed</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X_transformed : list of array-likes or numpy.ndarray</span>
+<span class="sd">            The dataset corresponding to transformed data</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xs : list of arrays</span>
+<span class="sd">            The recovered individual datasets</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">multiview_output</span><span class="p">:</span>
+            <span class="n">X_transformed</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">X_transformed</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">[</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="n">mean</span>
+                <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">mean</span> <span class="ow">in</span> <span class="p">(</span>
+                    <span class="nb">zip</span><span class="p">(</span>
+                        <span class="n">X_transformed</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">individual_embeddings_</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">individual_mean_</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">]</span>
+        <span class="c1"># Inverse stacked PCA</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">whiten</span><span class="p">:</span>
+            <span class="n">X_t</span> <span class="o">=</span> <span class="n">X_transformed</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">explained_variance_</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">X_t</span> <span class="o">=</span> <span class="n">X_transformed</span>
+        <span class="n">X_stack</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">components_</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_pca_</span><span class="p">:</span>
+            <span class="n">Xs</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">cur_p</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">components_</span><span class="p">,</span> <span class="n">explained_variance_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">individual_mean_</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">individual_components_</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">individual_explained_variance_</span><span class="p">,</span>
+            <span class="p">):</span>
+                <span class="n">n_features_i</span> <span class="o">=</span> <span class="n">components_</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">sl</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">cur_p</span><span class="p">,</span> <span class="n">cur_p</span> <span class="o">+</span> <span class="n">n_features_i</span><span class="p">)</span>
+                <span class="n">X_i</span> <span class="o">=</span> <span class="n">X_stack</span><span class="p">[:,</span> <span class="n">sl</span><span class="p">]</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">prewhiten</span><span class="p">:</span>
+                    <span class="n">X_i</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">explained_variance_</span><span class="p">)</span>
+                <span class="n">X_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_i</span><span class="p">,</span> <span class="n">components_</span><span class="p">)</span>
+                <span class="n">X_i</span> <span class="o">=</span> <span class="n">X_i</span> <span class="o">+</span> <span class="n">mean</span>
+                <span class="n">Xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X_i</span><span class="p">)</span>
+                <span class="n">cur_p</span> <span class="o">+=</span> <span class="n">n_features_i</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X_stack</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_features_</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">Xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">X</span> <span class="o">+</span> <span class="n">mean</span> <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">mean</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_mean_</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">Xs</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019-2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<p style="text-align: center; margin: .5rem;">
+    <a href="https://www.netlify.com">
+        <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
+    </a>
+</p>
+ 
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

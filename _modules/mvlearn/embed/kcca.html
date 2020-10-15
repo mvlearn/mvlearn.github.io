@@ -1,0 +1,1027 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mvlearn.embed.kcca &mdash; mvlearn alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../install.html#including-optional-torch-dependencies-for-full-functionality">Including optional torch dependencies for full functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#python-package-dependencies">Python package dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#hardware-requirements">Hardware requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#os-requirements">OS Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Examples Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-cluster">Examples on cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-datasets">Examples on datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-decomposition">Examples on decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/pipeline/plot_pipeline_sklearn_integration.html">Integrating mvlearn with scikit-learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-plotting">Examples on plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../references/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/cluster.html">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spectral-clustering">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#co-regularized-multiview-spectral-clustering">Co-Regularized Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-k-means">Multiview K Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spherical-k-means">Multiview Spherical K Means</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/semi_supervised.html">Semi-Supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-classifier">Cotraining Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-regressor">Cotraining Regressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dcca-utilities">DCCA Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dimension-selection">Dimension Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/decomposition.html">Decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#multiview-ica">Multiview ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#permutation-ica">Permutation ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-ica">Group ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-pca">Group PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/construct.html">View Construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-gaussian-projection">Random Gaussian Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-subspace-method">Random Subspace Method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/model_selection.html">Model Selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/model_selection.html#cross-validation">Cross Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/compose.html">Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#averagemerger">AverageMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#concatmerger">ConcatMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#simplesplitter">SimpleSplitter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/preprocessing.html">Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/preprocessing.html#viewtransformer">ViewTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/datasets.html">Multiview Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#data-simulator">Data Simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/plotting.html">Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#quick-visualize">Quick Visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#crossviews-plot">Crossviews Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/utils.html#io">IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to mvlearn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#how-to-make-a-good-bug-report">How to make a good bug report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#contributing-code">Contributing Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#pull-request-checklist">Pull Request Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#coding-guidelines">Coding Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#docstring-guidelines">Docstring Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#api-of-mvlearn-objects">API of mvlearn Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#estimators">Estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#additional-functionality">Additional Functionality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id1">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id4">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id9">mvlearn.preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#patch-0-2-1">Patch 0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-2-0">Version 0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-1-0">Version 0.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Useful Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mvlearn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvlearn.embed.kcca</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvlearn.embed.kcca</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2019 NeuroData (http://neurodata.io)</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+<span class="c1"># Adopted from Steven Van Vaerenbergh&#39;s MATLAB Package &#39;KMBOX&#39;</span>
+<span class="c1"># https://github.com/steven2358/kmbox</span>
+
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseEmbed</span>
+<span class="kn">from</span> <span class="nn">..utils.utils</span> <span class="kn">import</span> <span class="n">check_Xs</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy.matlib</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">f</span><span class="p">,</span> <span class="n">chi2</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">euclidean_distances</span>
+
+
+<div class="viewcode-block" id="KCCA"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.KCCA">[docs]</a><span class="k">class</span> <span class="nc">KCCA</span><span class="p">(</span><span class="n">BaseEmbed</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The kernel canonical correlation analysis (KCCA) is a method</span>
+<span class="sd">    that generalizes the classical linear canonical correlation</span>
+<span class="sd">    analysis (CCA) to nonlinear setting.  It allows us to depict the</span>
+<span class="sd">    nonlinear relation of two sets of variables and enables</span>
+<span class="sd">    applications of classical multivariate data analysis</span>
+<span class="sd">    originally constrained to linearity relation (CCA).</span>
+
+<span class="sd">    If the linear kernel is used, this is equivalent to CCA.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_components : int, default = 2</span>
+<span class="sd">        Number of canonical dimensions to keep</span>
+<span class="sd">    ktype : string, default = &#39;linear&#39;</span>
+<span class="sd">        Type of kernel. If &#39;linear&#39;, KCCA is equivalent to CCA.</span>
+<span class="sd">        - value can be &#39;linear&#39;, &#39;gaussian&#39; or &#39;poly&#39;</span>
+<span class="sd">    constant : float, default = 1.0</span>
+<span class="sd">        Balances impact of lower-degree terms in Polynomial kernel</span>
+<span class="sd">    sigma : float, default = 1.0</span>
+<span class="sd">        Standard deviation of Gaussian kernel</span>
+<span class="sd">    degree : float, default = 2.0</span>
+<span class="sd">        Degree of Polynomial kernel</span>
+<span class="sd">    reg : float, default = 0.1</span>
+<span class="sd">        Regularization parameter</span>
+<span class="sd">    decomp : string, default = &#39;full&#39;</span>
+<span class="sd">        Decomposition type. Incomplete Cholesky Decomposition (ICD)</span>
+<span class="sd">        can reduce computation times and storage</span>
+<span class="sd">        - value can be &#39;full&#39; or &#39;icd&#39;</span>
+<span class="sd">    method : string, default = &#39;kettenring-like&#39;</span>
+<span class="sd">        Decomposition method</span>
+<span class="sd">        - value can be only be &#39;kettenring-like&#39;</span>
+<span class="sd">    mrank : int, default = 2</span>
+<span class="sd">        The rank of the ICD approximated kernel matrix</span>
+<span class="sd">    precision: float, default = 0.000001</span>
+<span class="sd">        Precision of computing the ICD kernel matrix</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    weights_ : list of array-likes</span>
+<span class="sd">        Canonical weights for each view.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This class implements kernel canonical correlation analysis</span>
+<span class="sd">    as described in [#1KCCA]_ and [#2KCCA]_.</span>
+
+<span class="sd">    Traditional CCA aims to find useful projections of the</span>
+<span class="sd">    high- dimensional variable sets onto the compact</span>
+<span class="sd">    linear representations, the canonical components (components_).</span>
+
+<span class="sd">    Each resulting canonical variate is computed from</span>
+<span class="sd">    the weighted sum of every original variable indicated</span>
+<span class="sd">    by the canonical weights (weights_).</span>
+
+<span class="sd">    The canonical correlation quantifies the linear</span>
+<span class="sd">    correspondence between the two views of data</span>
+<span class="sd">    based on Pearson’s correlation between their</span>
+<span class="sd">    canonical components.</span>
+
+<span class="sd">    Canonical correlation can be seen as a metric of</span>
+<span class="sd">    successful joint information reduction between two views</span>
+<span class="sd">    and, therefore, routinely serves as a performance measure for CCA.</span>
+
+<span class="sd">    CCA may not extract useful descriptors of the data because of</span>
+<span class="sd">    its linearity. kCCA offers an alternative solution by first</span>
+<span class="sd">    projecting the data onto a higher dimensional feature space.</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \phi: \mathbf{x} = (x_1,...,x_m) \mapsto</span>
+<span class="sd">        \phi(\mathbf{x}) = (\phi(x_1),...,\phi(x_N)),</span>
+<span class="sd">        (m &lt; N)</span>
+
+<span class="sd">    before performing CCA in the new feature space.</span>
+
+<span class="sd">    Kernels are methods of implicitly mapping data into a higher</span>
+<span class="sd">    dimensional feature space, a method known as the kernel trick.</span>
+<span class="sd">    A kernel function K, such that for all :math:`\mathbf{x},</span>
+<span class="sd">    \mathbf{z} \in X`,</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        K(\mathbf{x}, \mathbf{z}) = \langle\phi(\mathbf{x})</span>
+<span class="sd">        \cdot \phi(\mathbf{z})\rangle,</span>
+
+<span class="sd">    where :math:`\phi` is a mapping from X to feature space F.</span>
+
+<span class="sd">    The directions :math:`\mathbf{w_x}` and :math:`\mathbf{w_y}`</span>
+<span class="sd">    (of length N) can be rewritten as the projection of the data</span>
+<span class="sd">    onto the direction :math:`\alpha` and :math:`\beta`</span>
+<span class="sd">    (of length m):</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \mathbf{w_x} = X&#39;\alpha</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \mathbf{w_y} = Y&#39;\beta</span>
+
+<span class="sd">    Letting :math:`K_x = XX&#39;` and :math:`K_x = XX&#39;` be the kernel</span>
+<span class="sd">    matrices and adding a regularization term (:math:`\kappa`)</span>
+<span class="sd">    to prevent overfitting, we are effectively solving for:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \rho = \underset{\alpha,\beta}{\text{max}}</span>
+<span class="sd">        \frac{\alpha&#39;K_xK_y\beta}</span>
+<span class="sd">        {\sqrt{(\alpha&#39;K_x^2\alpha+\kappa\alpha&#39;K_x\alpha)</span>
+<span class="sd">        \cdot (\beta&#39;K_y^2\beta + \kappa\beta&#39;K_y\beta)}}</span>
+
+<span class="sd">    Kernel matrices grow exponentially with the size of data. They not only</span>
+<span class="sd">    have to store :math:`n^2` elements, but also face the complexity of matrix</span>
+<span class="sd">    eigenvalue problems. In a Cholesky decomposition a positive definite</span>
+<span class="sd">    matrix A is decomposed to a lower triangular matrix :math:`L` :</span>
+<span class="sd">    :math:`A = LL&#39;`.</span>
+
+<span class="sd">    The Incomplete Cholesky Decomposition (ICD) looks for a low rank</span>
+<span class="sd">    approximation of :math:`L` to reduce the cost of operations of the matrix</span>
+<span class="sd">    such that :math:`A $\approx$ $\tilde{L}$$\tilde{L}$&#39;`. The algorithm skips</span>
+<span class="sd">    a column if its diagonal element is small. The diagonal elements to the</span>
+<span class="sd">    right of the column being updated are also updated. To select a column to</span>
+<span class="sd">    update, it finds the largest diagonal element and pivots the element to</span>
+<span class="sd">    the current diagonal by exchanging the corresponding rows and columns. The</span>
+<span class="sd">    algorithm ends when all diagonal elemnts are below a specified accuracy.</span>
+
+<span class="sd">    ICD with rank :math:`m` yields storage requirements of :math:`O(mn)`</span>
+<span class="sd">    instead of :math:`O(n^2)` and becomes :math:`O(nm^2)` instead of</span>
+<span class="sd">    :math:`O(n^3)` [#3KCCA]_. Unlike full decomposition, ICD cannot be</span>
+<span class="sd">    performed out of sample i.e you must fit and transform on the same data.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [#1KCCA] D. R. Hardoon, S. Szedmak and J. Shawe-Taylor,</span>
+<span class="sd">            &quot;Canonical Correlation Analysis: An Overview with</span>
+<span class="sd">            Application to Learning Methods&quot;, Neural Computation,</span>
+<span class="sd">            Volume 16 (12), Pages 2639--2664, 2004.</span>
+<span class="sd">    .. [#2KCCA] J. R. Kettenring, “Canonical analysis of several sets of</span>
+<span class="sd">            variables,”Biometrika, vol.58, no.3, pp.433–451,1971.</span>
+<span class="sd">    .. [#3KCCA] M. I. Jordan, &quot;Regularizing KCCA, Cholesky Decomposition&quot;,</span>
+<span class="sd">            Lecture 9 Notes: CS281B/Stat241B, University of California,</span>
+<span class="sd">            Berkeley.</span>
+
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.embed.kcca import KCCA</span>
+<span class="sd">    &gt;&gt;&gt; np.random.seed(1)</span>
+<span class="sd">    &gt;&gt;&gt; # Define two latent variables</span>
+<span class="sd">    &gt;&gt;&gt; N = 100</span>
+<span class="sd">    &gt;&gt;&gt; latvar1 = np.random.randn(N, )</span>
+<span class="sd">    &gt;&gt;&gt; latvar2 = np.random.randn(N, )</span>
+<span class="sd">    &gt;&gt;&gt; # Define independent components for each dataset</span>
+<span class="sd">    &gt;&gt;&gt; indep1 = np.random.randn(N, 3)</span>
+<span class="sd">    &gt;&gt;&gt; indep2 = np.random.randn(N, 4)</span>
+<span class="sd">    &gt;&gt;&gt; x = 0.25*indep1 + 0.75*np.vstack((latvar1, latvar2, latvar1)).T</span>
+<span class="sd">    &gt;&gt;&gt; y = 0.25*indep2 + 0.75*np.vstack((latvar1, latvar2,</span>
+<span class="sd">    ...                                   latvar1, latvar2)).T</span>
+<span class="sd">    &gt;&gt;&gt; Xs = [x, y]</span>
+<span class="sd">    &gt;&gt;&gt; Xs_train = [Xs[0][:80], Xs[1][:80]]</span>
+<span class="sd">    &gt;&gt;&gt; Xs_test = [Xs[0][80:], Xs[1][80:]]</span>
+<span class="sd">    &gt;&gt;&gt; kcca = KCCA(ktype =&quot;linear&quot;, n_components = 3,  reg = 0.01)</span>
+<span class="sd">    &gt;&gt;&gt; kcca.fit(Xs_train)</span>
+<span class="sd">    &gt;&gt;&gt; linear_transform = kcca.transform(Xs_test)</span>
+<span class="sd">    &gt;&gt;&gt; stats = kcca.get_stats()</span>
+<span class="sd">    &gt;&gt;&gt; # Print the correlations of first 3 transformed variates</span>
+<span class="sd">    &gt;&gt;&gt; # from the testing data</span>
+<span class="sd">    &gt;&gt;&gt; print(stats[&#39;r&#39;])</span>
+<span class="sd">    [0.85363047 0.91171037 0.06029391]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">ktype</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+        <span class="n">constant</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">sigma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">degree</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+        <span class="n">reg</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">decomp</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">,</span>
+        <span class="n">method</span><span class="o">=</span><span class="s1">&#39;kettenring-like&#39;</span><span class="p">,</span>
+        <span class="n">mrank</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">precision</span><span class="o">=</span><span class="mf">0.000001</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">n_components</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ktype</span> <span class="o">=</span> <span class="n">ktype</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constant</span> <span class="o">=</span> <span class="n">constant</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">degree</span> <span class="o">=</span> <span class="n">degree</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reg</span> <span class="o">=</span> <span class="n">reg</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decomp</span> <span class="o">=</span> <span class="n">decomp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mrank</span> <span class="o">=</span> <span class="n">mrank</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">precision</span> <span class="o">=</span> <span class="n">precision</span>
+
+        <span class="c1"># Error Handling</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_components must be a positive integer&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">ktype</span> <span class="o">!=</span> <span class="s2">&quot;linear&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ktype</span> <span class="o">!=</span> <span class="s2">&quot;poly&quot;</span><span class="p">)</span>
+                <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ktype</span> <span class="o">!=</span> <span class="s2">&quot;gaussian&quot;</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;ktype must be &#39;linear&#39;, &#39;gaussian&#39;, or &#39;poly&#39;.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span>
+                                  <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;sigma must be positive int/float&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;degree must be int/float&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reg</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;reg must be positive float&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">constant</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">constant</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span>
+                                     <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">constant</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;constant must be a positive integer&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">decomp</span> <span class="o">==</span> <span class="s2">&quot;icd&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrank</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mrank</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;mrank must be a positive integer&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">precision</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">precision</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;precision must be a positive float&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;kettenring-like&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;method must be &#39;kettenring-like&#39;&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="KCCA.fit"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.KCCA.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates kcca mapping by determining</span>
+<span class="sd">        canonical weghts from Xs.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">             - Xs length: n_views</span>
+<span class="sd">             - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            The data for kcca to fit to.</span>
+<span class="sd">            Each sample will receive its own embedding.</span>
+
+<span class="sd">        y : ignored</span>
+<span class="sd">            Included for API compliance.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : returns an instance of self</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">multiview</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">_center_norm</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="n">_center_norm</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">decomp</span> <span class="o">==</span> <span class="s2">&quot;full&quot;</span><span class="p">:</span>
+            <span class="n">N1</span> <span class="o">=</span> <span class="n">N</span>
+            <span class="n">Nl</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+            <span class="n">Nr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Y</span><span class="p">)</span>
+            <span class="n">N0l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">Nl</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">Nl</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">Nl</span><span class="p">)</span>
+            <span class="n">N0r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">Nr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">Nr</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">Nr</span><span class="p">)</span>
+
+            <span class="c1"># Compute kernel matrices</span>
+            <span class="n">Kx</span> <span class="o">=</span> <span class="n">_make_kernel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ktype</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">constant</span><span class="p">,</span>
+                              <span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">)</span>
+            <span class="n">Ky</span> <span class="o">=</span> <span class="n">_make_kernel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ktype</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">constant</span><span class="p">,</span>
+                              <span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">)</span>
+            <span class="n">Kx</span> <span class="o">=</span> <span class="n">N0l</span> <span class="o">@</span> <span class="n">Kx</span> <span class="o">@</span> <span class="n">N0r</span>
+            <span class="n">Ky</span> <span class="o">=</span> <span class="n">N0l</span> <span class="o">@</span> <span class="n">Ky</span> <span class="o">@</span> <span class="n">N0r</span>
+
+            <span class="n">Id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+            <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+
+            <span class="c1"># Method: Kettenring-like generalizable formulation</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;kettenring-like&quot;</span><span class="p">:</span>
+                <span class="n">R</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">Kx</span><span class="p">,</span> <span class="n">Ky</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">Kx</span><span class="p">,</span> <span class="n">Ky</span><span class="p">]]</span>
+                <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">Kx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">reg</span><span class="o">*</span><span class="n">Id</span><span class="p">,</span> <span class="n">Z</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">Z</span><span class="p">,</span> <span class="n">Ky</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">reg</span><span class="o">*</span><span class="n">Id</span><span class="p">]]</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">decomp</span> <span class="o">==</span> <span class="s2">&quot;icd&quot;</span><span class="p">:</span>
+
+            <span class="c1"># Compute the ICD kernel matrices</span>
+            <span class="n">G1</span> <span class="o">=</span> <span class="n">_make_icd_kernel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ktype</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">constant</span><span class="p">,</span>
+                                  <span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrank</span><span class="p">)</span>
+
+            <span class="n">G2</span> <span class="o">=</span> <span class="n">_make_icd_kernel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ktype</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">constant</span><span class="p">,</span>
+                                  <span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrank</span><span class="p">)</span>
+
+            <span class="c1"># Remove mean</span>
+            <span class="n">G1</span> <span class="o">=</span> <span class="n">G1</span> <span class="o">-</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matlib</span><span class="o">.</span><span class="n">repmat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">G1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">G2</span> <span class="o">=</span> <span class="n">G2</span> <span class="o">-</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matlib</span><span class="o">.</span><span class="n">repmat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">G2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+            <span class="c1"># Ones and Zeros</span>
+            <span class="n">N1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">G1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">N2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">G2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">Z12</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N1</span><span class="p">,</span> <span class="n">N2</span><span class="p">))</span>
+            <span class="n">I11</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N1</span><span class="p">)</span>
+            <span class="n">I22</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N2</span><span class="p">)</span>
+
+            <span class="n">minrank</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">N1</span><span class="p">,</span> <span class="n">N2</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">minrank</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">)</span>
+
+            <span class="c1"># Method: Kettenring-like generalizable formulation</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;kettenring-like&quot;</span><span class="p">:</span>
+                <span class="n">R</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">G1</span><span class="o">.</span><span class="n">T</span><span class="nd">@G1</span><span class="p">,</span> <span class="n">G1</span><span class="o">.</span><span class="n">T</span><span class="nd">@G2</span><span class="p">],</span>
+                              <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">G2</span><span class="o">.</span><span class="n">T</span><span class="nd">@G1</span><span class="p">,</span> <span class="n">G2</span><span class="o">.</span><span class="n">T</span><span class="nd">@G2</span><span class="p">]]</span>
+                <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">G1</span><span class="o">.</span><span class="n">T</span><span class="nd">@G1</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">reg</span><span class="o">*</span><span class="n">I11</span><span class="p">,</span> <span class="n">Z12</span><span class="p">],</span>
+                          <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">Z12</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">G2</span><span class="o">.</span><span class="n">T</span><span class="nd">@G2</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">reg</span><span class="o">*</span><span class="n">I22</span><span class="p">]]</span>
+
+        <span class="c1"># Solve eigenvalue problem</span>
+        <span class="n">betas</span><span class="p">,</span> <span class="n">alphas</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+
+        <span class="c1"># Top eigenvalues</span>
+        <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">betas</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">]</span>
+
+        <span class="c1"># Extract relevant coordinates and normalize to unit length</span>
+        <span class="n">weight1</span> <span class="o">=</span> <span class="n">alphas</span><span class="p">[:</span><span class="n">N1</span><span class="p">,</span> <span class="n">ind</span><span class="p">]</span>
+        <span class="n">weight2</span> <span class="o">=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">N1</span><span class="p">:,</span> <span class="n">ind</span><span class="p">]</span>
+
+        <span class="n">weight1</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">weight1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">weight2</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">weight2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">([</span><span class="n">weight1</span><span class="p">,</span> <span class="n">weight2</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="KCCA.transform"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.KCCA.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Uses KCCA weights to transform Xs into canonical components</span>
+<span class="sd">        and calculates correlations.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">             - Xs length: 2</span>
+<span class="sd">             - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            The data for kcca to fit to.</span>
+<span class="sd">            Each sample will receive its own embedding.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        components_ : returns Xs_transformed, a list of numpy.ndarray</span>
+<span class="sd">             - Xs length: 2</span>
+<span class="sd">             - Xs[i] shape: (n_samples, n_samples)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;weights_&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="s2">&quot;kCCA has not been trained.&quot;</span><span class="p">)</span>
+
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">multiview</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrix_ranks_</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                              <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">))]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_samples_</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">weight1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">weight2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">comp1</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">comp2</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">decomp</span> <span class="o">==</span> <span class="s2">&quot;full&quot;</span><span class="p">:</span>
+            <span class="n">Kx_transform</span> <span class="o">=</span> <span class="n">_make_kernel</span><span class="p">(</span><span class="n">_center_norm</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                                        <span class="n">_center_norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">),</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">ktype</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">constant</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">)</span>
+            <span class="n">Ky_transform</span> <span class="o">=</span> <span class="n">_make_kernel</span><span class="p">(</span><span class="n">_center_norm</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+                                        <span class="n">_center_norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Y</span><span class="p">),</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">ktype</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">constant</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">weight1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+                <span class="n">comp1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Kx_transform</span><span class="nd">@weight1</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
+                <span class="n">comp2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Ky_transform</span><span class="nd">@weight2</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">decomp</span> <span class="o">==</span> <span class="s2">&quot;icd&quot;</span><span class="p">:</span>
+            <span class="n">Kx_t_icd</span> <span class="o">=</span> <span class="n">_make_icd_kernel</span><span class="p">(</span><span class="n">_center_norm</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">ktype</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">constant</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">mrank</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">precision</span><span class="p">)</span>
+            <span class="n">Ky_t_icd</span> <span class="o">=</span> <span class="n">_make_icd_kernel</span><span class="p">(</span><span class="n">_center_norm</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">ktype</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">constant</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">mrank</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">precision</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">weight1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+                <span class="n">comp1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Kx_t_icd</span><span class="nd">@weight1</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
+                <span class="n">comp2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Ky_t_icd</span><span class="nd">@weight2</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
+
+        <span class="n">comp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">comp1</span><span class="p">))</span>
+        <span class="n">comp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">comp2</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">components_</span> <span class="o">=</span> <span class="p">[</span><span class="n">comp1</span><span class="p">,</span> <span class="n">comp2</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">components_</span></div>
+
+<div class="viewcode-block" id="KCCA.get_stats"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.KCCA.get_stats">[docs]</a>    <span class="k">def</span> <span class="nf">get_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute relevant statistics for the KCCA model after fitting</span>
+<span class="sd">        and transforming.</span>
+
+<span class="sd">        Implementations of the statistics generally follow the code in</span>
+<span class="sd">        the Matlab implementation of the function canoncorr.</span>
+
+<span class="sd">        Note: most statistics are only available if the linear kernel is</span>
+<span class="sd">        used and decomposition method is full,</span>
+<span class="sd">        i.e. self.ktype==&#39;linear&#39; and self.decomp=&#39;full&#39;.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        stats : dict</span>
+<span class="sd">            Dict containing the statistics, with the following keys:</span>
+
+<span class="sd">            - &#39;r&#39; : numpy.ndarray of shape (n_components,)</span>
+<span class="sd">                Canonical correlations of each component.</span>
+<span class="sd">            - &#39;Wilks&#39; : numpy.ndarray of shape (n_components,)</span>
+<span class="sd">                Wilks&#39; Lambda likelihood ratio statistic.</span>
+<span class="sd">                Only available if self.ktype == &#39;linear&#39;.</span>
+<span class="sd">            - &#39;df1&#39; : numpy.ndarray of shape (n_components,)</span>
+<span class="sd">                Degrees of freedom for the chi-squared statistic, and</span>
+<span class="sd">                the numerator degrees of freedom for the F statistic.</span>
+<span class="sd">                Only available if self.ktype == &#39;linear&#39;.</span>
+<span class="sd">            - &#39;df2&#39; : numpy.ndarray of shape (n_components,)</span>
+<span class="sd">                Denominator degrees of freedom for the F statistic.</span>
+<span class="sd">                Only available if self.ktype == &#39;linear&#39;.</span>
+<span class="sd">            - &#39;F&#39; : numpy.ndarray of shape (n_components,)</span>
+<span class="sd">                Rao&#39;s approximate F statistic for H_0(k).</span>
+<span class="sd">                Only available if self.ktype == &#39;linear&#39;.</span>
+<span class="sd">            - &#39;pF&#39; : numpy.ndarray of shape (n_components,)</span>
+<span class="sd">                Right-tail significance level for stats[&#39;F&#39;].</span>
+<span class="sd">                Only available if self.ktype == &#39;linear&#39;.</span>
+<span class="sd">            - &#39;chisq&#39; : numpy.ndarray of shape (n_components,)</span>
+<span class="sd">                Bartlett&#39;s approximate chi-squared statistic for H_0(k)</span>
+<span class="sd">                with Lawley&#39;s modification.</span>
+<span class="sd">                Only available if self.ktype == &#39;linear&#39;.</span>
+<span class="sd">            - &#39;pChisq&#39; : numpy.ndarray of shape (n_components,)</span>
+<span class="sd">                Right-tail significance level for stats[&#39;chisq&#39;].</span>
+<span class="sd">                Only available if self.ktype == &#39;linear&#39;.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;weights_&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="s2">&quot;KCCA has not been trained or fitted. Call&quot;</span>
+                            <span class="s2">&quot; .fit() and .transform() or .fit_transform()&quot;</span>
+                            <span class="s2">&quot; before getting statistics.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;components_&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="s2">&quot;KCCA has not been fitted. Call .fit()&quot;</span>
+                            <span class="s2">&quot; and .transform() or .fit_transform() before&quot;</span>
+                            <span class="s2">&quot; getting statistics.&quot;</span><span class="p">)</span>
+
+        <span class="n">stats</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span> <span class="n">i</span><span class="p">],</span>
+                                  <span class="bp">self</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="mi">1</span><span class="p">][:,</span> <span class="n">i</span><span class="p">])[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+                      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">)])</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span>
+
+        <span class="c1"># Compute stats that are only defined for linear CCA. These follow</span>
+        <span class="c1"># the format and computation of the stats in Matlab&#39;s canoncorr</span>
+        <span class="c1"># function</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ktype</span> <span class="o">==</span> <span class="s1">&#39;linear&#39;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">decomp</span> <span class="o">==</span> <span class="s1">&#39;full&#39;</span><span class="p">:</span>
+
+            <span class="c1"># Wilks&#39; Lambda test statistic</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">matrix_ranks_</span><span class="p">)])</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+            <span class="n">rank1_k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_ranks_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">k</span>
+            <span class="n">rank2_k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_ranks_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">k</span>
+            <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">nondegen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span>
+                                       <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">:</span>
+                <span class="n">nondegen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">nondegen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+            <span class="n">log_lambda</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NINF</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">,)</span>
+
+            <span class="k">if</span> <span class="n">nondegen</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">log_lambda</span><span class="p">[</span><span class="n">nondegen</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span>
+                                            <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r</span><span class="p">[</span><span class="n">nondegen</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="n">log_lambda</span><span class="p">[</span><span class="n">nondegen</span><span class="p">]</span> <span class="o">=</span> <span class="n">log_lambda</span><span class="p">[</span><span class="n">nondegen</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">log_lambda</span><span class="p">[</span><span class="n">nondegen</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span>
+                                            <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+
+            <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;Wilks&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_lambda</span><span class="p">)</span>
+
+            <span class="c1"># Rao&#39;s approximation to F distribution.</span>
+            <span class="c1"># default value for cases where the exponent formula fails</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">d</span><span class="p">,)</span>
+            <span class="c1"># cases where (d1k,d2k) not one of (1,2), (2,1), or (2,2)</span>
+            <span class="n">okCases</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">rank1_k</span><span class="o">*</span><span class="n">rank2_k</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+            <span class="n">snumer</span> <span class="o">=</span> <span class="n">rank1_k</span><span class="o">*</span><span class="n">rank1_k</span><span class="o">*</span><span class="n">rank2_k</span><span class="o">*</span><span class="n">rank2_k</span> <span class="o">-</span> <span class="mi">4</span>
+            <span class="n">sdenom</span> <span class="o">=</span> <span class="n">rank1_k</span><span class="o">*</span><span class="n">rank1_k</span> <span class="o">+</span> <span class="n">rank2_k</span><span class="o">*</span><span class="n">rank2_k</span> <span class="o">-</span> <span class="mi">5</span>
+            <span class="n">s</span><span class="p">[</span><span class="n">okCases</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">snumer</span><span class="p">[</span><span class="n">okCases</span><span class="p">],</span> <span class="n">sdenom</span><span class="p">[</span><span class="n">okCases</span><span class="p">]))</span>
+
+            <span class="c1"># Degrees of freedom for null hypothesis H_0k</span>
+            <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;df1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rank1_k</span> <span class="o">*</span> <span class="n">rank2_k</span>
+            <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;df2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_samples_</span> <span class="o">-</span> <span class="o">.</span><span class="mi">5</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">matrix_ranks_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">matrix_ranks_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span><span class="p">))</span> <span class="o">*</span> <span class="n">s</span> <span class="o">-</span> <span class="p">(</span><span class="o">.</span><span class="mi">5</span> <span class="o">*</span>
+                                                               <span class="n">rank1_k</span> <span class="o">*</span>
+                                                               <span class="n">rank2_k</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+            <span class="c1"># Rao&#39;s F statistic</span>
+            <span class="n">pow_lambda</span> <span class="o">=</span> <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;Wilks&#39;</span><span class="p">]</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">s</span><span class="p">)</span>
+            <span class="n">ratio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">d</span><span class="p">,)</span>
+            <span class="n">ratio</span><span class="p">[</span><span class="n">nondegen</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pow_lambda</span><span class="p">[</span><span class="n">nondegen</span><span class="p">])</span> <span class="o">/</span>
+                               <span class="n">pow_lambda</span><span class="p">[</span><span class="n">nondegen</span><span class="p">])</span>
+            <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ratio</span> <span class="o">*</span> <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;df2&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;df1&#39;</span><span class="p">]</span>
+            <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;pF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">f</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">],</span> <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;df1&#39;</span><span class="p">],</span> <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;df2&#39;</span><span class="p">])</span>
+
+            <span class="c1"># Lawley&#39;s modification to Bartlett&#39;s chi-squared statistic</span>
+            <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="p">])</span>
+            <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;chisq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_samples_</span> <span class="o">-</span> <span class="n">k</span> <span class="o">-</span> <span class="o">.</span><span class="mi">5</span> <span class="o">*</span>
+                               <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">matrix_ranks_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">matrix_ranks_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span>
+                               <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span>
+                                                    <span class="mi">1</span> <span class="o">/</span> <span class="n">r</span><span class="p">[:</span><span class="n">d</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span>\
+                <span class="n">log_lambda</span>
+
+            <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;pChisq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">chi2</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;chisq&#39;</span><span class="p">],</span> <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;df1&#39;</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">stats</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">_center_norm</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+
+<span class="k">def</span> <span class="nf">_make_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">ktype</span><span class="p">,</span> <span class="n">constant</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="c1"># Linear kernel</span>
+    <span class="k">if</span> <span class="n">ktype</span> <span class="o">==</span> <span class="s2">&quot;linear&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">X</span> <span class="o">@</span> <span class="n">Y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+    <span class="c1"># Polynomial kernel</span>
+    <span class="k">elif</span> <span class="n">ktype</span> <span class="o">==</span> <span class="s2">&quot;poly&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">X</span> <span class="o">@</span> <span class="n">Y</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">constant</span><span class="p">)</span> <span class="o">**</span> <span class="n">degree</span>
+
+    <span class="c1"># Gaussian kernel</span>
+    <span class="k">elif</span> <span class="n">ktype</span> <span class="o">==</span> <span class="s2">&quot;gaussian&quot;</span><span class="p">:</span>
+        <span class="n">distmat</span> <span class="o">=</span> <span class="n">euclidean_distances</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">distmat</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+
+    <span class="c1"># Linear diagonal kernel</span>
+    <span class="k">elif</span> <span class="n">ktype</span> <span class="o">==</span> <span class="s2">&quot;linear-diag&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">X</span> <span class="o">@</span> <span class="n">Y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span>
+
+    <span class="c1"># Polynomial diagonal kernel</span>
+    <span class="k">elif</span> <span class="n">ktype</span> <span class="o">==</span> <span class="s2">&quot;poly-diag&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">X</span> <span class="o">@</span> <span class="n">Y</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">constant</span><span class="p">)</span> <span class="o">**</span> <span class="n">degree</span><span class="p">)</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span>
+
+    <span class="c1"># Gaussian diagonal kernel</span>
+    <span class="k">elif</span> <span class="n">ktype</span> <span class="o">==</span> <span class="s2">&quot;gaussian-diag&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">Y</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_make_icd_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ktype</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">constant</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+                     <span class="n">mrank</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mf">0.000001</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">mrank</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">mrank</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+
+    <span class="n">perm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>  <span class="c1"># Permutation vector</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>  <span class="c1"># Diagonal of the residual kernel matrix</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">mrank</span><span class="p">))</span>
+    <span class="n">subset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">mrank</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mrank</span><span class="p">):</span>
+        <span class="n">x_new</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">N</span><span class="p">],</span> <span class="p">:]</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Diagonal of kernel matrix</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">N</span><span class="p">]</span> <span class="o">=</span> <span class="n">_make_kernel</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">x_new</span><span class="p">,</span> <span class="n">ktype</span> <span class="o">+</span> <span class="s2">&quot;-diag&quot;</span><span class="p">,</span>
+                                  <span class="n">constant</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Update diagonal of residual kernel matrix</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">N</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">_make_kernel</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">x_new</span><span class="p">,</span> <span class="n">ktype</span> <span class="o">+</span> <span class="s2">&quot;-diag&quot;</span><span class="p">,</span>
+                                   <span class="n">constant</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span>
+                      <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">N</span><span class="p">,</span> <span class="p">:</span><span class="n">i</span><span class="p">],</span> <span class="mi">2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+        <span class="n">dtrace</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">N</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">dtrace</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: negative diagonal entry&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">dtrace</span> <span class="o">&lt;=</span> <span class="n">precision</span><span class="p">:</span>
+            <span class="n">G</span> <span class="o">=</span> <span class="n">G</span><span class="p">[:,</span> <span class="p">:</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">subset</span> <span class="o">=</span> <span class="n">subset</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">break</span>
+
+        <span class="c1"># Find new best element</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">N</span><span class="p">])</span>
+        <span class="n">m2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">N</span><span class="p">])</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">j</span><span class="o">+</span><span class="n">i</span>  <span class="c1"># Take into account the offset i</span>
+        <span class="n">m1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
+        <span class="n">subset</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+
+        <span class="n">perm</span><span class="p">[[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="n">perm</span><span class="p">[[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]]</span>  <span class="c1"># Permute elements i and j</span>
+        <span class="n">G</span><span class="p">[[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="p">:</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">G</span><span class="p">[[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="p">:</span><span class="n">i</span><span class="p">]</span>  <span class="c1"># Permute rows i and j</span>
+        <span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">m1</span>  <span class="c1"># New diagonal elemtn</span>
+
+        <span class="c1"># Calculate the ith columnn- introduces some numerical error</span>
+        <span class="n">z1</span> <span class="o">=</span> <span class="n">_make_kernel</span><span class="p">([</span><span class="n">X</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">:]],</span> <span class="n">X</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">],</span> <span class="p">:],</span>
+                          <span class="n">ktype</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+        <span class="n">z2</span> <span class="o">=</span> <span class="p">(</span><span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">,</span> <span class="p">:</span><span class="n">i</span><span class="p">]</span><span class="o">@</span><span class="p">(</span><span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+        <span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">z1</span> <span class="o">-</span> <span class="n">z2</span><span class="p">)</span><span class="o">/</span><span class="n">m1</span>
+    <span class="k">return</span> <span class="n">G</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">perm</span><span class="p">),</span> <span class="p">:]</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019-2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<p style="text-align: center; margin: .5rem;">
+    <a href="https://www.netlify.com">
+        <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
+    </a>
+</p>
+ 
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

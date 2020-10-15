@@ -1,0 +1,1307 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mvlearn.embed.dcca &mdash; mvlearn alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../install.html#including-optional-torch-dependencies-for-full-functionality">Including optional torch dependencies for full functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#python-package-dependencies">Python package dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#hardware-requirements">Hardware requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#os-requirements">OS Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Examples Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-cluster">Examples on cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-datasets">Examples on datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-decomposition">Examples on decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/pipeline/plot_pipeline_sklearn_integration.html">Integrating mvlearn with scikit-learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-plotting">Examples on plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../references/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/cluster.html">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spectral-clustering">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#co-regularized-multiview-spectral-clustering">Co-Regularized Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-k-means">Multiview K Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spherical-k-means">Multiview Spherical K Means</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/semi_supervised.html">Semi-Supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-classifier">Cotraining Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-regressor">Cotraining Regressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dcca-utilities">DCCA Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dimension-selection">Dimension Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/decomposition.html">Decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#multiview-ica">Multiview ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#permutation-ica">Permutation ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-ica">Group ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-pca">Group PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/construct.html">View Construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-gaussian-projection">Random Gaussian Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-subspace-method">Random Subspace Method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/model_selection.html">Model Selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/model_selection.html#cross-validation">Cross Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/compose.html">Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#averagemerger">AverageMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#concatmerger">ConcatMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#simplesplitter">SimpleSplitter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/preprocessing.html">Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/preprocessing.html#viewtransformer">ViewTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/datasets.html">Multiview Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#data-simulator">Data Simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/plotting.html">Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#quick-visualize">Quick Visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#crossviews-plot">Crossviews Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/utils.html#io">IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to mvlearn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#how-to-make-a-good-bug-report">How to make a good bug report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#contributing-code">Contributing Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#pull-request-checklist">Pull Request Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#coding-guidelines">Coding Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#docstring-guidelines">Docstring Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#api-of-mvlearn-objects">API of mvlearn Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#estimators">Estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#additional-functionality">Additional Functionality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id1">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id4">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id9">mvlearn.preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#patch-0-2-1">Patch 0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-2-0">Version 0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-1-0">Version 0.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Useful Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mvlearn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvlearn.embed.dcca</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvlearn.embed.dcca</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2019 NeuroData (http://neurodata.io)</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="c1"># Original work Copyright (c) 2016 Vahid Noroozi</span>
+<span class="c1"># Modified work Copyright 2019 Zhanghao Wu</span>
+
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;),</span>
+<span class="c1"># to deal in the Software without restriction, including without limitation</span>
+<span class="c1"># the rights to use, copy, modify, merge, publish, distribute, sublicense,</span>
+<span class="c1"># and/or sell copies of the Software, and to permit persons to whom the</span>
+<span class="c1"># Software is furnished to do so, subject to the following conditions:</span>
+
+<span class="c1"># The above copyright notice and this permission notice shall be included in</span>
+<span class="c1"># all copies or substantial portions of the Software.</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.exceptions</span> <span class="kn">import</span> <span class="n">NotFittedError</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">torch</span>
+    <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+    <span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">BatchSampler</span><span class="p">,</span> <span class="n">SequentialSampler</span><span class="p">,</span> <span class="n">RandomSampler</span>
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s1">. torch dependencies required for this function. </span><span class="se">\</span>
+<span class="s1">    Please consult the mvlearn installation instructions at </span><span class="se">\</span>
+<span class="s1">    https://github.com/mvlearn/mvlearn to correctly install torch </span><span class="se">\</span>
+<span class="s1">    dependencies.&#39;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseEmbed</span>
+<span class="kn">from</span> <span class="nn">..utils.utils</span> <span class="kn">import</span> <span class="n">check_Xs</span>
+
+
+<div class="viewcode-block" id="linear_cca"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.linear_cca">[docs]</a><span class="k">class</span> <span class="nc">linear_cca</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementation of linear CCA to act on the output of the deep networks</span>
+<span class="sd">    in DCCA.</span>
+
+<span class="sd">    Consider two views :math:`X_1` and :math:`X_2`. Canonical Correlation</span>
+<span class="sd">    Analysis seeks to find vectors :math:`a_1` and :math:`a_2` to maximize</span>
+<span class="sd">    the correlation between :math:`X_1 a_1` and :math:`X_2 a_2`.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    w_ : list (length=2)</span>
+<span class="sd">        w[i] : nd-array</span>
+<span class="sd">        List of the two weight matrices for projecting each view.</span>
+<span class="sd">    m_ : list (length=2)</span>
+<span class="sd">        m[i] : nd-array</span>
+<span class="sd">        List of the means of the data in each view.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+
+<div class="viewcode-block" id="linear_cca.fit"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.linear_cca.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">H1</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">n_components</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fit the linear CCA model to the outputs of the deep network</span>
+<span class="sd">        transformations on the two views of data.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        H1: nd-array, shape (n_samples, n_features)</span>
+<span class="sd">            View 1 data after deep network.</span>
+<span class="sd">        H2: nd-array, shape (n_samples, n_features)</span>
+<span class="sd">            View 2 data after deep network.</span>
+<span class="sd">        n_components : int (positive)</span>
+<span class="sd">            The output dimensionality of the CCA transformation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r1</span> <span class="o">=</span> <span class="mf">1e-4</span>
+        <span class="n">r2</span> <span class="o">=</span> <span class="mf">1e-4</span>
+
+        <span class="n">m</span> <span class="o">=</span> <span class="n">H1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="n">H1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">o2</span> <span class="o">=</span> <span class="n">H2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">H1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">H2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">H1bar</span> <span class="o">=</span> <span class="n">H1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">H2bar</span> <span class="o">=</span> <span class="n">H2</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+        <span class="c1"># Compute covariance matrices</span>
+        <span class="n">SigmaHat12</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">H1bar</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">H2bar</span><span class="p">)</span>
+        <span class="n">SigmaHat11</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">H1bar</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+                                              <span class="n">H1bar</span><span class="p">)</span> <span class="o">+</span> <span class="n">r1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>
+        <span class="n">SigmaHat22</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">H2bar</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+                                              <span class="n">H2bar</span><span class="p">)</span> <span class="o">+</span> <span class="n">r2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">o2</span><span class="p">)</span>
+
+        <span class="p">[</span><span class="n">D1</span><span class="p">,</span> <span class="n">V1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">SigmaHat11</span><span class="p">)</span>
+        <span class="p">[</span><span class="n">D2</span><span class="p">,</span> <span class="n">V2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">SigmaHat22</span><span class="p">)</span>
+        <span class="n">SigmaHat11RootInv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">V1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">D1</span> <span class="o">**</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)),</span> <span class="n">V1</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">SigmaHat22RootInv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">V2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">D2</span> <span class="o">**</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)),</span> <span class="n">V2</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+        <span class="n">Tval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">SigmaHat11RootInv</span><span class="p">,</span>
+                             <span class="n">SigmaHat12</span><span class="p">),</span> <span class="n">SigmaHat22RootInv</span><span class="p">)</span>
+
+        <span class="p">[</span><span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">Tval</span><span class="p">)</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">SigmaHat11RootInv</span><span class="p">,</span> <span class="n">U</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">n_components</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">SigmaHat22RootInv</span><span class="p">,</span> <span class="n">V</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">n_components</span><span class="p">])</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n_components</span><span class="p">]</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Transform a single view of data based on already fit matrix.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : nd-array, shape (n_samples, n_features)</span>
+<span class="sd">            View idx data.</span>
+<span class="sd">        idx : int</span>
+<span class="sd">            0 if view 1. 1 if view 2.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        result : nd-array</span>
+<span class="sd">            Result of linear transformation on input data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+<div class="viewcode-block" id="linear_cca.transform"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.linear_cca.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">H1</span><span class="p">,</span> <span class="n">H2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Transform inputs based on already fit matrices.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        H1 : nd-array, shape (n_samples, n_features)</span>
+<span class="sd">            View 1 data.</span>
+<span class="sd">        H2 : nd-array, shape (n_samples, n_features)</span>
+<span class="sd">            View 2 data.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        results : list, length=2</span>
+<span class="sd">            Results of linear transformation on input data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_result</span><span class="p">(</span><span class="n">H1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_result</span><span class="p">(</span><span class="n">H2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span></div></div>
+
+
+<div class="viewcode-block" id="cca_loss"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.cca_loss">[docs]</a><span class="k">class</span> <span class="nc">cca_loss</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An implementation of the loss function of linear CCA as introduced</span>
+<span class="sd">    in the original paper for ``DCCA`` [#1DCCA]_. Details of how this loss</span>
+<span class="sd">    is computed can be found in the paper or in the documentation for</span>
+<span class="sd">    ``DCCA``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_components : int (positive)</span>
+<span class="sd">        The output dimensionality of the CCA transformation.</span>
+<span class="sd">    use_all_singular_values : boolean</span>
+<span class="sd">        Whether or not to use all the singular values in the loss calculation.</span>
+<span class="sd">        If False, only use the top n_components singular values.</span>
+<span class="sd">    device : torch.device object</span>
+<span class="sd">        The torch device being used in DCCA.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_components_ : int (positive)</span>
+<span class="sd">        The output dimensionality of the CCA transformation.</span>
+<span class="sd">    use_all_singular_values_ : boolean</span>
+<span class="sd">        Whether or not to use all the singular values in the loss calculation.</span>
+<span class="sd">        If False, only use the top ``n_components`` singular values.</span>
+<span class="sd">    device_ : torch.device object</span>
+<span class="sd">        The torch device being used in DCCA.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_components</span><span class="p">,</span> <span class="n">use_all_singular_values</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_components_</span> <span class="o">=</span> <span class="n">n_components</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_all_singular_values_</span> <span class="o">=</span> <span class="n">use_all_singular_values</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device_</span> <span class="o">=</span> <span class="n">device</span>
+
+<div class="viewcode-block" id="cca_loss.loss"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.cca_loss.loss">[docs]</a>    <span class="k">def</span> <span class="nf">loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">H1</span><span class="p">,</span> <span class="n">H2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the loss (negative correlation) between 2 views. Details can</span>
+<span class="sd">        be found in [#1DCCA]_ or the documentation for ``DCCA``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        H1: torch.tensor, shape (n_samples, n_features)</span>
+<span class="sd">            View 1 data.</span>
+<span class="sd">        H2: torch.tensor, shape (n_samples, n_features)</span>
+<span class="sd">            View 2 data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">r1</span> <span class="o">=</span> <span class="mf">1e-3</span>
+        <span class="n">r2</span> <span class="o">=</span> <span class="mf">1e-3</span>
+        <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-9</span>
+
+        <span class="c1"># Transpose matrices so each column is a sample</span>
+        <span class="n">H1</span><span class="p">,</span> <span class="n">H2</span> <span class="o">=</span> <span class="n">H1</span><span class="o">.</span><span class="n">t</span><span class="p">(),</span> <span class="n">H2</span><span class="o">.</span><span class="n">t</span><span class="p">()</span>
+
+        <span class="n">o1</span> <span class="o">=</span> <span class="n">o2</span> <span class="o">=</span> <span class="n">H1</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">m</span> <span class="o">=</span> <span class="n">H1</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">H1bar</span> <span class="o">=</span> <span class="n">H1</span> <span class="o">-</span> <span class="n">H1</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">H2bar</span> <span class="o">=</span> <span class="n">H2</span> <span class="o">-</span> <span class="n">H2</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Compute covariance matrices and add diagonal so they are</span>
+        <span class="c1"># positive definite</span>
+        <span class="n">SigmaHat12</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">H1bar</span><span class="p">,</span> <span class="n">H2bar</span><span class="o">.</span><span class="n">t</span><span class="p">())</span>
+        <span class="n">SigmaHat11</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">H1bar</span><span class="p">,</span> <span class="n">H1bar</span><span class="o">.</span><span class="n">t</span><span class="p">())</span> <span class="o">+</span> \
+            <span class="n">r1</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device_</span><span class="p">)</span>
+        <span class="n">SigmaHat22</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">H2bar</span><span class="p">,</span> <span class="n">H2bar</span><span class="o">.</span><span class="n">t</span><span class="p">())</span> <span class="o">+</span> \
+            <span class="n">r2</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">o2</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device_</span><span class="p">)</span>
+
+        <span class="c1"># Calculate the root inverse of covariance matrices by using</span>
+        <span class="c1"># eigen decomposition</span>
+        <span class="p">[</span><span class="n">D1</span><span class="p">,</span> <span class="n">V1</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">symeig</span><span class="p">(</span><span class="n">SigmaHat11</span><span class="p">,</span> <span class="n">eigenvectors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="p">[</span><span class="n">D2</span><span class="p">,</span> <span class="n">V2</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">symeig</span><span class="p">(</span><span class="n">SigmaHat22</span><span class="p">,</span> <span class="n">eigenvectors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Additional code to increase numerical stability</span>
+        <span class="n">posInd1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="n">D1</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()[:,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">D1</span> <span class="o">=</span> <span class="n">D1</span><span class="p">[</span><span class="n">posInd1</span><span class="p">]</span>
+        <span class="n">V1</span> <span class="o">=</span> <span class="n">V1</span><span class="p">[:,</span> <span class="n">posInd1</span><span class="p">]</span>
+        <span class="n">posInd2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="n">D2</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()[:,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">D2</span> <span class="o">=</span> <span class="n">D2</span><span class="p">[</span><span class="n">posInd2</span><span class="p">]</span>
+        <span class="n">V2</span> <span class="o">=</span> <span class="n">V2</span><span class="p">[:,</span> <span class="n">posInd2</span><span class="p">]</span>
+
+        <span class="c1"># Compute sigma hat matrices using the edited covariance matrices</span>
+        <span class="n">SigmaHat11RootInv</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">V1</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">D1</span> <span class="o">**</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)),</span> <span class="n">V1</span><span class="o">.</span><span class="n">t</span><span class="p">())</span>
+        <span class="n">SigmaHat22RootInv</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">V2</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">D2</span> <span class="o">**</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)),</span> <span class="n">V2</span><span class="o">.</span><span class="n">t</span><span class="p">())</span>
+
+        <span class="c1"># Compute the T matrix, whose matrix trace norm is the loss</span>
+        <span class="n">Tval</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">SigmaHat11RootInv</span><span class="p">,</span>
+                                         <span class="n">SigmaHat12</span><span class="p">),</span> <span class="n">SigmaHat22RootInv</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_all_singular_values_</span><span class="p">:</span>
+            <span class="c1"># all singular values are used to calculate the correlation (and</span>
+            <span class="c1"># thus the loss as well)</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">Tval</span><span class="o">.</span><span class="n">t</span><span class="p">(),</span> <span class="n">Tval</span><span class="p">))</span>
+            <span class="n">corr</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># just the top self.n_components_ singular values are used to</span>
+            <span class="c1"># compute the loss</span>
+            <span class="n">U</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">symeig</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+                <span class="n">Tval</span><span class="o">.</span><span class="n">t</span><span class="p">(),</span> <span class="n">Tval</span><span class="p">),</span> <span class="n">eigenvectors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">U</span> <span class="o">=</span> <span class="n">U</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components_</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">corr</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">U</span><span class="p">))</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">corr</span></div></div>
+
+
+<div class="viewcode-block" id="MlpNet"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.MlpNet">[docs]</a><span class="k">class</span> <span class="nc">MlpNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Multilayer perceptron implementation for fully connected network. Used</span>
+<span class="sd">    by ``DCCA`` for the fully transformation of a single view before linear</span>
+<span class="sd">    CCA. Extends `torch.nn.Module &lt;https://pytorch.org/docs/stable/nn.html&gt;`_.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    layer_sizes : list of ints</span>
+<span class="sd">        The sizes of the layers of the deep network applied to view 1 before</span>
+<span class="sd">        CCA. For example, if the input dimensionality is 256, and there is one</span>
+<span class="sd">        hidden layer with 1024 units and the output dimensionality is 100</span>
+<span class="sd">        before applying CCA, layer_sizes1=[1024, 100].</span>
+<span class="sd">    input_size : int (positive)</span>
+<span class="sd">        The dimensionality of the input vectors to the deep network.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    layers_ : torch.nn.ModuleList object</span>
+<span class="sd">        The layers in the network.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer_sizes</span><span class="p">,</span> <span class="n">input_size</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MlpNet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">layers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">layer_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="n">input_size</span><span class="p">]</span> <span class="o">+</span> <span class="n">layer_sizes</span>
+        <span class="k">for</span> <span class="n">l_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">layer_sizes</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">l_id</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">layer_sizes</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">layer_sizes</span><span class="p">[</span><span class="n">l_id</span><span class="p">],</span> <span class="n">layer_sizes</span><span class="p">[</span><span class="n">l_id</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]),</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+                    <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">layer_sizes</span><span class="p">[</span><span class="n">l_id</span><span class="p">],</span> <span class="n">layer_sizes</span><span class="p">[</span><span class="n">l_id</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]),</span>
+                    <span class="n">nn</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">(),</span>
+                <span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layers_</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MlpNet.forward"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.MlpNet.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Feed input forward through layers.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : torch.tensor</span>
+<span class="sd">            Input tensor to transform by the network.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        x : torch.tensor</span>
+<span class="sd">            The output after being fed forward through network.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers_</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span></div></div>
+
+
+<div class="viewcode-block" id="DeepPairedNetworks"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.DeepPairedNetworks">[docs]</a><span class="k">class</span> <span class="nc">DeepPairedNetworks</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A pair of deep networks for operating on the two views of data. Consists</span>
+<span class="sd">    of two ``MlpNet`` objects for transforming 2 views of data in ``DCCA``.</span>
+<span class="sd">    Extends `torch.nn.Module &lt;https://pytorch.org/docs/stable/nn.html&gt;`_.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    layer_sizes1 : list of ints</span>
+<span class="sd">        The sizes of the layers of the deep network applied to view 1 before</span>
+<span class="sd">        CCA. For example, if the input dimensionality is 256, and there is one</span>
+<span class="sd">        hidden layer with 1024 units and the output dimensionality is 100</span>
+<span class="sd">        before applying CCA, layer_sizes1=[1024, 100].</span>
+<span class="sd">    layer_sizes2 : list of ints</span>
+<span class="sd">        The sizes of the layers of the deep network applied to view 2 before</span>
+<span class="sd">        CCA. Does not need to have the same hidden layer architecture as</span>
+<span class="sd">        layer_sizes1, but the final dimensionality must be the same.</span>
+<span class="sd">    input_size1 : int (positive)</span>
+<span class="sd">        The dimensionality of the input vectors in view 1.</span>
+<span class="sd">    input_size2 : int (positive)</span>
+<span class="sd">        The dimensionality of the input vectors in view 2.</span>
+<span class="sd">    n_components : int (positive), default=2</span>
+<span class="sd">        The output dimensionality of the correlated projections. The deep</span>
+<span class="sd">        network will transform the data to this size. If not specified, will</span>
+<span class="sd">        be set to 2.</span>
+<span class="sd">    use_all_singular_values : boolean (default=False)</span>
+<span class="sd">        Whether or not to use all the singular values in the CCA computation</span>
+<span class="sd">        to calculate the loss. If False, only the top ``n_components`` singular</span>
+<span class="sd">        values are used.</span>
+<span class="sd">    device : string, default=&#39;cpu&#39;</span>
+<span class="sd">        The torch device for processing.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    model1_ : ``MlpNet`` object</span>
+<span class="sd">        Deep network for view 1 transformation.</span>
+<span class="sd">    model2_ : ``MlpNet`` object</span>
+<span class="sd">        Deep network for view 2 transformation.</span>
+<span class="sd">    loss_ : ``cca_loss`` object</span>
+<span class="sd">        Loss function for the 2 view DCCA.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer_sizes1</span><span class="p">,</span> <span class="n">layer_sizes2</span><span class="p">,</span> <span class="n">input_size1</span><span class="p">,</span> <span class="n">input_size2</span><span class="p">,</span>
+                 <span class="n">n_components</span><span class="p">,</span> <span class="n">use_all_singular_values</span><span class="p">,</span>
+                 <span class="n">device</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">)):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DeepPairedNetworks</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model1_</span> <span class="o">=</span> <span class="n">MlpNet</span><span class="p">(</span><span class="n">layer_sizes1</span><span class="p">,</span> <span class="n">input_size1</span><span class="p">)</span><span class="o">.</span><span class="n">double</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model2_</span> <span class="o">=</span> <span class="n">MlpNet</span><span class="p">(</span><span class="n">layer_sizes2</span><span class="p">,</span> <span class="n">input_size2</span><span class="p">)</span><span class="o">.</span><span class="n">double</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">loss_</span> <span class="o">=</span> <span class="n">cca_loss</span><span class="p">(</span><span class="n">n_components</span><span class="p">,</span>
+                              <span class="n">use_all_singular_values</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">loss</span>
+
+<div class="viewcode-block" id="DeepPairedNetworks.forward"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.DeepPairedNetworks.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Feed two views of data forward through the respective network.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x1 : torch.tensor, shape=(batch_size, n_features)</span>
+<span class="sd">            View 1 data to transform.</span>
+<span class="sd">        x2 : torch.tensor, shape=(batch_size, n_features)</span>
+<span class="sd">            View 2 data to transform.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        outputs : list, length=2</span>
+<span class="sd">            - outputs[i] : torch.tensor</span>
+<span class="sd">            List of the outputs from each view transformation.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># feature * batch_size</span>
+        <span class="n">output1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model1_</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+        <span class="n">output2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model2_</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">output1</span><span class="p">,</span> <span class="n">output2</span></div></div>
+
+
+<div class="viewcode-block" id="DCCA"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.DCCA">[docs]</a><span class="k">class</span> <span class="nc">DCCA</span><span class="p">(</span><span class="n">BaseEmbed</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An implementation of Deep Canonical Correlation Analysis [#1DCCA]_ with</span>
+<span class="sd">    PyTorch. It computes projections into a common subspace in order to</span>
+<span class="sd">    maximize the correlation between pairwise projections into the subspace</span>
+<span class="sd">    from two views of data. To obtain these projections, two fully connected</span>
+<span class="sd">    deep networks are trained to initially transform the two views of data.</span>
+<span class="sd">    Then, the transformed data is projected using linear CCA. This can be</span>
+<span class="sd">    thought of as training a kernel for each view that initially acts on the</span>
+<span class="sd">    data before projection. The networks are trained to maximize the ability</span>
+<span class="sd">    of the linear CCA to maximize the correlation between the final</span>
+<span class="sd">    dimensions.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_size1 : int (positive)</span>
+<span class="sd">        The dimensionality of the input vectors in view 1.</span>
+<span class="sd">    input_size2 : int (positive)</span>
+<span class="sd">        The dimensionality of the input vectors in view 2.</span>
+<span class="sd">    n_components : int (positive), default=2</span>
+<span class="sd">        The output dimensionality of the correlated projections. The deep</span>
+<span class="sd">        network wil transform the data to this size. Must satisfy:</span>
+<span class="sd">        ``n_components`` &lt;= max(layer_sizes1[-1], layer_sizes2[-1]).</span>
+<span class="sd">    layer_sizes1 : list of ints, default=None</span>
+<span class="sd">        The sizes of the layers of the deep network applied to view 1 before</span>
+<span class="sd">        CCA. For example, if the input dimensionality is 256, and there is one</span>
+<span class="sd">        hidden layer with 1024 units and the output dimensionality is 100</span>
+<span class="sd">        before applying CCA, layer_sizes1=[1024, 100]. If ``None``, set to</span>
+<span class="sd">        [1000, ``self.n_components_``].</span>
+<span class="sd">    layer_sizes2 : list of ints, default=None</span>
+<span class="sd">        The sizes of the layers of the deep network applied to view 2 before</span>
+<span class="sd">        CCA. Does not need to have the same hidden layer architecture as</span>
+<span class="sd">        layer_sizes1, but the final dimensionality must be the same. If</span>
+<span class="sd">        ``None``, set to [1000, ``self.n_components_``].</span>
+<span class="sd">    use_all_singular_values : boolean (default=False)</span>
+<span class="sd">        Whether or not to use all the singular values in the CCA computation</span>
+<span class="sd">        to calculate the loss. If False, only the top ``n_components``</span>
+<span class="sd">        singular values are used.</span>
+<span class="sd">    device : string, default=&#39;cpu&#39;</span>
+<span class="sd">        The torch device for processing. Can be used with a GPU if available.</span>
+<span class="sd">    epoch_num : int (positive), default=200</span>
+<span class="sd">        The max number of epochs to train the deep networks.</span>
+<span class="sd">    batch_size : int (positive), default=800</span>
+<span class="sd">        Batch size for training the deep networks.</span>
+<span class="sd">    learning_rate : float (positive), default=1e-3</span>
+<span class="sd">        Learning rate for training the deep networks.</span>
+<span class="sd">    reg_par : float (positive), default=1e-5</span>
+<span class="sd">        Weight decay parameter used in the RMSprop optimizer.</span>
+<span class="sd">    tolerance : float, (positive), default=1e-2</span>
+<span class="sd">        Threshold difference between successive iteration losses to define</span>
+<span class="sd">        convergence and stop training.</span>
+<span class="sd">    print_train_log_info : boolean, default=False</span>
+<span class="sd">        If ``True``, the training loss at each epoch will be printed to the</span>
+<span class="sd">        console when DCCA.fit() is called.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_size1_ : int (positive)</span>
+<span class="sd">        The dimensionality of the input vectors in view 1.</span>
+<span class="sd">    input_size2_ : int (positive)</span>
+<span class="sd">        The dimensionality of the input vectors in view 2.</span>
+<span class="sd">    n_components_ : int (positive)</span>
+<span class="sd">        The output dimensionality of the correlated projections. The deep</span>
+<span class="sd">        network wil transform the data to this size. If not specified, will</span>
+<span class="sd">        be set to 2.</span>
+<span class="sd">    layer_sizes1_ : list of ints</span>
+<span class="sd">        The sizes of the layers of the deep network applied to view 1 before</span>
+<span class="sd">        CCA. For example, if the input dimensionality is 256, and there is one</span>
+<span class="sd">        hidden layer with 1024 units and the output dimensionality is 100</span>
+<span class="sd">        before applying CCA, layer_sizes1=[1024, 100].</span>
+<span class="sd">    layer_sizes2_ : list of ints</span>
+<span class="sd">        The sizes of the layers of the deep network applied to view 2 before</span>
+<span class="sd">        CCA. Does not need to have the same hidden layer architecture as</span>
+<span class="sd">        layer_sizes1, but the final dimensionality must be the same.</span>
+<span class="sd">    device_ : string</span>
+<span class="sd">        The torch device for processing.</span>
+<span class="sd">    batch_size_ : int (positive)</span>
+<span class="sd">        Batch size for training the deep networks.</span>
+<span class="sd">    learning_rate_ : float (positive)</span>
+<span class="sd">        Learning rate for training the deep networks.</span>
+<span class="sd">    reg_par_ : float (positive)</span>
+<span class="sd">        Weight decay parameter used in the RMSprop optimizer.</span>
+<span class="sd">    deep_model_ : ``DeepPairedNetworks`` object</span>
+<span class="sd">        2 view Deep CCA object used to transform 2 views of data together.</span>
+<span class="sd">    linear_cca_ : ``linear_cca`` object</span>
+<span class="sd">        Linear CCA object used to project final transformations from output</span>
+<span class="sd">        of ``deep_model`` to the ``n_components``.</span>
+<span class="sd">    model_ : torch.nn.DataParallel object</span>
+<span class="sd">        Wrapper around ``deep_model`` to allow parallelisation.</span>
+<span class="sd">    loss_ : ``cca_loss`` object</span>
+<span class="sd">        Loss function for ``deep_model``. Defined as the negative correlation</span>
+<span class="sd">        between outputs of transformed views.</span>
+<span class="sd">    optimizer_ : torch.optim.RMSprop object</span>
+<span class="sd">        Optimizer used to train the networks.</span>
+
+<span class="sd">    Warns</span>
+<span class="sd">    -----</span>
+<span class="sd">    In order to run DCCA, pytorch and other certain optional dependencies must</span>
+<span class="sd">    be installed. See the installation page for details.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Deep Canonical Correlation Analysis is a method of finding highly</span>
+<span class="sd">    correlated subspaces for 2 views of data using nonlinear transformations</span>
+<span class="sd">    learned by deep networks. It can be thought of as using deep networks</span>
+<span class="sd">    to learn the best potentially nonlinear kernels for a variant of kernel</span>
+<span class="sd">    CCA.</span>
+
+<span class="sd">    The networks used for each view in DCCA consist of fully connected linear</span>
+<span class="sd">    layers with a sigmoid activation function.</span>
+
+<span class="sd">    The problem DCCA problem is formulated from [#1DCCA]_. Consider two</span>
+<span class="sd">    views :math:`X_1` and :math:`X_2`. DCCA seeks to find the parameters for</span>
+<span class="sd">    each view, :math:`\Theta_1` and :math:`\Theta_2`, such that they maximize</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \text{corr}\left(f_1\left(X_1;\Theta_1\right),</span>
+<span class="sd">        f_2\left(X_2;\Theta_2\right)\right)</span>
+
+<span class="sd">    These parameters are estimated in the deep network by following gradient</span>
+<span class="sd">    descent on the input data. Taking :math:`H_1, H_2 \in R^{o \times m}` to</span>
+<span class="sd">    be the outputs of the deep network in each column for the input data of</span>
+<span class="sd">    size :math:`m`. Take the centered matrix :math:`\bar{H}_1 =</span>
+<span class="sd">    H_1-\frac{1}{m}H_1{1}`, and :math:`\bar{H}_2 = H_2-\frac{1}{m}H_2{1}`.</span>
+<span class="sd">    Then, define</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \begin{align*}</span>
+<span class="sd">        \hat{\Sigma}_{12} &amp;= \frac{1}{m-1}\bar{H}_1\bar{H}_2^T \\</span>
+<span class="sd">        \hat{\Sigma}_{11} &amp;= \frac{1}{m-1}\bar{H}_1\bar{H}_1^T + r_1I \\</span>
+<span class="sd">        \hat{\Sigma}_{22} &amp;= \frac{1}{m-1}\bar{H}_2\bar{H}_2^T + r_2I</span>
+<span class="sd">        \end{align*}</span>
+
+<span class="sd">    Where :math:`r_1` and :math:`r_2` are regularization constants :math:`&gt;0`</span>
+<span class="sd">    so the matrices are guaranteed to be positive definite.</span>
+
+<span class="sd">    The correlation objective function is the sum of the top :math:`k`</span>
+<span class="sd">    singular values of the matrix :math:`T`, where</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        T = \hat{\Sigma}_{11}^{-1/2}\hat{\Sigma}_{12}\hat{\Sigma}_{22}^{-1/2}</span>
+
+<span class="sd">    Which is the matrix norm of T. Thus, the loss is</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        L(X_1, X2) = -\text{corr}\left(H_1, H_2\right) =</span>
+<span class="sd">        -\text{tr}(T^TT)^{1/2}.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.embed import DCCA</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; # Exponential data as example of finding good correlation</span>
+<span class="sd">    &gt;&gt;&gt; view1 = np.random.normal(loc=2, size=(1000, 75))</span>
+<span class="sd">    &gt;&gt;&gt; view2 = np.exp(view1)</span>
+<span class="sd">    &gt;&gt;&gt; view1_test = np.random.normal(loc=2, size=(200, 75))</span>
+<span class="sd">    &gt;&gt;&gt; view2_test = np.exp(view1_test)</span>
+<span class="sd">    &gt;&gt;&gt; input_size1, input_size2 = 75, 75</span>
+<span class="sd">    &gt;&gt;&gt; n_components = 2</span>
+<span class="sd">    &gt;&gt;&gt; layer_sizes1 = [1024, 4]</span>
+<span class="sd">    &gt;&gt;&gt; layer_sizes2 = [1024, 4]</span>
+<span class="sd">    &gt;&gt;&gt; dcca = DCCA(input_size1, input_size2, n_components, layer_sizes1,</span>
+<span class="sd">    ...             layer_sizes2)</span>
+<span class="sd">    &gt;&gt;&gt; dcca = dcca.fit([view1, view2])</span>
+<span class="sd">    &gt;&gt;&gt; outputs = dcca.transform([view1_test, view2_test])</span>
+<span class="sd">    &gt;&gt;&gt; print(outputs[0].shape)</span>
+<span class="sd">    (200, 2)</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [#1DCCA] Andrew, G., Arora, R., Bilmes, J., &amp; Livescu, K. (2013,</span>
+<span class="sd">                February). Deep canonical correlation analysis. In</span>
+<span class="sd">                International conference on machine learning (pp. 1247-1255).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">input_size1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">input_size2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="n">layer_sizes1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">layer_sizes2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">use_all_singular_values</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">),</span>
+            <span class="n">epoch_num</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">reg_par</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span>
+            <span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">print_train_log_info</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">):</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">layer_sizes1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">layer_sizes1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_components</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">layer_sizes2</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">layer_sizes2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_components</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_valid_inputs</span><span class="p">(</span><span class="n">input_size1</span><span class="p">,</span> <span class="n">input_size2</span><span class="p">,</span> <span class="n">n_components</span><span class="p">,</span>
+                           <span class="n">layer_sizes1</span><span class="p">,</span> <span class="n">layer_sizes2</span><span class="p">,</span>
+                           <span class="n">use_all_singular_values</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span>
+                           <span class="n">epoch_num</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="n">reg_par</span><span class="p">,</span>
+                           <span class="n">tolerance</span><span class="p">,</span> <span class="n">print_train_log_info</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_size1_</span> <span class="o">=</span> <span class="n">input_size1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_size2_</span> <span class="o">=</span> <span class="n">input_size2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_components_</span> <span class="o">=</span> <span class="n">n_components</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_all_singular_values</span> <span class="o">=</span> <span class="n">use_all_singular_values</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device_</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epoch_num</span> <span class="o">=</span> <span class="n">epoch_num</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_size_</span> <span class="o">=</span> <span class="n">batch_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate_</span> <span class="o">=</span> <span class="n">learning_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reg_par_</span> <span class="o">=</span> <span class="n">reg_par</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_train_log_info</span> <span class="o">=</span> <span class="n">print_train_log_info</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tolerance</span> <span class="o">=</span> <span class="n">tolerance</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">deep_model_</span> <span class="o">=</span> <span class="n">DeepPairedNetworks</span><span class="p">(</span><span class="n">layer_sizes1</span><span class="p">,</span> <span class="n">layer_sizes2</span><span class="p">,</span>
+                                              <span class="n">input_size1</span><span class="p">,</span> <span class="n">input_size2</span><span class="p">,</span>
+                                              <span class="n">n_components</span><span class="p">,</span>
+                                              <span class="n">use_all_singular_values</span><span class="p">,</span>
+                                              <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear_cca_</span> <span class="o">=</span> <span class="n">linear_cca</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">DataParallel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deep_model_</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loss_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">deep_model_</span><span class="o">.</span><span class="n">loss_</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimizer_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">RMSprop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span>
+                                              <span class="n">lr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">learning_rate_</span><span class="p">,</span>
+                                              <span class="n">weight_decay</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">reg_par_</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_fit</span> <span class="o">=</span> <span class="kc">False</span>
+
+<div class="viewcode-block" id="DCCA.fit"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.DCCA.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fits the deep networks for each view such that the output of the</span>
+<span class="sd">        linear CCA has maximum correlation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">             - Xs length: n_views</span>
+<span class="sd">             - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            The data to fit to. Each view will receive its own embedding.</span>
+
+<span class="sd">        y : ignored</span>
+<span class="sd">            Included for API compliance.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : returns an instance of self.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">multiview</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># ensure valid input</span>
+
+        <span class="c1"># Check valid shapes based on initialization</span>
+        <span class="k">if</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_size1_</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;View 1 input data is incorrect shape based on&#39;</span>
+                             <span class="s1">&#39; self.input_size1_. Found </span><span class="si">{}</span><span class="s1"> features but&#39;</span>
+                             <span class="s1">&#39;expected </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                                  <span class="bp">self</span><span class="o">.</span><span class="n">input_size1_</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_size2_</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;View 2 input data is incorrect shape based on&#39;</span>
+                             <span class="s1">&#39; self.input_size2_. Found </span><span class="si">{}</span><span class="s1"> features but&#39;</span>
+                             <span class="s1">&#39;expected </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                                  <span class="bp">self</span><span class="o">.</span><span class="n">input_size2_</span><span class="p">))</span>
+
+        <span class="n">x1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">DoubleTensor</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">x2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">DoubleTensor</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">x1</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device_</span><span class="p">)</span>
+        <span class="n">x2</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device_</span><span class="p">)</span>
+
+        <span class="n">data_size</span> <span class="o">=</span> <span class="n">x1</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">checkpoint</span> <span class="o">=</span> <span class="s1">&#39;checkpoint.model&#39;</span>
+
+        <span class="n">train_losses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">epoch</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">current_loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+        <span class="n">train_loss</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">current_loss</span> <span class="o">-</span> <span class="n">train_loss</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">tolerance</span><span class="p">)</span>\
+                <span class="ow">and</span> <span class="n">epoch</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">epoch_num</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model_</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+            <span class="n">batch_idxs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">BatchSampler</span><span class="p">(</span><span class="n">RandomSampler</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">data_size</span><span class="p">)),</span>
+                                           <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size_</span><span class="p">,</span>
+                                           <span class="n">drop_last</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+            <span class="n">current_loss</span> <span class="o">=</span> <span class="n">train_loss</span>
+            <span class="k">for</span> <span class="n">batch_idx</span> <span class="ow">in</span> <span class="n">batch_idxs</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">optimizer_</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+                <span class="n">batch_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="n">batch_idx</span><span class="p">,</span> <span class="p">:]</span>
+                <span class="n">batch_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="n">batch_idx</span><span class="p">,</span> <span class="p">:]</span>
+                <span class="n">o1</span><span class="p">,</span> <span class="n">o2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_</span><span class="p">(</span><span class="n">batch_x1</span><span class="p">,</span> <span class="n">batch_x2</span><span class="p">)</span>
+                <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span> <span class="n">o2</span><span class="p">)</span>
+                <span class="n">train_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+                <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">optimizer_</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+            <span class="n">train_loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_losses</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_train_log_info</span><span class="p">:</span>
+                <span class="n">info_string</span> <span class="o">=</span> <span class="s2">&quot;Epoch </span><span class="si">{:d}</span><span class="s2">/</span><span class="si">{:d}</span><span class="s2">,&quot;</span>\
+                    <span class="s2">&quot; training_loss: </span><span class="si">{:.4f}</span><span class="s2">&quot;</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">info_string</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">epoch_num</span><span class="p">,</span>
+                      <span class="n">train_loss</span><span class="p">))</span>
+
+            <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">checkpoint</span><span class="p">)</span>
+            <span class="n">epoch</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1"># Check if converged before max iterations</span>
+        <span class="k">if</span> <span class="n">epoch</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">epoch_num</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Loss did not converge before </span><span class="si">{}</span><span class="s1"> epochs. Consider&#39;</span>\
+                <span class="s1">&#39; increasing epoch_num to train for&#39;</span>\
+                <span class="s1">&#39; longer.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">epoch_num</span><span class="p">)</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="ne">Warning</span><span class="p">)</span>
+
+        <span class="c1"># train_linear_cca</span>
+        <span class="n">losses</span><span class="p">,</span> <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_outputs</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_train_linear_cca</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">checkpoint_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">checkpoint_</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_fit</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DCCA.transform"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.DCCA.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">return_loss</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Embeds data matrix(s) using the trained deep networks and fitted CCA</span>
+<span class="sd">        projection matrices. May be used for out-of-sample embeddings.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">             - Xs length: n_views</span>
+<span class="sd">             - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            A list of data matrices from each view to transform based on the</span>
+<span class="sd">            prior fit function. If view_idx defined, then Xs is a 2D data</span>
+<span class="sd">            matrix corresponding to a single view.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xs_transformed : list of array-likes or array-like</span>
+<span class="sd">            Transformed samples. Same structure as Xs, but potentially</span>
+<span class="sd">            different n_features_i.</span>
+<span class="sd">        loss : float</span>
+<span class="sd">            Average loss over data, defined as negative correlation of</span>
+<span class="sd">            transformed views. Only returned if ``return_loss=True``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_fit</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotFittedError</span><span class="p">(</span><span class="s2">&quot;Must call fit function before transform&quot;</span><span class="p">)</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">multiview</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">x1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">DoubleTensor</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">x2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">DoubleTensor</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">losses</span><span class="p">,</span> <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_outputs</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+            <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_cca_</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">return_loss</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">outputs</span></div>
+
+    <span class="k">def</span> <span class="nf">_train_linear_cca</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Private function to fit the linear CCA model for use after the</span>
+<span class="sd">        deep layers.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x1 : torch.tensor</span>
+<span class="sd">            Input view 1 data.</span>
+<span class="sd">        x2 : torch.tensor</span>
+<span class="sd">            Input view 2 data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear_cca_</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_components_</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Private function to get the transformed data and the corresponding</span>
+<span class="sd">        loss for the given inputs.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x1 : torch.tensor</span>
+<span class="sd">            Input view 1 data.</span>
+<span class="sd">        x2 : torch.tensor</span>
+<span class="sd">            Input view 2 data.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        losses : list</span>
+<span class="sd">            List of losses for each batch taken from the input data.</span>
+<span class="sd">        outputs : list of tensors</span>
+<span class="sd">            outputs[i] is the output of the deep models for view i.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model_</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+            <span class="n">data_size</span> <span class="o">=</span> <span class="n">x1</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">batch_idxs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">BatchSampler</span><span class="p">(</span><span class="n">SequentialSampler</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">data_size</span><span class="p">)),</span>
+                              <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size_</span><span class="p">,</span>
+                              <span class="n">drop_last</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+            <span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">outputs1</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">outputs2</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">batch_idx</span> <span class="ow">in</span> <span class="n">batch_idxs</span><span class="p">:</span>
+                <span class="n">batch_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="n">batch_idx</span><span class="p">,</span> <span class="p">:]</span>
+                <span class="n">batch_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="n">batch_idx</span><span class="p">,</span> <span class="p">:]</span>
+                <span class="n">o1</span><span class="p">,</span> <span class="n">o2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_</span><span class="p">(</span><span class="n">batch_x1</span><span class="p">,</span> <span class="n">batch_x2</span><span class="p">)</span>
+                <span class="n">outputs1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>
+                <span class="n">outputs2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">o2</span><span class="p">)</span>
+                <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span> <span class="n">o2</span><span class="p">)</span>
+                <span class="n">losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">outputs1</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
+                   <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">outputs2</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()]</span>
+
+        <span class="k">return</span> <span class="n">losses</span><span class="p">,</span> <span class="n">outputs</span>
+
+    <span class="k">def</span> <span class="nf">_valid_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_size1</span><span class="p">,</span> <span class="n">input_size2</span><span class="p">,</span> <span class="n">n_components</span><span class="p">,</span>
+                      <span class="n">layer_sizes1</span><span class="p">,</span> <span class="n">layer_sizes2</span><span class="p">,</span>
+                      <span class="n">use_all_singular_values</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span>
+                      <span class="n">epoch_num</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="n">reg_par</span><span class="p">,</span>
+                      <span class="n">tolerance</span><span class="p">,</span> <span class="n">print_train_log_info</span>
+                      <span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check that the inputs passed to __init__() are valid.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        input_size1 : int (positive)</span>
+<span class="sd">            The dimensionality of the input vectors in view 1.</span>
+<span class="sd">        input_size2 : int (positive)</span>
+<span class="sd">            The dimensionality of the input vectors in view 2.</span>
+<span class="sd">        n_components : int (positive), default=2</span>
+<span class="sd">            The output dimensionality of the correlated projections. The deep</span>
+<span class="sd">            network wil transform the data to this size. Must satisfy:</span>
+<span class="sd">            ``n_components`` &lt;= max(layer_sizes1[-1], layer_sizes2[-1]).</span>
+<span class="sd">        layer_sizes1 : list of ints, default=None</span>
+<span class="sd">            The sizes of the layers of the deep network applied to view 1</span>
+<span class="sd">            before CCA. For example, if the input dimensionality is 256, and</span>
+<span class="sd">            there is one hidden layer with 1024 units and the output</span>
+<span class="sd">            dimensionality is 100 before applying CCA,</span>
+<span class="sd">            layer_sizes1=[1024, 100]. If ``None``, set to</span>
+<span class="sd">            [1000, ``self.n_components_``].</span>
+<span class="sd">        layer_sizes2 : list of ints, default=None</span>
+<span class="sd">            The sizes of the layers of the deep network applied to view 2</span>
+<span class="sd">            before CCA. Does not need to have the same hidden layer</span>
+<span class="sd">            architecture as layer_sizes1, but the final dimensionality must</span>
+<span class="sd">            be the same. If ``None``, set to [1000, ``self.n_components_``].</span>
+<span class="sd">        use_all_singular_values : boolean (default=False)</span>
+<span class="sd">            Whether or not to use all the singular values in the CCA</span>
+<span class="sd">            computation to calculate the loss. If False, only the top</span>
+<span class="sd">            ``n_components`` singular values are used.</span>
+<span class="sd">        device : string, default=&#39;cpu&#39;</span>
+<span class="sd">            The torch device for processing. Can be used with a GPU if</span>
+<span class="sd">            available.</span>
+<span class="sd">        epoch_num : int (positive), default=200</span>
+<span class="sd">            The max number of epochs to train the deep networks.</span>
+<span class="sd">        batch_size : int (positive), default=800</span>
+<span class="sd">            Batch size for training the deep networks.</span>
+<span class="sd">        learning_rate : float (positive), default=1e-3</span>
+<span class="sd">            Learning rate for training the deep networks.</span>
+<span class="sd">        reg_par : float (positive), default=1e-5</span>
+<span class="sd">            Weight decay parameter used in the RMSprop optimizer.</span>
+<span class="sd">        tolerance : float, (positive), default=1e-2</span>
+<span class="sd">            Threshold difference between successive iteration losses to define</span>
+<span class="sd">            convergence and stop training.</span>
+<span class="sd">        print_train_log_info : boolean, default=False</span>
+<span class="sd">            If ``True``, the training loss at each epoch will be printed to</span>
+<span class="sd">            the console when DCCA.fit() is called.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check input_size parameters</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_size1</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="ow">or</span>\
+           <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_size2</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="ow">or</span>\
+           <span class="n">input_size1</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">input_size2</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;input_size1 and input_size2 must be&#39;</span>
+                             <span class="s1">&#39; positive integers&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Check n_components</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n_components</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="n">n_components</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;n_components must be positive integer&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Check n_components vs last layer size</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">n_components</span> <span class="o">&lt;=</span> <span class="n">layer_sizes1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="ow">and</span> <span class="ow">not</span>\
+           <span class="p">(</span><span class="n">n_components</span> <span class="o">&lt;=</span> <span class="n">layer_sizes2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;n_components must be no greater than final&#39;</span>
+                             <span class="s1">&#39; layer size. Desired </span><span class="si">{}</span><span class="s1"> components but </span><span class="si">{}</span><span class="s1">&#39;</span>
+                             <span class="s1">&#39; and </span><span class="si">{}</span><span class="s1"> dimensional final layers&#39;</span>
+                             <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_components</span><span class="p">,</span> <span class="n">layer_sizes1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                                       <span class="n">layer_sizes2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+        <span class="c1"># Check layer_sizes</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">layer_sizes1</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span> <span class="ow">or</span>\
+           <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">layer_sizes2</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">layer_sizes1</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="n">elem</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;All layer sizes must be positive&#39;</span>
+                                     <span class="s1">&#39; integers&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">layer_sizes2</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="n">elem</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;All layer sizes must be positive&#39;</span>
+                                     <span class="s1">&#39; integers&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;layer_sizes1 and layer_sizes2 must be of type&#39;</span>
+                             <span class="s1">&#39; list&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">layer_sizes1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">layer_sizes2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Output size of deep networks must match. Make&#39;</span>
+                             <span class="s1">&#39; sure layer_sizes1[-1] == layer_sizes2[-1]&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Check epoch_num</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">epoch_num</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="n">epoch_num</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;epoch_num must be positive integer&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Check batch_size</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="n">batch_size</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;epoch_num must be positive integer&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Check learning_rate</span>
+        <span class="k">if</span> <span class="n">learning_rate</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;learning_rate must be positive&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Check reg_par</span>
+        <span class="k">if</span> <span class="n">reg_par</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;reg_par must be positive&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Check tolerance</span>
+        <span class="k">if</span> <span class="n">tolerance</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;tolerance must be positive&#39;</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019-2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<p style="text-align: center; margin: .5rem;">
+    <a href="https://www.netlify.com">
+        <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
+    </a>
+</p>
+ 
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

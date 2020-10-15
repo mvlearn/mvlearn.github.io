@@ -1,0 +1,796 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mvlearn.embed.gcca &mdash; mvlearn alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../install.html#including-optional-torch-dependencies-for-full-functionality">Including optional torch dependencies for full functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#python-package-dependencies">Python package dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#hardware-requirements">Hardware requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#os-requirements">OS Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Examples Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-cluster">Examples on cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-datasets">Examples on datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-decomposition">Examples on decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/pipeline/plot_pipeline_sklearn_integration.html">Integrating mvlearn with scikit-learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-plotting">Examples on plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../references/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/cluster.html">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spectral-clustering">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#co-regularized-multiview-spectral-clustering">Co-Regularized Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-k-means">Multiview K Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spherical-k-means">Multiview Spherical K Means</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/semi_supervised.html">Semi-Supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-classifier">Cotraining Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-regressor">Cotraining Regressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dcca-utilities">DCCA Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dimension-selection">Dimension Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/decomposition.html">Decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#multiview-ica">Multiview ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#permutation-ica">Permutation ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-ica">Group ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-pca">Group PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/construct.html">View Construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-gaussian-projection">Random Gaussian Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-subspace-method">Random Subspace Method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/model_selection.html">Model Selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/model_selection.html#cross-validation">Cross Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/compose.html">Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#averagemerger">AverageMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#concatmerger">ConcatMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#simplesplitter">SimpleSplitter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/preprocessing.html">Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/preprocessing.html#viewtransformer">ViewTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/datasets.html">Multiview Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#data-simulator">Data Simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/plotting.html">Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#quick-visualize">Quick Visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#crossviews-plot">Crossviews Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/utils.html#io">IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to mvlearn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#how-to-make-a-good-bug-report">How to make a good bug report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#contributing-code">Contributing Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#pull-request-checklist">Pull Request Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#coding-guidelines">Coding Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#docstring-guidelines">Docstring Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#api-of-mvlearn-objects">API of mvlearn Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#estimators">Estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#additional-functionality">Additional Functionality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id1">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id4">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id9">mvlearn.preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#patch-0-2-1">Patch 0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-2-0">Version 0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-1-0">Version 0.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Useful Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mvlearn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvlearn.embed.gcca</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvlearn.embed.gcca</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2019 NeuroData (http://neurodata.io)</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseEmbed</span>
+<span class="kn">from</span> <span class="nn">..utils.utils</span> <span class="kn">import</span> <span class="n">check_Xs</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span><span class="p">,</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">svds</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">normalize</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">select_dimension</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+
+<span class="k">def</span> <span class="nf">center</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Subtracts the row means and divides by the row standard deviations.</span>
+<span class="sd">    Then subtracts column means.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : array-like, shape (n_observations, n_features)</span>
+<span class="sd">        The data to preprocess</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    centered_X : preprocessed data matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Mean along rows using sample mean and sample std</span>
+    <span class="n">centered_X</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># Mean along columns</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">centered_X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">centered_X</span> <span class="o">-=</span> <span class="n">mu</span>
+    <span class="k">return</span> <span class="n">centered_X</span>
+
+
+<div class="viewcode-block" id="GCCA"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.GCCA">[docs]</a><span class="k">class</span> <span class="nc">GCCA</span><span class="p">(</span><span class="n">BaseEmbed</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An implementation of Generalized Canonical Correlation Analysis [#1GCCA]_</span>
+<span class="sd">    suitable for cases where the number of features exceeds the number of</span>
+<span class="sd">    samples by first applying single view dimensionality reduction. Computes</span>
+<span class="sd">    individual projections into a common subspace such that the correlations</span>
+<span class="sd">    between pairwise projections are minimized (ie. maximize pairwise</span>
+<span class="sd">    correlation). An important note: this is applicable to any number of</span>
+<span class="sd">    views, not just two.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_components : int (positive), optional, default=None</span>
+<span class="sd">        If ``self.sv_tolerance=None``, selects the number of SVD</span>
+<span class="sd">        components to keep for each view. If none, another selection</span>
+<span class="sd">        method is used.</span>
+<span class="sd">    fraction_var : float, default=None</span>
+<span class="sd">        If ``self.sv_tolerance=None``, and ``self.n_components=None``,</span>
+<span class="sd">        selects the number of SVD components to keep for each view by</span>
+<span class="sd">        capturing enough of the variance. If none, another selection</span>
+<span class="sd">        method is used.</span>
+<span class="sd">    sv_tolerance : float, optional, default=None</span>
+<span class="sd">        Selects the number of SVD components to keep for each view by</span>
+<span class="sd">        thresholding singular values. If none, another selection</span>
+<span class="sd">        method is used.</span>
+<span class="sd">    n_elbows : int, optional, default: 2</span>
+<span class="sd">        If ``self.fraction_var=None``, ``self.sv_tolerance=None``, and</span>
+<span class="sd">        ``self.n_components=None``, then compute the optimal embedding</span>
+<span class="sd">        dimension using :func:`.utils.select_dimension`.</span>
+<span class="sd">        Otherwise, ignored.</span>
+<span class="sd">    tall : boolean, default=False</span>
+<span class="sd">        Set to true if n_samples &gt; n_features, speeds up SVD</span>
+<span class="sd">    max_rank : boolean, default=False</span>
+<span class="sd">        If true, sets the rank of the common latent space as the maximum rank</span>
+<span class="sd">        of the individual spaces. If false, uses the minimum individual rank.</span>
+<span class="sd">    n_jobs : int (positive), default=None</span>
+<span class="sd">        The number of jobs to run in parallel when computing the SVDs for each</span>
+<span class="sd">        view in `fit` and `partial_fit`. `None` means 1 job, `-1` means using</span>
+<span class="sd">        all processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    projection_mats_ : list of arrays</span>
+<span class="sd">        A projection matrix for each view, from the given space to the</span>
+<span class="sd">        latent space</span>
+
+<span class="sd">    ranks_ : list of ints</span>
+<span class="sd">        Number of left singular vectors kept for each view during the first</span>
+<span class="sd">        SVD</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Consider two views :math:`X_1` and :math:`X_2`. Canonical Correlation</span>
+<span class="sd">    Analysis seeks to find vectors :math:`a_1` and :math:`a_2` to maximize</span>
+<span class="sd">    the correlation :math:`X_1 a_1` and :math:`X_2 a_2`, expanded below.</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \left(\frac{a_1^TC_{12}a_2}</span>
+<span class="sd">            {\sqrt{a_1^TC_{11}a_1a_2^TC_{22}a_2}}</span>
+<span class="sd">            \right)</span>
+
+<span class="sd">    where :math:`C_{11}`, :math:`C_{22}`, and :math:`C_{12}` are respectively</span>
+<span class="sd">    the view 1, view 2, and between view covariance matrix estimates. GCCA</span>
+<span class="sd">    maximizes the sum of these correlations across all pairwise views and</span>
+<span class="sd">    computes a set of linearly independent components. This specific algorithm</span>
+<span class="sd">    first applies principal component analysis (PCA) independently to each view</span>
+<span class="sd">    and then aligns the most informative projections to find correlated and</span>
+<span class="sd">    informative subspaces. Parameters that control the embedding dimension</span>
+<span class="sd">    apply to the PCA step. The dimension of each aligned subspace is the</span>
+<span class="sd">    maximum or minimum of the individual dimensions, per the `max_ranks`</span>
+<span class="sd">    parameter. Using the maximum will capture the most information from all</span>
+<span class="sd">    views but also noise from some views. Using the minimum will better remove</span>
+<span class="sd">    noise dimensions but at the cost of information from some views.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [#1GCCA] B. Afshin-Pour, G.A. Hossein-Zadeh, S.C. Strother, H.</span>
+<span class="sd">            Soltanian-Zadeh. Enhancing reproducibility of fMRI statistical</span>
+<span class="sd">            maps using generalized canonical correlation analysis in NPAIRS</span>
+<span class="sd">            framework. Neuroimage, 60 (2012), pp. 1970-1981</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.datasets import load_UCImultifeature</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.embed import GCCA</span>
+<span class="sd">    &gt;&gt;&gt; # Load full dataset, labels not needed</span>
+<span class="sd">    &gt;&gt;&gt; Xs, _ = load_UCImultifeature()</span>
+<span class="sd">    &gt;&gt;&gt; gcca = GCCA(fraction_var = 0.9)</span>
+<span class="sd">    &gt;&gt;&gt; # Transform the first 5 views</span>
+<span class="sd">    &gt;&gt;&gt; Xs_latents = gcca.fit_transform(Xs[:5])</span>
+<span class="sd">    &gt;&gt;&gt; print([X.shape[1] for X in Xs_latents])</span>
+<span class="sd">    [9, 9, 9, 9, 9]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">n_components</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">fraction_var</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">sv_tolerance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">n_elbows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="n">tall</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">max_rank</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">n_components</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fraction_var</span> <span class="o">=</span> <span class="n">fraction_var</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sv_tolerance</span> <span class="o">=</span> <span class="n">sv_tolerance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_elbows</span> <span class="o">=</span> <span class="n">n_elbows</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tall</span> <span class="o">=</span> <span class="n">tall</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">projection_mats_</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ranks_</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_rank</span> <span class="o">=</span> <span class="n">max_rank</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span>
+
+<div class="viewcode-block" id="GCCA.fit"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.GCCA.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates a projection from each view to a latent space such that</span>
+<span class="sd">        the sum of pairwise latent space correlations is maximized. Each view</span>
+<span class="sd">        &#39;X&#39; is normalized and the left singular vectors of &#39;X^T X&#39; are</span>
+<span class="sd">        calculated using SVD. The number of singular vectors kept is determined</span>
+<span class="sd">        by either the percent variance explained, a given rank threshold, or a</span>
+<span class="sd">        given number of components. The singular vectors kept are concatenated</span>
+<span class="sd">        and SVD of that is taken and used to calculated projections for each</span>
+<span class="sd">        view.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">             - Xs length: n_views</span>
+<span class="sd">             - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            The data to fit to. Each view will receive its own embedding.</span>
+<span class="sd">        y : ignored</span>
+<span class="sd">            Included for API compliance.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : returns an instance of self.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">multiview</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">min_m</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span><span class="p">)</span>
+
+        <span class="c1"># Parallel center</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="n">center</span><span class="p">)(</span><span class="n">X</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span>
+            <span class="p">)</span>
+        <span class="c1"># Parallel SVDs</span>
+        <span class="n">usvr</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fit_view</span><span class="p">)(</span><span class="n">X</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">min_m</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span>
+            <span class="p">)</span>
+        <span class="c1"># Reshape from parallel output</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Uall</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Sall</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Vall</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ranks_</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">usvr</span><span class="p">)</span>
+
+        <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_multistep</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="GCCA.partial_fit"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.GCCA.partial_fit">[docs]</a>    <span class="k">def</span> <span class="nf">partial_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">reset</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">multiview_step</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Performs like `fit`, but will not overwrite previously fitted single</span>
+<span class="sd">        views and instead uses them as well as the new data. Useful if the data</span>
+<span class="sd">        needs to be processed in batches.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">             - Xs length: n_views</span>
+<span class="sd">             - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            The data to fit to. Each view will receive its own embedding.</span>
+<span class="sd">        reset : boolean (default = False)</span>
+<span class="sd">            If True, overwrites all prior computations.</span>
+<span class="sd">        multiview_step : boolean, (default = True)</span>
+<span class="sd">            If True, performs the joint SVD step on the results from individual</span>
+<span class="sd">            views. Must be set to True in the final call.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : returns an instance of self.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_Uall&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">reset</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_Uall</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_Sall</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_Vall</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ranks_</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">multiview</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">min_m</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span><span class="p">)</span>
+
+        <span class="c1"># Parallel center</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="n">center</span><span class="p">)(</span><span class="n">X</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span>
+            <span class="p">)</span>
+        <span class="c1"># Parallel SVDs</span>
+        <span class="n">usvr</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fit_view</span><span class="p">)(</span><span class="n">X</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">min_m</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span>
+            <span class="p">)</span>
+        <span class="c1"># Reshape and concatenate from parallel output</span>
+        <span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">usvr</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Uall</span> <span class="o">+=</span> <span class="n">u</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Sall</span> <span class="o">+=</span> <span class="n">s</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Vall</span> <span class="o">+=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ranks_</span> <span class="o">+=</span> <span class="n">r</span>
+
+        <span class="k">if</span> <span class="n">multiview_step</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ranks_</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Fewer than two single views fitted. Unable to perform </span><span class="se">\</span>
+<span class="s2">                    multiview step.&quot;</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_multistep</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+    <span class="k">def</span> <span class="nf">_fit_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">min_m</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Helper function to compute SVD on each view.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Preprocess</span>
+        <span class="n">X</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># compute the SVD of the data</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tall</span><span class="p">:</span>
+            <span class="n">v</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">ut</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">vt</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">ut</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">vt</span><span class="o">.</span><span class="n">T</span>
+
+        <span class="c1"># Dimensions to reduce to</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sv_tolerance</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sv_tolerance</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sv_tolerance</span><span class="p">,</span> <span class="nb">int</span>
+            <span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;sv_tolerance must be numeric&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">sv_tolerance</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;sv_tolerance must be greater than 0&quot;</span>
+                    <span class="p">)</span>
+
+            <span class="n">rank</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">s</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">sv_tolerance</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;n_components must be an integer&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;n_components must be greater than 0&quot;</span>
+                    <span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span> <span class="o">&gt;</span> <span class="nb">min</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">min_m</span><span class="p">)):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;n_components must be less than or equal to the </span><span class="se">\</span>
+<span class="s2">                        minimum input rank&quot;</span>
+                <span class="p">)</span>
+
+            <span class="n">rank</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">fraction_var</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fraction_var</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fraction_var</span><span class="p">,</span> <span class="nb">int</span>
+            <span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                    <span class="s2">&quot;fraction_var must be an integer or float&quot;</span>
+                    <span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">fraction_var</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">fraction_var</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;fraction_var must be in (0,1]&quot;</span><span class="p">)</span>
+
+            <span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+            <span class="n">rank</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">s2</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">fraction_var</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Sweep over only first log2, else too large elbows</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[:</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">))))]</span>
+            <span class="n">elbows</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">select_dimension</span><span class="p">(</span>
+                <span class="n">s</span><span class="p">,</span> <span class="n">n_elbows</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_elbows</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="kc">None</span>
+            <span class="p">)</span>
+            <span class="n">rank</span> <span class="o">=</span> <span class="n">elbows</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">u</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">T</span><span class="p">[:,</span> <span class="p">:</span><span class="n">rank</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">rank</span>
+
+    <span class="k">def</span> <span class="nf">_fit_multistep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Helper function to compute the SVD on the results from individuals</span>
+<span class="sd">        view SVDs.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_rank</span><span class="p">:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ranks_</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ranks_</span><span class="p">)</span>
+
+        <span class="c1"># Create a concatenated view of Us</span>
+        <span class="n">Uall_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Uall</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">VV</span> <span class="o">=</span> <span class="n">svds</span><span class="p">(</span><span class="n">Uall_c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+        <span class="n">VV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">VV</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">VV</span> <span class="o">=</span> <span class="n">VV</span><span class="p">[:,</span> <span class="p">:</span> <span class="nb">min</span><span class="p">([</span><span class="n">d</span><span class="p">,</span> <span class="n">VV</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]])]</span>
+
+        <span class="c1"># SVDS the concatenated Us</span>
+        <span class="n">idx_end</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">projection_mats</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ranks_</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">idx_start</span> <span class="o">=</span> <span class="n">idx_end</span>
+            <span class="n">idx_end</span> <span class="o">=</span> <span class="n">idx_start</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ranks_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">VVi</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">VV</span><span class="p">[</span><span class="n">idx_start</span><span class="p">:</span><span class="n">idx_end</span><span class="p">,</span> <span class="p">:],</span> <span class="s2">&quot;l2&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="c1"># Compute the canonical projections</span>
+            <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Vall</span><span class="p">[</span><span class="n">i</span><span class="p">][:,</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ranks_</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+            <span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Sall</span><span class="p">[</span><span class="n">i</span><span class="p">][:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ranks_</span><span class="p">[</span><span class="n">i</span><span class="p">]]),</span> <span class="n">VVi</span>
+                <span class="p">))</span>
+
+            <span class="n">projection_mats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">projection_mats_</span> <span class="o">=</span> <span class="n">projection_mats</span>
+
+        <span class="k">return</span> <span class="bp">self</span>
+
+<div class="viewcode-block" id="GCCA.transform"><a class="viewcode-back" href="../../../references/embed.html#mvlearn.embed.GCCA.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">view_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Embeds data matrix(s) using the fitted projection matrices. May be</span>
+<span class="sd">        used for out-of-sample embeddings.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">             - Xs length: n_views</span>
+<span class="sd">             - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            A list of data matrices from each view to transform based on the</span>
+<span class="sd">            prior fit function. If view_idx is defined, then Xs is a 2D data</span>
+<span class="sd">            matrix corresponding to a single view.</span>
+<span class="sd">        view_idx : int, default=None</span>
+<span class="sd">            For transformation of a single view. If not None, then Xs is 2D</span>
+<span class="sd">            and views_idx specifies the index of the view from which Xs comes</span>
+<span class="sd">            from.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xs_transformed : list of array-likes or array-like</span>
+<span class="sd">            Same shape as Xs</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">projection_mats_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Must call fit function before transform&quot;</span><span class="p">)</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">view_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">center</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">projection_mats_</span><span class="p">[</span><span class="n">view_idx</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="n">center</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">@</span> <span class="n">proj</span>
+                    <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">proj</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">projection_mats_</span><span class="p">)</span>
+                <span class="p">]</span>
+            <span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019-2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<p style="text-align: center; margin: .5rem;">
+    <a href="https://www.netlify.com">
+        <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
+    </a>
+</p>
+ 
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

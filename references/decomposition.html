@@ -1,0 +1,2057 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Decomposition &mdash; mvlearn alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="View Construction" href="construct.html" />
+    <link rel="prev" title="Embedding" href="embed.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#including-optional-torch-dependencies-for-full-functionality">Including optional torch dependencies for full functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#python-package-dependencies">Python package dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#hardware-requirements">Hardware requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#os-requirements">OS Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-cluster">Examples on cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-datasets">Examples on datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-decomposition">Examples on decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/pipeline/plot_pipeline_sklearn_integration.html">Integrating mvlearn with scikit-learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-plotting">Examples on plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cluster.html">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cluster.html#multiview-spectral-clustering">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cluster.html#co-regularized-multiview-spectral-clustering">Co-Regularized Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cluster.html#multiview-k-means">Multiview K Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cluster.html#multiview-spherical-k-means">Multiview Spherical K Means</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="semi_supervised.html">Semi-Supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="semi_supervised.html#cotraining-classifier">Cotraining Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="semi_supervised.html#cotraining-regressor">Cotraining Regressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embed.html#omnibus-embedding">Omnibus Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embed.html#split-autoencoder">Split Autoencoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embed.html#dcca-utilities">DCCA Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embed.html#dimension-selection">Dimension Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multiview-ica">Multiview ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#permutation-ica">Permutation ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#group-ica">Group ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#group-pca">Group PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="construct.html">View Construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="construct.html#random-gaussian-projection">Random Gaussian Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="construct.html#random-subspace-method">Random Subspace Method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model_selection.html">Model Selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model_selection.html#cross-validation">Cross Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="compose.html">Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compose.html#averagemerger">AverageMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compose.html#concatmerger">ConcatMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compose.html#simplesplitter">SimpleSplitter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="preprocessing.html#viewtransformer">ViewTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html">Multiview Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasets.html#data-simulator">Data Simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="plotting.html">Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plotting.html#quick-visualize">Quick Visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotting.html#crossviews-plot">Crossviews Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#io">IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to mvlearn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#how-to-make-a-good-bug-report">How to make a good bug report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#contributing-code">Contributing Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#pull-request-checklist">Pull Request Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#coding-guidelines">Coding Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#docstring-guidelines">Docstring Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#api-of-mvlearn-objects">API of mvlearn Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#estimators">Estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#additional-functionality">Additional Functionality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id1">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id4">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id6">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id9">mvlearn.preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-3-0">Version 0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#patch-0-2-1">Patch 0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-2-0">Version 0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-1-0">Version 0.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Useful Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mvlearn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Reference</a> &raquo;</li>
+        
+      <li>Decomposition</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/mvlearn/mvlearn/blob/master/docs/references/decomposition.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="decomposition">
+<h1>Decomposition<a class="headerlink" href="#decomposition" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="multiview-ica">
+<h2>Multiview ICA<a class="headerlink" href="#multiview-ica" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mvlearn.decomposition.MultiviewICA">
+<em class="property">class </em><code class="descclassname">mvlearn.decomposition.</code><code class="descname">MultiviewICA</code><span class="sig-paren">(</span><em>n_components=None</em>, <em>noise=1.0</em>, <em>max_iter=1000</em>, <em>init='permica'</em>, <em>random_state=None</em>, <em>tol=0.001</em>, <em>verbose=False</em>, <em>n_jobs=30</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/mv_ica.html#MultiviewICA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiview ICA for which views share a common source but separate mixing
+matrices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n_components</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) -- Number of components to extract. If None, no dimension reduction is
+performed and all views must have the same number of features.</li>
+<li><strong>noise</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>default=1.0</em>) -- Gaussian noise level</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>default=1000</em>) -- Maximum number of iterations to perform</li>
+<li><strong>init</strong> (<em>{'permica'</em><em>, </em><em>'groupica'}</em><em> or </em><em>np array of shape</em>) -- (n_groups, n_components, n_components), default='permica'
+If permica: initialize with perm ICA, if groupica, initialize with
+group ica. Else, use the provided array to initialize.</li>
+<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>RandomState instance</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a><em>, </em><em>default=None</em>) -- Used to perform a random initialization. If int, random_state is
+the seed used by the random number generator; If RandomState
+instance, random_state is the random number generator; If
+None, the random number generator is the RandomState instance
+used by np.random.</li>
+<li><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>default=1e-3</em>) -- A positive scalar giving the tolerance at which
+the un-mixing matrices are considered to have converged.</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>default=False</em>) -- Print information</li>
+<li><strong>n_jobs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> (</em><em>positive</em><em>)</em><em>, </em><em>default=None</em>) -- The number of jobs to run in parallel. <cite>None</cite> means 1 job, <cite>-1</cite>
+means using all processors.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="mvlearn.decomposition.MultiviewICA.components_">
+<code class="descname">components_</code><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.components_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The projection matrices that project group data in reduced space.
+Has value None if n_components is None</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np array of shape (n_groups, n_features, n_components)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.MultiviewICA.unmixings_">
+<code class="descname">unmixings_</code><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.unmixings_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimated un-mixing matrices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np array of shape (n_groups, n_components, n_components)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.MultiviewICA.source_">
+<code class="descname">source_</code><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.source_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimated source matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np array of shape (n_samples, n_components)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-class docutils literal notranslate"><span class="pre">groupica</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">permica</span></code></p>
+</div>
+<p class="rubric">Notes</p>
+<p>Given each view <span class="math notranslate nohighlight">\(X_i\)</span> It optimizes:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[l(W) = \frac{1}{T} \sum_{t=1}^T [\sum_k log(cosh(Y_{avg,k,t}))
++ \sum_i l_i(X_{i,.,t})]\]</div>
+</div></blockquote>
+<p>where</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[l _i(X_{i,.,t}) = - log(|W_i|) + 1/(2 \sigma) ||X_{i,.,t}W_i -
+Y_{avg,.,t}||^2,\]</div>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(W_i\)</span> is the mixing matrix for view  <span class="math notranslate nohighlight">\(i\)</span>,
+<span class="math notranslate nohighlight">\(Y_{avg} = \frac{1}{n} \sum_{i=1}^n X_i W_i\)</span>, and <span class="math notranslate nohighlight">\(\sigma\)</span>
+is the noise level.</p>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="mvica" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Hugo Richard, Luigi Gresele, Aapo Hyvärinen, Bertrand Thirion,
+Alexandre Gramfort, Pierre Ablin. Modeling Shared Responses in
+Neuroimaging Studies through MultiView ICA. arXiv 2020.</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.decomposition</span> <span class="kn">import</span> <span class="n">MultiviewICA</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_UCImultifeature</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ica</span> <span class="o">=</span> <span class="n">MultiviewICA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sources</span> <span class="o">=</span> <span class="n">ica</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">sources</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(6, 2000, 3)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="mvlearn.decomposition.MultiviewICA.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/mv_ica.html#MultiviewICA.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits the model to the views Xs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+<p>Training data to recover a source and unmixing matrices from.</p>
+</li>
+<li><strong>y</strong> (<em>ignored</em>) -- </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">returns an instance of itself.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.MultiviewICA.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit  to the data and transform the data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+</li>
+<li><strong>y</strong> (<em>array</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em><em>, </em><em>optional</em>) -- </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>X_transformed</strong> --</p>
+<ul class="simple">
+<li>out length: n_views</li>
+<li>out[i] shape: (n_samples, n_components_i)</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.MultiviewICA.inverse_transform">
+<code class="descname">inverse_transform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.inverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms the sources back to the mixed data for each view
+(apply mixing matrix).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>None</strong> -- </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs_new</strong> -- The mixed sources from the single source and per-view unmixings.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.MultiviewICA.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recover the sources from each view (apply unmixing matrix).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+<p>Training data to recover a source and unmixing matrices from.</p>
+</li>
+<li><strong>y</strong> (<em>ignored</em>) -- </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Xs_new</strong> -- The mixed sources from the single source and per-view unmixings.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="permutation-ica">
+<h2>Permutation ICA<a class="headerlink" href="#permutation-ica" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mvlearn.decomposition.PermICA">
+<em class="property">class </em><code class="descclassname">mvlearn.decomposition.</code><code class="descname">PermICA</code><span class="sig-paren">(</span><em>n_components=None</em>, <em>max_iter=1000</em>, <em>random_state=None</em>, <em>tol=1e-07</em>, <em>n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/mv_ica.html#PermICA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.PermICA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs one ICA per view (ex: subject) and align sources
+using the hungarian algorithm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n_components</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) -- Number of components to extract. If None, no dimension reduction is
+performed and all views must have the same number of features.</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>default=1000</em>) -- Maximum number of iterations to perform</li>
+<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>RandomState instance</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a><em>, </em><em>default=None</em>) -- Used to perform a random initialization. If int, random_state is
+the seed used by the random number generator; If RandomState
+instance, random_state is the random number generator; If
+None, the random number generator is the RandomState instance
+used by np.random.</li>
+<li><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>default=1e-3</em>) -- A positive scalar giving the tolerance at which
+the un-mixing matrices are considered to have converged.</li>
+<li><strong>n_jobs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> (</em><em>positive</em><em>)</em><em>, </em><em>default=None</em>) -- The number of jobs to run in parallel. <cite>None</cite> means 1 job, <cite>-1</cite>
+means using all processors.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="mvlearn.decomposition.PermICA.components_">
+<code class="descname">components_</code><a class="headerlink" href="#mvlearn.decomposition.PermICA.components_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The projection matrices that project group data in reduced space.
+Has value None if n_components is None</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np array of shape (n_groups, n_features, n_components)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.PermICA.unmixings_">
+<code class="descname">unmixings_</code><a class="headerlink" href="#mvlearn.decomposition.PermICA.unmixings_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimated un-mixing matrices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np array of shape (n_groups, n_components, n_components)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.PermICA.source_">
+<code class="descname">source_</code><a class="headerlink" href="#mvlearn.decomposition.PermICA.source_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimated source matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np array of shape (n_samples, n_components)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-class docutils literal notranslate"><span class="pre">groupica</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">multiviewica</span></code></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="permica" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Hugo Richard, Luigi Gresele, Aapo Hyvärinen, Bertrand
+Thirion, Alexandre Gramfort, Pierre Ablin. Modeling Shared Responses
+in Neuroimaging Studies through MultiView ICA. arXiv 2020.</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.decomposition</span> <span class="kn">import</span> <span class="n">PermICA</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_UCImultifeature</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ica</span> <span class="o">=</span> <span class="n">PermICA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sources</span> <span class="o">=</span> <span class="n">ica</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">sources</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(6, 2000, 3)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="mvlearn.decomposition.PermICA.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/mv_ica.html#PermICA.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.PermICA.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits the model to the views Xs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+<p>Training data to recover a source and unmixing matrices from.</p>
+</li>
+<li><strong>y</strong> (<em>ignored</em>) -- </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">returns an instance of itself.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.PermICA.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.PermICA.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit  to the data and transform the data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+</li>
+<li><strong>y</strong> (<em>array</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em><em>, </em><em>optional</em>) -- </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>X_transformed</strong> --</p>
+<ul class="simple">
+<li>out length: n_views</li>
+<li>out[i] shape: (n_samples, n_components_i)</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.PermICA.inverse_transform">
+<code class="descname">inverse_transform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.PermICA.inverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms the sources back to the mixed data for each view
+(apply mixing matrix).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>None</strong> -- </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs_new</strong> -- The mixed sources from the single source and per-view unmixings.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.PermICA.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.PermICA.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recover the sources from each view (apply unmixing matrix).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+<p>Training data to recover a source and unmixing matrices from.</p>
+</li>
+<li><strong>y</strong> (<em>ignored</em>) -- </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Xs_new</strong> -- The mixed sources from the single source and per-view unmixings.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="group-ica">
+<h2>Group ICA<a class="headerlink" href="#group-ica" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mvlearn.decomposition.GroupICA">
+<em class="property">class </em><code class="descclassname">mvlearn.decomposition.</code><code class="descname">GroupICA</code><span class="sig-paren">(</span><em>n_components=None</em>, <em>n_individual_components='auto'</em>, <em>multiview_output=True</em>, <em>prewhiten=False</em>, <em>solver='picard'</em>, <em>ica_kwargs={}</em>, <em>random_state=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/groupica.html#GroupICA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupICA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Group Independent component analysis.</p>
+<p>Each dataset in <cite>Xs</cite> is reduced with usual PCA (this step is optional).
+Then, datasets are concatenated in the features direction, and a PCA is
+performed on this matrix, yielding a single dataset. ICA is finally
+performed yielding the output dataset S. The unmixing matrix W
+corresponding to data X are obtained by solving
+argmin_{W} ||S - WX||^2.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n_components</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) -- Number of components to extract. If None, n_components is set to
+the minimum number of features in the dataset</li>
+<li><strong>n_individual_components</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>list of int</em><em> or </em><em>'auto'</em><em>, </em><em>optional</em>) -- The number of individual components to extract as a preprocessing.
+If None, no preprocessing is applied. If an <cite>int</cite>, each dataset
+is reduced to this dimension. If a list, the dataset <cite>i</cite> is
+reduced to the dimension <cite>n_individual_components[i]</cite>.
+If <cite>'auto'</cite>, set to the minimum between n_components and the
+smallest number of features in each dataset.</li>
+<li><strong>multiview_output</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em><em> (</em><em>default True</em><em>)</em>) -- If True, the <cite>.transform</cite> method returns one dataset per view.
+Otherwise, it returns one dataset, of shape (n_samples, n_components)</li>
+<li><strong>prewhiten</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em><em> (</em><em>default False</em><em>)</em>) -- Whether the data should be whitened after the original preprocessing.</li>
+<li><strong>solver</strong> (<em>str {'picard'</em><em>, </em><em>'fastica'}</em>) -- Chooses which ICA solver to use. <cite>picard</cite> is generally faster and
+more reliable.</li>
+<li><strong>ica_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) -- Optional keyword arguments for the ICA solver. If solver='fastica',
+see the documentation of sklearn.decomposition.fastica.
+If solver='picard', see the documentation of picard.picard.</li>
+<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>RandomState instance</em><em>, </em><em>default=None</em>) -- Controls the random number generator used in the estimator. Pass an int
+for reproducible output across multiple function calls.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupICA.means_">
+<code class="descname">means_</code><a class="headerlink" href="#mvlearn.decomposition.GroupICA.means_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The mean of each dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of arrays of shape (n_components,)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupICA.grouppca_">
+<code class="descname">grouppca_</code><a class="headerlink" href="#mvlearn.decomposition.GroupICA.grouppca_" title="Permalink to this definition">¶</a></dt>
+<dd><p>A GroupPCA class for preprocessing and dimension reduction</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">mvlearn.decomposition.GroupPCA instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupICA.unmixing_">
+<code class="descname">unmixing_</code><a class="headerlink" href="#mvlearn.decomposition.GroupICA.unmixing_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The square unmixing matrix, linking the output of the group-pca
+and the independent components.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array, shape (n_components, n_components)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupICA.components_">
+<code class="descname">components_</code><a class="headerlink" href="#mvlearn.decomposition.GroupICA.components_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The square mixing matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array, shape (n_components, n_components)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupICA.individual_components_">
+<code class="descname">individual_components_</code><a class="headerlink" href="#mvlearn.decomposition.GroupICA.individual_components_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Individual unmixing matrices estimated by least squares.
+<cite>individual_components_[i]</cite> is an array of shape
+(n_components, n_features) where n_features is the number of
+features in the dataset <cite>i</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupICA.individual_mixing_">
+<code class="descname">individual_mixing_</code><a class="headerlink" href="#mvlearn.decomposition.GroupICA.individual_mixing_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Individual mixing matrices estimated by least squares.
+<cite>individual_components_[i]</cite> is an array of shape
+(n_features, n_components) where n_features is the number of
+features in the dataset <cite>i</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupICA.n_components_">
+<code class="descname">n_components_</code><a class="headerlink" href="#mvlearn.decomposition.GroupICA.n_components_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The estimated number of components.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupICA.n_features_">
+<code class="descname">n_features_</code><a class="headerlink" href="#mvlearn.decomposition.GroupICA.n_features_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of features in each training dataset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupICA.n_samples_">
+<code class="descname">n_samples_</code><a class="headerlink" href="#mvlearn.decomposition.GroupICA.n_samples_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of samples in the training data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupICA.n_views_">
+<code class="descname">n_views_</code><a class="headerlink" href="#mvlearn.decomposition.GroupICA.n_views_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of views in the training data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#mvlearn.decomposition.GroupPCA" title="mvlearn.decomposition.GroupPCA"><code class="xref py py-class docutils literal notranslate"><span class="pre">GroupPCA</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">multiviewica</span></code></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="groupica" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td>Calhoun, Vince, et al. &quot;A method for making group
+inferences from functional MRI data using independent
+component analysis.&quot;
+Human brain mapping 14.3 (2001): 140-151.</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.decomposition</span> <span class="kn">import</span> <span class="n">GroupICA</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_UCImultifeature</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ica</span> <span class="o">=</span> <span class="n">GroupICA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs_transformed</span> <span class="o">=</span> <span class="n">ica</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xs_transformed</span><span class="p">))</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Xs_transformed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(2000, 3)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="mvlearn.decomposition.GroupICA.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/groupica.html#GroupICA.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupICA.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit to the data.</p>
+<p>Estimate the parameters of the model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) -- Ignored variable.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong> -- Returns the instance itself.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)">object</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.GroupICA.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/groupica.html#GroupICA.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupICA.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform the data Xs into sources.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em>) -- <ul>
+<li>Xs shape: (n_views,)</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) -- Ignored variable.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>X_transformed</strong> -- The transformed data.
+If <cite>multiview_output</cite> is True, it is a list with the estimated
+individual sources.
+If <cite>multiview_output</cite> is False, it is a single array containing the
+shared sources.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.GroupICA.inverse_transform">
+<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>X_transformed</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/groupica.html#GroupICA.inverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupICA.inverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recover multiview data from transformed data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>X_transformed</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- If <cite>multiview_output</cite> is True, it must be a list of arrays of shape
+(n_samples, n_components) containing estimated sources.
+If <cite>multiview_output</cite> is False, it must be a single
+array containing shared sources.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs</strong> -- The recovered individual datasets.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of arrays</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.GroupICA.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.GroupICA.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit  to the data and transform the data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+</li>
+<li><strong>y</strong> (<em>array</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em><em>, </em><em>optional</em>) -- </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>X_transformed</strong> --</p>
+<ul class="simple">
+<li>out length: n_views</li>
+<li>out[i] shape: (n_samples, n_components_i)</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="group-pca">
+<h2>Group PCA<a class="headerlink" href="#group-pca" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mvlearn.decomposition.GroupPCA">
+<em class="property">class </em><code class="descclassname">mvlearn.decomposition.</code><code class="descname">GroupPCA</code><span class="sig-paren">(</span><em>n_components=None</em>, <em>n_individual_components='auto'</em>, <em>multiview_output=True</em>, <em>prewhiten=False</em>, <em>whiten=False</em>, <em>random_state=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/grouppca.html#GroupPCA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupPCA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Group Principal Component Analysis.</p>
+<p>As an optional preprocessing, each dataset in <cite>Xs</cite> is reduced with
+usual PCA. Then, datasets are concatenated in the features direction,
+and a PCA is performed on this matrix, yielding a single output dataset.
+Linear coefficients linking the output dataset and each view are computed
+using least squares estimation, which permits to return one dataset per
+view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n_components</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) -- Number of components to extract. If None, n_components is set to
+the minimum number of features in the dataset.</li>
+<li><strong>n_individual_components</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>list of int</em><em> or </em><em>'auto'</em><em>, </em><em>optional</em>) -- The number of individual components to extract as a preprocessing.
+If None, no preprocessing is applied. If an <cite>int</cite>, each dataset
+is reduced to this dimension. If a list, the dataset <cite>i</cite> is
+reduced to the dimension <cite>n_individual_components[i]</cite>.
+If <cite>'auto'</cite>, set to the minimum between n_components and the
+smallest number of features in each dataset.</li>
+<li><strong>multiview_output</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em><em> (</em><em>default True</em><em>)</em>) -- If True, the <cite>.transform</cite> method returns one dataset per view.
+Otherwise, it returns one dataset, of shape (n_samples, n_components)</li>
+<li><strong>prewhiten</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em><em> (</em><em>default False</em><em>)</em>) -- Whether the data should be whitened after the original preprocessing.</li>
+<li><strong>whiten</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em><em> (</em><em>default False</em><em>)</em>) -- When True (False by default) the <cite>components_</cite> vectors are multiplied
+by the square root of n_samples and then divided by the singular values
+to ensure uncorrelated outputs with unit component-wise variances.
+Whitening will remove some information from the transformed signal
+(the relative variance scales of the components) but can sometime
+improve the predictive accuracy of the downstream estimators by
+making their data respect some hard-wired assumptions.</li>
+<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>RandomState instance</em><em>, </em><em>default=None</em>) -- Used when <code class="docutils literal notranslate"><span class="pre">svd_solver</span></code> == 'arpack' or 'randomized'. Pass an int
+for reproducible results across multiple function calls.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupPCA.components_">
+<code class="descname">components_</code><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.components_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Principal axes in feature space, representing the directions of
+maximum variance in the data. The components are sorted by
+<code class="docutils literal notranslate"><span class="pre">explained_variance_</span></code>. <cite>n_total_features</cite> is the sum of all
+the number of input features.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array, shape (n_components, n_total_features)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupPCA.explained_variance_">
+<code class="descname">explained_variance_</code><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.explained_variance_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The amount of variance explained by each of the selected components.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array, shape (n_components,)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupPCA.explained_variance_ratio_">
+<code class="descname">explained_variance_ratio_</code><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.explained_variance_ratio_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Percentage of variance explained by each of the selected components.
+If <code class="docutils literal notranslate"><span class="pre">n_components</span></code> is not set then all components are stored and the
+sum of the ratios is equal to 1.0.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array, shape (n_components,)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupPCA.individual_components_">
+<code class="descname">individual_components_</code><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.individual_components_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Individual components for each individual PCA.
+<cite>individual_components_[i]</cite> is an array of shape
+(n_individual_components, n_features) where n_features is the number of
+features in the dataset <cite>i</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupPCA.individual_explained_variance_">
+<code class="descname">individual_explained_variance_</code><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.individual_explained_variance_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Individual explained variance for each individual PCA.
+<cite>individual_explained_variance_[i]</cite> is an array of shape
+(n_individual_components, ).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupPCA.individual_explained_variance_ratio_">
+<code class="descname">individual_explained_variance_ratio_</code><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.individual_explained_variance_ratio_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Individual explained variance ratio for each individual PCA.
+<cite>individual_explained_variance_ratio_[i]</cite> is an array of shape
+(n_individual_components, ) where n_features is the number of
+features in the dataset <cite>i</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupPCA.individual_mean_">
+<code class="descname">individual_mean_</code><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.individual_mean_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mean of each dataset, estimated on the training data
+<cite>individual_mean_[i]</cite> is an array of shape
+(n_features) where n_features is the number of
+features in the dataset <cite>i</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupPCA.individual_projections_">
+<code class="descname">individual_projections_</code><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.individual_projections_" title="Permalink to this definition">¶</a></dt>
+<dd><p>List containing the linear transform linking the dataset to the output.
+Xs[i].dot(individual_projections_[i].T) gives the estimated reduced
+dataset for view i. This is obtained by least squares estimation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupPCA.individual_embeddings_">
+<code class="descname">individual_embeddings_</code><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.individual_embeddings_" title="Permalink to this definition">¶</a></dt>
+<dd><p>List containing the pseudo-inverses of <a href="#id3"><span class="problematic" id="id4">individual_projections_</span></a>.
+Allows to recover each original dataset from reduced data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupPCA.n_components_">
+<code class="descname">n_components_</code><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.n_components_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The estimated number of components.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupPCA.n_features_">
+<code class="descname">n_features_</code><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.n_features_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of features in each training dataset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupPCA.n_samples_">
+<code class="descname">n_samples_</code><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.n_samples_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of samples in the training data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.GroupPCA.n_views_">
+<code class="descname">n_views_</code><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.n_views_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of views in the training data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="grouppca" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td>Calhoun, Vince, et al. &quot;A method for making group
+inferences from functional MRI data using independent
+component analysis.&quot;
+Human brain mapping 14.3 (2001): 140-151.</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.decomposition</span> <span class="kn">import</span> <span class="n">GroupPCA</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_UCImultifeature</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pca</span> <span class="o">=</span> <span class="n">GroupPCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs_transformed</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xs_transformed</span><span class="p">))</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Xs_transformed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(2000, 3)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="mvlearn.decomposition.GroupPCA.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/grouppca.html#GroupPCA.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit  to the data.</p>
+<p>This merges datasets together and reduces the dimensionality.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) -- Ignored variable.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong> -- Returns the instance itself.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)">object</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.GroupPCA.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/grouppca.html#GroupPCA.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply groupPCA to Xs.</p>
+<p>Xs is projected on the principal components learned
+from the training set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em>) -- <ul>
+<li>Xs shape: (n_views,)</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) -- Ignored variable.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>X_transformed</strong> -- The transformed data.
+If <cite>multiview_output</cite> is True, it is a list with the estimated
+individual principal components.
+If <cite>multiview_output</cite> is False, it is a single array containing the
+shared principal components.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.GroupPCA.inverse_transform">
+<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>X_transformed</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/grouppca.html#GroupPCA.inverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.inverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recover multiview data from transformed data.</p>
+<p>Returns an array Xs such that the transform of Xs would be
+X_transformed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>X_transformed</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- The dataset corresponding to transformed data</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs</strong> -- The recovered individual datasets</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of arrays</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.GroupPCA.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit  to the data and transform the data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+</li>
+<li><strong>y</strong> (<em>array</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em><em>, </em><em>optional</em>) -- </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>X_transformed</strong> --</p>
+<ul class="simple">
+<li>out length: n_views</li>
+<li>out[i] shape: (n_samples, n_components_i)</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="angle-based-joint-and-individual-variation-explained-ajive">
+<h2>Angle-Based Joint and Individual Variation Explained (AJIVE)<a class="headerlink" href="#angle-based-joint-and-individual-variation-explained-ajive" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ajive">
+<h3>AJIVE<a class="headerlink" href="#ajive" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="mvlearn.decomposition.AJIVE">
+<em class="property">class </em><code class="descclassname">mvlearn.decomposition.</code><code class="descname">AJIVE</code><span class="sig-paren">(</span><em>init_signal_ranks=None</em>, <em>joint_rank=None</em>, <em>individual_ranks=None</em>, <em>n_elbows=2</em>, <em>reconsider_joint_components=True</em>, <em>wedin_percentile=5</em>, <em>n_wedin_samples=1000</em>, <em>randdir_percentile=95</em>, <em>n_randdir_samples=1000</em>, <em>verbose=False</em>, <em>n_jobs=None</em>, <em>random_state=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/ajive.html#AJIVE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.AJIVE" title="Permalink to this definition">¶</a></dt>
+<dd><p>An implementation of Angle-based Joint and Individual Variation Explained
+<a class="footnote-reference" href="#id2" id="id1">[5]</a>. This algorithm takes multiple views and decomposes them into 3
+distinct matrices representing:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Low rank approximation of joint variation between views</li>
+<li>Low rank approximation of individual variation within each view</li>
+<li>Residual noise</li>
+</ul>
+</div></blockquote>
+<p>AJIVE can handle any number of views, not just two.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>init_signal_ranks</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>default = None</em>) -- Initial guesses as to the rank of each view's signal.</li>
+<li><strong>joint_rank</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>default = None</em>) -- Rank of the joint variation matrix. If None, will estimate the
+joint rank.</li>
+<li><strong>individual_ranks</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>default = None</em>) -- Ranks of individual variation matrices. If None, will estimate the
+individual ranks. Otherwise, will use provided individual ranks.</li>
+<li><strong>n_elbows</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default = 2</em>) -- If <cite>init_signal_ranks=None</cite>, then computes the initial signal rank
+guess using <code class="xref py py-func docutils literal notranslate"><span class="pre">mvlearn.embed.utils.select_dimension()</span></code> with
+n_elbows for each view.</li>
+<li><strong>reconsider_joint_components</strong> (<em>boolean</em><em>, </em><em>default = True</em>) -- Triggers <cite>_reconsider_joint_components</cite> function to run and removes
+columns of joint scores according to identifiability constraint.</li>
+<li><strong>wedin_percentile</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>default = 5</em>) -- Percentile used for wedin (lower) bound cutoff for squared
+singular values used to estimate joint rank.</li>
+<li><strong>n_wedin_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>default = 1000</em>) -- Number of wedin bound samples to draw.</li>
+<li><strong>randdir_percentile</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>default = 95</em>) -- Percentile for random direction (lower) bound cutoff for squared
+singular values used to estimate joint rank.</li>
+<li><strong>n_randdir_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>default = 1000</em>) -- Number of random direction samples to draw.</li>
+<li><strong>verbose</strong> (<em>boolean</em><em>, </em><em>default = False</em>) -- Prints information during runtime if True.</li>
+<li><strong>n_jobs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> (</em><em>positive</em><em>) or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a><em>, </em><em>default=None</em>) -- The number of jobs to run in parallel. <cite>None</cite> will run 1 job, <cite>-1</cite>
+uses all processors.</li>
+<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>RandomState instance</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a><em>, </em><em>default=None</em>) -- Used to seed a random initialization for reproducible results.
+If None, a random initialization is used.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.means_">
+<code class="descname">means_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.means_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The means of each view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.sv_thresholds_">
+<code class="descname">sv_thresholds_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.sv_thresholds_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The singular value thresholds for each view based on
+initial SVD. Used to estimate the individual ranks.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of floats</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.all_joint_svals_">
+<code class="descname">all_joint_svals_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.all_joint_svals_" title="Permalink to this definition">¶</a></dt>
+<dd><p>All singular values from the concatenated joint matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of floats</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.random_sv_samples_">
+<code class="descname">random_sv_samples_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.random_sv_samples_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Random singular value samples from random direction bound.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of floats</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.rand_cutoff_">
+<code class="descname">rand_cutoff_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.rand_cutoff_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Singular value squared cutoff for the random direction bound.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.wedin_samples_">
+<code class="descname">wedin_samples_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.wedin_samples_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The wedin samples for each view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of numpy.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.wedin_cutoff_">
+<code class="descname">wedin_cutoff_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.wedin_cutoff_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Singular value squared cutoff for the wedin bound.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.svalsq_cutoff_">
+<code class="descname">svalsq_cutoff_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.svalsq_cutoff_" title="Permalink to this definition">¶</a></dt>
+<dd><p>max(<a href="#id5"><span class="problematic" id="id6">rand_cutoff_</span></a>, <a href="#id7"><span class="problematic" id="id8">wedin_cutoff_</span></a>)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.joint_rank_wedin_est_">
+<code class="descname">joint_rank_wedin_est_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.joint_rank_wedin_est_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The joint rank estimated using the wedin/random direction bound</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.init_signal_ranks_">
+<code class="descname">init_signal_ranks_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.init_signal_ranks_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provided or estimated init_signal_ranks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of ints</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.joint_rank_">
+<code class="descname">joint_rank_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.joint_rank_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The rank of the joint matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.joints_scores_">
+<code class="descname">joints_scores_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.joints_scores_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Left singular vectors of the joint matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.individual_ranks_">
+<code class="descname">individual_ranks_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.individual_ranks_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ranks of the individual matrices for each view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of ints</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.individual_scores_">
+<code class="descname">individual_scores_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.individual_scores_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Left singular vectors of each view after joint matrix is removed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of numpy.ndarrays</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">individual_svals_ = list of numpy.ndarrays</code></dt>
+<dd><p>Singular values of each view after joint matrix is removed</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.individual_loadings_">
+<code class="descname">individual_loadings_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.individual_loadings_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Right singular vectors of each view after joint matrix is removed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of numpy.ndarrays</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.AJIVE.individual_mats_">
+<code class="descname">individual_mats_</code><a class="headerlink" href="#mvlearn.decomposition.AJIVE.individual_mats_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Individual matrices for each view, reconstructed from the SVD</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of numpy.ndarrays</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p class="rubric">Notes</p>
+<p>Angle-Based Joint and Individual Variation Explained (AJIVE) is a specfic
+variation of the Joint and Individual Variation Explained (JIVE) algorithm.
+This algorithm takes <span class="math notranslate nohighlight">\(k\)</span> different views with <span class="math notranslate nohighlight">\(n\)</span> observations
+and <span class="math notranslate nohighlight">\(d\)</span> variables and finds a basis that represents the joint
+variation and <span class="math notranslate nohighlight">\(k\)</span> bases with their own ranks representing the
+individual variation of each view. Each of these individual bases is
+orthonormal to the joint basis. These bases are then used to create the
+following <span class="math notranslate nohighlight">\(k\)</span> statements:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[X^{(i)}= J^{(i)} + I^{(i)} + E^{(i)}\]</div>
+</div></blockquote>
+<p>where <span class="math notranslate nohighlight">\(X^{(i)}\)</span> represents the i-th view of data and <span class="math notranslate nohighlight">\(J^{(i)}\)</span>,
+<span class="math notranslate nohighlight">\(I^{(i)}\)</span>, and <span class="math notranslate nohighlight">\(E^{(i)}\)</span> represent its joint, individual, and
+noise signal estimates respectively.</p>
+<dl class="docutils">
+<dt>The AJIVE algorithm calculations can be split into three seperate steps:</dt>
+<dd><ul class="first last simple">
+<li>Signal Space Initial Extraction</li>
+<li>Score Space Segmentation</li>
+<li>Final Decomposition and Outputs</li>
+</ul>
+</dd>
+</dl>
+<p>In the <strong>Signal Space Initial Extraction</strong> step we compute a rank
+<span class="math notranslate nohighlight">\(r_{initial}^{(i)}\)</span> singular value decomposition for each
+<span class="math notranslate nohighlight">\(X^{(i)}\)</span>, the value of <span class="math notranslate nohighlight">\(r_{initial}^{(i)}\)</span> can be found by
+looking at the scree plots of each view or thresholding based on singular
+value. From each singular value decomposition, the first
+<span class="math notranslate nohighlight">\(r_{initial}^{(i)}\)</span> columns of of the scores matrix
+(<span class="math notranslate nohighlight">\(U^{(i)}\)</span>) are taken to form <span class="math notranslate nohighlight">\(\widetilde{U}^{(i)}\)</span>.</p>
+<p>After this, the <strong>Score Space Segmentation</strong> step concatenates the
+<em>k</em> <span class="math notranslate nohighlight">\(\widetilde{U}^{(i)}\)</span> matrices found in the first step as
+follows:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[M = [\widetilde{U}^{(1)}, \dots, \widetilde{U}^{(k)}]\]</div>
+</div></blockquote>
+<p>From here, the <span class="math notranslate nohighlight">\(r_{joint}\)</span> singular value decomposition is taken.
+<span class="math notranslate nohighlight">\(r_{joint}\)</span> is estimated individually or using the wedin bound which
+quantifies how the theoretical singular subspaces are affected by noise as
+thereby quantifying the distance between rank of the original input and the
+estimation. For the scores of the singular value decomposition of
+<span class="math notranslate nohighlight">\(M\)</span>, the first <span class="math notranslate nohighlight">\(r_{joint}\)</span> columns are taken to obtain the
+basis, <span class="math notranslate nohighlight">\(U_{joint}\)</span>. The <span class="math notranslate nohighlight">\(J^{(i)}\)</span> matrix
+(joint signal estimate) can be found by projecting <span class="math notranslate nohighlight">\(X^{(i)}\)</span> onto
+<span class="math notranslate nohighlight">\(U_{joint}\)</span>.</p>
+<p>In the <em>Final Decomposition and Outputs</em> step, we project each
+<span class="math notranslate nohighlight">\(X^{i}\)</span> matrix onto the orthogonal complement of <span class="math notranslate nohighlight">\(U_{joint}\)</span>:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[X^{(i), orthog} = (I - U_{joint}U_{joint}^T)X^{(i)}\]</div>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(I\)</span> in the above equation represents the identity matrix.
+From here, the <span class="math notranslate nohighlight">\(I^{(i)}\)</span> matrix (individual signal estimate) can be
+found by performing the rank <span class="math notranslate nohighlight">\(r_{individual}^{(i)}\)</span> singular value
+decomposition of <span class="math notranslate nohighlight">\(X^{(i), orthog}\)</span>. <span class="math notranslate nohighlight">\(r_{individual}^{(i)}\)</span> can
+be found by using the aforementioned singular value thresholding method.</p>
+<p>Finally, we can solve for the noise estimates, <span class="math notranslate nohighlight">\(E^{(i)}\)</span> by using
+the equation:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[E^{(i)}= X^{(i)} - (J^{(i)} + I^{(i)})\]</div>
+</div></blockquote>
+<p>Much of this implementation has been adapted from <strong>Iain Carmichael</strong>
+Ph.D.'s pip-installable package, <em>jive</em>, the code for which is
+<a class="reference external" href="https://github.com/idc9/py_jive">linked here</a>.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.factorization.ajive</span> <span class="kn">import</span> <span class="n">AJIVE</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_UCImultifeature</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">))</span> <span class="c1"># number of views</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># number of samples in each view</span>
+<span class="go">(2000, 76) (2000, 216)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ajive</span> <span class="o">=</span> <span class="n">AJIVE</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs_transformed</span> <span class="o">=</span> <span class="n">ajive</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Xs_transformed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(2000, 76)</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[5]</a></td><td>Feng, Qing, et al. “Angle-Based Joint and Individual
+Variation Explained.” Journal of Multivariate Analysis,
+vol. 166, 2018, pp. 241–265., doi:10.1016/j.jmva.2018.03.008.</td></tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mvlearn.decomposition.AJIVE.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/ajive.html#AJIVE.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.AJIVE.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Learns a decomposition of the views into joint and individual
+matrices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+</ul>
+<blockquote>
+<div><ul>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+</div></blockquote>
+<p>The data to fit to.</p>
+</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) -- Ignored variable.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong> -- Returns the instance itself.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)">object</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.AJIVE.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/ajive.html#AJIVE.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.AJIVE.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the joint matrices from each view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em>) -- <ul class="simple">
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+<p>Data to be transformed</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Js</strong> -- Joint matrices of each inputted view.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of numpy.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.AJIVE.inverse_transform">
+<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>Xs_transformed</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/ajive.html#AJIVE.inverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.AJIVE.inverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recover original data from transformed data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs_transformed</strong> (<em>list of array-likes</em>) -- <ul class="simple">
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+<p>Estimated joint views</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs</strong> -- The summed individual and joint blocks and mean</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of arrays</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">individual_mats_</code></dt>
+<dd><p>Computes full individual matrices from saved decompositions</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.AJIVE.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.AJIVE.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit  to the data and transform the data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+</li>
+<li><strong>y</strong> (<em>array</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em><em>, </em><em>optional</em>) -- </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>X_transformed</strong> --</p>
+<ul class="simple">
+<li>out length: n_views</li>
+<li>out[i] shape: (n_samples, n_components_i)</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="construct.html" class="btn btn-neutral float-right" title="View Construction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="embed.html" class="btn btn-neutral" title="Embedding" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019-2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<p style="text-align: center; margin: .5rem;">
+    <a href="https://www.netlify.com">
+        <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
+    </a>
+</p>
+ 
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

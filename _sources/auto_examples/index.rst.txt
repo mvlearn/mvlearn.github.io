@@ -1,0 +1,755 @@
+:orphan:
+
+
+
+.. _sphx_glr_auto_examples:
+
+Examples Gallery
+================
+
+The examples gallery provides working code samples demonstrating what
+can be done with the mvlearn library.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr_auto_examples_cluster:
+
+Examples on cluster
+-------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Here we will compare the performance of the Co-Regularized multiview and singleview spectral cl...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/cluster/images/thumb/sphx_glr_plot_mv_coregularized_spectral_tutorial_thumb.png
+     :alt: Multiview Clustering Algorithm to Cluster Data with Multiple Views
+
+     :ref:`sphx_glr_auto_examples_cluster_plot_mv_coregularized_spectral_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/cluster/plot_mv_coregularized_spectral_tutorial
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Multiview Spherical KMeans">
+
+.. only:: html
+
+ .. figure:: /auto_examples/cluster/images/thumb/sphx_glr_plot_mv_spherical_kmeans_tutorial_thumb.png
+     :alt: Multiview Spherical KMeans
+
+     :ref:`sphx_glr_auto_examples_cluster_plot_mv_spherical_kmeans_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/cluster/plot_mv_spherical_kmeans_tutorial
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Multiview KMeans">
+
+.. only:: html
+
+ .. figure:: /auto_examples/cluster/images/thumb/sphx_glr_plot_mv_kmeans_tutorial_thumb.png
+     :alt: Multiview KMeans
+
+     :ref:`sphx_glr_auto_examples_cluster_plot_mv_kmeans_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/cluster/plot_mv_kmeans_tutorial
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Multiview vs. Singleview KMeans">
+
+.. only:: html
+
+ .. figure:: /auto_examples/cluster/images/thumb/sphx_glr_plot_mv_kmeans_validation_simulated_thumb.png
+     :alt: Multiview vs. Singleview KMeans
+
+     :ref:`sphx_glr_auto_examples_cluster_plot_mv_kmeans_validation_simulated.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/cluster/plot_mv_kmeans_validation_simulated
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Multiview Spectral Clustering">
+
+.. only:: html
+
+ .. figure:: /auto_examples/cluster/images/thumb/sphx_glr_plot_mv_spectral_tutorial_thumb.png
+     :alt: Multiview Spectral Clustering
+
+     :ref:`sphx_glr_auto_examples_cluster_plot_mv_spectral_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/cluster/plot_mv_spectral_tutorial
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Note, this tutorial compares performance against the SphericalKMeans function from the spherecl...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/cluster/images/thumb/sphx_glr_mv_spherical_validation_simulated_thumb.png
+     :alt: Multiview vs. singlview Spherical KMeans performance vs. class separation
+
+     :ref:`sphx_glr_auto_examples_cluster_mv_spherical_validation_simulated.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/cluster/mv_spherical_validation_simulated
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Here we will validate the implementation of multi-view spherical kmeans by replicating the righ...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/cluster/images/thumb/sphx_glr_mv_spherical_kmeans_validation_paper_thumb.png
+     :alt: Multiview Spherical KMeans on the Newsgroup dataset
+
+     :ref:`sphx_glr_auto_examples_cluster_mv_spherical_kmeans_validation_paper.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/cluster/mv_spherical_kmeans_validation_paper
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Multiview vs. singleview Spectral Clustering">
+
+.. only:: html
+
+ .. figure:: /auto_examples/cluster/images/thumb/sphx_glr_plot_mv_spectral_validation_simulated_thumb.png
+     :alt: Multiview vs. singleview Spectral Clustering
+
+     :ref:`sphx_glr_auto_examples_cluster_plot_mv_spectral_validation_simulated.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/cluster/plot_mv_spectral_validation_simulated
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Here, we directly compare multiview methods available within *mvlearn* to analagous singleview ...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/cluster/images/thumb/sphx_glr_plot_mv_vs_singleview_spectral_thumb.png
+     :alt: Multiview vs. Singleview Spectral Clustering of the UCI data
+
+     :ref:`sphx_glr_auto_examples_cluster_plot_mv_vs_singleview_spectral.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/cluster/plot_mv_vs_singleview_spectral
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Assessing the Conditionally independence views requirement of Multiview Spectral Clustering">
+
+.. only:: html
+
+ .. figure:: /auto_examples/cluster/images/thumb/sphx_glr_plot_mv_spectral_validation_complex_thumb.png
+     :alt: Assessing the Conditionally independence views requirement of Multiview Spectral Clustering
+
+     :ref:`sphx_glr_auto_examples_cluster_plot_mv_spectral_validation_complex.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/cluster/plot_mv_spectral_validation_complex
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In the following experiments, we will perform singleview kmeans clustering on the two views sep...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/cluster/images/thumb/sphx_glr_plot_mv_kmeans_validation_complex_thumb.png
+     :alt: Assessing the conditionally independence views requirement of Multiview KMeans
+
+     :ref:`sphx_glr_auto_examples_cluster_plot_mv_kmeans_validation_complex.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/cluster/plot_mv_kmeans_validation_complex
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr_auto_examples_datasets:
+
+Examples on datasets
+--------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Loading and Viewing the UCI Multiple Features Dataset">
+
+.. only:: html
+
+ .. figure:: /auto_examples/datasets/images/thumb/sphx_glr_plot_load_ucimultifeature_thumb.png
+     :alt: Loading and Viewing the UCI Multiple Features Dataset
+
+     :ref:`sphx_glr_auto_examples_datasets_plot_load_ucimultifeature.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/datasets/plot_load_ucimultifeature
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example we show how to simulate multiview data from Gaussian mixtures and plot them usi...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/datasets/images/thumb/sphx_glr_plot_gaussianmixtures_thumb.png
+     :alt: Data from Gaussian Mixtures
+
+     :ref:`sphx_glr_auto_examples_datasets_plot_gaussianmixtures.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/datasets/plot_gaussianmixtures
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr_auto_examples_decomposition:
+
+Examples on decomposition
+-------------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Adopted from the code at `https://github.com/hugorichard/multiviewica`_ and their tutorial writ...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/decomposition/images/thumb/sphx_glr_plot_mv_ica_tutorial_thumb.png
+     :alt: Independent Component Analysis (ICA) Tutorial
+
+     :ref:`sphx_glr_auto_examples_decomposition_plot_mv_ica_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/decomposition/plot_mv_ica_tutorial
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Author: Pierre Ablin">
+
+.. only:: html
+
+ .. figure:: /auto_examples/decomposition/images/thumb/sphx_glr_plot_group_ica_tutorial_thumb.png
+     :alt: ICA: a tutorial
+
+     :ref:`sphx_glr_auto_examples_decomposition_plot_group_ica_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/decomposition/plot_group_ica_tutorial
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Adopted from the code at https://github.com/idc9/py_jive and tutorial written by:">
+
+.. only:: html
+
+ .. figure:: /auto_examples/decomposition/images/thumb/sphx_glr_plot_ajive_tutorial_thumb.png
+     :alt: Angle-based Joint and Individual Variation Explained  (AJIVE)
+
+     :ref:`sphx_glr_auto_examples_decomposition_plot_ajive_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/decomposition/plot_ajive_tutorial
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr_auto_examples_embed:
+
+Examples on embed
+-----------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Generalized Canonical Correlation Analysis (GCCA)">
+
+.. only:: html
+
+ .. figure:: /auto_examples/embed/images/thumb/sphx_glr_plot_gcca_tutorial_thumb.png
+     :alt: Generalized Canonical Correlation Analysis (GCCA)
+
+     :ref:`sphx_glr_auto_examples_embed_plot_gcca_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/embed/plot_gcca_tutorial
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Deep CCA (DCCA)">
+
+.. only:: html
+
+ .. figure:: /auto_examples/embed/images/thumb/sphx_glr_plot_dcca_tutorial_thumb.png
+     :alt: Deep CCA (DCCA)
+
+     :ref:`sphx_glr_auto_examples_embed_plot_dcca_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/embed/plot_dcca_tutorial
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This demo shows you how to run Omnibus Embedding on multiview data. Omnibus embedding is origin...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/embed/images/thumb/sphx_glr_plot_omnibus_embedding_thumb.png
+     :alt: Omnbius Graph embedding
+
+     :ref:`sphx_glr_auto_examples_embed_plot_omnibus_embedding.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/embed/plot_omnibus_embedding
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="MVMDS is a useful multiview dimensionaltiy reduction algorithm that allows the user to perform ...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/embed/images/thumb/sphx_glr_plot_mvmds_tutorial_thumb.png
+     :alt: Multidimensional Scaling (MVMDS)
+
+     :ref:`sphx_glr_auto_examples_embed_plot_mvmds_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/embed/plot_mvmds_tutorial
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A comparison of Kernel Canonical Correlation Analysis (KCCA) with three different types of kern...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/embed/images/thumb/sphx_glr_plot_cca_comparison_thumb.png
+     :alt: Comparing CCA Variants
+
+     :ref:`sphx_glr_auto_examples_embed_plot_cca_comparison.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/embed/plot_cca_comparison
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This algorithm runs KCCA on two views of data. The kernel implementations, parameter &#x27;ktype&#x27;, a...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/embed/images/thumb/sphx_glr_plot_kcca_tutorial_thumb.png
+     :alt: Kernel CCA (KCCA)
+
+     :ref:`sphx_glr_auto_examples_embed_plot_kcca_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/embed/plot_kcca_tutorial
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Kernel matrices grow exponentially with the size of the data. There are immense storage and run...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/embed/images/thumb/sphx_glr_plot_kcca_icd_tutorial_thumb.png
+     :alt: Incomplete Cholesky Decomposition (ICA) for CCA
+
+     :ref:`sphx_glr_auto_examples_embed_plot_kcca_icd_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/embed/plot_kcca_icd_tutorial
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="SplitAE embeddings on multiview MNIST data">
+
+.. only:: html
+
+ .. figure:: /auto_examples/embed/images/thumb/sphx_glr_splitae_tutorial_thumb.png
+     :alt: SplitAE embeddings on multiview MNIST data
+
+     :ref:`sphx_glr_auto_examples_embed_splitae_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/embed/splitae_tutorial
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr_auto_examples_pipeline:
+
+Examples on pipeline
+--------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="mvlearn mimics most of scikit-learn API, and integrates seamlessly with it. In scikit-learn, a ...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/pipeline/images/thumb/sphx_glr_plot_pipeline_sklearn_integration_thumb.png
+     :alt: Integrating mvlearn with scikit-learn
+
+     :ref:`sphx_glr_auto_examples_pipeline_plot_pipeline_sklearn_integration.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/pipeline/plot_pipeline_sklearn_integration
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr_auto_examples_plotting:
+
+Examples on plotting
+--------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="As a simple example, say we had high-dimensional multi-view data that we wanted to quickly visu...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/plotting/images/thumb/sphx_glr_plot_quick_visualize_tutorial_thumb.png
+     :alt: Exploratory visualizations using quick_visualize
+
+     :ref:`sphx_glr_auto_examples_plotting_plot_quick_visualize_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/plotting/plot_quick_visualize_tutorial
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In many cases with multi-view data, especially after use of an embedding algorithm, one is inte...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/plotting/images/thumb/sphx_glr_plot_crossviews_plot_thumb.png
+     :alt: Plotting multiview data with crossplot
+
+     :ref:`sphx_glr_auto_examples_plotting_plot_crossviews_plot.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/plotting/plot_crossviews_plot
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr_auto_examples_semi_supervised:
+
+Examples on semi_supervised
+---------------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates co-training regression on a semi-supervised regression task. The dat...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/semi_supervised/images/thumb/sphx_glr_plot_cotraining_regression_thumb.png
+     :alt: 2-View Semi-Supervised Regression
+
+     :ref:`sphx_glr_auto_examples_semi_supervised_plot_cotraining_regression.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/semi_supervised/plot_cotraining_regression
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="2-View Semi-Supervised Classification">
+
+.. only:: html
+
+ .. figure:: /auto_examples/semi_supervised/images/thumb/sphx_glr_plot_cotraining_classification_thumb.png
+     :alt: 2-View Semi-Supervised Classification
+
+     :ref:`sphx_glr_auto_examples_semi_supervised_plot_cotraining_classification.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/semi_supervised/plot_cotraining_classification
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Multiview vs. singleview classifier performance: - when one view is totally redundant - when on...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/semi_supervised/images/thumb/sphx_glr_cotraining_classification_simulatedperformance_thumb.png
+     :alt: Co-training performance in various simulated scenarios
+
+     :ref:`sphx_glr_auto_examples_semi_supervised_cotraining_classification_simulatedperformance.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/semi_supervised/cotraining_classification_simulatedperformance
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. only :: html
+
+ .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-gallery
+
+
+  .. container:: sphx-glr-download sphx-glr-download-python
+
+    :download:`Download all examples in Python source code: auto_examples_python.zip </auto_examples/auto_examples_python.zip>`
+
+
+
+  .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip </auto_examples/auto_examples_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

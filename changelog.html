@@ -1,0 +1,521 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Changelog &mdash; mvlearn alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery-dataframe.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Contributing to mvlearn" href="contributing.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install.html#including-optional-torch-dependencies-for-full-functionality">Including optional torch dependencies for full functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#python-package-dependencies">Python package dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#hardware-requirements">Hardware requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#os-requirements">OS Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Examples Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#examples-on-cluster">Examples on cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#examples-on-datasets">Examples on datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#examples-on-decomposition">Examples on decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/pipeline/plot_pipeline_sklearn_integration.html">Integrating mvlearn with scikit-learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#examples-on-plotting">Examples on plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="references/cluster.html">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="references/cluster.html#multiview-spectral-clustering">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/cluster.html#co-regularized-multiview-spectral-clustering">Co-Regularized Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/cluster.html#multiview-k-means">Multiview K Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/cluster.html#multiview-spherical-k-means">Multiview Spherical K Means</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="references/semi_supervised.html">Semi-Supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="references/semi_supervised.html#cotraining-classifier">Cotraining Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/semi_supervised.html#cotraining-regressor">Cotraining Regressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/embed.html#split-autoencoder">Split Autoencoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/embed.html#dcca-utilities">DCCA Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/embed.html#dimension-selection">Dimension Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="references/decomposition.html">Decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="references/decomposition.html#multiview-ica">Multiview ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/decomposition.html#permutation-ica">Permutation ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/decomposition.html#group-ica">Group ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/decomposition.html#group-pca">Group PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/decomposition.html#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="references/construct.html">View Construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="references/construct.html#random-gaussian-projection">Random Gaussian Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/construct.html#random-subspace-method">Random Subspace Method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="references/model_selection.html">Model Selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="references/model_selection.html#cross-validation">Cross Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="references/compose.html">Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="references/compose.html#averagemerger">AverageMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/compose.html#concatmerger">ConcatMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/compose.html#simplesplitter">SimpleSplitter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="references/preprocessing.html">Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="references/preprocessing.html#viewtransformer">ViewTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="references/datasets.html">Multiview Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/datasets.html#data-simulator">Data Simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="references/plotting.html">Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="references/plotting.html#quick-visualize">Quick Visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/plotting.html#crossviews-plot">Crossviews Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="references/utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="references/utils.html#io">IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Information</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to mvlearn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#how-to-make-a-good-bug-report">How to make a good bug report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#contributing-code">Contributing Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#pull-request-checklist">Pull Request Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#coding-guidelines">Coding Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#docstring-guidelines">Docstring Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#api-of-mvlearn-objects">API of mvlearn Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#estimators">Estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#additional-functionality">Additional Functionality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-4-0">Version 0.4.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">mvlearn.preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-3-0">Version 0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#patch-0-2-1">Patch 0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-2-0">Version 0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-1-0">Version 0.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Useful Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mvlearn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Changelog</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/mvlearn/mvlearn/blob/master/docs/changelog.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<p>Change tags (adopted from <a class="reference external" href="https://scikit-learn.org/stable/whats_new/v0.23.html">sklearn</a>):</p>
+<ul class="simple">
+<li><span class="raw-html"><span class="badge badge-success">Major Feature</span></span>  : something big that you couldn’t do before.</li>
+<li><span class="raw-html"><span class="badge badge-success">Feature</span></span>  : something that you couldn’t do before.</li>
+<li><span class="raw-html"><span class="badge badge-info">Efficiency</span></span>  : an existing feature now may not require as much computation or memory.</li>
+<li><span class="raw-html"><span class="badge badge-info">Enhancement</span></span>  : a miscellaneous minor improvement.</li>
+<li><span class="raw-html"><span class="badge badge-danger">Fix</span></span>  : something that previously didn’t work as documentated – or according to reasonable expectations – should now work.</li>
+<li><span class="raw-html"><span class="badge badge-warning">API Change</span></span>  : you will need to change your code to have the same effect in the future; or a feature will be removed in the future.</li>
+</ul>
+<div class="section" id="version-0-4-0">
+<h2>Version 0.4.0<a class="headerlink" href="#version-0-4-0" title="Permalink to this headline">¶</a></h2>
+<p><strong>In development</strong>.</p>
+<p>Updates in this release:</p>
+<div class="section" id="id1">
+<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/master/mvlearn/compose">mvlearn.compose</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a href="#id12"><span class="problematic" id="id13">|Major Feature|</span></a> Adds an <code class="docutils literal notranslate"><span class="pre">mvlearn.compose</span></code> module with Merger and Splitter objects to create single views from multiviews and vice versa: <code class="docutils literal notranslate"><span class="pre">ConcatMerger</span></code>, <code class="docutils literal notranslate"><span class="pre">AverageMerger</span></code>, and <code class="docutils literal notranslate"><span class="pre">SimpleSplitter</span></code>. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/228">#228</a>, <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/234">#234</a> by <a class="reference external" href="https://pierreablin.com/">Pierre Ablin</a>.</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/master/mvlearn/decomposition">mvlearn.decomposition</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><span class="raw-html"><span class="badge badge-success">Feature</span></span>  Adds <code class="docutils literal notranslate"><span class="pre">GroupICA</span></code> and <code class="docutils literal notranslate"><span class="pre">GroupPCA</span></code>. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/225">#225</a> by <a class="reference external" href="https://pierreablin.com/">Pierre Ablin</a> and <a class="reference external" href="https://github.com/hugorichard">Hugo Richard</a>.</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/master/mvlearn/model_selection">mvlearn.model_selection</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a href="#id14"><span class="problematic" id="id15">|Major Feature|</span></a> Adds an <code class="docutils literal notranslate"><span class="pre">model_selection</span></code> module with multiview cross validation. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/234">#234</a> by <a class="reference external" href="https://pierreablin.com/">Pierre Ablin</a>.</li>
+<li><span class="raw-html"><span class="badge badge-success">Feature</span></span>  Adds the function <code class="docutils literal notranslate"><span class="pre">model_selection.train_test_split</span></code> to wrap that of <a class="reference external" href="https://scikit-learn.org/">sklearn &lt;scikit-learn</a> for multiview data or items. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/174">#174</a> by <a class="reference external" href="https://github.com/achang63">Alexander Chang</a> and <a class="reference external" href="https://gavinmischler.github.io/">Gavin Mischler</a>.</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/master/mvlearn/preprocessing">mvlearn.preprocessing</a><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a href="#id16"><span class="problematic" id="id17">|Major Feature|</span></a> Adds an <code class="docutils literal notranslate"><span class="pre">mvlearn.preprocessing</span></code> module with <code class="docutils literal notranslate"><span class="pre">ViewTransformer</span></code> to apply a single view function to each view separately. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/229">#229</a> by <a class="reference external" href="https://pierreablin.com/">Pierre Ablin</a>.</li>
+<li><span class="raw-html"><span class="badge badge-info">Enhancement</span></span>  Adds a parameter to utils.check_Xs so that the function also returns the dimensions (n_views, n_samples, n_features) of the input dataset. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/235">#235</a> by <a class="reference external" href="https://pierreablin.com/">Pierre Ablin</a>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-0-3-0">
+<h2>Version 0.3.0<a class="headerlink" href="#version-0-3-0" title="Permalink to this headline">¶</a></h2>
+<p>Updates in this release:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">cotraining</span></code> module changed to <code class="docutils literal notranslate"><span class="pre">semi_supervised</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">factorization</span></code> module changed to <code class="docutils literal notranslate"><span class="pre">decomposition</span></code>.</li>
+<li>A new class within the <code class="docutils literal notranslate"><span class="pre">semi_supervised</span></code> module, <code class="docutils literal notranslate"><span class="pre">CTRegressor</span></code>, and regression tool for 2-view semi-supervised learning, following the cotraining framework.</li>
+<li>Three multiview ICA methods added: MultiviewICA, GroupICA, PermICA with <code class="docutils literal notranslate"><span class="pre">python-picard</span></code> dependency.</li>
+<li>Added parallelizability to GCCA using joblib and added <code class="docutils literal notranslate"><span class="pre">partial_fit</span></code> function to handle streaming or large data.</li>
+<li>Adds a function (get_stats()) to perform statistical tests within the <code class="docutils literal notranslate"><span class="pre">embed.KCCA</span></code> class so that canonical correlations and canonical variates can be robustly. assessed for significance. See the documentation in Reference for more details.</li>
+<li>Adds ability to select which views to return from the UCI multiple features dataset loader, <code class="docutils literal notranslate"><span class="pre">datasets.UCI_multifeature</span></code>.</li>
+<li>API enhancements including base classes for each module and algorithm type, allowing for greater flexibility to extend <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code>.</li>
+<li>Internals of <code class="docutils literal notranslate"><span class="pre">SplitAE</span></code> changed to snake case to fit with the rest of the package.</li>
+<li>Fixes a bug which prevented the <code class="docutils literal notranslate"><span class="pre">visualize.crossviews_plot</span></code> from plotting when each view only has a single feature.</li>
+<li>Changes to the <code class="docutils literal notranslate"><span class="pre">mvlearn.datasets.gaussian_mixture.GaussianMixture</span></code> parameters to better mimic sklearn's datasets.</li>
+<li>Fixes a bug with printing error messages in a few classes.</li>
+</ul>
+</div>
+<div class="section" id="patch-0-2-1">
+<h2>Patch 0.2.1<a class="headerlink" href="#patch-0-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Fixed missing <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file in the <code class="docutils literal notranslate"><span class="pre">ajive_utils</span></code> submodule.</p>
+</div>
+<div class="section" id="version-0-2-0">
+<h2>Version 0.2.0<a class="headerlink" href="#version-0-2-0" title="Permalink to this headline">¶</a></h2>
+<p>Updates in this release:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">MVMDS</span></code> can now also accept distance matrices as input, rather than only views of data with samples and features</li>
+<li>A new clustering algorithm, <code class="docutils literal notranslate"><span class="pre">CoRegMultiviewSpectralClustering</span></code> - co-regularized multi-view spectral clustering functionality</li>
+<li>Some attribute names slightly changed for more intuitive use in <code class="docutils literal notranslate"><span class="pre">DCCA</span></code>, <code class="docutils literal notranslate"><span class="pre">KCCA</span></code>, <code class="docutils literal notranslate"><span class="pre">MVMDS</span></code>, <code class="docutils literal notranslate"><span class="pre">CTClassifier</span></code></li>
+<li>Option to use an Incomplete Cholesky Decomposition method for <code class="docutils literal notranslate"><span class="pre">KCCA</span></code> to reduce up computation times</li>
+<li>A new module, <code class="docutils literal notranslate"><span class="pre">factorization</span></code>, containing the <code class="docutils literal notranslate"><span class="pre">AJIVE</span></code> algorithm - angle-based joint and individual variance explained</li>
+<li>Fixed issue where signal dimensions of noise were dependent in the GaussianMixtures class</li>
+<li>Added a dependecy to <code class="docutils literal notranslate"><span class="pre">joblib</span></code> to enable parallel clustering implementation</li>
+<li>Removed the requirements for <code class="docutils literal notranslate"><span class="pre">torchvision</span></code> and <code class="docutils literal notranslate"><span class="pre">pillow</span></code>, since they are only used in tutorials</li>
+</ul>
+</div>
+<div class="section" id="version-0-1-0">
+<h2>Version 0.1.0<a class="headerlink" href="#version-0-1-0" title="Permalink to this headline">¶</a></h2>
+<p>We’re happy to announce the first major stable version of <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code>.
+This version includes multiple new algorithms, more utility functions, as well as significant enhancements to the documentation. Here are some highlights of the big updates.</p>
+<ul class="simple">
+<li>Deep CCA, (<code class="docutils literal notranslate"><span class="pre">DCCA</span></code>) in the <code class="docutils literal notranslate"><span class="pre">embed</span></code> module</li>
+<li>Updated <code class="docutils literal notranslate"><span class="pre">KCCA</span></code> with multiple kernels</li>
+<li>Synthetic multi-view dataset generator class, <code class="docutils literal notranslate"><span class="pre">GaussianMixture</span></code>, in the <code class="docutils literal notranslate"><span class="pre">datasets</span></code> module</li>
+<li>A new module, <code class="docutils literal notranslate"><span class="pre">plotting</span></code>, which includes functions for visualizing multi-view data, such as <code class="docutils literal notranslate"><span class="pre">crossviews_plot</span></code> and <code class="docutils literal notranslate"><span class="pre">quick_visualize</span></code></li>
+<li>More detailed tutorial notebooks for all algorithms</li>
+</ul>
+<p>Additionally, mvlearn now makes the <code class="docutils literal notranslate"><span class="pre">torch</span></code> and <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> dependencies optional, so users who don’t need the DCCA or SplitAE functionality do not have to import such a large package. <strong>Note</strong> this is only the case for installing with pip. Installing from <code class="docutils literal notranslate"><span class="pre">conda</span></code> includes these dependencies automatically. To install the full version of mvlearn with <code class="docutils literal notranslate"><span class="pre">torch</span></code> and <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> from pip, you must include the optional torch in brackets:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">mvlearn</span><span class="p">[</span><span class="n">torch</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>or</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">mvlearn</span><span class="p">[</span><span class="n">torch</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>To install <strong>without</strong> <code class="docutils literal notranslate"><span class="pre">torch</span></code>, do:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">mvlearn</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>or</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">mvlearn</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="contributing.html" class="btn btn-neutral" title="Contributing to mvlearn" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019-2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<p style="text-align: center; margin: .5rem;">
+    <a href="https://www.netlify.com">
+        <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
+    </a>
+</p>
+ 
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

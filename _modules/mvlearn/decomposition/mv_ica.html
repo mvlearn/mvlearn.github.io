@@ -1,0 +1,1008 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mvlearn.decomposition.mv_ica &mdash; mvlearn alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../install.html#including-optional-torch-dependencies-for-full-functionality">Including optional torch dependencies for full functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#python-package-dependencies">Python package dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#hardware-requirements">Hardware requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#os-requirements">OS Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Examples Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-cluster">Examples on cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-datasets">Examples on datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-decomposition">Examples on decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/pipeline/plot_pipeline_sklearn_integration.html">Integrating mvlearn with scikit-learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-plotting">Examples on plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../references/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/cluster.html">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spectral-clustering">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#co-regularized-multiview-spectral-clustering">Co-Regularized Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-k-means">Multiview K Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/cluster.html#multiview-spherical-k-means">Multiview Spherical K Means</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/semi_supervised.html">Semi-Supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-classifier">Cotraining Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/semi_supervised.html#cotraining-regressor">Cotraining Regressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dcca-utilities">DCCA Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#dimension-selection">Dimension Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/decomposition.html">Decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#multiview-ica">Multiview ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#permutation-ica">Permutation ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-ica">Group ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#group-pca">Group PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/decomposition.html#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/construct.html">View Construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-gaussian-projection">Random Gaussian Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/construct.html#random-subspace-method">Random Subspace Method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/model_selection.html">Model Selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/model_selection.html#cross-validation">Cross Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/compose.html">Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#averagemerger">AverageMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#concatmerger">ConcatMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/compose.html#simplesplitter">SimpleSplitter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/preprocessing.html">Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/preprocessing.html#viewtransformer">ViewTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/datasets.html">Multiview Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#data-simulator">Data Simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/plotting.html">Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#quick-visualize">Quick Visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/plotting.html#crossviews-plot">Crossviews Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/utils.html#io">IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to mvlearn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#how-to-make-a-good-bug-report">How to make a good bug report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#contributing-code">Contributing Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#pull-request-checklist">Pull Request Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#coding-guidelines">Coding Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#docstring-guidelines">Docstring Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#api-of-mvlearn-objects">API of mvlearn Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#estimators">Estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#additional-functionality">Additional Functionality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id1">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id4">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id9">mvlearn.preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#patch-0-2-1">Patch 0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-2-0">Version 0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-1-0">Version 0.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Useful Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mvlearn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvlearn.decomposition.mv_ica</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvlearn.decomposition.mv_ica</h1><div class="highlight"><pre>
+<span></span><span class="c1"># BSD 3-Clause License</span>
+<span class="c1"># Copyright (c) 2020, Hugo RICHARD and Pierre ABLIN</span>
+<span class="c1"># All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Redistribution and use in source and binary forms, with or without</span>
+<span class="c1"># modification, are permitted provided that the following conditions are met:</span>
+<span class="c1">#</span>
+<span class="c1"># 1. Redistributions of source code must retain the above copyright notice,</span>
+<span class="c1">#  this list of conditions and the following disclaimer.</span>
+<span class="c1"># 2. Redistributions in binary form must reproduce the above copyright notice,</span>
+<span class="c1">#    this list of conditions and the following disclaimer in the documentation</span>
+<span class="c1">#    and/or other materials provided with the distribution.</span>
+<span class="c1"># 3. Neither the name of the copyright holder nor the names of its</span>
+<span class="c1">#    contributors may be used to endorse or promote products derived from</span>
+<span class="c1">#    this software without specific prior written permission.</span>
+<span class="c1">#</span>
+<span class="c1"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;</span>
+<span class="c1"># AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</span>
+<span class="c1"># IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</span>
+<span class="c1"># ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE</span>
+<span class="c1"># LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR</span>
+<span class="c1"># CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF</span>
+<span class="c1"># SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS</span>
+<span class="c1"># INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN</span>
+<span class="c1"># CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)</span>
+<span class="c1"># ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</span>
+<span class="c1"># POSSIBILITY OF SUCH DAMAGE.</span>
+<span class="c1">#</span>
+<span class="c1"># Modified from source package https://github.com/hugorichard/multiviewica</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">linear_sum_assignment</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.extmath</span> <span class="kn">import</span> <span class="n">randomized_svd</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+<span class="kn">from</span> <span class="nn">picard</span> <span class="kn">import</span> <span class="n">picard</span>
+
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseDecomposer</span>
+<span class="kn">from</span> <span class="nn">.groupica</span> <span class="kn">import</span> <span class="n">GroupICA</span>
+
+
+<span class="k">class</span> <span class="nc">BaseICA</span><span class="p">(</span><span class="n">BaseDecomposer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A base class for multiview ICA methods.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Recover the sources from each view (apply unmixing matrix).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            Training data to recover a source and unmixing matrices from.</span>
+
+<span class="sd">        y : ignored</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xs_new : numpy.ndarray, shape (n_views, n_samples, n_components)</span>
+<span class="sd">            The mixed sources from the single source and per-view unmixings.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;source_&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The model has not yet been fitted.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">Xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span>
+                <span class="n">X</span> <span class="o">@</span> <span class="n">comp</span> <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">comp</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">components_</span><span class="p">)</span>
+            <span class="p">])</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span>
+            <span class="n">X</span> <span class="o">@</span> <span class="n">unmix</span> <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">unmix</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unmixings_</span><span class="p">)</span>
+        <span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Transforms the sources back to the mixed data for each view</span>
+<span class="sd">        (apply mixing matrix).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xs_new : numpy.ndarray, shape (n_views, n_samples, n_components)</span>
+<span class="sd">            The mixed sources from the single source and per-view unmixings.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;source_&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The model has not yet been fitted.&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">source_</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">unmix</span><span class="p">)</span> <span class="k">for</span> <span class="n">unmix</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">unmixings_</span>
+        <span class="p">])</span>
+
+
+<div class="viewcode-block" id="MultiviewICA"><a class="viewcode-back" href="../../../references/decomposition.html#mvlearn.decomposition.MultiviewICA">[docs]</a><span class="k">class</span> <span class="nc">MultiviewICA</span><span class="p">(</span><span class="n">BaseICA</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Multiview ICA for which views share a common source but separate mixing</span>
+<span class="sd">    matrices.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_components : int, optional</span>
+<span class="sd">        Number of components to extract. If None, no dimension reduction is</span>
+<span class="sd">        performed and all views must have the same number of features.</span>
+<span class="sd">    noise : float, default=1.0</span>
+<span class="sd">        Gaussian noise level</span>
+<span class="sd">    max_iter : int, default=1000</span>
+<span class="sd">        Maximum number of iterations to perform</span>
+<span class="sd">    init : {&#39;permica&#39;, &#39;groupica&#39;} or np array of shape</span>
+<span class="sd">        (n_groups, n_components, n_components), default=&#39;permica&#39;</span>
+<span class="sd">        If permica: initialize with perm ICA, if groupica, initialize with</span>
+<span class="sd">        group ica. Else, use the provided array to initialize.</span>
+<span class="sd">    random_state : int, RandomState instance or None, default=None</span>
+<span class="sd">        Used to perform a random initialization. If int, random_state is</span>
+<span class="sd">        the seed used by the random number generator; If RandomState</span>
+<span class="sd">        instance, random_state is the random number generator; If</span>
+<span class="sd">        None, the random number generator is the RandomState instance</span>
+<span class="sd">        used by np.random.</span>
+<span class="sd">    tol : float, default=1e-3</span>
+<span class="sd">        A positive scalar giving the tolerance at which</span>
+<span class="sd">        the un-mixing matrices are considered to have converged.</span>
+<span class="sd">    verbose : bool, default=False</span>
+<span class="sd">        Print information</span>
+<span class="sd">    n_jobs : int (positive), default=None</span>
+<span class="sd">        The number of jobs to run in parallel. `None` means 1 job, `-1`</span>
+<span class="sd">        means using all processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    components_ : np array of shape (n_groups, n_features, n_components)</span>
+<span class="sd">        The projection matrices that project group data in reduced space.</span>
+<span class="sd">        Has value None if n_components is None</span>
+<span class="sd">    unmixings_ : np array of shape (n_groups, n_components, n_components)</span>
+<span class="sd">        Estimated un-mixing matrices</span>
+<span class="sd">    source_ : np array of shape (n_samples, n_components)</span>
+<span class="sd">        Estimated source matrix</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    groupica</span>
+<span class="sd">    permica</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Given each view :math:`X_i` It optimizes:</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            l(W) = \frac{1}{T} \sum_{t=1}^T [\sum_k log(cosh(Y_{avg,k,t}))</span>
+<span class="sd">            + \sum_i l_i(X_{i,.,t})]</span>
+
+<span class="sd">    where</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            l _i(X_{i,.,t}) = - log(|W_i|) + 1/(2 \sigma) ||X_{i,.,t}W_i -</span>
+<span class="sd">            Y_{avg,.,t}||^2,</span>
+
+<span class="sd">    :math:`W_i` is the mixing matrix for view  :math:`i`,</span>
+<span class="sd">    :math:`Y_{avg} = \frac{1}{n} \sum_{i=1}^n X_i W_i`, and :math:`\sigma`</span>
+<span class="sd">    is the noise level.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [#1mvica] Hugo Richard, Luigi Gresele, Aapo Hyvärinen, Bertrand Thirion,</span>
+<span class="sd">        Alexandre Gramfort, Pierre Ablin. Modeling Shared Responses in</span>
+<span class="sd">        Neuroimaging Studies through MultiView ICA. arXiv 2020.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.datasets import load_UCImultifeature</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.decomposition import MultiviewICA</span>
+<span class="sd">    &gt;&gt;&gt; Xs, _ = load_UCImultifeature()</span>
+<span class="sd">    &gt;&gt;&gt; ica = MultiviewICA(n_components=3, max_iter=10)</span>
+<span class="sd">    &gt;&gt;&gt; sources = ica.fit_transform(Xs)</span>
+<span class="sd">    &gt;&gt;&gt; print(sources.shape)</span>
+<span class="sd">    (6, 2000, 3)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">n_components</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">noise</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+        <span class="n">init</span><span class="o">=</span><span class="s2">&quot;permica&quot;</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">n_jobs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">n_components</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">noise</span> <span class="o">=</span> <span class="n">noise</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span> <span class="o">=</span> <span class="n">max_iter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init</span> <span class="o">=</span> <span class="n">init</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tol</span> <span class="o">=</span> <span class="n">tol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span>
+
+<div class="viewcode-block" id="MultiviewICA.fit"><a class="viewcode-back" href="../../../references/decomposition.html#mvlearn.decomposition.MultiviewICA.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fits the model to the views Xs.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            Training data to recover a source and unmixing matrices from.</span>
+<span class="sd">        y : ignored</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : returns an instance of itself.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Parallel SVDs</span>
+        <span class="n">P</span><span class="p">,</span> <span class="n">Xs</span> <span class="o">=</span> <span class="n">_reduce_data</span><span class="p">(</span>
+            <span class="n">Xs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span>
+        <span class="p">)</span>
+        <span class="c1"># Initialization</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">init</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;permica&quot;</span><span class="p">,</span> <span class="s2">&quot;groupica&quot;</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;init should either be permica or groupica&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span> <span class="o">==</span> <span class="s2">&quot;permica&quot;</span><span class="p">:</span>
+                <span class="n">ica</span> <span class="o">=</span> <span class="n">PermICA</span><span class="p">(</span>
+                        <span class="n">max_iter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="p">,</span>
+                        <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">,</span>
+                        <span class="n">tol</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tol</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+                <span class="n">W</span> <span class="o">=</span> <span class="n">ica</span><span class="o">.</span><span class="n">unmixings_</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ica</span> <span class="o">=</span> <span class="n">GroupICA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">,</span>
+                               <span class="n">n_individual_components</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">,</span>
+                               <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+                <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ica</span><span class="o">.</span><span class="n">individual_components_</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">init</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;init should be a numpy array&quot;</span><span class="p">)</span>
+            <span class="n">W</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span>
+        <span class="c1"># Performs multiview ica</span>
+        <span class="k">if</span> <span class="n">Xs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">Xs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Solution underdetermined. Please set </span><span class="se">\</span>
+<span class="s2">                `n_components` to be less than or equal to </span><span class="si">{</span><span class="n">Xs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">W</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="n">_multiview_ica_main</span><span class="p">(</span>
+            <span class="n">Xs</span><span class="p">,</span>
+            <span class="n">noise</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">noise</span><span class="p">,</span>
+            <span class="n">n_iter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="p">,</span>
+            <span class="n">tol</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">,</span>
+            <span class="n">init</span><span class="o">=</span><span class="n">W</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">components_</span> <span class="o">=</span> <span class="n">P</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unmixings_</span> <span class="o">=</span> <span class="n">W</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">source_</span> <span class="o">=</span> <span class="n">S</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div></div>
+
+
+<div class="viewcode-block" id="PermICA"><a class="viewcode-back" href="../../../references/decomposition.html#mvlearn.decomposition.PermICA">[docs]</a><span class="k">class</span> <span class="nc">PermICA</span><span class="p">(</span><span class="n">BaseICA</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Performs one ICA per view (ex: subject) and align sources</span>
+<span class="sd">    using the hungarian algorithm.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_components : int, optional</span>
+<span class="sd">        Number of components to extract. If None, no dimension reduction is</span>
+<span class="sd">        performed and all views must have the same number of features.</span>
+<span class="sd">    max_iter : int, default=1000</span>
+<span class="sd">        Maximum number of iterations to perform</span>
+<span class="sd">    random_state : int, RandomState instance or None, default=None</span>
+<span class="sd">        Used to perform a random initialization. If int, random_state is</span>
+<span class="sd">        the seed used by the random number generator; If RandomState</span>
+<span class="sd">        instance, random_state is the random number generator; If</span>
+<span class="sd">        None, the random number generator is the RandomState instance</span>
+<span class="sd">        used by np.random.</span>
+<span class="sd">    tol : float, default=1e-3</span>
+<span class="sd">        A positive scalar giving the tolerance at which</span>
+<span class="sd">        the un-mixing matrices are considered to have converged.</span>
+<span class="sd">    n_jobs : int (positive), default=None</span>
+<span class="sd">        The number of jobs to run in parallel. `None` means 1 job, `-1`</span>
+<span class="sd">        means using all processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    components_ : np array of shape (n_groups, n_features, n_components)</span>
+<span class="sd">        The projection matrices that project group data in reduced space.</span>
+<span class="sd">        Has value None if n_components is None</span>
+<span class="sd">    unmixings_ : np array of shape (n_groups, n_components, n_components)</span>
+<span class="sd">        Estimated un-mixing matrices</span>
+<span class="sd">    source_ : np array of shape (n_samples, n_components)</span>
+<span class="sd">        Estimated source matrix</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    groupica</span>
+<span class="sd">    multiviewica</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [#1permica] Hugo Richard, Luigi Gresele, Aapo Hyvärinen, Bertrand</span>
+<span class="sd">        Thirion, Alexandre Gramfort, Pierre Ablin. Modeling Shared Responses</span>
+<span class="sd">        in Neuroimaging Studies through MultiView ICA. arXiv 2020.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.datasets import load_UCImultifeature</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.decomposition import PermICA</span>
+<span class="sd">    &gt;&gt;&gt; Xs, _ = load_UCImultifeature()</span>
+<span class="sd">    &gt;&gt;&gt; ica = PermICA(n_components=3)</span>
+<span class="sd">    &gt;&gt;&gt; sources = ica.fit_transform(Xs)</span>
+<span class="sd">    &gt;&gt;&gt; print(sources.shape)</span>
+<span class="sd">    (6, 2000, 3)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">n_components</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">tol</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">,</span>
+        <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">n_components</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span> <span class="o">=</span> <span class="n">max_iter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tol</span> <span class="o">=</span> <span class="n">tol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span>
+
+<div class="viewcode-block" id="PermICA.fit"><a class="viewcode-back" href="../../../references/decomposition.html#mvlearn.decomposition.PermICA.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fits the model to the views Xs.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            Training data to recover a source and unmixing matrices from.</span>
+<span class="sd">        y : ignored</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : returns an instance of itself.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">P</span><span class="p">,</span> <span class="n">Xs</span> <span class="o">=</span> <span class="n">_reduce_data</span><span class="p">(</span>
+            <span class="n">Xs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span>
+        <span class="p">)</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span><span class="p">])</span>
+        <span class="n">n_pb</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">Xs</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pb</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pb</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+        <span class="n">parallelized</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_single_view_fit</span><span class="p">)(</span><span class="n">X</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span>
+        <span class="p">)</span>
+        <span class="n">S</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">parallelized</span><span class="p">)</span>
+        <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+        <span class="n">orders</span><span class="p">,</span> <span class="n">signs</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="n">_find_ordering</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">sign</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">orders</span><span class="p">,</span> <span class="n">signs</span><span class="p">)):</span>
+            <span class="n">W</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sign</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">W</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">order</span><span class="p">,</span> <span class="p">:]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">components_</span> <span class="o">=</span> <span class="n">P</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unmixings_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">source_</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">T</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+    <span class="k">def</span> <span class="nf">_single_view_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">Ki</span><span class="p">,</span> <span class="n">Wi</span><span class="p">,</span> <span class="n">Si</span> <span class="o">=</span> <span class="n">picard</span><span class="p">(</span>
+            <span class="n">X</span><span class="p">,</span>
+            <span class="n">ortho</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">extended</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">centering</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">max_iter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="p">,</span>
+            <span class="n">tol</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">,</span>
+            <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Si</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">Si</span> <span class="o">=</span> <span class="n">Si</span> <span class="o">/</span> <span class="n">scale</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="n">Wi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Wi</span><span class="p">,</span> <span class="n">Ki</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">Si</span><span class="p">,</span> <span class="n">Wi</span></div>
+
+
+<span class="k">def</span> <span class="nf">_reduce_data</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">n_components</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Reduce the number of features in each view separately via PCA</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">    n_components : int, optional</span>
+<span class="sd">        Number of components to extract.</span>
+<span class="sd">        If None, no dimension reduction is performed</span>
+<span class="sd">    n_jobs : int (positive), default=None</span>
+<span class="sd">        The number of jobs to run in parallel. `None` means 1 job, `-1`</span>
+<span class="sd">        means using all processors.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    projection: np array of shape (n_groups, n_features, n_components)</span>
+<span class="sd">        the projection matrix that projects data in reduced space</span>
+<span class="sd">    reduced: np array of shape (n_groups, n_samples, n_components)</span>
+<span class="sd">        Reduced data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n_components</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+
+    <span class="n">reduced</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">temp</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+        <span class="n">U_i</span><span class="p">,</span> <span class="n">S_i</span><span class="p">,</span> <span class="n">V_i</span> <span class="o">=</span> <span class="n">randomized_svd</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">V_i</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">U_i</span> <span class="o">*</span> <span class="n">S_i</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">parallelized_pca</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">)(</span>
+        <span class="n">delayed</span><span class="p">(</span><span class="n">temp</span><span class="p">)(</span><span class="n">X</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span>
+    <span class="p">)</span>
+    <span class="n">projections</span><span class="p">,</span> <span class="n">reduced</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">parallelized_pca</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">projections</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">reduced</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_multiview_ica_main</span><span class="p">(</span>
+    <span class="n">Xs</span><span class="p">,</span>
+    <span class="n">noise</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">n_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">init</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="c1"># Turn list into an array to make it compatible with the rest of the code</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+    <span class="n">Xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span><span class="p">])</span>
+    <span class="c1"># Init</span>
+    <span class="n">init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">n_pb</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">Xs</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">basis_list</span> <span class="o">=</span> <span class="n">init</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">Y_avg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span> <span class="k">for</span> <span class="n">W</span><span class="p">,</span> <span class="n">X</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">basis_list</span><span class="p">,</span> <span class="n">Xs</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># Start scaling</span>
+    <span class="n">g_norms</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">g_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iter</span><span class="p">):</span>
+        <span class="n">g_norms</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># Start inner loop: decrease the loss w.r.t to each W_j</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_pb</span><span class="p">):</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">W_old</span> <span class="o">=</span> <span class="n">basis_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="c1"># Y_denoise is the estimate of the sources without Y_j</span>
+            <span class="n">Y_denoise</span> <span class="o">=</span> <span class="n">Y_avg</span> <span class="o">-</span> <span class="n">W_old</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_pb</span>
+            <span class="c1"># Perform one ICA quasi-Newton step</span>
+            <span class="n">basis_list</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">g_norm</span> <span class="o">=</span> <span class="n">_noisy_ica_step</span><span class="p">(</span>
+                <span class="n">W_old</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y_denoise</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">n_pb</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+            <span class="c1"># Update the average vector (estimate of the sources)</span>
+            <span class="n">Y_avg</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">basis_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">W_old</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_pb</span>
+            <span class="n">g_norms</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">g_norm</span><span class="p">,</span> <span class="n">g_norms</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">&quot;it </span><span class="si">%d</span><span class="s2">, loss = </span><span class="si">%.4e</span><span class="s2">, g=</span><span class="si">%.4e</span><span class="s2">&quot;</span>
+                <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="n">_loss_total</span><span class="p">(</span><span class="n">basis_list</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">Y_avg</span><span class="p">,</span> <span class="n">noise</span><span class="p">),</span>
+                    <span class="n">g_norms</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">g_norms</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="c1"># Start outer loop</span>
+    <span class="n">g_norms</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iter</span><span class="p">):</span>
+        <span class="n">g_norms</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># Start inner loop: decrease the loss w.r.t to each W_j</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_pb</span><span class="p">):</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">W_old</span> <span class="o">=</span> <span class="n">basis_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="c1"># Y_denoise is the estimate of the sources without Y_j</span>
+            <span class="n">Y_denoise</span> <span class="o">=</span> <span class="n">Y_avg</span> <span class="o">-</span> <span class="n">W_old</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_pb</span>
+            <span class="c1"># Perform one ICA quasi-Newton step</span>
+            <span class="n">basis_list</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">g_norm</span> <span class="o">=</span> <span class="n">_noisy_ica_step</span><span class="p">(</span>
+                <span class="n">W_old</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y_denoise</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">n_pb</span>
+            <span class="p">)</span>
+            <span class="c1"># Update the average vector (estimate of the sources)</span>
+            <span class="n">Y_avg</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">basis_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">W_old</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_pb</span>
+            <span class="n">g_norms</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">g_norm</span><span class="p">,</span> <span class="n">g_norms</span><span class="p">)</span>
+        <span class="n">g_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">g_norms</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">&quot;it </span><span class="si">%d</span><span class="s2">, loss = </span><span class="si">%.4e</span><span class="s2">, g=</span><span class="si">%.4e</span><span class="s2">&quot;</span>
+                <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="n">_loss_total</span><span class="p">(</span><span class="n">basis_list</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">Y_avg</span><span class="p">,</span> <span class="n">noise</span><span class="p">),</span>
+                    <span class="n">g_norms</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">g_norms</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+            <span class="k">break</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="s2">&quot;Multiview ICA has not converged - gradient norm: </span><span class="si">%e</span><span class="s2"> &quot;</span> <span class="o">%</span> <span class="n">g_norms</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">basis_list</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">Y_avg</span><span class="o">.</span><span class="n">T</span>
+
+
+<span class="k">def</span> <span class="nf">_hungarian</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+    <span class="n">u</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="n">linear_sum_assignment</span><span class="p">(</span><span class="o">-</span><span class="nb">abs</span><span class="p">(</span><span class="n">M</span><span class="p">))</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">order</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">order</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_find_ordering</span><span class="p">(</span><span class="n">S_list</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">n_pb</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">S_list</span><span class="o">.</span><span class="n">shape</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">S_list</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">S_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">p</span><span class="p">)[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_pb</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">signs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iter</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">S_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+            <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+            <span class="n">order</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">signs</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">_hungarian</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">S_list</span><span class="p">):</span>
+            <span class="n">S</span> <span class="o">+=</span> <span class="n">signs</span><span class="p">[</span><span class="n">i</span><span class="p">][:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">s</span><span class="p">[</span><span class="n">order</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+        <span class="n">S</span> <span class="o">/=</span> <span class="n">n_pb</span>
+    <span class="k">return</span> <span class="n">order</span><span class="p">,</span> <span class="n">signs</span><span class="p">,</span> <span class="n">S</span>
+
+
+<span class="k">def</span> <span class="nf">_logcosh</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Y</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">Y</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_loss_total</span><span class="p">(</span><span class="n">basis_list</span><span class="p">,</span> <span class="n">X_list</span><span class="p">,</span> <span class="n">Y_avg</span><span class="p">,</span> <span class="n">noise</span><span class="p">):</span>
+    <span class="n">n_pb</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">basis_list</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">_logcosh</span><span class="p">(</span><span class="n">Y_avg</span><span class="p">))</span> <span class="o">*</span> <span class="n">p</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">basis_list</span><span class="p">,</span> <span class="n">X_list</span><span class="p">)):</span>
+        <span class="n">Y</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">slogdet</span><span class="p">(</span><span class="n">W</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">loss</span> <span class="o">+=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">noise</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">Y</span> <span class="o">-</span> <span class="n">Y_avg</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span>
+    <span class="k">return</span> <span class="n">loss</span>
+
+
+<span class="k">def</span> <span class="nf">_loss_partial</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y_denoise</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">n_pb</span><span class="p">):</span>
+    <span class="n">p</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">slogdet</span><span class="p">(</span><span class="n">W</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">loss</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">_logcosh</span><span class="p">(</span><span class="n">Y</span> <span class="o">/</span> <span class="n">n_pb</span> <span class="o">+</span> <span class="n">Y_denoise</span><span class="p">))</span> <span class="o">*</span> <span class="n">p</span>
+    <span class="n">fact</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">n_pb</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">noise</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">+=</span> <span class="n">fact</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">Y</span> <span class="o">-</span> <span class="n">n_pb</span> <span class="o">*</span> <span class="n">Y_denoise</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_pb</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span>
+    <span class="k">return</span> <span class="n">loss</span>
+
+
+<span class="k">def</span> <span class="nf">_noisy_ica_step</span><span class="p">(</span>
+    <span class="n">W</span><span class="p">,</span>
+    <span class="n">X</span><span class="p">,</span>
+    <span class="n">Y_denoise</span><span class="p">,</span>
+    <span class="n">noise</span><span class="p">,</span>
+    <span class="n">n_pb</span><span class="p">,</span>
+    <span class="n">lambda_min</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
+    <span class="n">n_ls_tries</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">scale</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ICA minimization using quasi Newton method. Used in the inner loop.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">loss0</span> <span class="o">=</span> <span class="n">_loss_partial</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y_denoise</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">n_pb</span><span class="p">)</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">Y_avg</span> <span class="o">=</span> <span class="n">Y</span> <span class="o">/</span> <span class="n">n_pb</span> <span class="o">+</span> <span class="n">Y_denoise</span>
+
+    <span class="c1"># Compute relative gradient and Hessian</span>
+    <span class="n">thM</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">Y_avg</span><span class="p">)</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">thM</span><span class="p">,</span> <span class="n">Y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span> <span class="o">/</span> <span class="n">n_pb</span>
+    <span class="c1"># print(G)</span>
+    <span class="n">const</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">n_pb</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">Y</span> <span class="o">-</span> <span class="n">Y_denoise</span> <span class="o">/</span> <span class="n">const</span>
+    <span class="n">G</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">Y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">const</span> <span class="o">/</span> <span class="n">noise</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="n">G</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">scale</span><span class="p">:</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+    <span class="c1"># print(G)</span>
+    <span class="n">g_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+
+    <span class="c1"># These are the terms H_{ijij} of the approximated hessian</span>
+    <span class="c1"># (approximation H2 in Pierre&#39;s thesis)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">thM</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_pb</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">const</span> <span class="o">/</span> <span class="n">noise</span><span class="p">,</span> <span class="p">(</span><span class="n">Y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,)</span> <span class="o">/</span> <span class="n">n</span>
+
+    <span class="c1"># Regularize</span>
+    <span class="n">discr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">h</span> <span class="o">-</span> <span class="n">h</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">4.0</span><span class="p">)</span>
+    <span class="n">eigenvalues</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">h</span> <span class="o">+</span> <span class="n">h</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">discr</span><span class="p">)</span>
+    <span class="n">problematic_locs</span> <span class="o">=</span> <span class="n">eigenvalues</span> <span class="o">&lt;</span> <span class="n">lambda_min</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">problematic_locs</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">i_pb</span><span class="p">,</span> <span class="n">j_pb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">problematic_locs</span><span class="p">)</span>
+    <span class="n">h</span><span class="p">[</span><span class="n">i_pb</span><span class="p">,</span> <span class="n">j_pb</span><span class="p">]</span> <span class="o">+=</span> <span class="n">lambda_min</span> <span class="o">-</span> <span class="n">eigenvalues</span><span class="p">[</span><span class="n">i_pb</span><span class="p">,</span> <span class="n">j_pb</span><span class="p">]</span>
+    <span class="c1"># Compute Newton&#39;s direction</span>
+    <span class="n">det</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">h</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">direction</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">G</span> <span class="o">-</span> <span class="n">G</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="n">det</span>
+    <span class="c1"># print(direction)</span>
+    <span class="c1"># Line search</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_ls_tries</span><span class="p">):</span>
+        <span class="n">new_W</span> <span class="o">=</span> <span class="n">W</span> <span class="o">-</span> <span class="n">step</span> <span class="o">*</span> <span class="n">direction</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+        <span class="n">new_loss</span> <span class="o">=</span> <span class="n">_loss_partial</span><span class="p">(</span><span class="n">new_W</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y_denoise</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">n_pb</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">new_loss</span> <span class="o">&lt;</span> <span class="n">loss0</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">step</span> <span class="o">/=</span> <span class="mf">2.0</span>
+    <span class="k">return</span> <span class="n">new_W</span><span class="p">,</span> <span class="n">g_norm</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019-2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<p style="text-align: center; margin: .5rem;">
+    <a href="https://www.netlify.com">
+        <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
+    </a>
+</p>
+ 
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

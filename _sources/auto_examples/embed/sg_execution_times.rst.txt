@@ -1,0 +1,26 @@
+
+:orphan:
+
+.. _sphx_glr_auto_examples_embed_sg_execution_times:
+
+Computation times
+=================
+**01:20.319** total execution time for **auto_examples_embed** files:
+
++-----------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_embed_plot_dcca_tutorial.py` (``plot_dcca_tutorial.py``)         | 00:27.792 | 0.0 MB |
++-----------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_embed_plot_mvmds_tutorial.py` (``plot_mvmds_tutorial.py``)       | 00:19.657 | 0.0 MB |
++-----------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_embed_plot_omnibus_embedding.py` (``plot_omnibus_embedding.py``) | 00:12.349 | 0.0 MB |
++-----------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_embed_plot_cca_comparison.py` (``plot_cca_comparison.py``)       | 00:09.432 | 0.0 MB |
++-----------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_embed_plot_kcca_icd_tutorial.py` (``plot_kcca_icd_tutorial.py``) | 00:06.337 | 0.0 MB |
++-----------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_embed_plot_kcca_tutorial.py` (``plot_kcca_tutorial.py``)         | 00:03.140 | 0.0 MB |
++-----------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_embed_plot_gcca_tutorial.py` (``plot_gcca_tutorial.py``)         | 00:01.612 | 0.0 MB |
++-----------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_embed_splitae_tutorial.py` (``splitae_tutorial.py``)             | 00:00.000 | 0.0 MB |
++-----------------------------------------------------------------------------------------------+-----------+--------+
