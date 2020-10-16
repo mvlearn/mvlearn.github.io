@@ -9,9 +9,9 @@
     .. _sphx_glr_auto_examples_cluster_plot_mv_coregularized_spectral_tutorial.py:
 
 
-=======================================================================
-Multiview Clustering Algorithm to Cluster Data with Multiple Views
-=======================================================================
+======================================================
+Multiview Coregularized Spectral Clustering Comparison
+======================================================
 
 Here we will compare the performance of the Co-Regularized multiview and
 singleview spectral clustering. We will evaluate the purity of
@@ -170,7 +170,7 @@ spectral clustering algorithm below, along with the true class labels.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  8.079 seconds)
+   **Total running time of the script:** ( 0 minutes  10.169 seconds)
 
 
 .. _sphx_glr_download_auto_examples_cluster_plot_mv_coregularized_spectral_tutorial.py:

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Kernel CCA (KCCA) &mdash; mvlearn alpha documentation</title>
+  <title>Kernel CCA (KCCA) Tutorial &mdash; mvlearn alpha documentation</title>
   
 
   
@@ -31,8 +31,8 @@
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Incomplete Cholesky Decomposition (ICA) for CCA" href="plot_kcca_icd_tutorial.html" />
-    <link rel="prev" title="Comparing CCA Variants" href="plot_cca_comparison.html" /> 
+    <link rel="next" title="Integrating mvlearn with scikit-learn" href="../pipeline/plot_pipeline_sklearn_integration.html" />
+    <link rel="prev" title="Incomplete Cholesky Decomposition (ICD) for KCCA" href="plot_kcca_icd_tutorial.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -104,39 +104,36 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples Gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-cluster">Examples on cluster</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Coregularized Spectral Clustering Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. Singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_complex.html">Conditional Independence of Views on Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_complex.html">Conditional Independence of Views on Multiview KMeans Clustering</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-datasets">Examples on datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_gaussianmixtures.html">Generating Multiview Data from Gaussian Mixtures</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-decomposition">Examples on decomposition</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_mv_ica_tutorial.html">Multiview Independent Component Analysis (ICA) Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained (AJIVE)</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#examples-on-embed">Examples on embed</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_cca_comparison.html">Comparing CCA Variants</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Kernel CCA (KCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICD) for KCCA</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Kernel CCA (KCCA) Tutorial</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-pipeline">Examples on pipeline</a><ul>
@@ -144,14 +141,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-plotting">Examples on plotting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_quick_visualize_tutorial.html">Quickly Visualizing Multiview Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_crossviews_plot.html">Plotting Multiview Data with a Cross-view Plot</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
 </ul>
 </li>
 </ul>
@@ -315,7 +311,7 @@
         
           <li><a href="../index.html">Examples Gallery</a> &raquo;</li>
         
-      <li>Kernel CCA (KCCA)</li>
+      <li>Kernel CCA (KCCA) Tutorial</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -340,23 +336,26 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-embed-plot-kcca-tutorial-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="kernel-cca-kcca">
-<span id="sphx-glr-auto-examples-embed-plot-kcca-tutorial-py"></span><h1>Kernel CCA (KCCA)<a class="headerlink" href="#kernel-cca-kcca" title="Permalink to this headline">¶</a></h1>
-<p>This algorithm runs KCCA on two views of data. The kernel implementations,
+<div class="sphx-glr-example-title section" id="kernel-cca-kcca-tutorial">
+<span id="sphx-glr-auto-examples-embed-plot-kcca-tutorial-py"></span><h1>Kernel CCA (KCCA) Tutorial<a class="headerlink" href="#kernel-cca-kcca-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>KCCA is a variant of Canonical Correlation Analysis that can use a
+nonlinear kernel to uncover nonlinear correlations between views of data
+and thereby transform data into a lower dimensional space which captures
+the correlated information between views.</p>
+<p>This tutorial runs KCCA on two views of data. The kernel implementations,
 parameter 'ktype', are linear, polynomial and gaussian. Polynomial kernel has
 two parameters: 'constant', 'degree'. Gaussian kernel has one parameter:
 'sigma'.</p>
 <p>Useful information, like canonical correlations between transformed data and
 statistical tests for significance of these correlations can be computed using
 the get_stats() function of the KCCA object.</p>
-<p>When initializing KCCA, you can also initialize the following parameters:
+<p>When initializing KCCA, you can also set the following parameters:
 the number of canonical components 'n_components', the regularization
 parameter 'reg', the decomposition type 'decomposition', and the decomposition
 method 'method'. There are two decomposition types: 'full' and 'icd'. In some
 cases, ICD will run faster than the full decomposition at the cost of
 performance. The only method as of now is 'kettenring-like'.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stats</span></a>
 <span class="kn">from</span> <span class="nn">mvlearn.embed</span> <span class="kn">import</span> <a href="../../references/embed.html#mvlearn.embed.KCCA" title="mvlearn.embed.KCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class"><span class="n">KCCA</span></a>
 <span class="kn">from</span> <span class="nn">mvlearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">mvlearn.plotting</span> <span class="kn">import</span> <a href="../../references/plotting.html#mvlearn.plotting.crossviews_plot" title="mvlearn.plotting.crossviews_plot" class="sphx-glr-backref-module-mvlearn-plotting sphx-glr-backref-type-py-function"><span class="n">crossviews_plot</span></a>
@@ -411,16 +410,13 @@ performance. The only method as of now is 'kettenring-like'.</p>
 </div>
 <div class="section" id="linear-kernel-implementation">
 <h2>Linear kernel implementation<a class="headerlink" href="#linear-kernel-implementation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here we show how KCCA with a linear kernel can uncover the highly correlated</span>
-<span class="c1"># latent distribution of the 2 views which are related with a linear</span>
-<span class="c1"># relationship, and then transform the data into that latent space. We use an</span>
-<span class="c1"># 80-20, train-test data split to develop the embedding.</span>
-<span class="c1">#</span>
-<span class="c1"># Also, we use statistical tests (Wilk&#39;s Lambda) to check the significance of</span>
-<span class="c1"># the canonical correlations.</span>
-
-
-<a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.seed.html#numpy.random.seed" title="numpy.random.seed" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span></a><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<p>Here we show how KCCA with a linear kernel can uncover the highly correlated
+latent distribution of the 2 views which are related with a linear
+relationship, and then transform the data into that latent space. We use an
+80-20, train-test data split to develop the embedding.</p>
+<p>Also, we use statistical tests (Wilk's Lambda) to check the significance of
+the canonical correlations.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.seed.html#numpy.random.seed" title="numpy.random.seed" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span></a><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a> <span class="o">=</span> <span class="n">make_data</span><span class="p">(</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_train</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_test</span></a> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
@@ -444,9 +440,9 @@ performance. The only method as of now is 'kettenring-like'.</p>
 <span class="c1"># their significance using the p-values from a Wilk&#39;s Lambda test</span>
 
 
-<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stats</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KCCA.get_stats" title="mvlearn.embed.KCCA.get_stats" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">kcca_l</span><span class="o">.</span><span class="n">get_stats</span></a><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stats</span></a><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stats</span></a><span class="p">[</span><span class="s1">&#39;pF&#39;</span><span class="p">])</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cca_stats</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KCCA.get_stats" title="mvlearn.embed.KCCA.get_stats" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">kcca_l</span><span class="o">.</span><span class="n">get_stats</span></a><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cca_stats</span></a><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cca_stats</span></a><span class="p">[</span><span class="s1">&#39;pF&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <img alt="plot kcca tutorial" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_kcca_tutorial_002.png" />
@@ -487,8 +483,8 @@ performance. The only method as of now is 'kettenring-like'.</p>
 <span class="c1"># printing the canonical correlations for each component</span>
 
 
-<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stats</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KCCA.get_stats" title="mvlearn.embed.KCCA.get_stats" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">kcca_p</span><span class="o">.</span><span class="n">get_stats</span></a><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stats</span></a><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">])</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kcca_stats</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KCCA.get_stats" title="mvlearn.embed.KCCA.get_stats" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">kcca_p</span><span class="o">.</span><span class="n">get_stats</span></a><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kcca_stats</span></a><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <img alt="plot kcca tutorial" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_kcca_tutorial_004.png" />
@@ -528,8 +524,8 @@ performance. The only method as of now is 'kettenring-like'.</p>
 <span class="c1"># printing the canonical correlations for each component</span>
 
 
-<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stats</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KCCA.get_stats" title="mvlearn.embed.KCCA.get_stats" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">kcca_g</span><span class="o">.</span><span class="n">get_stats</span></a><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stats</span></a><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">])</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kcca_stats</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KCCA.get_stats" title="mvlearn.embed.KCCA.get_stats" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">kcca_g</span><span class="o">.</span><span class="n">get_stats</span></a><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kcca_stats</span></a><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <img alt="plot kcca tutorial" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_kcca_tutorial_006.png" />
@@ -537,7 +533,7 @@ performance. The only method as of now is 'kettenring-like'.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[0.98936533 0.9758425  0.9576762  0.92190047]
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.140 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.968 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-embed-plot-kcca-tutorial-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <a class="reference download internal" download="" href="../../_downloads/1a4a0d95a90c17ec8c0159c562498826/plot_kcca_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_kcca_tutorial.py</span></code></a></div>
@@ -557,10 +553,10 @@ performance. The only method as of now is 'kettenring-like'.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot_kcca_icd_tutorial.html" class="btn btn-neutral float-right" title="Incomplete Cholesky Decomposition (ICA) for CCA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../pipeline/plot_pipeline_sklearn_integration.html" class="btn btn-neutral float-right" title="Integrating mvlearn with scikit-learn" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="plot_cca_comparison.html" class="btn btn-neutral" title="Comparing CCA Variants" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_kcca_icd_tutorial.html" class="btn btn-neutral" title="Incomplete Cholesky Decomposition (ICD) for KCCA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

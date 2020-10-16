@@ -9,9 +9,9 @@
     .. _sphx_glr_auto_examples_decomposition_plot_ajive_tutorial.py:
 
 
-=============================================================
-Angle-based Joint and Individual Variation Explained  (AJIVE)
-=============================================================
+============================================================
+Angle-based Joint and Individual Variation Explained (AJIVE)
+============================================================
 
 Adopted from the code at https://github.com/idc9/py_jive and tutorial
 written by:
@@ -20,16 +20,16 @@ Author: Iain Carmichael
 
 License: MIT License
 
-<blockquote>
-    [1] Lock, Eric F., et al. “Joint and Individual Variation Explained (JIVE)
-    for Integrated Analysis of Multiple Data Types.” The Annals of Applied
-    Statistics, vol. 7, no. 1, 2013, pp. 523–542., doi:10.1214/12-aoas597.
-</blockquote>
+[1] Lock, Eric F., et al. “Joint and Individual Variation Explained (JIVE)
+for Integrated Analysis of Multiple Data Types.” The Annals of Applied
+Statistics, vol. 7, no. 1, 2013, pp. 523–542., doi:10.1214/12-aoas597.
 
 
 AJIVE is a useful algorithm that decomposes multiple views of data into two
 main pieces
+
 - Joint Variation
+
 - Individual Variation
 
 whose sum is the original data minus noise. This notebook will demonstrate the
@@ -51,7 +51,8 @@ functionality of AJIVE and show some examples of the algorithm's usefulness.
 
 
 
-## Data Creation
+Data Creation
+-------------
 
 Here we create data in the same way detailed in the initial JIVE paper:
 
@@ -59,8 +60,8 @@ The two views are created with shared joint variation, unique individual
 variation, and independent noise.
 
 
-
 .. code-block:: default
+
 
 
     np.random.seed(12)
@@ -114,6 +115,7 @@ initial signal rank for each view.
 
 
 .. code-block:: default
+
 
 
     fig, axes = plt.subplots(1, 2, figsize=(10, 5), sharey=True)
@@ -182,8 +184,8 @@ can be seen in their corresponding heatmaps.
 
 
 
-Same Views
-^^^^^^^^^^
+When Both Views are the Same
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 .. code-block:: default
@@ -207,8 +209,8 @@ Same Views
 
 
 
-Different Views
-^^^^^^^^^^^^^^^
+When the Views are Different
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 .. code-block:: default
@@ -236,7 +238,7 @@ Different Views
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.079 seconds)
+   **Total running time of the script:** ( 0 minutes  5.017 seconds)
 
 
 .. _sphx_glr_download_auto_examples_decomposition_plot_ajive_tutorial.py:

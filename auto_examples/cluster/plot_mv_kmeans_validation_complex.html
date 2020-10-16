@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Assessing the conditionally independence views requirement of Multiview KMeans &mdash; mvlearn alpha documentation</title>
+  <title>Conditional Independence of Views on Multiview KMeans Clustering &mdash; mvlearn alpha documentation</title>
   
 
   
@@ -32,7 +32,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Loading and Viewing the UCI Multiple Features Dataset" href="../datasets/plot_load_ucimultifeature.html" />
-    <link rel="prev" title="Assessing the Conditionally independence views requirement of Multiview Spectral Clustering" href="plot_mv_spectral_validation_complex.html" /> 
+    <link rel="prev" title="Conditional Independence of Views on Multiview Spectral Clustering" href="plot_mv_spectral_validation_complex.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -104,39 +104,36 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples Gallery</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#examples-on-cluster">Examples on cluster</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mv_coregularized_spectral_tutorial.html">Multiview Coregularized Spectral Clustering Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mv_kmeans_tutorial.html">Multiview KMeans Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mv_spectral_tutorial.html">Multiview Spectral Clustering Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mv_spectral_validation_simulated.html">Multiview vs. Singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mv_spectral_validation_complex.html">Conditional Independence of Views on Multiview Spectral Clustering</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Conditional Independence of Views on Multiview KMeans Clustering</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-datasets">Examples on datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_gaussianmixtures.html">Generating Multiview Data from Gaussian Mixtures</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-decomposition">Examples on decomposition</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_mv_ica_tutorial.html">Multiview Independent Component Analysis (ICA) Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained (AJIVE)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-embed">Examples on embed</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICD) for KCCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_tutorial.html">Kernel CCA (KCCA) Tutorial</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-pipeline">Examples on pipeline</a><ul>
@@ -144,14 +141,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-plotting">Examples on plotting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_quick_visualize_tutorial.html">Quickly Visualizing Multiview Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_crossviews_plot.html">Plotting Multiview Data with a Cross-view Plot</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
 </ul>
 </li>
 </ul>
@@ -315,7 +311,7 @@
         
           <li><a href="../index.html">Examples Gallery</a> &raquo;</li>
         
-      <li>Assessing the conditionally independence views requirement of Multiview KMeans</li>
+      <li>Conditional Independence of Views on Multiview KMeans Clustering</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -340,10 +336,16 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-cluster-plot-mv-kmeans-validation-complex-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="assessing-the-conditionally-independence-views-requirement-of-multiview-kmeans">
-<span id="sphx-glr-auto-examples-cluster-plot-mv-kmeans-validation-complex-py"></span><h1>Assessing the conditionally independence views requirement of Multiview KMeans<a class="headerlink" href="#assessing-the-conditionally-independence-views-requirement-of-multiview-kmeans" title="Permalink to this headline">¶</a></h1>
+<div class="sphx-glr-example-title section" id="conditional-independence-of-views-on-multiview-kmeans-clustering">
+<span id="sphx-glr-auto-examples-cluster-plot-mv-kmeans-validation-complex-py"></span><h1>Conditional Independence of Views on Multiview KMeans Clustering<a class="headerlink" href="#conditional-independence-of-views-on-multiview-kmeans-clustering" title="Permalink to this headline">¶</a></h1>
+<p>The co-Expectation Maximization framework (and co-training), relies on the
+fundamental assumption that data views are conditionally independent.
+In this tutorial we test that assumption by examining the multiview
+k-means clustering algorithm on synthetic multiview
+datasets under different conditions related to independence
+between the views conditioned on true class labels.</p>
 <p>In the following experiments, we will perform singleview kmeans clustering
-on the two views separately and on them concatenated together. We also
+on two views separately and on them concatenated together. We also
 perform multiview clustering using the multiview algorithm. We will also
 compare the performance of multiview and singleview versions of kmeans
 clustering. We will evaluate the purity of the resulting clusters from each
@@ -542,7 +544,6 @@ is very high.</p>
 
     <span class="c1"># Set class pairings as described in the multiview clustering paper</span>
     <span class="n">view1_classes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-    <span class="n">view2_classes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 
     <span class="c1"># Create lists to hold data and labels for each of the classes across</span>
     <span class="c1"># 2 different views</span>
@@ -625,7 +626,7 @@ Singleview Concatenated NMI Score: 0.252
 Multiview NMI Score: 0.234
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  15.391 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  23.615 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-cluster-plot-mv-kmeans-validation-complex-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <a class="reference download internal" download="" href="../../_downloads/c58f7d5e37eb237d938c263640ea237f/plot_mv_kmeans_validation_complex.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mv_kmeans_validation_complex.py</span></code></a></div>
@@ -647,7 +648,7 @@ Multiview NMI Score: 0.234
         <a href="../datasets/plot_load_ucimultifeature.html" class="btn btn-neutral float-right" title="Loading and Viewing the UCI Multiple Features Dataset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="plot_mv_spectral_validation_complex.html" class="btn btn-neutral" title="Assessing the Conditionally independence views requirement of Multiview Spectral Clustering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_mv_spectral_validation_complex.html" class="btn btn-neutral" title="Conditional Independence of Views on Multiview Spectral Clustering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

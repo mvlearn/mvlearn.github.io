@@ -13,6 +13,12 @@
 2-View Semi-Supervised Classification
 =====================================
 
+In this tutorial, we use the co-training classifier to do semi-supervised
+binary classification on a 2-view dataset. Only 2% of the data is labeled,
+but by using semi-supervised co-training, we still achieve good accuracy
+and we do much better than using single-view methods trained on only the
+labeled samples.
+
 
 .. code-block:: default
 
@@ -89,7 +95,6 @@ learning.
 
 
     # Single view semi-supervised learning
-
     gnb0 = GaussianNB()
     gnb1 = GaussianNB()
     gnb2 = GaussianNB()
@@ -116,7 +121,6 @@ learning.
 
     # Multi-view co-training semi-supervised learning
     # Train a CTClassifier on all the labeled and unlabeled training data
-
     ctc = CTClassifier()
     ctc.fit([View0_train, View1_train], labels_train)
     y_pred_ct = ctc.predict([View0_test, View1_test])
@@ -185,7 +189,6 @@ training to perform.
         accuracy_score(labels_test, y_pred2)))
 
     # Multi-view co-training semi-supervised learning
-
     rfc0 = RandomForestClassifier(n_estimators=100, bootstrap=True)
     rfc1 = RandomForestClassifier(n_estimators=6, bootstrap=False)
     ctc = CTClassifier(rfc0, rfc1, p=2, n=2, unlabeled_pool_size=20, num_iter=100)
@@ -196,7 +199,6 @@ training to perform.
         {accuracy_score(labels_test, y_pred_ct):.3f}")
 
     # Get the prediction probabilities for all the examples
-
     y_pred_proba = ctc.predict_proba([View0_test, View1_test])
     print("Full y_proba shape = " + str(y_pred_proba.shape))
     print("\nFirst 10 class probabilities:\n")
@@ -239,7 +241,7 @@ training to perform.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.935 seconds)
+   **Total running time of the script:** ( 0 minutes  7.653 seconds)
 
 
 .. _sphx_glr_download_auto_examples_semi_supervised_plot_cotraining_classification.py:

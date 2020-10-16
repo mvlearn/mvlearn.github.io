@@ -9,9 +9,12 @@
     .. _sphx_glr_auto_examples_cluster_plot_mv_spherical_kmeans_tutorial.py:
 
 
-==========================
-Multiview Spherical KMeans
-==========================
+===================================
+Multiview Spherical KMeans Tutorial
+===================================
+
+This tutorial demonstrates the multiview spherical k-means algorithm
+on 2 views of the UCI multiview digits dataset.
 
 
 .. code-block:: default
@@ -176,7 +179,7 @@ Clustering.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.822 seconds)
+   **Total running time of the script:** ( 0 minutes  6.928 seconds)
 
 
 .. _sphx_glr_download_auto_examples_cluster_plot_mv_spherical_kmeans_tutorial.py:

@@ -10,7 +10,7 @@
 
 
 =======================
-Omnbius Graph embedding
+Omnbius Graph Embedding
 =======================
 
 This demo shows you how to run Omnibus Embedding on multiview data. Omnibus
@@ -20,7 +20,9 @@ graphs. The embedded latent positions live in the same canonical space allowing
 us to easily compare the embedded graphs to each other without aligning
 results. You can read more about both the implementation of Omnibus embedding
 used and the algorithm itself from the
-[graspologic](https://github.com/microsoft/graspologic/blob/dev/graspologic/    embed/omni.py) package.
+`graspologic <https://github.com/microsoft/graspologic/blob/dev/graspologic/embed/omni.py>`_
+package.
+
 Unlike graphs however, multiview data can consist of arbitrary arrays of
 different dimensions. This represents an additional challenge of comparing the
 information contained in each view. An effective solution is to first compute
@@ -51,7 +53,7 @@ different views in the UCI handwritten digits dataset.
 
 
 
-Case 1: two identical views
+Case 1: Two Identical Views
 ---------------------------
 For this setting, we generate two identical numpy matrices as our views.
 Since the information is identical in each view, the resulting embedded views
@@ -79,7 +81,7 @@ should also be similar. We run omnibus on default parameters.
 
 
 
-Visualizing the results
+Visualizing the Results
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -96,7 +98,8 @@ Visualizing the results
                label='View 2', cmap="tab10", s=100)
     plt.legend(fontsize=20)
 
-    # Plot lines between matched pairs of points
+    # Plot lines between matched pairs of points.
+    # As expected, the embeddings are identical since the views are the same.
     for i in range(50):
         idx = np.random.randint(len(Xhat1), size=1)
         ax.plot([Xhat1[idx, 0], Xhat2[idx, 0]], [
@@ -106,8 +109,6 @@ Visualizing the results
     plt.tight_layout()
     ax.set_title('Latent Positions from Omnibus Embedding', fontsize=20)
     plt.show()
-
-    # As expected, the embeddings are identical since the views are the same.
 
 
 
@@ -120,8 +121,9 @@ Visualizing the results
 
 
 
-Case 2: two unidentical views
+Case 2: Two Unidentical Views
 -----------------------------
+
 Now let's see what happens when the views are not identical.
 
 
@@ -146,8 +148,12 @@ Now let's see what happens when the views are not identical.
 
 
 
-Visualizing the results
+Visualizing the Results
 ^^^^^^^^^^^^^^^^^^^^^^^
+
+This time, when we view the embeddings, we see that the views are clearly
+separated suggeseting the views represent different information.
+Lines are drawn between corresponding samples in the two views.
 
 
 .. code-block:: default
@@ -174,10 +180,6 @@ Visualizing the results
     ax.set_title('Latent Positions from Omnibus Embedding', fontsize=20)
     plt.show()
 
-    # Here, we see that the views are clearly separated suggeseting the views
-    # represent different information. Lines are drawn between corresponding
-    # samples in the two views.
-
 
 
 
@@ -191,10 +193,10 @@ Visualizing the results
 
 UCI Digits Dataset
 ------------------
-Finally, we run Omnibus on the [UCI Multiple Features Digits
-Dataset](https://archive.ics.uci.edu/ml/datasets/Multiple+Features). We use
-the Fourier coefficient and profile correlation views (View 1 and 2
-respectively).
+
+Finally, we run Omnibus on the UCI Multiple Features Digits
+Dataset. We use the Fourier coefficient and profile correlation
+views (View 1 and 2 respectively) as a 2-view dataset.
 
 
 .. code-block:: default
@@ -218,8 +220,9 @@ respectively).
 
 
 
-Visualizing the results
+Visualizing the Results
 ^^^^^^^^^^^^^^^^^^^^^^^
+
 This time, the points in the plot are colored by digit (0-9). The marker
 symbols denote which view each sample is from. We randomly plot 500 samples
 to make the plot more readable.
@@ -245,7 +248,6 @@ to make the plot more readable.
                label='View 2 (216 profile correlations)', c=labels,
                cmap="tab10", s=100)
     plt.legend(fontsize=20)
-    # fig.colorbar(ct)
 
     # Plot lines between matched pairs of points
     for i in range(50):
@@ -271,7 +273,7 @@ to make the plot more readable.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  12.349 seconds)
+   **Total running time of the script:** ( 0 minutes  16.836 seconds)
 
 
 .. _sphx_glr_download_auto_examples_embed_plot_omnibus_embedding.py:

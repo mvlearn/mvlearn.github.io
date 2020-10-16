@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Independent Component Analysis (ICA) Tutorial &mdash; mvlearn alpha documentation</title>
+  <title>Multiview Independent Component Analysis (ICA) Comparison &mdash; mvlearn alpha documentation</title>
   
 
   
@@ -31,8 +31,8 @@
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="ICA: a tutorial" href="plot_group_ica_tutorial.html" />
-    <link rel="prev" title="Data from Gaussian Mixtures" href="../datasets/plot_gaussianmixtures.html" /> 
+    <link rel="next" title="Angle-based Joint and Individual Variation Explained (AJIVE)" href="plot_ajive_tutorial.html" />
+    <link rel="prev" title="ICA: a tutorial" href="plot_group_ica_tutorial.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -104,39 +104,36 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples Gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-cluster">Examples on cluster</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Coregularized Spectral Clustering Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. Singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_complex.html">Conditional Independence of Views on Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_complex.html">Conditional Independence of Views on Multiview KMeans Clustering</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-datasets">Examples on datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_gaussianmixtures.html">Generating Multiview Data from Gaussian Mixtures</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#examples-on-decomposition">Examples on decomposition</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Independent Component Analysis (ICA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Multiview Independent Component Analysis (ICA) Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained (AJIVE)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-embed">Examples on embed</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICD) for KCCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_tutorial.html">Kernel CCA (KCCA) Tutorial</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-pipeline">Examples on pipeline</a><ul>
@@ -144,14 +141,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-plotting">Examples on plotting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_quick_visualize_tutorial.html">Quickly Visualizing Multiview Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_crossviews_plot.html">Plotting Multiview Data with a Cross-view Plot</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
 </ul>
 </li>
 </ul>
@@ -315,7 +311,7 @@
         
           <li><a href="../index.html">Examples Gallery</a> &raquo;</li>
         
-      <li>Independent Component Analysis (ICA) Tutorial</li>
+      <li>Multiview Independent Component Analysis (ICA) Comparison</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -340,15 +336,15 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-decomposition-plot-mv-ica-tutorial-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="independent-component-analysis-ica-tutorial">
-<span id="sphx-glr-auto-examples-decomposition-plot-mv-ica-tutorial-py"></span><h1>Independent Component Analysis (ICA) Tutorial<a class="headerlink" href="#independent-component-analysis-ica-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="sphx-glr-example-title section" id="multiview-independent-component-analysis-ica-comparison">
+<span id="sphx-glr-auto-examples-decomposition-plot-mv-ica-tutorial-py"></span><h1>Multiview Independent Component Analysis (ICA) Comparison<a class="headerlink" href="#multiview-independent-component-analysis-ica-comparison" title="Permalink to this headline">¶</a></h1>
 <p>Adopted from the code at
 <a href="#id1"><span class="problematic" id="id2">`https://github.com/hugorichard/multiviewica`_</span></a>
-and their tutorial written by:</p>
+and their tutorial written by Hugo Richard and Pierre Ablin.</p>
 <p>Three multiview ICA algorithms are compared. GroupICA concatenates
 the individual views prior to dimensionality reduction and running
 ICA over the result. PermICA is more sensitive to individual
-discrepencies, and computes ICA on each view before aligning the reuslts
+discrepencies, and computes ICA on each view before aligning the results
 using the hungarian algorithm. Lastly, MultiviewICA performs the best by
 optimizing the set of mixing matrices relative to the average source signal.</p>
 <img alt="plot mv ica tutorial" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_mv_ica_tutorial_001.png" />
@@ -438,7 +434,7 @@ optimizing the set of mixing matrices relative to the average source signal.</p>
 <span class="c1"># MultiviewICA has the best performance (lowest Amari distance).</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  9.603 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  12.792 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-decomposition-plot-mv-ica-tutorial-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <a class="reference download internal" download="" href="../../_downloads/34b41754a919a24ea1ceaea1e3f3e4c6/plot_mv_ica_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mv_ica_tutorial.py</span></code></a></div>
@@ -456,10 +452,10 @@ optimizing the set of mixing matrices relative to the average source signal.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot_group_ica_tutorial.html" class="btn btn-neutral float-right" title="ICA: a tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot_ajive_tutorial.html" class="btn btn-neutral float-right" title="Angle-based Joint and Individual Variation Explained (AJIVE)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../datasets/plot_gaussianmixtures.html" class="btn btn-neutral" title="Data from Gaussian Mixtures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_group_ica_tutorial.html" class="btn btn-neutral" title="ICA: a tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

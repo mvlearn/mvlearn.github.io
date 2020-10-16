@@ -10,8 +10,13 @@
 
 
 ============================================
-Multiview vs. singleview Spectral Clustering
+Multiview vs. Singleview Spectral Clustering
 ============================================
+
+This tutorial compares multiview and singleview spectral clustering on
+synthetic multiview data. By adjusting the distributions of the data we
+build intuition about scenarios in which multiview learning provides
+advantages.
 
 
 .. code-block:: default
@@ -541,7 +546,7 @@ on more complex data from the real world.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  18.825 seconds)
+   **Total running time of the script:** ( 0 minutes  30.728 seconds)
 
 
 .. _sphx_glr_download_auto_examples_cluster_plot_mv_spectral_validation_simulated.py:

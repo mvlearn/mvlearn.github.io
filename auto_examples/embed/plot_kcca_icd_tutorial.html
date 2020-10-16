@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Incomplete Cholesky Decomposition (ICA) for CCA &mdash; mvlearn alpha documentation</title>
+  <title>Incomplete Cholesky Decomposition (ICD) for KCCA &mdash; mvlearn alpha documentation</title>
   
 
   
@@ -31,8 +31,8 @@
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="SplitAE embeddings on multiview MNIST data" href="splitae_tutorial.html" />
-    <link rel="prev" title="Kernel CCA (KCCA)" href="plot_kcca_tutorial.html" /> 
+    <link rel="next" title="Kernel CCA (KCCA) Tutorial" href="plot_kcca_tutorial.html" />
+    <link rel="prev" title="Comparing CCA Variants" href="plot_cca_comparison.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -104,39 +104,36 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples Gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-cluster">Examples on cluster</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Coregularized Spectral Clustering Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. Singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_complex.html">Conditional Independence of Views on Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_complex.html">Conditional Independence of Views on Multiview KMeans Clustering</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-datasets">Examples on datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_gaussianmixtures.html">Generating Multiview Data from Gaussian Mixtures</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-decomposition">Examples on decomposition</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_mv_ica_tutorial.html">Multiview Independent Component Analysis (ICA) Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained (AJIVE)</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#examples-on-embed">Examples on embed</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_cca_comparison.html">Comparing CCA Variants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Incomplete Cholesky Decomposition (ICD) for KCCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_kcca_tutorial.html">Kernel CCA (KCCA) Tutorial</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-pipeline">Examples on pipeline</a><ul>
@@ -144,14 +141,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-plotting">Examples on plotting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_quick_visualize_tutorial.html">Quickly Visualizing Multiview Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_crossviews_plot.html">Plotting Multiview Data with a Cross-view Plot</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
 </ul>
 </li>
 </ul>
@@ -315,7 +311,7 @@
         
           <li><a href="../index.html">Examples Gallery</a> &raquo;</li>
         
-      <li>Incomplete Cholesky Decomposition (ICA) for CCA</li>
+      <li>Incomplete Cholesky Decomposition (ICD) for KCCA</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -340,8 +336,8 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-embed-plot-kcca-icd-tutorial-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="incomplete-cholesky-decomposition-ica-for-cca">
-<span id="sphx-glr-auto-examples-embed-plot-kcca-icd-tutorial-py"></span><h1>Incomplete Cholesky Decomposition (ICA) for CCA<a class="headerlink" href="#incomplete-cholesky-decomposition-ica-for-cca" title="Permalink to this headline">¶</a></h1>
+<div class="sphx-glr-example-title section" id="incomplete-cholesky-decomposition-icd-for-kcca">
+<span id="sphx-glr-auto-examples-embed-plot-kcca-icd-tutorial-py"></span><h1>Incomplete Cholesky Decomposition (ICD) for KCCA<a class="headerlink" href="#incomplete-cholesky-decomposition-icd-for-kcca" title="Permalink to this headline">¶</a></h1>
 <p>Kernel matrices grow exponentially with the size of the data. There are
 immense storage and run-time constraints that arise when working with large
 datasets. The Incomplete Cholesky Decomposition (ICD) looks for a low rank
@@ -409,13 +405,11 @@ run-time from O(n^3) to O(nm^2).</p>
 </div>
 <div class="section" id="full-decomposition-vs-icd-on-sample-data">
 <h2>Full Decomposition vs ICD on Sample Data<a class="headerlink" href="#full-decomposition-vs-icd-on-sample-data" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ICD is run on two views of data that each have two dimensions that are</span>
-<span class="c1"># sinuisoidally related. The data has 100 samples and thus the fully decomposed</span>
-<span class="c1"># kernel matrix would have dimensions (100, 100). Instead we implement ICD with</span>
-<span class="c1"># a kernel matrix of rank 50 (mrank = 50).</span>
-
-
-<a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.seed.html#numpy.random.seed" title="numpy.random.seed" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span></a><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<p>ICD is run on two views of data that each have two dimensions that are
+sinuisoidally related. The data has 100 samples and thus the fully decomposed
+kernel matrix would have dimensions (100, 100). Instead we implement ICD with
+a kernel matrix of rank 50 (mrank = 50).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.seed.html#numpy.random.seed" title="numpy.random.seed" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span></a><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xsg</span></a> <span class="o">=</span> <span class="n">make_data</span><span class="p">(</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
 
@@ -476,11 +470,11 @@ run-time from O(n^3) to O(nm^2).</p>
 </div>
 <div class="section" id="icd-kernel-rank-vs-canonical-correlation">
 <h2>ICD Kernel Rank vs. Canonical Correlation<a class="headerlink" href="#icd-kernel-rank-vs-canonical-correlation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can observe the relationship between the ICD kernel rank and canonical</span>
-<span class="c1"># correlation of the first canonical component.</span>
-
-
-<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">can_corrs</span></a> <span class="o">=</span> <span class="p">[]</span>
+<p>We can observe the relationship between the ICD kernel rank and canonical
+correlation of the first canonical component.</p>
+<p>We observe that around rank=10-15 we achieve the same canonical correlation
+as the fully decomposed kernel matrix (rank=100).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">can_corrs</span></a> <span class="o">=</span> <span class="p">[]</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rank</span></a> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span>
         <span class="mi">45</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
 
@@ -495,9 +489,6 @@ run-time from O(n^3) to O(nm^2).</p>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot" title="matplotlib.pyplot.plot" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rank</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">can_corrs</span></a><span class="p">)</span>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel" title="matplotlib.pyplot.xlabel" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span></a><span class="p">(</span><span class="s1">&#39;Rank&#39;</span><span class="p">)</span>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.ylabel.html#matplotlib.pyplot.ylabel" title="matplotlib.pyplot.ylabel" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span></a><span class="p">(</span><span class="s1">&#39;Canonical Correlation&#39;</span><span class="p">)</span>
-
-<span class="c1"># We observe that around rank=10-15 we achieve the same canonical correlation</span>
-<span class="c1"># as the fully decomposed kernel matrix (rank=100).</span>
 </pre></div>
 </div>
 <img alt="plot kcca icd tutorial" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_kcca_icd_tutorial_004.png" />
@@ -508,12 +499,15 @@ run-time from O(n^3) to O(nm^2).</p>
 </div>
 <div class="section" id="icd-kernel-rank-vs-run-time">
 <h2>ICD Kernel Rank vs Run-Time<a class="headerlink" href="#icd-kernel-rank-vs-run-time" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can observe the relationship between the ICD kernel rank and run-time to</span>
-<span class="c1"># fit and transform the two views. We average the run-time of each rank over 5</span>
-<span class="c1"># trials.</span>
-
-
-<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">run_time</span></a> <span class="o">=</span> <span class="p">[]</span>
+<p>We can observe the relationship between the ICD kernel rank and run-time to
+fit and transform the two views. We average the run-time of each rank over 5
+trials.</p>
+<p>From the rank vs canonical correlation analysis in the previous section, we
+discovered that a rank of 10-15 will preserve the canonical correlation
+(accuracy). We can see that at a rank of 10-15, we can get an order of
+magnitude decrease in run-time compared to a rank of 100
+(full decomposition).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">run_time</span></a> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a> <span class="ow">in</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rank</span></a><span class="p">:</span>
     <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">run_time_sample</span></a> <span class="o">=</span> <span class="p">[]</span>
@@ -529,12 +523,6 @@ run-time from O(n^3) to O(nm^2).</p>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot" title="matplotlib.pyplot.plot" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rank</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">run_time</span></a><span class="p">)</span>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel" title="matplotlib.pyplot.xlabel" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span></a><span class="p">(</span><span class="s1">&#39;Rank&#39;</span><span class="p">)</span>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.ylabel.html#matplotlib.pyplot.ylabel" title="matplotlib.pyplot.ylabel" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span></a><span class="p">(</span><span class="s1">&#39;Run-Time&#39;</span><span class="p">)</span>
-
-<span class="c1"># From the rank vs canonical correlation analysis in the previous section, we</span>
-<span class="c1"># discovered that a rank of 10-15 will preserve the canonical correlation</span>
-<span class="c1"># (accuracy). We can see that at a rank of 10-15, we can get an order of</span>
-<span class="c1"># magnitude decrease in run-time compared to a rank of 100</span>
-<span class="c1"># (full decomposition).</span>
 </pre></div>
 </div>
 <img alt="plot kcca icd tutorial" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_kcca_icd_tutorial_005.png" />
@@ -542,7 +530,7 @@ run-time from O(n^3) to O(nm^2).</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(27.375, 0.5, &#39;Run-Time&#39;)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.337 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  9.003 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-embed-plot-kcca-icd-tutorial-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <a class="reference download internal" download="" href="../../_downloads/4066a9bf0ccf02a955b46dd5f110e35e/plot_kcca_icd_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_kcca_icd_tutorial.py</span></code></a></div>
@@ -561,10 +549,10 @@ run-time from O(n^3) to O(nm^2).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="splitae_tutorial.html" class="btn btn-neutral float-right" title="SplitAE embeddings on multiview MNIST data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot_kcca_tutorial.html" class="btn btn-neutral float-right" title="Kernel CCA (KCCA) Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="plot_kcca_tutorial.html" class="btn btn-neutral" title="Kernel CCA (KCCA)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_cca_comparison.html" class="btn btn-neutral" title="Comparing CCA Variants" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

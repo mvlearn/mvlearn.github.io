@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Multiview KMeans &mdash; mvlearn alpha documentation</title>
+  <title>Multiview KMeans Tutorial &mdash; mvlearn alpha documentation</title>
   
 
   
@@ -32,7 +32,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Multiview vs. Singleview KMeans" href="plot_mv_kmeans_validation_simulated.html" />
-    <link rel="prev" title="Multiview Spherical KMeans" href="plot_mv_spherical_kmeans_tutorial.html" /> 
+    <link rel="prev" title="Multiview Spherical KMeans Tutorial" href="plot_mv_spherical_kmeans_tutorial.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -104,39 +104,36 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples Gallery</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#examples-on-cluster">Examples on cluster</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mv_coregularized_spectral_tutorial.html">Multiview Coregularized Spectral Clustering Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans Tutorial</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Multiview KMeans Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mv_spectral_tutorial.html">Multiview Spectral Clustering Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mv_spectral_validation_simulated.html">Multiview vs. Singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mv_spectral_validation_complex.html">Conditional Independence of Views on Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mv_kmeans_validation_complex.html">Conditional Independence of Views on Multiview KMeans Clustering</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-datasets">Examples on datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_gaussianmixtures.html">Generating Multiview Data from Gaussian Mixtures</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-decomposition">Examples on decomposition</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_mv_ica_tutorial.html">Multiview Independent Component Analysis (ICA) Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained (AJIVE)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-embed">Examples on embed</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICD) for KCCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_tutorial.html">Kernel CCA (KCCA) Tutorial</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-pipeline">Examples on pipeline</a><ul>
@@ -144,14 +141,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-plotting">Examples on plotting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_quick_visualize_tutorial.html">Quickly Visualizing Multiview Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_crossviews_plot.html">Plotting Multiview Data with a Cross-view Plot</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
 </ul>
 </li>
 </ul>
@@ -315,7 +311,7 @@
         
           <li><a href="../index.html">Examples Gallery</a> &raquo;</li>
         
-      <li>Multiview KMeans</li>
+      <li>Multiview KMeans Tutorial</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -340,8 +336,11 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-cluster-plot-mv-kmeans-tutorial-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="multiview-kmeans">
-<span id="sphx-glr-auto-examples-cluster-plot-mv-kmeans-tutorial-py"></span><h1>Multiview KMeans<a class="headerlink" href="#multiview-kmeans" title="Permalink to this headline">¶</a></h1>
+<div class="sphx-glr-example-title section" id="multiview-kmeans-tutorial">
+<span id="sphx-glr-auto-examples-cluster-plot-mv-kmeans-tutorial-py"></span><h1>Multiview KMeans Tutorial<a class="headerlink" href="#multiview-kmeans-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>In this tutorial we demonstrate how to use multiview k-means clustering
+in <em>mvlearn</em> by clustering a 5-class dataset from the UCI multiview
+digits dataset.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <a href="../../references/datasets.html#mvlearn.datasets.load_UCImultifeature" title="mvlearn.datasets.load_UCImultifeature" class="sphx-glr-backref-module-mvlearn-datasets sphx-glr-backref-type-py-function"><span class="n">load_UCImultifeature</span></a>
 <span class="kn">from</span> <span class="nn">mvlearn.cluster</span> <span class="kn">import</span> <a href="../../references/cluster.html#mvlearn.cluster.MultiviewKMeans" title="mvlearn.cluster.MultiviewKMeans" class="sphx-glr-backref-module-mvlearn-cluster sphx-glr-backref-type-py-class"><span class="n">MultiviewKMeans</span></a>
 <span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
@@ -449,7 +448,7 @@ algorithm below, along with the true class labels.</p>
 <li><img alt="True Labels View 1, True Labels View 2" class="sphx-glr-multi-img first" src="../../_images/sphx_glr_plot_mv_kmeans_tutorial_002.png" />
 </li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.059 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.584 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-cluster-plot-mv-kmeans-tutorial-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <a class="reference download internal" download="" href="../../_downloads/7b4acfe5f4ed07b1246fb0a7c5142719/plot_mv_kmeans_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mv_kmeans_tutorial.py</span></code></a></div>
@@ -471,7 +470,7 @@ algorithm below, along with the true class labels.</p>
         <a href="plot_mv_kmeans_validation_simulated.html" class="btn btn-neutral float-right" title="Multiview vs. Singleview KMeans" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="plot_mv_spherical_kmeans_tutorial.html" class="btn btn-neutral" title="Multiview Spherical KMeans" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_mv_spherical_kmeans_tutorial.html" class="btn btn-neutral" title="Multiview Spherical KMeans Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

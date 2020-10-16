@@ -9,9 +9,9 @@
     .. _sphx_glr_auto_examples_embed_plot_mvmds_tutorial.py:
 
 
-================================
-Multidimensional Scaling (MVMDS)
-================================
+=========================================
+Multidimensional Scaling (MVMDS) Tutorial
+=========================================
 
 MVMDS is a useful multiview dimensionaltiy reduction algorithm that allows
 the user to perform Multidimensional Scaling on multiple views at the same
@@ -165,10 +165,7 @@ predicting the number. Therefore we will expect the common components created
 by MVMDS to create a strong representation of the data *(Note MVMDS only uses
 the fit_transform function to properly return the correct components)*
 
-
 *Note: Each color represents a unique number class*
-
-
 
 
 .. code-block:: default
@@ -179,9 +176,7 @@ the fit_transform function to properly return the correct components)*
     mvmds = MVMDS(n_components=5)
     Components = mvmds.fit_transform(Xs)
 
-
     # Plot MVMDS images
-
     plt.style.use('seaborn')
 
     color_map = [sns.color_palette("Set2", 10)[int(i)] for i in y]
@@ -205,7 +200,6 @@ the fit_transform function to properly return the correct components)*
 
 
     # PCA Plots
-
     pca = PCA(n_components=6)
     pca_Components = pca.fit_transform(Xs[0])
 
@@ -258,7 +252,7 @@ the fit_transform function to properly return the correct components)*
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  19.657 seconds)
+   **Total running time of the script:** ( 0 minutes  27.394 seconds)
 
 
 .. _sphx_glr_download_auto_examples_embed_plot_mvmds_tutorial.py:

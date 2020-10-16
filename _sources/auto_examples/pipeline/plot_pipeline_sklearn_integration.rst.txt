@@ -25,6 +25,12 @@ number of features does not have to be constant:
     # Author: Pierre Ablin
 
     import numpy as np
+    import matplotlib.pyplot as plt
+    from sklearn.decomposition import PCA
+    from sklearn.decomposition import FastICA
+    from sklearn.pipeline import Pipeline
+    from mvlearn.preprocessing import ViewTransformer
+    from mvlearn.compose import ConcatMerger
 
 
 
@@ -34,6 +40,7 @@ number of features does not have to be constant:
 
 
 Create the data
+---------------
 
 
 .. code-block:: default
@@ -58,7 +65,7 @@ Create the data
 
 
 ViewTransformer
-===============
+---------------
 
 `mvlearn.preprocessing.ViewTransformer` is a handy tool to apply the same
 `sklearn` transformer to each view of the multiview dataset. For instance, it
@@ -69,9 +76,6 @@ dimension of each view to 3:
 .. code-block:: default
 
 
-
-    from mvlearn.preprocessing import ViewTransformer
-    from sklearn.decomposition import PCA
 
     pca = PCA(n_components=3)
     mvpca = ViewTransformer(pca)
@@ -113,7 +117,7 @@ dimension of each view to 3:
 
 
 Mergers
-=======
+-------
 
 At the end of a multiview machine learning pipeline, it is sometimes needed
 to transform the multiview dataset in a single view dataset. All `sklearn`
@@ -128,8 +132,6 @@ simply by stacking each features. The class
 .. code-block:: default
 
 
-
-    from mvlearn.compose import ConcatMerger
 
     merge = ConcatMerger()
 
@@ -153,8 +155,8 @@ simply by stacking each features. The class
 
 
 
-Pipeline example: group-ICA
-===========================
+Pipeline Example: group-ICA
+---------------------------
 
 As a simple illustration, we now show how easy it is to code group
 independent component analysis (groupICA) from scratch using `mvlearn`.
@@ -178,9 +180,6 @@ This is easily implemented using `mvlearn` and scikit-learn pipelines:
 
 
 
-    from sklearn.decomposition import FastICA
-    from sklearn.pipeline import Pipeline
-
     n_components = 2
     individual_pca = ViewTransformer(PCA(n_components=n_components))
     merge = ConcatMerger()
@@ -198,8 +197,6 @@ This is easily implemented using `mvlearn` and scikit-learn pipelines:
     # sources, it works as intended:
 
 
-    import matplotlib.pyplot as plt
-
     time = np.linspace(0, 1, 1000)
     source1 = np.cos(20 * time)
     source2 = np.sin(50 * time)
@@ -216,13 +213,13 @@ This is easily implemented using `mvlearn` and scikit-learn pipelines:
     plt.figure()
     for x in X1.T:
         plt.plot(time, x)
-    plt.title('signals');
+    plt.title('signals')
 
     X_transformed = groupica.fit_transform(Xs)
 
     for x in X_transformed.T:
         plt.plot(time, x)
-    plt.title('recovered signals');
+    plt.title('recovered signals')
 
 
 
@@ -257,7 +254,7 @@ This is easily implemented using `mvlearn` and scikit-learn pipelines:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.176 seconds)
+   **Total running time of the script:** ( 0 minutes  0.272 seconds)
 
 
 .. _sphx_glr_download_auto_examples_pipeline_plot_pipeline_sklearn_integration.py:

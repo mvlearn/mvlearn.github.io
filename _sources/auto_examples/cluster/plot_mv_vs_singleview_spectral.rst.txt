@@ -9,9 +9,9 @@
     .. _sphx_glr_auto_examples_cluster_plot_mv_vs_singleview_spectral.py:
 
 
-============================================================
-Multiview vs. Singleview Spectral Clustering of the UCI data
-============================================================
+====================================================================
+Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits
+====================================================================
 
 Here, we directly compare multiview methods available within *mvlearn* to
 analagous singleview methods. Using the UCI Multiple Features Dataset, we
@@ -34,7 +34,7 @@ the analagous singleview methods.
     import numpy as np
     import matplotlib.pyplot as plt
 
-    # Load 6view, 4-class data from the Multiple Features Dataset. The full 6
+    # Load 6-view, 4-class data from the Multiple Features Dataset. The full 6
     # views with all features will be used for clustering.
 
     # Load 4-class, multiview data
@@ -328,7 +328,7 @@ Comparing Clustering Techniques using the Full Feature Space
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  12.278 seconds)
+   **Total running time of the script:** ( 0 minutes  31.833 seconds)
 
 
 .. _sphx_glr_download_auto_examples_cluster_plot_mv_vs_singleview_spectral.py:

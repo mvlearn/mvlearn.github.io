@@ -9,9 +9,16 @@
     .. _sphx_glr_auto_examples_cluster_plot_mv_spectral_validation_complex.py:
 
 
-===========================================================================================
-Assessing the Conditionally independence views requirement of Multiview Spectral Clustering
-===========================================================================================
+==================================================================
+Conditional Independence of Views on Multiview Spectral Clustering
+==================================================================
+
+The co-training framework relies on the fundamental assumption that data
+views are conditionally independent. In this tutorial we test that
+assumption by examining the multiview spectral clustering algorithm,
+which is based on the co-training framework, on synthetic multiview
+datasets under different conditions related to independence
+between the views conditioned on true class labels.
 
 
 .. code-block:: default
@@ -293,7 +300,6 @@ is very high.
 
         # Set class pairings as described in the multiview clustering paper
         view1_classes = [1, 2, 3]
-        view2_classes = [4, 5, 6]
 
         # Create lists to hold data and labels for each of the classes across
         # 2 different views
@@ -387,7 +393,7 @@ the views are conditionally dependent.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  27.704 seconds)
+   **Total running time of the script:** ( 1 minutes  57.013 seconds)
 
 
 .. _sphx_glr_download_auto_examples_cluster_plot_mv_spectral_validation_complex.py:

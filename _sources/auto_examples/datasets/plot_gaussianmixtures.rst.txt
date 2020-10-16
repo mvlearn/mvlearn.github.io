@@ -9,12 +9,12 @@
     .. _sphx_glr_auto_examples_datasets_plot_gaussianmixtures.py:
 
 
-===========================
-Data from Gaussian Mixtures
-===========================
+================================================
+Generating Multiview Data from Gaussian Mixtures
+================================================
 
 In this example we show how to simulate multiview data from Gaussian
-mixtures and plot them using a crossviews plot.
+mixtures and plot the views against each other using a crossviews plot.
 
 
 
@@ -41,13 +41,13 @@ mixtures and plot them using a crossviews plot.
 .. code-block:: default
 
 
+    import numpy as np
     from mvlearn.datasets import GaussianMixture
     from mvlearn.plotting import crossviews_plot
-    import numpy as np
 
     # Latent variables are sampled from two multivariate Gaussians with equal
-    # prior probability. Then a polynomial transformation is applied and noise is
-    # added independently to both the transformed and untransformed latents.
+    # prior probability. Then a polynomial transformation is applied and noise
+    # is added independently to both the transformed and untransformed latents.
 
     n_samples = 100
     centers = [[0, 1], [0, -1]]
@@ -77,7 +77,7 @@ mixtures and plot them using a crossviews plot.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.113 seconds)
+   **Total running time of the script:** ( 0 minutes  1.203 seconds)
 
 
 .. _sphx_glr_download_auto_examples_datasets_plot_gaussianmixtures.py:

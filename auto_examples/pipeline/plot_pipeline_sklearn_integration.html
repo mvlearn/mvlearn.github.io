@@ -31,8 +31,8 @@
   <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Exploratory visualizations using quick_visualize" href="../plotting/plot_quick_visualize_tutorial.html" />
-    <link rel="prev" title="SplitAE embeddings on multiview MNIST data" href="../embed/splitae_tutorial.html" /> 
+    <link rel="next" title="Quickly Visualizing Multiview Data" href="../plotting/plot_quick_visualize_tutorial.html" />
+    <link rel="prev" title="Kernel CCA (KCCA) Tutorial" href="../embed/plot_kcca_tutorial.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -104,39 +104,36 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples Gallery</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-cluster">Examples on cluster</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Clustering Algorithm to Cluster Data with Multiple Views</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Coregularized Spectral Clustering Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/mv_spherical_validation_simulated.html">Multiview vs. singlview Spherical KMeans performance vs. class separation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/mv_spherical_kmeans_validation_paper.html">Multiview Spherical KMeans on the Newsgroup dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. singleview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of the UCI data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_complex.html">Assessing the Conditionally independence views requirement of Multiview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_complex.html">Assessing the conditionally independence views requirement of Multiview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. Singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_complex.html">Conditional Independence of Views on Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_complex.html">Conditional Independence of Views on Multiview KMeans Clustering</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-datasets">Examples on datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_gaussianmixtures.html">Data from Gaussian Mixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_gaussianmixtures.html">Generating Multiview Data from Gaussian Mixtures</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-decomposition">Examples on decomposition</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_mv_ica_tutorial.html">Independent Component Analysis (ICA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained  (AJIVE)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_mv_ica_tutorial.html">Multiview Independent Component Analysis (ICA) Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained (AJIVE)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-embed">Examples on embed</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_dcca_tutorial.html">Deep CCA (DCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_omnibus_embedding.html">Omnbius Graph embedding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_tutorial.html">Kernel CCA (KCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICA) for CCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/splitae_tutorial.html">SplitAE embeddings on multiview MNIST data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICD) for KCCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_tutorial.html">Kernel CCA (KCCA) Tutorial</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#examples-on-pipeline">Examples on pipeline</a><ul class="current">
@@ -144,14 +141,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-plotting">Examples on plotting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_quick_visualize_tutorial.html">Exploratory visualizations using quick_visualize</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_crossviews_plot.html">Plotting multiview data with crossplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_quick_visualize_tutorial.html">Quickly Visualizing Multiview Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_crossviews_plot.html">Plotting Multiview Data with a Cross-view Plot</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../semi_supervised/cotraining_classification_simulatedperformance.html">Co-training performance in various simulated scenarios</a></li>
 </ul>
 </li>
 </ul>
@@ -350,9 +346,16 @@ number of features does not have to be constant:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Pierre Ablin</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">FastICA</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">mvlearn.preprocessing</span> <span class="kn">import</span> <a href="../../references/preprocessing.html#mvlearn.preprocessing.ViewTransformer" title="mvlearn.preprocessing.ViewTransformer" class="sphx-glr-backref-module-mvlearn-preprocessing sphx-glr-backref-type-py-class"><span class="n">ViewTransformer</span></a>
+<span class="kn">from</span> <span class="nn">mvlearn.compose</span> <span class="kn">import</span> <a href="../../references/compose.html#mvlearn.compose.ConcatMerger" title="mvlearn.compose.ConcatMerger" class="sphx-glr-backref-module-mvlearn-compose sphx-glr-backref-type-py-class"><span class="n">ConcatMerger</span></a>
 </pre></div>
 </div>
-<p>Create the data</p>
+<div class="section" id="create-the-data">
+<h2>Create the data<a class="headerlink" href="#create-the-data" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_samples</span></a> <span class="o">=</span> <span class="mi">100</span>
 <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_features1</span></a> <span class="o">=</span> <span class="mi">20</span>
 <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_features2</span></a> <span class="o">=</span> <span class="mi">30</span>
@@ -365,16 +368,14 @@ number of features does not have to be constant:</p>
 <span class="c1"># with these objects.</span>
 </pre></div>
 </div>
+</div>
 <div class="section" id="viewtransformer">
 <h2>ViewTransformer<a class="headerlink" href="#viewtransformer" title="Permalink to this headline">¶</a></h2>
 <p><cite>mvlearn.preprocessing.ViewTransformer</cite> is a handy tool to apply the same
 <cite>sklearn</cite> transformer to each view of the multiview dataset. For instance, it
 is simple to apply PCA to each view. In the following, we reduce the
 dimension of each view to 3:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mvlearn.preprocessing</span> <span class="kn">import</span> <a href="../../references/preprocessing.html#mvlearn.preprocessing.ViewTransformer" title="mvlearn.preprocessing.ViewTransformer" class="sphx-glr-backref-module-mvlearn-preprocessing sphx-glr-backref-type-py-class"><span class="n">ViewTransformer</span></a>
-<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
-
-<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_components</span></a><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_components</span></a><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <a href="../../references/preprocessing.html#mvlearn.preprocessing.ViewTransformer" title="mvlearn.preprocessing.ViewTransformer" class="sphx-glr-backref-module-mvlearn-preprocessing sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mvpca</span></a> <span class="o">=</span> <a href="../../references/preprocessing.html#mvlearn.preprocessing.ViewTransformer" title="mvlearn.preprocessing.ViewTransformer" class="sphx-glr-backref-module-mvlearn-preprocessing sphx-glr-backref-type-py-class"><span class="n">ViewTransformer</span></a><span class="p">(</span><span class="n">pca</span><span class="p">)</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_transformed</span></a> <span class="o">=</span> <a href="../../references/preprocessing.html#mvlearn.preprocessing.ViewTransformer.fit_transform" title="mvlearn.preprocessing.ViewTransformer.fit_transform" class="sphx-glr-backref-module-mvlearn-preprocessing sphx-glr-backref-type-py-method"><span class="n">mvpca</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_transformed</span></a><span class="p">))</span>
@@ -413,9 +414,7 @@ simple.</p>
 <p>A simple way to transform a multiview dataset in a single view dataset is
 simply by stacking each features. The class
 <cite>mvlearn.preprocessing.ConcatMerger</cite> implements this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mvlearn.compose</span> <span class="kn">import</span> <a href="../../references/compose.html#mvlearn.compose.ConcatMerger" title="mvlearn.compose.ConcatMerger" class="sphx-glr-backref-module-mvlearn-compose sphx-glr-backref-type-py-class"><span class="n">ConcatMerger</span></a>
-
-<a href="../../references/compose.html#mvlearn.compose.ConcatMerger" title="mvlearn.compose.ConcatMerger" class="sphx-glr-backref-module-mvlearn-compose sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">merge</span></a> <span class="o">=</span> <a href="../../references/compose.html#mvlearn.compose.ConcatMerger" title="mvlearn.compose.ConcatMerger" class="sphx-glr-backref-module-mvlearn-compose sphx-glr-backref-type-py-class"><span class="n">ConcatMerger</span></a><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../references/compose.html#mvlearn.compose.ConcatMerger" title="mvlearn.compose.ConcatMerger" class="sphx-glr-backref-module-mvlearn-compose sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">merge</span></a> <span class="o">=</span> <a href="../../references/compose.html#mvlearn.compose.ConcatMerger" title="mvlearn.compose.ConcatMerger" class="sphx-glr-backref-module-mvlearn-compose sphx-glr-backref-type-py-class"><span class="n">ConcatMerger</span></a><span class="p">()</span>
 
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_transformed</span></a> <span class="o">=</span> <a href="../../references/compose.html#mvlearn.compose.ConcatMerger.fit_transform" title="mvlearn.compose.ConcatMerger.fit_transform" class="sphx-glr-backref-module-mvlearn-compose sphx-glr-backref-type-py-method"><span class="n">merge</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_transformed</span><span class="o">.</span><span class="n">shape</span></a><span class="p">)</span>
@@ -429,7 +428,7 @@ simply by stacking each features. The class
 </div>
 </div>
 <div class="section" id="pipeline-example-group-ica">
-<h2>Pipeline example: group-ICA<a class="headerlink" href="#pipeline-example-group-ica" title="Permalink to this headline">¶</a></h2>
+<h2>Pipeline Example: group-ICA<a class="headerlink" href="#pipeline-example-group-ica" title="Permalink to this headline">¶</a></h2>
 <p>As a simple illustration, we now show how easy it is to code group
 independent component analysis (groupICA) from scratch using <cite>mvlearn</cite>.</p>
 <p>We use the group ICA of <em>Calhoun et al. &quot;A method for making group
@@ -444,10 +443,7 @@ steps:</p>
 <li>Apply usual ICA on the concatenated features</li>
 </ul>
 <p>This is easily implemented using <cite>mvlearn</cite> and scikit-learn pipelines:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">FastICA</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-
-<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_components</span></a> <span class="o">=</span> <span class="mi">2</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_components</span></a> <span class="o">=</span> <span class="mi">2</span>
 <a href="../../references/preprocessing.html#mvlearn.preprocessing.ViewTransformer" title="mvlearn.preprocessing.ViewTransformer" class="sphx-glr-backref-module-mvlearn-preprocessing sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">individual_pca</span></a> <span class="o">=</span> <a href="../../references/preprocessing.html#mvlearn.preprocessing.ViewTransformer" title="mvlearn.preprocessing.ViewTransformer" class="sphx-glr-backref-module-mvlearn-preprocessing sphx-glr-backref-type-py-class"><span class="n">ViewTransformer</span></a><span class="p">(</span><span class="n">PCA</span><span class="p">(</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_components</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_components</span></a><span class="p">))</span>
 <a href="../../references/compose.html#mvlearn.compose.ConcatMerger" title="mvlearn.compose.ConcatMerger" class="sphx-glr-backref-module-mvlearn-compose sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">merge</span></a> <span class="o">=</span> <a href="../../references/compose.html#mvlearn.compose.ConcatMerger" title="mvlearn.compose.ConcatMerger" class="sphx-glr-backref-module-mvlearn-compose sphx-glr-backref-type-py-class"><span class="n">ConcatMerger</span></a><span class="p">()</span>
 <span class="n">ica</span> <span class="o">=</span> <span class="n">FastICA</span><span class="p">(</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_components</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_components</span></a><span class="p">)</span>
@@ -463,8 +459,6 @@ steps:</p>
 <span class="c1"># However, if each view consists of a linear transform of some independent</span>
 <span class="c1"># sources, it works as intended:</span>
 
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="numpy.linspace" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linspace</span></a><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">source1</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.cos.html#numpy.cos" title="numpy.cos" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-data"><span class="n">np</span><span class="o">.</span><span class="n">cos</span></a><span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time</span></a><span class="p">)</span>
@@ -482,13 +476,13 @@ steps:</p>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">()</span>
 <span class="k">for</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x</span></a> <span class="ow">in</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X1</span><span class="o">.</span><span class="n">T</span></a><span class="p">:</span>
     <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot" title="matplotlib.pyplot.plot" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x</span></a><span class="p">)</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s1">&#39;signals&#39;</span><span class="p">);</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s1">&#39;signals&#39;</span><span class="p">)</span>
 
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_transformed</span></a> <span class="o">=</span> <span class="n">groupica</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
 
 <span class="k">for</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x</span></a> <span class="ow">in</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_transformed</span><span class="o">.</span><span class="n">T</span></a><span class="p">:</span>
     <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot" title="matplotlib.pyplot.plot" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x</span></a><span class="p">)</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s1">&#39;recovered signals&#39;</span><span class="p">);</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s1">&#39;recovered signals&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
@@ -503,7 +497,7 @@ steps:</p>
 Text(0.5, 1.0, &#39;recovered signals&#39;)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.176 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.272 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-pipeline-plot-pipeline-sklearn-integration-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <a class="reference download internal" download="" href="../../_downloads/8fd4241ff4d829ded408508683f65322/plot_pipeline_sklearn_integration.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_pipeline_sklearn_integration.py</span></code></a></div>
@@ -522,10 +516,10 @@ Text(0.5, 1.0, &#39;recovered signals&#39;)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../plotting/plot_quick_visualize_tutorial.html" class="btn btn-neutral float-right" title="Exploratory visualizations using quick_visualize" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../plotting/plot_quick_visualize_tutorial.html" class="btn btn-neutral float-right" title="Quickly Visualizing Multiview Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../embed/splitae_tutorial.html" class="btn btn-neutral" title="SplitAE embeddings on multiview MNIST data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../embed/plot_kcca_tutorial.html" class="btn btn-neutral" title="Kernel CCA (KCCA) Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

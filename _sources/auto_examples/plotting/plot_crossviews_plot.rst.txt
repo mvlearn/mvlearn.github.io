@@ -9,9 +9,9 @@
     .. _sphx_glr_auto_examples_plotting_plot_crossviews_plot.py:
 
 
-======================================
-Plotting multiview data with crossplot
-======================================
+==============================================
+Plotting Multiview Data with a Cross-view Plot
+==============================================
 
 In many cases with multi-view data, especially after use of an embedding
 algorithm, one is interested in visualizing two views across dimensions.
@@ -55,7 +55,7 @@ simulated from transformations of multi-variant gaussians.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.822 seconds)
+   **Total running time of the script:** ( 0 minutes  1.037 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plotting_plot_crossviews_plot.py:

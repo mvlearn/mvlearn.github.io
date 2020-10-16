@@ -9,9 +9,19 @@
     .. _sphx_glr_auto_examples_embed_plot_dcca_tutorial.py:
 
 
-===============
-Deep CCA (DCCA)
-===============
+========================
+Deep CCA (DCCA) Tutorial
+========================
+
+Deep CCA is an extension of Canonical Correlation Analysis which uses 2
+Deep Neural Networks to transform each view into a lower dimensional space
+which is highly correlated with the other. This can be used to uncover
+latent nonlinear relations between views and is often used for feature
+learning.
+
+This tutorial uses a synthetic multiview dataset which contains
+latent information shared between the views, and DCCA is used to uncover
+this information in a low dimensional embedding.
 
 
 .. code-block:: default
@@ -90,7 +100,7 @@ added independently to both the transformed and untransformed latents.
 
 
 
-Fit DCCA model to uncover latent distribution
+Fit DCCA Model to Uncover Latent Distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The output dimensionality is still 4.
@@ -118,7 +128,7 @@ The output dimensionality is still 4.
 
 
 
-Visualize the transformed data
+Visualize the Transformed Data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We can see that it has uncovered the latent correlation between views.
@@ -185,7 +195,7 @@ transformed and untransformed latents.
 
 
 
-Fit DCCA model to uncover latent distribution
+Fit DCCA Model to Uncover Latent Distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The output dimensionality is still 4.
@@ -213,7 +223,7 @@ The output dimensionality is still 4.
 
 
 
-Visualize the transformed data
+Visualize the Transformed Data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We can see that it has uncovered the latent correlation between views.
@@ -241,7 +251,7 @@ We can see that it has uncovered the latent correlation between views.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  27.792 seconds)
+   **Total running time of the script:** ( 0 minutes  50.176 seconds)
 
 
 .. _sphx_glr_download_auto_examples_embed_plot_dcca_tutorial.py:
