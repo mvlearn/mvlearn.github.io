@@ -5,10 +5,10 @@
 
 Computation times
 =================
-**00:10.332** total execution time for **auto_examples_datasets** files:
+**00:13.114** total execution time for **auto_examples_datasets** files:
 
 +--------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_datasets_plot_load_ucimultifeature.py` (``plot_load_ucimultifeature.py``) | 00:09.129 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_datasets_plot_load_ucimultifeature.py` (``plot_load_ucimultifeature.py``) | 00:11.080 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_datasets_plot_gaussianmixtures.py` (``plot_gaussianmixtures.py``)         | 00:01.203 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_datasets_plot_gaussianmixtures.py` (``plot_gaussianmixtures.py``)         | 00:02.034 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------------+-----------+--------+
