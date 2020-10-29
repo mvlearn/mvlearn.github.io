@@ -38,6 +38,8 @@ allows to extract signals that are comon across views.
 .. code-block:: default
 
 
+    # License: MIT
+
     import numpy as np
     import matplotlib.pyplot as plt
     from mvlearn.decomposition import GroupICA
@@ -188,7 +190,7 @@ correctly estimated, up to scale and permutation.
  .. code-block:: none
 
 
-    <matplotlib.image.AxesImage object at 0x7f3e18d95750>
+    <matplotlib.image.AxesImage object at 0x7f0ee4249690>
 
 
 
@@ -248,7 +250,7 @@ the following.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.253 seconds)
+   **Total running time of the script:** ( 0 minutes  1.306 seconds)
 
 
 .. _sphx_glr_download_auto_examples_decomposition_plot_group_ica_tutorial.py:

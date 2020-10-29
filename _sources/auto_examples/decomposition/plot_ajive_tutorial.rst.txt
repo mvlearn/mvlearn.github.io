@@ -18,8 +18,6 @@ written by:
 
 Author: Iain Carmichael
 
-License: MIT License
-
 [1] Lock, Eric F., et al. “Joint and Individual Variation Explained (JIVE)
 for Integrated Analysis of Multiple Data Types.” The Annals of Applied
 Statistics, vol. 7, no. 1, 2013, pp. 523–542., doi:10.1214/12-aoas597.
@@ -38,6 +36,8 @@ functionality of AJIVE and show some examples of the algorithm's usefulness.
 
 .. code-block:: default
 
+
+    # License: MIT
 
     import numpy as np
     from mvlearn.decomposition import AJIVE
@@ -238,7 +238,7 @@ When the Views are Different
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.227 seconds)
+   **Total running time of the script:** ( 0 minutes  4.305 seconds)
 
 
 .. _sphx_glr_download_auto_examples_decomposition_plot_ajive_tutorial.py:

@@ -341,7 +341,6 @@
 <p>Adopted from the code at <a class="reference external" href="https://github.com/idc9/py_jive">https://github.com/idc9/py_jive</a> and tutorial
 written by:</p>
 <p>Author: Iain Carmichael</p>
-<p>License: MIT License</p>
 <p>[1] Lock, Eric F., et al. “Joint and Individual Variation Explained (JIVE)
 for Integrated Analysis of Multiple Data Types.” The Annals of Applied
 Statistics, vol. 7, no. 1, 2013, pp. 523–542., doi:10.1214/12-aoas597.</p>
@@ -353,7 +352,9 @@ main pieces</p>
 </ul>
 <p>whose sum is the original data minus noise. This notebook will demonstrate the
 functionality of AJIVE and show some examples of the algorithm's usefulness.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># License: MIT</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">mvlearn.decomposition</span> <span class="kn">import</span> <a href="../../references/decomposition.html#mvlearn.decomposition.AJIVE" title="mvlearn.decomposition.AJIVE" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-class"><span class="n">AJIVE</span></a>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -474,7 +475,7 @@ can be seen in their corresponding heatmaps.</p>
 </pre></div>
 </div>
 <img alt="View 0: Raw Data, View 0: Joint, View 0: Individual, View 0: Noise, View 1: Raw Data, View 1: Joint, View 1: Individual, View 1: Noise" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_ajive_tutorial_003.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.227 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.305 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-decomposition-plot-ajive-tutorial-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <a class="reference download internal" download="" href="../../_downloads/3fd165feaa3f4b4a9cb5fff9a644cd24/plot_ajive_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_ajive_tutorial.py</span></code></a></div>

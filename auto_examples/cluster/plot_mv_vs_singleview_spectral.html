@@ -343,7 +343,9 @@ analagous singleview methods. Using the UCI Multiple Features Dataset, we
 first examine the dataset by viewing it after using dimensionality reduction
 techniques, then we perform unsupervised clustering and compare the results to
 the analagous singleview methods.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">SpectralClustering</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># License: MIT</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">SpectralClustering</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">homogeneity_score</span>
 <span class="kn">from</span> <span class="nn">mvlearn.cluster</span> <span class="kn">import</span> <a href="../../references/cluster.html#mvlearn.cluster.MultiviewSpectralClustering" title="mvlearn.cluster.MultiviewSpectralClustering" class="sphx-glr-backref-module-mvlearn-cluster sphx-glr-backref-type-py-class"><span class="n">MultiviewSpectralClustering</span></a>
 <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
@@ -563,7 +565,7 @@ the analagous singleview methods.</p>
 Singleview homogeneity score: 0.703
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  20.688 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  12.707 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-cluster-plot-mv-vs-singleview-spectral-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <a class="reference download internal" download="" href="../../_downloads/3b479b99a237d8dd3faa4af259e7b0ce/plot_mv_vs_singleview_spectral.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mv_vs_singleview_spectral.py</span></code></a></div>

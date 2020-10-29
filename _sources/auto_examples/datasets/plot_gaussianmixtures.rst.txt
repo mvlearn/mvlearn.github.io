@@ -41,6 +41,8 @@ mixtures and plot the views against each other using a crossviews plot.
 .. code-block:: default
 
 
+    # License: MIT
+
     import numpy as np
     from mvlearn.datasets import GaussianMixture
     from mvlearn.plotting import crossviews_plot
@@ -77,7 +79,7 @@ mixtures and plot the views against each other using a crossviews plot.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.034 seconds)
+   **Total running time of the script:** ( 0 minutes  1.194 seconds)
 
 
 .. _sphx_glr_download_auto_examples_datasets_plot_gaussianmixtures.py:

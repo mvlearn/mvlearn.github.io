@@ -28,6 +28,8 @@ Kybernetika, vol. 34, no. 4, 1998, 381-386
 .. code-block:: default
 
 
+    # License: MIT
+
     from mvlearn.datasets import load_UCImultifeature
     from mvlearn.plotting import quick_visualize
 
@@ -130,7 +132,7 @@ reproducibility. Then, we visualize in 2D.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  11.080 seconds)
+   **Total running time of the script:** ( 0 minutes  7.792 seconds)
 
 
 .. _sphx_glr_download_auto_examples_datasets_plot_load_ucimultifeature.py:

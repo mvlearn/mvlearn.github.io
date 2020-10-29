@@ -21,6 +21,8 @@ use 3 views from the UCI Multiple Features Dataset.
 .. code-block:: default
 
 
+    # License: MIT
+
     from mvlearn.datasets import load_UCImultifeature
     from mvlearn.embed import GCCA
     from mvlearn.plotting import crossviews_plot
@@ -126,7 +128,7 @@ spaces are influenced the the Karhunen-Love coefficients, not plotted.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.268 seconds)
+   **Total running time of the script:** ( 0 minutes  1.678 seconds)
 
 
 .. _sphx_glr_download_auto_examples_embed_plot_gcca_tutorial.py:
