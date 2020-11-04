@@ -377,6 +377,27 @@ Examples on embed
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates the use of multiview CCA, which allows for greater than two views. A...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/embed/images/thumb/sphx_glr_plot_mcca_tutorial_thumb.png
+     :alt: Multiview CCA Tutorial
+
+     :ref:`sphx_glr_auto_examples_embed_plot_mcca_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/embed/plot_mcca_tutorial
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Deep CCA is an extension of Canonical Correlation Analysis which uses 2 Deep Neural Networks to...">
 
 .. only:: html

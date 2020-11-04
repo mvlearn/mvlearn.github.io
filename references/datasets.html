@@ -128,6 +128,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_mcca_tutorial.html">Multiview CCA Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
@@ -166,6 +167,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embed.html#multiview-canonical-correlation-analysis-mcca">Multiview Canonical Correlation Analysis (MCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embed.html#kernel-mcca">Kernel MCCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
@@ -206,6 +209,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Multiview Datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#data-simulator">Data Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#factor-model">Factor Model</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="plotting.html">Plotting</a><ul>
@@ -247,8 +251,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../changelog.html#id1">mvlearn.compose</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../changelog.html#id4">mvlearn.decomposition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id6">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id9">mvlearn.preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id6">mvlearn.embed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id8">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id11">mvlearn.preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -594,6 +599,58 @@ transformed views.</td>
 </table>
 </dd></dl>
 
+</dd></dl>
+
+</div>
+<div class="section" id="factor-model">
+<h2>Factor Model<a class="headerlink" href="#factor-model" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="mvlearn.datasets.sample_joint_factor_model">
+<code class="descclassname">mvlearn.datasets.</code><code class="descname">sample_joint_factor_model</code><span class="sig-paren">(</span><em>n_views</em>, <em>n_samples</em>, <em>n_features</em>, <em>joint_rank=1</em>, <em>noise_std=1</em>, <em>m=1.5</em>, <em>random_state=None</em>, <em>return_decomp=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/datasets/factor_model.html#sample_joint_factor_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.datasets.sample_joint_factor_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Samples from a low rank, joint factor model where there is one set of
+shared scores.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>n_views</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) -- Number of views to sample</li>
+<li><strong>n_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) -- Number of samples in each view</li>
+<li><strong>n_features</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, or </em><em>list of ints</em>) -- Number of features in each view. A list specifies a different number
+of features for each view.</li>
+<li><strong>joint_rank</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> (</em><em>default 1</em><em>)</em>) -- Rank of the common signal across views.</li>
+<li><strong>noise_std</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em> (</em><em>default 1</em><em>)</em>) -- Scale of noise distribution.</li>
+<li><strong>m</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em> (</em><em>default 1.5</em><em>)</em>) -- Signal strength.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul>
+<li><p class="first"><strong>Xs</strong> (<em>list of array-likes or numpy.ndarray</em>) --</p>
+<ul class="simple">
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+<p>List of samples data matrices</p>
+</li>
+<li><p class="first"><strong>U</strong> (<em>(n_samples, joint_rank)</em>) -- The true orthonormal joint scores matrix. Returned if
+<cite>return_decomp</cite> is True.</p>
+</li>
+<li><p class="first"><strong>view_loadings</strong> (<em>list of numpy.ndarray</em>) -- The true view loadings matrices. Returned if
+<cite>return_decomp</cite> is True.</p>
+</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<dl class="docutils">
+<dt>For b = 1, .., B</dt>
+<dd>X_b = U &#64; diag(svals) &#64; W_b^T + noise_std * E_b</dd>
+</dl>
+<p>where U and each W_b are orthonormal matrices. The singular values are
+linearly increasing following (Choi et al. 2017) section 2.2.3.</p>
 </dd></dl>
 
 </div>

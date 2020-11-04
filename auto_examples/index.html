@@ -128,6 +128,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#examples-on-embed">Examples on embed</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embed/plot_mcca_tutorial.html">Multiview CCA Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embed/plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embed/plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
@@ -166,6 +167,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../references/embed.html#multiview-canonical-correlation-analysis-mcca">Multiview Canonical Correlation Analysis (MCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../references/embed.html#kernel-mcca">Kernel MCCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
@@ -206,6 +209,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../references/datasets.html">Multiview Datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/datasets.html#data-simulator">Data Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../references/datasets.html#factor-model">Factor Model</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../references/plotting.html">Plotting</a><ul>
@@ -247,8 +251,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../changelog.html#id1">mvlearn.compose</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../changelog.html#id4">mvlearn.decomposition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id6">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id9">mvlearn.preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id6">mvlearn.embed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id8">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id11">mvlearn.preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -435,37 +440,43 @@ can be done with the mvlearn library.</p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Deep CCA is an extension of Canonical Correlation Analysis which uses 2 Deep Neural Networks to..."><div class="figure" id="id16">
+<div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates the use of multiview CCA, which allows for greater than two views. A..."><div class="figure" id="id16">
+<img alt="Multiview CCA Tutorial" src="../_images/sphx_glr_plot_mcca_tutorial_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_mcca_tutorial.html#sphx-glr-auto-examples-embed-plot-mcca-tutorial-py"><span class="std std-ref">Multiview CCA Tutorial</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Deep CCA is an extension of Canonical Correlation Analysis which uses 2 Deep Neural Networks to..."><div class="figure" id="id17">
 <img alt="Deep CCA (DCCA) Tutorial" src="../_images/sphx_glr_plot_dcca_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_dcca_tutorial.html#sphx-glr-auto-examples-embed-plot-dcca-tutorial-py"><span class="std std-ref">Deep CCA (DCCA) Tutorial</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="This demo shows you how to run Omnibus Embedding on multiview data. Omnibus embedding is origin..."><div class="figure" id="id17">
+<div class="sphx-glr-thumbcontainer" tooltip="This demo shows you how to run Omnibus Embedding on multiview data. Omnibus embedding is origin..."><div class="figure" id="id18">
 <img alt="Omnbius Graph Embedding" src="../_images/sphx_glr_plot_omnibus_embedding_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_omnibus_embedding.html#sphx-glr-auto-examples-embed-plot-omnibus-embedding-py"><span class="std std-ref">Omnbius Graph Embedding</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="MVMDS is a useful multiview dimensionaltiy reduction algorithm that allows the user to perform ..."><div class="figure" id="id18">
+<div class="sphx-glr-thumbcontainer" tooltip="MVMDS is a useful multiview dimensionaltiy reduction algorithm that allows the user to perform ..."><div class="figure" id="id19">
 <img alt="Multidimensional Scaling (MVMDS) Tutorial" src="../_images/sphx_glr_plot_mvmds_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_mvmds_tutorial.html#sphx-glr-auto-examples-embed-plot-mvmds-tutorial-py"><span class="std std-ref">Multidimensional Scaling (MVMDS) Tutorial</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="This tutorial shows a comparison of Kernel Canonical Correlation Analysis (KCCA) with three dif..."><div class="figure" id="id19">
+<div class="sphx-glr-thumbcontainer" tooltip="This tutorial shows a comparison of Kernel Canonical Correlation Analysis (KCCA) with three dif..."><div class="figure" id="id20">
 <img alt="Comparing CCA Variants" src="../_images/sphx_glr_plot_cca_comparison_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_cca_comparison.html#sphx-glr-auto-examples-embed-plot-cca-comparison-py"><span class="std std-ref">Comparing CCA Variants</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Kernel matrices grow exponentially with the size of the data. There are immense storage and run..."><div class="figure" id="id20">
+<div class="sphx-glr-thumbcontainer" tooltip="Kernel matrices grow exponentially with the size of the data. There are immense storage and run..."><div class="figure" id="id21">
 <img alt="Incomplete Cholesky Decomposition (ICD) for KCCA" src="../_images/sphx_glr_plot_kcca_icd_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_kcca_icd_tutorial.html#sphx-glr-auto-examples-embed-plot-kcca-icd-tutorial-py"><span class="std std-ref">Incomplete Cholesky Decomposition (ICD) for KCCA</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="KCCA is a variant of Canonical Correlation Analysis that can use a nonlinear kernel to uncover ..."><div class="figure" id="id21">
+<div class="sphx-glr-thumbcontainer" tooltip="KCCA is a variant of Canonical Correlation Analysis that can use a nonlinear kernel to uncover ..."><div class="figure" id="id22">
 <img alt="Kernel CCA (KCCA) Tutorial" src="../_images/sphx_glr_plot_kcca_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_kcca_tutorial.html#sphx-glr-auto-examples-embed-plot-kcca-tutorial-py"><span class="std std-ref">Kernel CCA (KCCA) Tutorial</span></a></span></p>
 </div>
@@ -474,7 +485,7 @@ can be done with the mvlearn library.</p>
 <div class="sphx-glr-clear"></div></div>
 <div class="section" id="examples-on-pipeline">
 <span id="sphx-glr-auto-examples-pipeline"></span><h2>Examples on pipeline<a class="headerlink" href="#examples-on-pipeline" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="mvlearn mimics most of scikit-learn API, and integrates seamlessly with it. In scikit-learn, a ..."><div class="figure" id="id22">
+<div class="sphx-glr-thumbcontainer" tooltip="mvlearn mimics most of scikit-learn API, and integrates seamlessly with it. In scikit-learn, a ..."><div class="figure" id="id23">
 <img alt="Integrating mvlearn with scikit-learn" src="../_images/sphx_glr_plot_pipeline_sklearn_integration_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="pipeline/plot_pipeline_sklearn_integration.html#sphx-glr-auto-examples-pipeline-plot-pipeline-sklearn-integration-py"><span class="std std-ref">Integrating mvlearn with scikit-learn</span></a></span></p>
 </div>
@@ -483,13 +494,13 @@ can be done with the mvlearn library.</p>
 <div class="sphx-glr-clear"></div></div>
 <div class="section" id="examples-on-plotting">
 <span id="sphx-glr-auto-examples-plotting"></span><h2>Examples on plotting<a class="headerlink" href="#examples-on-plotting" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="Often, before beginning extensive analysis, it is a good idea to visualize your dataset to help..."><div class="figure" id="id23">
+<div class="sphx-glr-thumbcontainer" tooltip="Often, before beginning extensive analysis, it is a good idea to visualize your dataset to help..."><div class="figure" id="id24">
 <img alt="Quickly Visualizing Multiview Data" src="../_images/sphx_glr_plot_quick_visualize_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="plotting/plot_quick_visualize_tutorial.html#sphx-glr-auto-examples-plotting-plot-quick-visualize-tutorial-py"><span class="std std-ref">Quickly Visualizing Multiview Data</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="In many cases with multi-view data, especially after use of an embedding algorithm, one is inte..."><div class="figure" id="id24">
+<div class="sphx-glr-thumbcontainer" tooltip="In many cases with multi-view data, especially after use of an embedding algorithm, one is inte..."><div class="figure" id="id25">
 <img alt="Plotting Multiview Data with a Cross-view Plot" src="../_images/sphx_glr_plot_crossviews_plot_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="plotting/plot_crossviews_plot.html#sphx-glr-auto-examples-plotting-plot-crossviews-plot-py"><span class="std std-ref">Plotting Multiview Data with a Cross-view Plot</span></a></span></p>
 </div>
@@ -498,13 +509,13 @@ can be done with the mvlearn library.</p>
 <div class="sphx-glr-clear"></div></div>
 <div class="section" id="examples-on-semi-supervised">
 <span id="sphx-glr-auto-examples-semi-supervised"></span><h2>Examples on semi_supervised<a class="headerlink" href="#examples-on-semi-supervised" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates co-training regression on a semi-supervised regression task. The dat..."><div class="figure" id="id25">
+<div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates co-training regression on a semi-supervised regression task. The dat..."><div class="figure" id="id26">
 <img alt="2-View Semi-Supervised Regression" src="../_images/sphx_glr_plot_cotraining_regression_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="semi_supervised/plot_cotraining_regression.html#sphx-glr-auto-examples-semi-supervised-plot-cotraining-regression-py"><span class="std std-ref">2-View Semi-Supervised Regression</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we use the co-training classifier to do semi-supervised binary classification..."><div class="figure" id="id26">
+<div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we use the co-training classifier to do semi-supervised binary classification..."><div class="figure" id="id27">
 <img alt="2-View Semi-Supervised Classification" src="../_images/sphx_glr_plot_cotraining_classification_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="semi_supervised/plot_cotraining_classification.html#sphx-glr-auto-examples-semi-supervised-plot-cotraining-classification-py"><span class="std std-ref">2-View Semi-Supervised Classification</span></a></span></p>
 </div>

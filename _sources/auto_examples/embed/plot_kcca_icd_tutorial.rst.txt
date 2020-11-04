@@ -312,7 +312,7 @@ magnitude decrease in run-time compared to a rank of 100
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.284 seconds)
+   **Total running time of the script:** ( 0 minutes  6.693 seconds)
 
 
 .. _sphx_glr_download_auto_examples_embed_plot_kcca_icd_tutorial.py:

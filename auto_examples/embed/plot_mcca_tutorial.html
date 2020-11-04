@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Multiview CCA Tutorial &mdash; mvlearn alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Deep CCA (DCCA) Tutorial" href="plot_dcca_tutorial.html" />
+    <link rel="prev" title="Generalized Canonical Correlation Analysis (GCCA) Tutorial" href="plot_gcca_tutorial.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../install.html#including-optional-torch-dependencies-for-full-functionality">Including optional torch dependencies for full functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#python-package-dependencies">Python package dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#hardware-requirements">Hardware requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#os-requirements">OS Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples Gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-cluster">Examples on cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Coregularized Spectral Clustering Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. Singleview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_complex.html">Conditional Independence of Views on Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_complex.html">Conditional Independence of Views on Multiview KMeans Clustering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-datasets">Examples on datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_gaussianmixtures.html">Generating Multiview Data from Gaussian Mixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-decomposition">Examples on decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_group_ica_tutorial.html">ICA: a tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_mv_ica_tutorial.html">Multiview Independent Component Analysis (ICA) Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decomposition/plot_ajive_tutorial.html">Angle-based Joint and Individual Variation Explained (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#examples-on-embed">Examples on embed</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Multiview CCA Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_cca_comparison.html">Comparing CCA Variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICD) for KCCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_kcca_tutorial.html">Kernel CCA (KCCA) Tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-pipeline">Examples on pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pipeline/plot_pipeline_sklearn_integration.html">Integrating mvlearn with scikit-learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-plotting">Examples on plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_quick_visualize_tutorial.html">Quickly Visualizing Multiview Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/plot_crossviews_plot.html">Plotting Multiview Data with a Cross-view Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-semi-supervised">Examples on semi_supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../semi_supervised/plot_cotraining_regression.html">2-View Semi-Supervised Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../semi_supervised/plot_cotraining_classification.html">2-View Semi-Supervised Classification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../references/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../references/cluster.html">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../references/cluster.html#multiview-spectral-clustering">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/cluster.html#co-regularized-multiview-spectral-clustering">Co-Regularized Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/cluster.html#multiview-k-means">Multiview K Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/cluster.html#multiview-spherical-k-means">Multiview Spherical K Means</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../references/semi_supervised.html">Semi-Supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../references/semi_supervised.html#cotraining-classifier">Cotraining Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/semi_supervised.html#cotraining-regressor">Cotraining Regressor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#multiview-canonical-correlation-analysis-mcca">Multiview Canonical Correlation Analysis (MCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#kernel-mcca">Kernel MCCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#dcca-utilities">DCCA Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#dimension-selection">Dimension Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../references/decomposition.html">Decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../references/decomposition.html#multiview-ica">Multiview ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/decomposition.html#permutation-ica">Permutation ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/decomposition.html#group-ica">Group ICA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/decomposition.html#group-pca">Group PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/decomposition.html#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../references/construct.html">View Construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../references/construct.html#random-gaussian-projection">Random Gaussian Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/construct.html#random-subspace-method">Random Subspace Method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../references/model_selection.html">Model Selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../references/model_selection.html#cross-validation">Cross Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../references/compose.html">Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../references/compose.html#averagemerger">AverageMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/compose.html#concatmerger">ConcatMerger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/compose.html#simplesplitter">SimpleSplitter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../references/preprocessing.html">Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../references/preprocessing.html#viewtransformer">ViewTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../references/datasets.html">Multiview Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#data-simulator">Data Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#factor-model">Factor Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../references/plotting.html">Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../references/plotting.html#quick-visualize">Quick Visualize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/plotting.html#crossviews-plot">Crossviews Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../references/utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../references/utils.html#io">IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to mvlearn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#how-to-make-a-good-bug-report">How to make a good bug report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#contributing-code">Contributing Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#pull-request-checklist">Pull Request Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#coding-guidelines">Coding Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#docstring-guidelines">Docstring Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#api-of-mvlearn-objects">API of mvlearn Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#estimators">Estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#additional-functionality">Additional Functionality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id1">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id4">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id6">mvlearn.embed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id8">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id11">mvlearn.preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#patch-0-2-1">Patch 0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-2-0">Version 0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-1-0">Version 0.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Useful Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">mvlearn</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Examples Gallery</a> &raquo;</li>
+        
+      <li>Multiview CCA Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/mvlearn/mvlearn/blob/master/docs/auto_examples/embed/plot_mcca_tutorial.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-embed-plot-mcca-tutorial-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="multiview-cca-tutorial">
+<span id="sphx-glr-auto-examples-embed-plot-mcca-tutorial-py"></span><h1>Multiview CCA Tutorial<a class="headerlink" href="#multiview-cca-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial demonstrates the use of multiview CCA, which allows for greater
+than two views. As is demonstrated, it allows for both the addition of
+regularization as well as the use of a kernel to compute the distance
+(Gram) matrices.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Authors: Iain Carmichael, Ronan Perry</span>
+<span class="c1"># License: MIT</span>
+
+<span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <a href="../../references/datasets.html#mvlearn.datasets.sample_joint_factor_model" title="mvlearn.datasets.sample_joint_factor_model" class="sphx-glr-backref-module-mvlearn-datasets sphx-glr-backref-type-py-function"><span class="n">sample_joint_factor_model</span></a>
+<span class="kn">from</span> <span class="nn">mvlearn.embed</span> <span class="kn">import</span> <a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class"><span class="n">MCCA</span></a><span class="p">,</span> <a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class"><span class="n">KMCCA</span></a>
+<span class="kn">from</span> <span class="nn">mvlearn.plotting</span> <span class="kn">import</span> <a href="../../references/plotting.html#mvlearn.plotting.crossviews_plot" title="mvlearn.plotting.crossviews_plot" class="sphx-glr-backref-module-mvlearn-plotting sphx-glr-backref-type-py-function"><span class="n">crossviews_plot</span></a>
+
+
+<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_views</span></a> <span class="o">=</span> <span class="mi">3</span>
+<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_samples</span></a> <span class="o">=</span> <span class="mi">1000</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_features</span></a> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">joint_rank</span></a> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># sample data from a joint factor model</span>
+<span class="c1"># m, noise_std control the difficulty of the problem</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">U_true</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Ws_true</span></a> <span class="o">=</span> <a href="../../references/datasets.html#mvlearn.datasets.sample_joint_factor_model" title="mvlearn.datasets.sample_joint_factor_model" class="sphx-glr-backref-module-mvlearn-datasets sphx-glr-backref-type-py-function"><span class="n">sample_joint_factor_model</span></a><span class="p">(</span>
+    <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_views</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_views</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_samples</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_samples</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_features</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_features</span></a><span class="p">,</span>
+    <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">joint_rank</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">joint_rank</span></a><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">noise_std</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span>
+    <span class="n">return_decomp</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="multiview-cca-mcca">
+<h2>Multiview CCA (MCCA)<a class="headerlink" href="#multiview-cca-mcca" title="Permalink to this headline">¶</a></h2>
+<p>MCCA learns transformations of the views, projecting a linear combination
+of the features to a component such that the sum of correlations between
+the ith components of each view is maximized. We see the top three
+components of the first two views plotted against each other, pairwise.
+The strong linear shape on the diagonals shows that the found components
+correlate well.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># the default is no regularization meaning this is SUMCORR-AVGVAR MCCA</span>
+<a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class"><span class="n">MCCA</span></a><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">joint_rank</span></a><span class="p">)</span>
+
+<span class="c1"># the fit-transform method outputs the scores for each view</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.MCCA.fit_transform" title="mvlearn.embed.MCCA.fit_transform" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">mcca</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
+<a href="../../references/plotting.html#mvlearn.plotting.crossviews_plot" title="mvlearn.plotting.crossviews_plot" class="sphx-glr-backref-module-mvlearn-plotting sphx-glr-backref-type-py-function"><span class="n">crossviews_plot</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span>
+                <span class="n">title</span><span class="o">=</span><span class="s1">&#39;MCCA embedding dimensions of the first two views&#39;</span><span class="p">,</span>
+                <span class="n">equal_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">scatter_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">})</span>
+</pre></div>
+</div>
+<img alt="MCCA embedding dimensions of the first two views" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_mcca_tutorial_001.png" />
+</div>
+<div class="section" id="regularized-mcca">
+<h2>Regularized MCCA<a class="headerlink" href="#regularized-mcca" title="Permalink to this headline">¶</a></h2>
+<p>We can add regularization with the <cite>regs</cite> argument to handle
+high-dimensional data. This data is simple, and so it makes little
+difference.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># regularization value of .5 for each view</span>
+<a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class"><span class="n">MCCA</span></a><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">joint_rank</span></a><span class="p">,</span> <span class="n">regs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># the fit-transform method outputs the scores for each view</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.MCCA.fit_transform" title="mvlearn.embed.MCCA.fit_transform" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">mcca</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
+<a href="../../references/plotting.html#mvlearn.plotting.crossviews_plot" title="mvlearn.plotting.crossviews_plot" class="sphx-glr-backref-module-mvlearn-plotting sphx-glr-backref-type-py-function"><span class="n">crossviews_plot</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span>
+                <span class="n">title</span><span class="o">=</span><span class="s1">&#39;MCCA embedding with regularization&#39;</span><span class="p">,</span>
+                <span class="n">equal_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">scatter_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">})</span>
+</pre></div>
+</div>
+<img alt="MCCA embedding with regularization" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_mcca_tutorial_002.png" />
+</div>
+<div class="section" id="informative-mcca-pca-then-mcca">
+<h2>Informative MCCA: PCA then MCCA<a class="headerlink" href="#informative-mcca-pca-then-mcca" title="Permalink to this headline">¶</a></h2>
+<p>We can also handle high-dimensional data with i-MCCA. We first compute a
+low rank PCA for each view, then run MCCA on the reduced data. With rank 2
+PCA, only the first two CCA components are informative, as we can see in the
+plot.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># i-MCCA where we first extract the first 2 PCs from each data view</span>
+<a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class"><span class="n">MCCA</span></a><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">joint_rank</span></a><span class="p">,</span> <span class="n">signal_ranks</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.MCCA.fit_transform" title="mvlearn.embed.MCCA.fit_transform" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">mcca</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
+<a href="../../references/plotting.html#mvlearn.plotting.crossviews_plot" title="mvlearn.plotting.crossviews_plot" class="sphx-glr-backref-module-mvlearn-plotting sphx-glr-backref-type-py-function"><span class="n">crossviews_plot</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span>
+                <span class="n">title</span><span class="o">=</span><span class="s1">&#39;PCA-MCCA embeddings: rank 2 PCA&#39;</span><span class="p">,</span>
+                <span class="n">equal_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">scatter_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">})</span>
+</pre></div>
+</div>
+<img alt="PCA-MCCA embeddings: rank 2 PCA" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_mcca_tutorial_003.png" />
+</div>
+<div class="section" id="kernel-mcca">
+<h2>Kernel MCCA<a class="headerlink" href="#kernel-mcca" title="Permalink to this headline">¶</a></h2>
+<p>We can compute kernel MCCA with the KMCCA() object. With the linear kernel,
+this behaves just like MCCA.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># fit kernel MCCA with a linear kernel</span>
+<a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class"><span class="n">KMCCA</span></a><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">joint_rank</span></a><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca_scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KMCCA.fit_transform" title="mvlearn.embed.KMCCA.fit_transform" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">kmcca</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
+<a href="../../references/plotting.html#mvlearn.plotting.crossviews_plot" title="mvlearn.plotting.crossviews_plot" class="sphx-glr-backref-module-mvlearn-plotting sphx-glr-backref-type-py-function"><span class="n">crossviews_plot</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca_scores</span></a><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span>
+                <span class="n">title</span><span class="o">=</span><span class="s1">&#39;KMCCA embeddings&#39;</span><span class="p">,</span>
+                <span class="n">equal_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">scatter_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">})</span>
+</pre></div>
+</div>
+<img alt="KMCCA embeddings" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_mcca_tutorial_004.png" />
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.054 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-embed-plot-mcca-tutorial-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<a class="reference download internal" download="" href="../../_downloads/153e3950bf477e35e4372c376956bbee/plot_mcca_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mcca_tutorial.py</span></code></a></div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<a class="reference download internal" download="" href="../../_downloads/028b5e2a964acc7a6eba1a12e5584781/plot_mcca_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_mcca_tutorial.ipynb</span></code></a></div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plot_dcca_tutorial.html" class="btn btn-neutral float-right" title="Deep CCA (DCCA) Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="plot_gcca_tutorial.html" class="btn btn-neutral" title="Generalized Canonical Correlation Analysis (GCCA) Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019-2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+<p style="text-align: center; margin: .5rem;">
+    <a href="https://www.netlify.com">
+        <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
+    </a>
+</p>
+ 
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

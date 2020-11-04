@@ -126,6 +126,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_mcca_tutorial.html">Multiview CCA Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
@@ -164,6 +165,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#multiview-canonical-correlation-analysis-mcca">Multiview Canonical Correlation Analysis (MCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#kernel-mcca">Kernel MCCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
@@ -204,6 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../references/datasets.html">Multiview Datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#data-simulator">Data Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#factor-model">Factor Model</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../references/plotting.html">Plotting</a><ul>
@@ -245,8 +249,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id1">mvlearn.compose</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id4">mvlearn.decomposition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id9">mvlearn.preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">mvlearn.embed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id8">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id11">mvlearn.preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -328,19 +333,18 @@
 <span></span><span class="c1"># License: MIT</span>
 
 <span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">abstractmethod</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span>
+<span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Number</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">BaseEstimator</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">check_array</span>
+<span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">check_Xs</span><span class="p">,</span> <span class="n">param_as_list</span><span class="p">,</span> <span class="n">svd_wrapper</span>
 
 
 <span class="k">class</span> <span class="nc">BaseEmbed</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A base class for embedding multiview data.</span>
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    Attributes</span>
-<span class="sd">    ----------</span>
-<span class="sd">    See Also</span>
-<span class="sd">    --------</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -353,7 +357,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Xs: list of array-likes</span>
+<span class="sd">        Xs : list of array-likes</span>
 <span class="sd">            - Xs shape: (n_views,)</span>
 <span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
 
@@ -374,12 +378,12 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
-<span class="sd">             - Xs length: n_views</span>
-<span class="sd">             - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        Xs_transformed : list of array-likes</span>
+<span class="sd">        Xs_transformed : list of numpy.ndarray</span>
 <span class="sd">            - length: n_views</span>
 <span class="sd">            - Xs_transformed[i] shape: (n_samples, n_components_i)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -393,18 +397,254 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
-<span class="sd">             - Xs length: n_views</span>
-<span class="sd">             - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+
 <span class="sd">        y : array, shape (n_samples,), optional</span>
 <span class="sd">            Targets to be used if fitting the algorithm is supervised.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        X_transformed : list of array-likes</span>
+<span class="sd">        X_transformed : list of numpy.ndarray</span>
 <span class="sd">            - X_transformed length: n_views</span>
 <span class="sd">            - X_transformed[i] shape: (n_samples, n_components_i)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xs</span><span class="o">=</span><span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xs</span><span class="o">=</span><span class="n">Xs</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">BaseCCA</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A base class for multiview CCA methods.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Learns decompositions of the views.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            The data to fit to.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            Ignored variable.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+<span class="sd">            Returns the instance itself.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Transform the views, projecting them using fitted loadings.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            The views to transform</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xs_scores : numpy.ndarray, shape (n_views, n_samples, n_components)</span>
+<span class="sd">            If `multiview_output`, returns the normed sum of transformed views</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_views_</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Supplied data must have </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_views_</span><span class="si">}</span><span class="s2"> views&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">transform_view</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+                             <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">X</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">Xs</span><span class="p">)])</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">multiview_output</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">scores</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">common_scores</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">common_scores</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">common_score_norms_</span>
+
+    <span class="k">def</span> <span class="nf">transform_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">view</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Transform a view, projecting it using fitted loadings.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : numpy.ndarray, shape (n_samples, n_features)</span>
+<span class="sd">            The view to transform</span>
+
+<span class="sd">        view : int</span>
+<span class="sd">            The numeric index of the single view X with respect to the fitted</span>
+<span class="sd">            views.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        X_scores : numpy.ndarray, shape (n_samples, n_components)</span>
+<span class="sd">            Transformed view</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">means_</span><span class="p">[</span><span class="n">view</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">means_</span><span class="p">[</span><span class="n">view</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">X</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">loadings_</span><span class="p">[</span><span class="n">view</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fit CCA to the data and transforms the data.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">            - Xs length: n_views</span>
+<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">            The views to fit and transform</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            Ignored variable.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xs_scores : numpy.ndarray, shape (n_views, n_samples, n_components)</span>
+<span class="sd">            If `multiview_output`, returns the normed sum of transformed views</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">scores</span><span class="p">,</span> <span class="n">common_scores_normed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">multiview_output</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">scores</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">common_scores_normed</span>
+
+
+<span class="k">def</span> <span class="nf">_check_regs</span><span class="p">(</span><span class="n">regs</span><span class="p">,</span> <span class="n">n_views</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks the regularization paramters for each view.</span>
+<span class="sd">    If the regulaization is not None, it must be a float between 0 and 1</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    regs : float | &#39;lw&#39; | &#39;oas&#39; | None, or list, optional (default None)</span>
+<span class="sd">        MCCA regularization for each data view, which can be important</span>
+<span class="sd">        for high dimensional data. A list will specify for each view</span>
+<span class="sd">        separately. If float, must be between 0 and 1 (inclusive).</span>
+
+<span class="sd">        - 0 or None : corresponds to SUMCORR-AVGVAR MCCA.</span>
+
+<span class="sd">        - 1 : partial least squares SVD (generalizes to more than 2 views)</span>
+
+<span class="sd">        - &#39;lw&#39; : Default ``sklearn.covariance.ledoit_wolf`` regularization</span>
+
+<span class="sd">        - &#39;oas&#39; : Default ``sklearn.covariance.oas`` regularization</span>
+
+<span class="sd">    n_views : int</span>
+<span class="sd">        Number of views</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    regs : list of parameters</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">regs</span> <span class="o">=</span> <span class="n">param_as_list</span><span class="p">(</span><span class="n">regs</span><span class="p">,</span> <span class="n">n_views</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">reg</span> <span class="ow">in</span> <span class="n">regs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">reg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
+            <span class="n">reg</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">reg</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="p">(</span><span class="n">reg</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">reg</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">),</span> \
+                <span class="sa">f</span><span class="s2">&quot;regs should be between 0 and 1, not </span><span class="si">{</span><span class="n">reg</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">elif</span> <span class="n">reg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">assert</span> <span class="n">reg</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;oas&quot;</span><span class="p">,</span> <span class="s2">&quot;lw&quot;</span><span class="p">],</span> \
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">reg</span><span class="si">}</span><span class="s1"> must be in [&quot;oas&quot;, &quot;lw&quot;]&#39;</span>
+    <span class="k">return</span> <span class="n">regs</span>
+
+
+<span class="k">def</span> <span class="nf">_initial_svds</span><span class="p">(</span>
+    <span class="n">Xs</span><span class="p">,</span>
+    <span class="n">signal_ranks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">normalized_scores</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">sval_thresh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes a low rank SVD of each view in a list of data views.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Xs : list of array-likes or numpy.ndarray</span>
+<span class="sd">        - Xs length: n_views</span>
+<span class="sd">        - Xs[i] shape: (n_samples, n_features_i)</span>
+<span class="sd">        The data to fit to.</span>
+
+<span class="sd">    signal_ranks : None, int, list</span>
+<span class="sd">        The initial signal rank to compute i.e. rank of the SVD.</span>
+<span class="sd">        If None, will compute the full SVD.</span>
+<span class="sd">        Different values can be provided for each view by inputting a list.</span>
+
+<span class="sd">    normalized_scores : bool</span>
+<span class="sd">        Whether or not to return the normalized scores matrix U as the</span>
+<span class="sd">        primary output (left singular vectors) or the unnormalized scores</span>
+<span class="sd">        i.e. UD.</span>
+
+<span class="sd">    sval_thresh : None, float, or list</span>
+<span class="sd">        Whether or not to theshold singular values i.e. delete SVD</span>
+<span class="sd">        components whose singular value is below this threshold. A list</span>
+<span class="sd">        will specify for each view separately.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    reduced : list of array-like</span>
+<span class="sd">        The left singular vectors of each view. If `normalized_scores` is</span>
+<span class="sd">        True, then they are multiplied by the singular values.</span>
+
+<span class="sd">    svds : list of tuples</span>
+<span class="sd">        The low rank SVDs for each data view, (U, D, V) for X = UDV^T</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">Xs</span><span class="p">,</span> <span class="n">n_views</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">return_dimensions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">signal_ranks</span> <span class="o">=</span> <span class="n">param_as_list</span><span class="p">(</span><span class="n">signal_ranks</span><span class="p">,</span> <span class="n">n_views</span><span class="p">)</span>
+    <span class="n">sval_thresh</span> <span class="o">=</span> <span class="n">param_as_list</span><span class="p">(</span><span class="n">sval_thresh</span><span class="p">,</span> <span class="n">n_views</span><span class="p">)</span>
+
+    <span class="c1"># possibly perform SVDs on some views</span>
+    <span class="n">svds</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_views</span>
+    <span class="n">reduced</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_views</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_views</span><span class="p">):</span>
+        <span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">svd_wrapper</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="n">b</span><span class="p">],</span> <span class="n">rank</span><span class="o">=</span><span class="n">signal_ranks</span><span class="p">[</span><span class="n">b</span><span class="p">])</span>
+
+        <span class="c1"># possibly threshold SVD components</span>
+        <span class="k">if</span> <span class="n">sval_thresh</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">to_keep</span> <span class="o">=</span> <span class="n">D</span> <span class="o">&gt;=</span> <span class="n">sval_thresh</span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">to_keep</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;all singular values of view </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> where thresholded at&quot;</span> <span class="o">+</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sval_thresh</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="si">}</span><span class="s2">. Either this view is zero or you&quot;</span> <span class="o">+</span>
+                    <span class="s2">&quot;should try a smaller threshold value&quot;</span>
+                <span class="p">)</span>
+            <span class="n">U</span> <span class="o">=</span> <span class="n">U</span><span class="p">[:,</span> <span class="n">to_keep</span><span class="p">]</span>
+            <span class="n">D</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">to_keep</span><span class="p">]</span>
+            <span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span> <span class="n">to_keep</span><span class="p">]</span>
+        <span class="n">svds</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">V</span>
+
+        <span class="k">if</span> <span class="n">normalized_scores</span><span class="p">:</span>
+            <span class="n">reduced</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">reduced</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span> <span class="o">*</span> <span class="n">D</span>
+
+    <span class="k">return</span> <span class="n">reduced</span><span class="p">,</span> <span class="n">svds</span>
+
+
+<span class="k">def</span> <span class="nf">_deterministic_decomp</span><span class="p">(</span><span class="n">common_scores</span><span class="p">,</span> <span class="n">scores</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loadings</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enforces determinsitic decomposition output. Makes largest absolute value</span>
+<span class="sd">    entry of common scores positive.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">max_abs_cols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">common_scores</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">signs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">common_scores</span><span class="p">[</span><span class="n">max_abs_cols</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">common_scores</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])])</span>
+    <span class="n">common_scores</span> <span class="o">=</span> <span class="n">common_scores</span> <span class="o">*</span> <span class="n">signs</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">scores</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">scores</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">scores</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">*</span> <span class="n">signs</span>
+        <span class="k">if</span> <span class="n">loadings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">loadings</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">loadings</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">*</span> <span class="n">signs</span>
+
+    <span class="k">return</span> <span class="n">common_scores</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">loadings</span>
 </pre></div>
 
            </div>

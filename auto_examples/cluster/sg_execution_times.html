@@ -126,6 +126,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-embed">Examples on embed</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_mcca_tutorial.html">Multiview CCA Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../embed/plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../embed/plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
@@ -164,6 +165,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#multiview-canonical-correlation-analysis-mcca">Multiview Canonical Correlation Analysis (MCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#kernel-mcca">Kernel MCCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
@@ -204,6 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../references/datasets.html">Multiview Datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#data-simulator">Data Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#factor-model">Factor Model</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../references/plotting.html">Plotting</a><ul>
@@ -245,8 +249,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id1">mvlearn.compose</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id4">mvlearn.decomposition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id6">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id9">mvlearn.preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id6">mvlearn.embed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id8">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id11">mvlearn.preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -330,7 +335,7 @@
             
   <div class="section" id="computation-times">
 <span id="sphx-glr-auto-examples-cluster-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Permalink to this headline">¶</a></h1>
-<p><strong>02:47.492</strong> total execution time for <strong>auto_examples_cluster</strong> files:</p>
+<p><strong>03:21.118</strong> total execution time for <strong>auto_examples_cluster</strong> files:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="87%" />
@@ -339,39 +344,39 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="plot_mv_spectral_validation_complex.html#sphx-glr-auto-examples-cluster-plot-mv-spectral-validation-complex-py"><span class="std std-ref">Conditional Independence of Views on Multiview Spectral Clustering</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_mv_spectral_validation_complex.py</span></code>)</td>
-<td>01:28.304</td>
+<td>01:44.058</td>
 <td>0.0 MB</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="plot_mv_spectral_validation_simulated.html#sphx-glr-auto-examples-cluster-plot-mv-spectral-validation-simulated-py"><span class="std std-ref">Multiview vs. Singleview Spectral Clustering</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_mv_spectral_validation_simulated.py</span></code>)</td>
-<td>00:18.935</td>
+<td>00:24.127</td>
 <td>0.0 MB</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="plot_mv_kmeans_validation_complex.html#sphx-glr-auto-examples-cluster-plot-mv-kmeans-validation-complex-py"><span class="std std-ref">Conditional Independence of Views on Multiview KMeans Clustering</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_mv_kmeans_validation_complex.py</span></code>)</td>
-<td>00:15.735</td>
+<td>00:20.257</td>
 <td>0.0 MB</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="plot_mv_vs_singleview_spectral.html#sphx-glr-auto-examples-cluster-plot-mv-vs-singleview-spectral-py"><span class="std std-ref">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_mv_vs_singleview_spectral.py</span></code>)</td>
-<td>00:12.707</td>
+<td>00:18.020</td>
 <td>0.0 MB</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="plot_mv_spectral_tutorial.html#sphx-glr-auto-examples-cluster-plot-mv-spectral-tutorial-py"><span class="std std-ref">Multiview Spectral Clustering Tutorial</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_mv_spectral_tutorial.py</span></code>)</td>
-<td>00:09.606</td>
+<td>00:08.390</td>
 <td>0.0 MB</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="plot_mv_coregularized_spectral_tutorial.html#sphx-glr-auto-examples-cluster-plot-mv-coregularized-spectral-tutorial-py"><span class="std std-ref">Multiview Coregularized Spectral Clustering Comparison</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_mv_coregularized_spectral_tutorial.py</span></code>)</td>
-<td>00:07.688</td>
+<td>00:07.898</td>
 <td>0.0 MB</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="plot_mv_kmeans_tutorial.html#sphx-glr-auto-examples-cluster-plot-mv-kmeans-tutorial-py"><span class="std std-ref">Multiview KMeans Tutorial</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_mv_kmeans_tutorial.py</span></code>)</td>
-<td>00:05.179</td>
+<td>00:06.485</td>
 <td>0.0 MB</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="plot_mv_kmeans_validation_simulated.html#sphx-glr-auto-examples-cluster-plot-mv-kmeans-validation-simulated-py"><span class="std std-ref">Multiview vs. Singleview KMeans</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_mv_kmeans_validation_simulated.py</span></code>)</td>
-<td>00:04.685</td>
+<tr class="row-even"><td><a class="reference internal" href="plot_mv_spherical_kmeans_tutorial.html#sphx-glr-auto-examples-cluster-plot-mv-spherical-kmeans-tutorial-py"><span class="std std-ref">Multiview Spherical KMeans Tutorial</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_mv_spherical_kmeans_tutorial.py</span></code>)</td>
+<td>00:06.192</td>
 <td>0.0 MB</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="plot_mv_spherical_kmeans_tutorial.html#sphx-glr-auto-examples-cluster-plot-mv-spherical-kmeans-tutorial-py"><span class="std std-ref">Multiview Spherical KMeans Tutorial</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_mv_spherical_kmeans_tutorial.py</span></code>)</td>
-<td>00:04.654</td>
+<tr class="row-odd"><td><a class="reference internal" href="plot_mv_kmeans_validation_simulated.html#sphx-glr-auto-examples-cluster-plot-mv-kmeans-validation-simulated-py"><span class="std std-ref">Multiview vs. Singleview KMeans</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_mv_kmeans_validation_simulated.py</span></code>)</td>
+<td>00:05.692</td>
 <td>0.0 MB</td>
 </tr>
 </tbody>
