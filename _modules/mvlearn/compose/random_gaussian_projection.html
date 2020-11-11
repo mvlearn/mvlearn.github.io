@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>mvlearn.model_selection.validation &mdash; mvlearn alpha documentation</title>
+  <title>mvlearn.compose.random_gaussian_projection &mdash; mvlearn alpha documentation</title>
   
 
   
@@ -312,7 +312,7 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
-      <li>mvlearn.model_selection.validation</li>
+      <li>mvlearn.compose.random_gaussian_projection</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -327,59 +327,85 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for mvlearn.model_selection.validation</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Validation utils.&quot;&quot;&quot;</span>
-<span class="c1"># Authors: Pierre Ablin</span>
+  <h1>Source code for mvlearn.compose.random_gaussian_projection</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2019 NeuroData (http://neurodata.io)</span>
 <span class="c1">#</span>
 <span class="c1"># License: MIT</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_validate</span> <span class="k">as</span> <span class="n">sk_cross_validate</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-
-<span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">check_Xs</span>
-<span class="kn">from</span> <span class="nn">..compose</span> <span class="kn">import</span> <span class="n">SimpleSplitter</span>
+<span class="kn">from</span> <span class="nn">sklearn.random_projection</span> <span class="kn">import</span> <span class="n">GaussianRandomProjection</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">check_array</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">check_n_views</span>
 
 
-<div class="viewcode-block" id="cross_validate"><a class="viewcode-back" href="../../../references/model_selection.html#mvlearn.model_selection.cross_validate">[docs]</a><span class="k">def</span> <span class="nf">cross_validate</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Evaluate metric(s) by cross-validation and also record fit/score times.</span>
-
-<span class="sd">    Works on multiview data, by wrapping</span>
-<span class="sd">    `sklearn.model_selection.cross_validate`.</span>
+<div class="viewcode-block" id="random_gaussian_projection"><a class="viewcode-back" href="../../../references/compose.html#mvlearn.compose.random_gaussian_projection">[docs]</a><span class="k">def</span> <span class="nf">random_gaussian_projection</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">n_views</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_components</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+                               <span class="n">eps</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                               <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Random Gaussian Projection method for constructing multiple views.</span>
+<span class="sd">    Each view is constructed using sklearn&#39;s random Gaussian projection.</span>
+<span class="sd">    This wrapped version has an option to specify the number of views</span>
+<span class="sd">    you want to generate. Random_state is also only set once in the</span>
+<span class="sd">    function (not per view).</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    estimator : estimator object implementing &#39;fit&#39;</span>
-<span class="sd">        The object to use to fit the data.</span>
+<span class="sd">    X : array-like matrix, shape (n_samples, n_features)</span>
+<span class="sd">        The input samples.</span>
 
-<span class="sd">    Xs : list of array-likes</span>
-<span class="sd">        - Xs shape: (n_views,)</span>
-<span class="sd">        - Xs[i] shape: (n_samples, n_features_i)</span>
-<span class="sd">        The multiview data to fit</span>
+<span class="sd">    n_views : int, float optional (default = 1)</span>
+<span class="sd">        Number of views to construct.</span>
 
-<span class="sd">    y : array-like of shape (n_samples,) or (n_samples, n_outputs), \</span>
-<span class="sd">            default=None</span>
-<span class="sd">        The target variable to try to predict in the case of</span>
-<span class="sd">        supervised learning.</span>
+<span class="sd">    n_components: int, string optional (default = &quot;auto&quot;)</span>
+<span class="sd">        Dimensionality of target projection space (see sklearn for details)</span>
 
-<span class="sd">    args : any</span>
-<span class="sd">        Additional arguments passed to `sklearn.model_selection.cross_validate`</span>
+<span class="sd">    eps: strictly positive float, optional (default = 0.1)</span>
+<span class="sd">        Parameter for controlling quality of embedding when</span>
+<span class="sd">        n_components = &quot;auto&quot; (see sklearn for details)</span>
 
-<span class="sd">    kwargs : any</span>
-<span class="sd">        Additional named arguments to `sklearn.model_selection.cross_validate`</span>
+<span class="sd">    random_state: int or None (default = None)</span>
+<span class="sd">        Sets random state using np.random.seed</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    scores : dict of float arrays of shape (n_splits,)</span>
-<span class="sd">        The output of `sklearn.model_selection.cross_validate`.</span>
+<span class="sd">    Xs : list of array-likes matrices</span>
+<span class="sd">        - Xs length: n_views</span>
+<span class="sd">        - Xs[i] shape: (n_samples, n_components)</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    From an implementation perspective, this wraps GaussianRandomProjection</span>
+<span class="sd">    from `sklearn.random_projection &lt;https://scikit-learn.org/stable/modules/</span>
+<span class="sd">    classes.html#module-sklearn.random_projection&gt;`_ and creates multiple</span>
+<span class="sd">    projections.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.compose import random_gaussian_projection</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; single_view_data = np.random.rand(1000, 50)</span>
+<span class="sd">    &gt;&gt;&gt; # Project to 10 components</span>
+<span class="sd">    &gt;&gt;&gt; multi_view_data = random_gaussian_projection(single_view_data,</span>
+<span class="sd">    ...                                              n_views=3,</span>
+<span class="sd">    ...                                              n_components=10)</span>
+<span class="sd">    &gt;&gt;&gt; print(len(multi_view_data))</span>
+<span class="sd">    3</span>
+<span class="sd">    &gt;&gt;&gt; print(multi_view_data[0].shape)</span>
+<span class="sd">    (1000, 10)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">X_transformed</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">check_Xs</span><span class="p">(</span>
-        <span class="n">Xs</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_dimensions</span><span class="o">=</span><span class="kc">True</span>
-    <span class="p">)</span>
-    <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;splitter&#39;</span><span class="p">,</span> <span class="n">SimpleSplitter</span><span class="p">(</span><span class="n">n_features</span><span class="p">)),</span>
-                         <span class="p">(</span><span class="s1">&#39;estimator&#39;</span><span class="p">,</span> <span class="n">estimator</span><span class="p">)])</span>
-    <span class="k">return</span> <span class="n">sk_cross_validate</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">Xs</span><span class="p">),</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+    <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">check_n_views</span><span class="p">(</span><span class="n">n_views</span><span class="p">)</span>
+    <span class="n">views</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># set function level random state</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_views</span><span class="p">):</span>
+        <span class="n">transformer</span> <span class="o">=</span> <span class="n">GaussianRandomProjection</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">,</span>
+                                               <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">)</span>
+        <span class="n">X_proj</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">views</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X_proj</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">views</span></div>
 </pre></div>
 
            </div>
