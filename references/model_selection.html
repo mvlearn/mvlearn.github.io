@@ -189,6 +189,7 @@
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Model Selection</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#cross-validation">Cross Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#train-test-split">Train-Test Split</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="compose.html">Compose</a><ul>
@@ -372,6 +373,108 @@ supervised learning.</li>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+</div>
+<div class="section" id="train-test-split">
+<h2>Train-Test Split<a class="headerlink" href="#train-test-split" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="mvlearn.model_selection.train_test_split">
+<code class="descclassname">mvlearn.model_selection.</code><code class="descname">train_test_split</code><span class="sig-paren">(</span><em>*inputs</em>, <em>**options</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/model_selection/split.html#train_test_split"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.model_selection.train_test_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splits multi-view data into random train and test subsets. This
+utility wraps the train_test_split function from
+sklearn.model_selection for ease of use.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>inputs</strong> (<em>sequence of indexables</em>) -- Allowed inputs are lists of numpy arrays, numpy arrays, lists,
+scipy-sparse matrices or pandas dataframes.</li>
+<li><strong>test_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>default=None</em>) -- If float, should be between 0.0 and 1.0 and represent the
+proportion of the dataset to include in the test split. If
+int, represents the absolute number of test samples. If None,
+the value is set to the complement of the train size. If
+train_size is also None, it will be set to 0.25.</li>
+<li><strong>train_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>default=None</em>) -- If float, should be between 0.0 and 1.0 and represent the
+proportion of the dataset to include in the train split. If
+int, represents the absolute number of train samples. If None,
+the value is automatically set to the complement of the test
+size.</li>
+<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>RandomState instance</em><em>, </em><em>default=None</em>) -- Controls the shuffling applied to the data before applying the
+split. Pass an int for reproducible output across multiple
+function calls.</li>
+<li><strong>shuffle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>default=True</em>) -- Whether or not to shuffle the data before splitting. If
+shuffle=False then stratify must be None.</li>
+<li><strong>stratify</strong> (<em>array-like</em><em>, </em><em>default=None</em>) -- If not None, data is split in a stratified fashion, using
+this as the class labels.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>splitting</strong> -- List containing the train-test splits of each of the inputs. If
+a list of arrays or 3D array is one of the inputs, train_test_split
+operates on each subarray and puts them together into a list
+of arrays or 3D array for training and one for testing.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>, length=2*len(arrays)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.preprocessing</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Print the data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Xs[</span><span class="si">%d</span><span class="s1">]&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">Xs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="go">Xs[0]</span>
+<span class="go">[[0 1]</span>
+<span class="go"> [2 3]</span>
+<span class="go"> [4 5]]</span>
+<span class="go">Xs[1]</span>
+<span class="go">[[ 6  7]</span>
+<span class="go"> [ 8  9]</span>
+<span class="go"> [10 11]]</span>
+<span class="go">Xs[2]</span>
+<span class="go">[[12 13]</span>
+<span class="go"> [14 15]</span>
+<span class="go"> [16 17]]</span>
+<span class="go">y</span>
+<span class="go">[0 1 2]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs_train</span><span class="p">,</span> <span class="n">Xs_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+<span class="gp">... </span>                                           <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span>
+<span class="gp">... </span>                                           <span class="n">random_state</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Print train set</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xs_train</span><span class="p">)):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Xs_train[</span><span class="si">%d</span><span class="s1">]&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">Xs_train</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="go">Xs_train[0]</span>
+<span class="go">[[4 5]</span>
+<span class="go">[2 3]]</span>
+<span class="go">Xs_train[1]</span>
+<span class="go">[[10 11]</span>
+<span class="go">[ 8  9]]</span>
+<span class="go">Xs_train[2]</span>
+<span class="go">[[16 17]</span>
+<span class="go">[14 15]]</span>
+<span class="go"># Print test set</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xs_test</span><span class="p">)):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Xs_test[</span><span class="si">%d</span><span class="s1">]&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">Xs_test</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="go">Xs_test[0]</span>
+<span class="go">[[0 1]]</span>
+<span class="go">Xs_test[1]</span>
+<span class="go">[[6 7]]</span>
+<span class="go">Xs_test[2]</span>
+<span class="go">[[12 1]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="go">[2 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+<span class="go">[0]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>mvlearn.cluster.base &mdash; mvlearn alpha documentation</title>
+  <title>mvlearn.model_selection.split &mdash; mvlearn alpha documentation</title>
   
 
   
@@ -313,7 +313,7 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
-      <li>mvlearn.cluster.base</li>
+      <li>mvlearn.model_selection.split</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -328,90 +328,130 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for mvlearn.cluster.base</h1><div class="highlight"><pre>
-<span></span><span class="c1"># License: MIT</span>
+  <h1>Source code for mvlearn.model_selection.split</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Authors: Alexander Chang, Gavin Mischler</span>
+<span class="c1">#</span>
+<span class="c1"># License: MIT</span>
 
-<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">abstractmethod</span>
-<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">model_selection</span> <span class="k">as</span> <span class="n">ms</span>
 
 
-<span class="k">class</span> <span class="nc">BaseCluster</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">):</span>
+<div class="viewcode-block" id="train_test_split"><a class="viewcode-back" href="../../../references/model_selection.html#mvlearn.model_selection.train_test_split">[docs]</a><span class="k">def</span> <span class="nf">train_test_split</span><span class="p">(</span><span class="o">*</span><span class="n">inputs</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    A base class for clustering.</span>
+<span class="sd">    Splits multi-view data into random train and test subsets. This</span>
+<span class="sd">    utility wraps the train_test_split function from</span>
+<span class="sd">    sklearn.model_selection for ease of use.</span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    Attributes</span>
-<span class="sd">    ----------</span>
-<span class="sd">    See Also</span>
+<span class="sd">    inputs : sequence of indexables</span>
+<span class="sd">        Allowed inputs are lists of numpy arrays, numpy arrays, lists,</span>
+<span class="sd">        scipy-sparse matrices or pandas dataframes.</span>
+
+<span class="sd">    test_size : float or int, default=None</span>
+<span class="sd">        If float, should be between 0.0 and 1.0 and represent the</span>
+<span class="sd">        proportion of the dataset to include in the test split. If</span>
+<span class="sd">        int, represents the absolute number of test samples. If None,</span>
+<span class="sd">        the value is set to the complement of the train size. If</span>
+<span class="sd">        train_size is also None, it will be set to 0.25.</span>
+
+<span class="sd">    train_size: float or int, default=None</span>
+<span class="sd">        If float, should be between 0.0 and 1.0 and represent the</span>
+<span class="sd">        proportion of the dataset to include in the train split. If</span>
+<span class="sd">        int, represents the absolute number of train samples. If None,</span>
+<span class="sd">        the value is automatically set to the complement of the test</span>
+<span class="sd">        size.</span>
+
+<span class="sd">    random_state: int or RandomState instance, default=None</span>
+<span class="sd">        Controls the shuffling applied to the data before applying the</span>
+<span class="sd">        split. Pass an int for reproducible output across multiple</span>
+<span class="sd">        function calls.</span>
+
+<span class="sd">    shuffle: bool, default=True</span>
+<span class="sd">        Whether or not to shuffle the data before splitting. If</span>
+<span class="sd">        shuffle=False then stratify must be None.</span>
+
+<span class="sd">    stratify: array-like, default=None</span>
+<span class="sd">        If not None, data is split in a stratified fashion, using</span>
+<span class="sd">        this as the class labels.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    splitting : list, length=2*len(arrays)</span>
+<span class="sd">        List containing the train-test splits of each of the inputs. If</span>
+<span class="sd">        a list of arrays or 3D array is one of the inputs, train_test_split</span>
+<span class="sd">        operates on each subarray and puts them together into a list</span>
+<span class="sd">        of arrays or 3D array for training and one for testing.</span>
+
+<span class="sd">    Examples</span>
 <span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.preprocessing import train_test_split</span>
+<span class="sd">    &gt;&gt;&gt; Xs = np.arange(18).reshape((3, 3, 2))</span>
+<span class="sd">    &gt;&gt;&gt; y = np.arange(3)</span>
+<span class="sd">    &gt;&gt;&gt; # Print the data</span>
+<span class="sd">    &gt;&gt;&gt; for i in range(len(data)):</span>
+<span class="sd">    ...     print(&#39;Xs[%d]&#39; % i, Xs[i], sep=&#39;\n&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print(&#39;y&#39;, y, sep=&#39;\n&#39;)</span>
+<span class="sd">    Xs[0]</span>
+<span class="sd">    [[0 1]</span>
+<span class="sd">     [2 3]</span>
+<span class="sd">     [4 5]]</span>
+<span class="sd">    Xs[1]</span>
+<span class="sd">    [[ 6  7]</span>
+<span class="sd">     [ 8  9]</span>
+<span class="sd">     [10 11]]</span>
+<span class="sd">    Xs[2]</span>
+<span class="sd">    [[12 13]</span>
+<span class="sd">     [14 15]</span>
+<span class="sd">     [16 17]]</span>
+<span class="sd">    y</span>
+<span class="sd">    [0 1 2]</span>
+<span class="sd">    &gt;&gt;&gt; Xs_train, Xs_test, y_train, y_test = train_test_split(Xs, y,</span>
+<span class="sd">    ...                                            test_size=0.33,</span>
+<span class="sd">    ...                                            random_state=10)</span>
+<span class="sd">    &gt;&gt;&gt; # Print train set</span>
+<span class="sd">    &gt;&gt;&gt; for i in range(len(Xs_train)):</span>
+<span class="sd">    ...     print(&#39;Xs_train[%d]&#39; % i, Xs_train[i], sep=&#39;\n&#39;)</span>
+<span class="sd">    Xs_train[0]</span>
+<span class="sd">    [[4 5]</span>
+<span class="sd">    [2 3]]</span>
+<span class="sd">    Xs_train[1]</span>
+<span class="sd">    [[10 11]</span>
+<span class="sd">    [ 8  9]]</span>
+<span class="sd">    Xs_train[2]</span>
+<span class="sd">    [[16 17]</span>
+<span class="sd">    [14 15]]</span>
+<span class="sd">    # Print test set</span>
+<span class="sd">    &gt;&gt;&gt; for i in range(len(Xs_test)):</span>
+<span class="sd">    ...     print(&#39;Xs_test[%d]&#39; % i, Xs_test[i], sep=&#39;\n&#39;)</span>
+<span class="sd">    Xs_test[0]</span>
+<span class="sd">    [[0 1]]</span>
+<span class="sd">    Xs_test[1]</span>
+<span class="sd">    [[6 7]]</span>
+<span class="sd">    Xs_test[2]</span>
+<span class="sd">    [[12 1]]</span>
+<span class="sd">    &gt;&gt;&gt; print(y_train)</span>
+<span class="sd">    [2 1]</span>
+<span class="sd">    &gt;&gt;&gt; print(y_test)</span>
+<span class="sd">    [0]</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
+    <span class="n">splitting</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">inputs</span><span class="p">:</span>
+        <span class="n">splits</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span>
+                                   <span class="n">a</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
+            <span class="n">splits</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+            <span class="n">splits</span> <span class="o">=</span> <span class="p">(</span><span class="n">splits</span><span class="p">[::</span><span class="mi">2</span><span class="p">],</span> <span class="n">splits</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">splits</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
 
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        A method to fit clustering parameters to the multiview data.</span>
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
-<span class="sd">            - Xs length: n_views</span>
-<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
-<span class="sd">            A list of different views to fit the model on.</span>
+        <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="n">splits</span><span class="p">:</span>
+            <span class="n">splitting</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">split</span><span class="p">)</span>
 
-<span class="sd">        y : array-like, shape (n_samples,)</span>
-<span class="sd">            Labels for each sample. Only used by supervised algorithms.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        self :  returns and instance of self.</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-
-        <span class="k">return</span> <span class="bp">self</span>
-
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        A method to predict cluster labels of multiview data.</span>
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
-<span class="sd">            - Xs length: n_views</span>
-<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
-<span class="sd">            A list of different views to cluster.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        labels : array-like, shape (n_samples,)</span>
-<span class="sd">            Returns the predicted cluster labels for each sample.</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-
-        <span class="k">pass</span>
-
-    <span class="k">def</span> <span class="nf">fit_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        A method for fitting then predicting cluster assignments.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        Xs : list of array-likes or numpy.ndarray</span>
-<span class="sd">            - Xs length: n_views</span>
-<span class="sd">            - Xs[i] shape: (n_samples, n_features_i)</span>
-<span class="sd">            A list of different views to fit the model on.</span>
-
-<span class="sd">        y : array-like, shape (n_samples,)</span>
-<span class="sd">            Labels for each sample. Only used by supervised algorithms.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        labels : array-like, shape (n_samples,)</span>
-<span class="sd">            The predicted cluster labels for each sample.</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
-        <span class="n">labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels_</span>
-        <span class="k">return</span> <span class="n">labels</span>
+    <span class="k">return</span> <span class="n">splitting</span></div>
 </pre></div>
 
            </div>
