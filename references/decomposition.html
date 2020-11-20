@@ -92,7 +92,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../install.html#including-optional-torch-dependencies-for-full-functionality">Including optional torch dependencies for full functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#including-optional-dependencies-for-full-functionality">Including optional dependencies for full functionality</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../install.html#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
@@ -181,7 +181,6 @@
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Decomposition</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#multiview-ica">Multiview ICA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#permutation-ica">Permutation ICA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#group-ica">Group ICA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#group-pca">Group PCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
@@ -342,7 +341,7 @@
 <h2>Multiview ICA<a class="headerlink" href="#multiview-ica" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="mvlearn.decomposition.MultiviewICA">
-<em class="property">class </em><code class="descclassname">mvlearn.decomposition.</code><code class="descname">MultiviewICA</code><span class="sig-paren">(</span><em>n_components=None</em>, <em>noise=1.0</em>, <em>max_iter=1000</em>, <em>init='permica'</em>, <em>random_state=None</em>, <em>tol=0.001</em>, <em>verbose=False</em>, <em>n_jobs=30</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/mv_ica.html#MultiviewICA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mvlearn.decomposition.</code><code class="descname">MultiviewICA</code><span class="sig-paren">(</span><em>n_components=None</em>, <em>noise=1.0</em>, <em>max_iter=1000</em>, <em>init='permica'</em>, <em>multiview_output=True</em>, <em>random_state=None</em>, <em>tol=0.001</em>, <em>verbose=False</em>, <em>n_jobs=30</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/multiviewica.html#MultiviewICA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Multiview ICA for which views share a common source but separate mixing
 matrices.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -350,13 +349,22 @@ matrices.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>n_components</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) -- Number of components to extract. If None, no dimension reduction is
-performed and all views must have the same number of features.</li>
+<li><strong>n_components</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) -- Number of components to extract. If None, n_components is set to
+the minimum number of features in the dataset.</li>
 <li><strong>noise</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>default=1.0</em>) -- Gaussian noise level</li>
 <li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>default=1000</em>) -- Maximum number of iterations to perform</li>
 <li><strong>init</strong> (<em>{'permica'</em><em>, </em><em>'groupica'}</em><em> or </em><em>np array of shape</em>) -- (n_groups, n_components, n_components), default='permica'
 If permica: initialize with perm ICA, if groupica, initialize with
 group ica. Else, use the provided array to initialize.</li>
+<li><strong>preproc</strong> (<em>'pca'</em><em> or </em><em>a ViewTransformer-like instance</em><em>,</em>) -- default='pca'
+Preprocessing method to use to reduce data.
+If &quot;pca&quot;, performs PCA separately on each view to reduce dimension
+of each view.
+Otherwise the dimension reduction is performed using the transform
+method of the ViewTransformer-like object. This instance also needs
+an inverse transform method to recover original data from reduced data.</li>
+<li><strong>multiview_output</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em><em> (</em><em>default True</em><em>)</em>) -- If True, the <cite>.transform</cite> method returns one dataset per view.
+Otherwise, it returns one dataset, of shape (n_samples, n_components)</li>
 <li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>RandomState instance</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a><em>, </em><em>default=None</em>) -- Used to perform a random initialization. If int, random_state is
 the seed used by the random number generator; If RandomState
 instance, random_state is the random number generator; If
@@ -365,51 +373,102 @@ used by np.random.</li>
 <li><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>default=1e-3</em>) -- A positive scalar giving the tolerance at which
 the un-mixing matrices are considered to have converged.</li>
 <li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>default=False</em>) -- Print information</li>
-<li><strong>n_jobs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> (</em><em>positive</em><em>)</em><em>, </em><em>default=None</em>) -- The number of jobs to run in parallel. <cite>None</cite> means 1 job, <cite>-1</cite>
-means using all processors.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <dl class="attribute">
+<dt id="mvlearn.decomposition.MultiviewICA.pcas_">
+<code class="descname">pcas_</code><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.pcas_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The fitted <cite>ViewTransformer</cite> used to reduce the data.
+The <cite>ViewTransformer</cite> is given by
+<cite>ViewTransformer(PCA(n_components=n_components))</cite>
+where n_components is the number of chosen.
+Only used if n_components is not None.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">ViewTransformer instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.MultiviewICA.mixing_">
+<code class="descname">mixing_</code><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.mixing_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The square mixing matrices, linking preprocessed data
+and the independent components.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array, shape (n_views, n_components, n_components)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.decomposition.MultiviewICA.pca_components_">
+<code class="descname">pca_components_</code><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.pca_components_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Principal axes in feature space, representing the directions
+of maximum variance in the data. Only used if n_components is not None.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array, shape (n_components, n_features)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="mvlearn.decomposition.MultiviewICA.components_">
 <code class="descname">components_</code><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.components_" title="Permalink to this definition">¶</a></dt>
-<dd><p>The projection matrices that project group data in reduced space.
-Has value None if n_components is None</p>
+<dd><p>The square unmixing matrices</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np array of shape (n_groups, n_features, n_components)</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array, shape (n_views, n_components, n_components)</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="mvlearn.decomposition.MultiviewICA.unmixings_">
-<code class="descname">unmixings_</code><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.unmixings_" title="Permalink to this definition">¶</a></dt>
-<dd><p>Estimated un-mixing matrices</p>
+<dt id="mvlearn.decomposition.MultiviewICA.individual_components_">
+<code class="descname">individual_components_</code><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.individual_components_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Individual unmixing matrices estimated by least squares.
+<cite>individual_components_[i]</cite> is an array of shape
+(n_components, n_features) where n_features is the number of
+features in the dataset <cite>i</cite>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np array of shape (n_groups, n_components, n_components)</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of array</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="mvlearn.decomposition.MultiviewICA.source_">
-<code class="descname">source_</code><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.source_" title="Permalink to this definition">¶</a></dt>
-<dd><p>Estimated source matrix</p>
+<dt id="mvlearn.decomposition.MultiviewICA.individual_mixing_">
+<code class="descname">individual_mixing_</code><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.individual_mixing_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Individual mixing matrices estimated by least squares.
+<cite>individual_components_[i]</cite> is an array of shape
+(n_features, n_components) where n_features is the number of
+features in the dataset <cite>i</cite>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np array of shape (n_samples, n_components)</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of array</td>
 </tr>
 </tbody>
 </table>
@@ -417,7 +476,7 @@ Has value None if n_components is None</p>
 
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><code class="xref py py-class docutils literal notranslate"><span class="pre">groupica</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">permica</span></code></p>
+<p class="last"><code class="xref py py-class docutils literal notranslate"><span class="pre">groupica</span></code></p>
 </div>
 <p class="rubric">Notes</p>
 <p>Given each view <span class="math notranslate nohighlight">\(X_i\)</span> It optimizes:</p>
@@ -456,28 +515,59 @@ Neuroimaging Studies through MultiView ICA. arXiv 2020.</td></tr>
 </div>
 <dl class="method">
 <dt id="mvlearn.decomposition.MultiviewICA.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/mv_ica.html#MultiviewICA.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fits the model to the views Xs.</p>
+<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/multiviewica.html#MultiviewICA.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits the model.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>Training data to recover a source and unmixing matrices from.</p>
-</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Xs</strong> (<em>list of np arrays of shape</em><em> (</em><em>n_voxels</em><em>, </em><em>n_samples</em><em>)</em>) -- Input data: X[i] is the data of subject i</li>
 <li><strong>y</strong> (<em>ignored</em>) -- </li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong></p>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.MultiviewICA.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/multiviewica.html#MultiviewICA.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recover the sources from each view (apply unmixing matrix).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+<p>Training data to recover a source and unmixing matrices from.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">returns an instance of itself.</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs_new</strong> -- The mixed sources from the single source and per-view unmixings.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.MultiviewICA.inverse_transform">
+<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>X_transformed</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/multiviewica.html#MultiviewICA.inverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.inverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms the sources back to the mixed data for each view
+(apply mixing matrix).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>X_transformed</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- The dataset corresponding to transformed data</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs_new</strong> -- The mixed sources from the single source and per-view unmixings.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</td>
 </tr>
 </tbody>
 </table>
@@ -510,262 +600,6 @@ Neuroimaging Studies through MultiView ICA. arXiv 2020.</td></tr>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.decomposition.MultiviewICA.inverse_transform">
-<code class="descname">inverse_transform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.inverse_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transforms the sources back to the mixed data for each view
-(apply mixing matrix).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>None</strong> -- </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs_new</strong> -- The mixed sources from the single source and per-view unmixings.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.decomposition.MultiviewICA.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Recover the sources from each view (apply unmixing matrix).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>Training data to recover a source and unmixing matrices from.</p>
-</li>
-<li><strong>y</strong> (<em>ignored</em>) -- </li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Xs_new</strong> -- The mixed sources from the single source and per-view unmixings.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="permutation-ica">
-<h2>Permutation ICA<a class="headerlink" href="#permutation-ica" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mvlearn.decomposition.PermICA">
-<em class="property">class </em><code class="descclassname">mvlearn.decomposition.</code><code class="descname">PermICA</code><span class="sig-paren">(</span><em>n_components=None</em>, <em>max_iter=1000</em>, <em>random_state=None</em>, <em>tol=1e-07</em>, <em>n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/mv_ica.html#PermICA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.PermICA" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs one ICA per view (ex: subject) and align sources
-using the hungarian algorithm.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>n_components</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) -- Number of components to extract. If None, no dimension reduction is
-performed and all views must have the same number of features.</li>
-<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>default=1000</em>) -- Maximum number of iterations to perform</li>
-<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>RandomState instance</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a><em>, </em><em>default=None</em>) -- Used to perform a random initialization. If int, random_state is
-the seed used by the random number generator; If RandomState
-instance, random_state is the random number generator; If
-None, the random number generator is the RandomState instance
-used by np.random.</li>
-<li><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>default=1e-3</em>) -- A positive scalar giving the tolerance at which
-the un-mixing matrices are considered to have converged.</li>
-<li><strong>n_jobs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> (</em><em>positive</em><em>)</em><em>, </em><em>default=None</em>) -- The number of jobs to run in parallel. <cite>None</cite> means 1 job, <cite>-1</cite>
-means using all processors.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
-<dt id="mvlearn.decomposition.PermICA.components_">
-<code class="descname">components_</code><a class="headerlink" href="#mvlearn.decomposition.PermICA.components_" title="Permalink to this definition">¶</a></dt>
-<dd><p>The projection matrices that project group data in reduced space.
-Has value None if n_components is None</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np array of shape (n_groups, n_features, n_components)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="mvlearn.decomposition.PermICA.unmixings_">
-<code class="descname">unmixings_</code><a class="headerlink" href="#mvlearn.decomposition.PermICA.unmixings_" title="Permalink to this definition">¶</a></dt>
-<dd><p>Estimated un-mixing matrices</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np array of shape (n_groups, n_components, n_components)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="mvlearn.decomposition.PermICA.source_">
-<code class="descname">source_</code><a class="headerlink" href="#mvlearn.decomposition.PermICA.source_" title="Permalink to this definition">¶</a></dt>
-<dd><p>Estimated source matrix</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np array of shape (n_samples, n_components)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><code class="xref py py-class docutils literal notranslate"><span class="pre">groupica</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">multiviewica</span></code></p>
-</div>
-<p class="rubric">References</p>
-<table class="docutils footnote" frame="void" id="permica" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[2]</td><td>Hugo Richard, Luigi Gresele, Aapo Hyvärinen, Bertrand
-Thirion, Alexandre Gramfort, Pierre Ablin. Modeling Shared Responses
-in Neuroimaging Studies through MultiView ICA. arXiv 2020.</td></tr>
-</tbody>
-</table>
-<p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.decomposition</span> <span class="kn">import</span> <span class="n">PermICA</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_UCImultifeature</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ica</span> <span class="o">=</span> <span class="n">PermICA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sources</span> <span class="o">=</span> <span class="n">ica</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">sources</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="go">(6, 2000, 3)</span>
-</pre></div>
-</div>
-<dl class="method">
-<dt id="mvlearn.decomposition.PermICA.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/mv_ica.html#PermICA.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.PermICA.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fits the model to the views Xs.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>Training data to recover a source and unmixing matrices from.</p>
-</li>
-<li><strong>y</strong> (<em>ignored</em>) -- </li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">returns an instance of itself.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.decomposition.PermICA.fit_transform">
-<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.PermICA.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit  to the data and transform the data</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-</li>
-<li><strong>y</strong> (<em>array</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em><em>, </em><em>optional</em>) -- </li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>X_transformed</strong> --</p>
-<ul class="simple">
-<li>out length: n_views</li>
-<li>out[i] shape: (n_samples, n_components_i)</li>
-</ul>
-</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.decomposition.PermICA.inverse_transform">
-<code class="descname">inverse_transform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.PermICA.inverse_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transforms the sources back to the mixed data for each view
-(apply mixing matrix).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>None</strong> -- </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs_new</strong> -- The mixed sources from the single source and per-view unmixings.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.decomposition.PermICA.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.PermICA.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Recover the sources from each view (apply unmixing matrix).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>Training data to recover a source and unmixing matrices from.</p>
-</li>
-<li><strong>y</strong> (<em>ignored</em>) -- </li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Xs_new</strong> -- The mixed sources from the single source and per-view unmixings.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</p>
 </td>
 </tr>
 </tbody>
@@ -844,9 +678,9 @@ for reproducible output across multiple function calls.</li>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="mvlearn.decomposition.GroupICA.unmixing_">
-<code class="descname">unmixing_</code><a class="headerlink" href="#mvlearn.decomposition.GroupICA.unmixing_" title="Permalink to this definition">¶</a></dt>
-<dd><p>The square unmixing matrix, linking the output of the group-pca
+<dt id="mvlearn.decomposition.GroupICA.mixing_">
+<code class="descname">mixing_</code><a class="headerlink" href="#mvlearn.decomposition.GroupICA.mixing_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The square mixing matrix, linking the output of the group-pca
 and the independent components.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -861,7 +695,7 @@ and the independent components.</p>
 <dl class="attribute">
 <dt id="mvlearn.decomposition.GroupICA.components_">
 <code class="descname">components_</code><a class="headerlink" href="#mvlearn.decomposition.GroupICA.components_" title="Permalink to this definition">¶</a></dt>
-<dd><p>The square mixing matrix</p>
+<dd><p>The square unmixing matrix</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -970,7 +804,7 @@ features in the dataset <cite>i</cite>.</p>
 <table class="docutils footnote" frame="void" id="groupica" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[3]</td><td>Calhoun, Vince, et al. &quot;A method for making group
+<tr><td class="label">[2]</td><td>Calhoun, Vince, et al. &quot;A method for making group
 inferences from functional MRI data using independent
 component analysis.&quot;
 Human brain mapping 14.3 (2001): 140-151.</td></tr>
@@ -1353,7 +1187,7 @@ Allows to recover each original dataset from reduced data.</p>
 <table class="docutils footnote" frame="void" id="grouppca" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[4]</td><td>Calhoun, Vince, et al. &quot;A method for making group
+<tr><td class="label">[3]</td><td>Calhoun, Vince, et al. &quot;A method for making group
 inferences from functional MRI data using independent
 component analysis.&quot;
 Human brain mapping 14.3 (2001): 140-151.</td></tr>
@@ -1498,7 +1332,7 @@ X_transformed</p>
 <dt id="mvlearn.decomposition.AJIVE">
 <em class="property">class </em><code class="descclassname">mvlearn.decomposition.</code><code class="descname">AJIVE</code><span class="sig-paren">(</span><em>init_signal_ranks=None</em>, <em>joint_rank=None</em>, <em>individual_ranks=None</em>, <em>n_elbows=2</em>, <em>reconsider_joint_components=True</em>, <em>wedin_percentile=5</em>, <em>n_wedin_samples=1000</em>, <em>randdir_percentile=95</em>, <em>n_randdir_samples=1000</em>, <em>verbose=False</em>, <em>n_jobs=None</em>, <em>random_state=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/ajive.html#AJIVE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.AJIVE" title="Permalink to this definition">¶</a></dt>
 <dd><p>An implementation of Angle-based Joint and Individual Variation Explained
-<a class="footnote-reference" href="#id2" id="id1">[5]</a>. This algorithm takes multiple views and decomposes them into 3
+<a class="footnote-reference" href="#id2" id="id1">[4]</a>. This algorithm takes multiple views and decomposes them into 3
 distinct matrices representing:</p>
 <blockquote>
 <div><ul class="simple">
@@ -1856,7 +1690,7 @@ Ph.D.'s pip-installable package, <em>jive</em>, the code for which is
 <table class="docutils footnote" frame="void" id="id2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[5]</a></td><td>Feng, Qing, et al. “Angle-Based Joint and Individual
+<tr><td class="label"><a class="fn-backref" href="#id1">[4]</a></td><td>Feng, Qing, et al. “Angle-Based Joint and Individual
 Variation Explained.” Journal of Multivariate Analysis,
 vol. 166, 2018, pp. 241–265., doi:10.1016/j.jmva.2018.03.008.</td></tr>
 </tbody>

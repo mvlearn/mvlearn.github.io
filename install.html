@@ -92,7 +92,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#including-optional-torch-dependencies-for-full-functionality">Including optional torch dependencies for full functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#including-optional-dependencies-for-full-functionality">Including optional dependencies for full functionality</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
@@ -181,7 +181,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="references/decomposition.html">Decomposition</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="references/decomposition.html#multiview-ica">Multiview ICA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="references/decomposition.html#permutation-ica">Permutation ICA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="references/decomposition.html#group-ica">Group ICA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="references/decomposition.html#group-pca">Group PCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="references/decomposition.html#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
@@ -338,11 +337,11 @@
 <h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">mvlearn</span></code> can be installed by using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, GitHub, or through the conda-forge
 channel into an existing <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment.</p>
-<p><strong>IMPORTANT NOTE:</strong> <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code> has an optional dependency to <code class="docutils literal notranslate"><span class="pre">torch</span></code>
-and <code class="docutils literal notranslate"><span class="pre">tqdm</span></code>, so special instructions must be followed to include these
+<p><strong>IMPORTANT NOTE:</strong> <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code> has an optional dependencies for certain functions,
+and so special instructions must be followed to include these
 optional dependencies in the installation (if you do not have those packages already)
 in order to access all the features within <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code>.
-More details can be found in <a class="reference internal" href="#torchdependencyanchor"><span class="std std-ref">Including optional torch dependencies for full functionality</span></a>.</p>
+More details can be found in <a class="reference internal" href="#extradependencyanchor"><span class="std std-ref">Including optional dependencies for full functionality</span></a>.</p>
 <div class="section" id="installing-the-released-version-with-pip">
 <h2>Installing the released version with pip<a class="headerlink" href="#installing-the-released-version-with-pip" title="Permalink to this headline">¶</a></h2>
 <p>Below we assume you have the default Python3 environment already configured on
@@ -374,23 +373,29 @@ top-level source directory using the Terminal:</p>
 </pre></div>
 </div>
 <p>This will install <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code> and the required dependencies (see below).</p>
-<div class="section" id="including-optional-torch-dependencies-for-full-functionality">
-<span id="torchdependencyanchor"></span><h3>Including optional torch dependencies for full functionality<a class="headerlink" href="#including-optional-torch-dependencies-for-full-functionality" title="Permalink to this headline">¶</a></h3>
-<p>Due to the size of the <code class="docutils literal notranslate"><span class="pre">torch</span></code> dependency, it is an optional installation.
-Because it, and <code class="docutils literal notranslate"><span class="pre">tqdm</span></code>, are only used by Deep CCA and SplitAE, they are not
-included in the basic <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code> download.
-If you wish to use functionality associated with these dependencies (Deep CCA
-and SplitAE), you must install additional dependencies. You can install
-them independently, or to install everything from PyPI, simply call:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install mvlearn[torch]
+<div class="section" id="including-optional-dependencies-for-full-functionality">
+<span id="extradependencyanchor"></span><h3>Including optional dependencies for full functionality<a class="headerlink" href="#including-optional-dependencies-for-full-functionality" title="Permalink to this headline">¶</a></h3>
+<p>A small subset of functions require specific extra dependencies not installed
+by default with the core installation. Each bullet point denotes a collection
+of functions, with corresponding keyword enclosed in the brackets [].</p>
+<ul class="simple">
+<li>[torch]: <code class="docutils literal notranslate"><span class="pre">DCCA</span></code>, <code class="docutils literal notranslate"><span class="pre">SplitAE</span></code></li>
+<li>[multiviewica]: <code class="docutils literal notranslate"><span class="pre">MultiviewICA</span></code>, <code class="docutils literal notranslate"><span class="pre">GroupICA</span></code></li>
+</ul>
+<p>If you wish to use these functions, you must install their required
+dependencies. These are listed in the package requirements folder
+with corresponding keyword names
+for manual installation or can be installed from PyPI by simply calling:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install mvlearn[keyword]
 </pre></div>
 </div>
-<p>To upgrade the package and torch requirements:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install --upgrade mvlearn[torch]
+<p>where 'keyword' is from the list above, bracketed.
+To upgrade the package and torch requirements:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install --upgrade mvlearn[keyword]
 </pre></div>
 </div>
 <p>If you have the package locally, from the top level folder call:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install -e .[torch]
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install -e .[keyword]
 </pre></div>
 </div>
 </div>
@@ -399,7 +404,7 @@ them independently, or to install everything from PyPI, simply call:</p>
 <span id="condaanchor"></span><h2>Installing the released version with conda-forge<a class="headerlink" href="#installing-the-released-version-with-conda-forge" title="Permalink to this headline">¶</a></h2>
 <p>Here, we assume you have created a conda environment with one of the
 accepted python versions, and you intend to install the full <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code>
-release into it (with torch dependencies included). For more information
+release into it (with extra dependencies included). For more information
 about using conda-forge feedstocks, see the <a class="reference external" href="https://conda-forge.org/">about page</a>,
 or the <a class="reference external" href="https://github.com/conda-forge/mvlearn-feedstock">mvlearn feedstock</a>.</p>
 <p>To install <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code> with conda, run:</p>
@@ -425,10 +430,15 @@ or the <a class="reference external" href="https://github.com/conda-forge/mvlear
 <li>joblib &gt;=0.11</li>
 <li>python-picard &gt;= 0.4</li>
 </ul>
-<p>with optional dependencies</p>
+<p>with optional [torch] dependencies</p>
 <ul class="simple">
 <li>torch &gt;=1.1.0</li>
 <li>tqdm</li>
+</ul>
+<p>and optional [multiviewica] dependencies</p>
+<ul class="simple">
+<li>python-picard &gt;= 0.4</li>
+<li>multiviewica &gt;= 0.0.1</li>
 </ul>
 <p>Currently, <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code> is supported for Python 3.6, 3.7, and 3.8.</p>
 </div>
