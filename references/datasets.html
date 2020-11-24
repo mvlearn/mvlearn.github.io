@@ -32,7 +32,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Plotting" href="plotting.html" />
-    <link rel="prev" title="Preprocessing" href="preprocessing.html" /> 
+    <link rel="prev" title="Compose" href="compose.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -115,6 +115,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_kmeans_validation_complex.html">Conditional Independence of Views on Multiview KMeans Clustering</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-compose">Examples on compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/compose/plot_multiview_construction.html">Constructing multiple views to classify singleview data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/compose/plot_pipeline_sklearn_integration.html">Integrating mvlearn with scikit-learn</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-datasets">Examples on datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/datasets/plot_gaussianmixtures.html">Generating Multiview Data from Gaussian Mixtures</a></li>
@@ -137,10 +142,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_kmcca_tutorial.html">Kernel MCCA (KMCCA) Tutorial</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../auto_examples/pipeline/plot_pipeline_sklearn_integration.html">Integrating mvlearn with scikit-learn</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-plotting">Examples on plotting</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/plotting/plot_quick_visualize_tutorial.html">Quickly Visualizing Multiview Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/plotting/plot_crossviews_plot.html">Plotting Multiview Data with a Cross-view Plot</a></li>
@@ -154,18 +155,6 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="cluster.html">Clustering</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cluster.html#multiview-spectral-clustering">Multiview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cluster.html#co-regularized-multiview-spectral-clustering">Co-Regularized Multiview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cluster.html#multiview-k-means">Multiview K Means</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cluster.html#multiview-spherical-k-means">Multiview Spherical K Means</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="semi_supervised.html">Semi-Supervised</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="semi_supervised.html#cotraining-classifier">Cotraining Classifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="semi_supervised.html#cotraining-regressor">Cotraining Regressor</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="embed.html">Embedding</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="embed.html#canonical-correlation-analysis-cca">Canonical Correlation Analysis (CCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embed.html#multiview-canonical-correlation-analysis-mcca">Multiview Canonical Correlation Analysis (MCCA)</a></li>
@@ -186,6 +175,18 @@
 <li class="toctree-l3"><a class="reference internal" href="decomposition.html#angle-based-joint-and-individual-variation-explained-ajive">Angle-Based Joint and Individual Variation Explained (AJIVE)</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="cluster.html">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cluster.html#multiview-spectral-clustering">Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cluster.html#co-regularized-multiview-spectral-clustering">Co-Regularized Multiview Spectral Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cluster.html#multiview-k-means">Multiview K Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cluster.html#multiview-spherical-k-means">Multiview Spherical K Means</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="semi_supervised.html">Semi-Supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="semi_supervised.html#cotraining-classifier">Cotraining Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="semi_supervised.html#cotraining-regressor">Cotraining Regressor</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="model_selection.html">Model Selection</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="model_selection.html#cross-validation">Cross Validation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="model_selection.html#train-test-split">Train-Test Split</a></li>
@@ -194,13 +195,11 @@
 <li class="toctree-l2"><a class="reference internal" href="compose.html">Compose</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="compose.html#averagemerger">AverageMerger</a></li>
 <li class="toctree-l3"><a class="reference internal" href="compose.html#concatmerger">ConcatMerger</a></li>
-<li class="toctree-l3"><a class="reference internal" href="compose.html#random-gaussian-projection">Random Gaussian Projection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="compose.html#random-subspace-method">Random Subspace Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compose.html#randomgaussianprojection">RandomGaussianProjection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compose.html#randomsubspacemethod">RandomSubspaceMethod</a></li>
 <li class="toctree-l3"><a class="reference internal" href="compose.html#simplesplitter">SimpleSplitter</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">Preprocessing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="preprocessing.html#viewtransformer">ViewTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compose.html#viewclassifier">ViewClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compose.html#viewtransformer">ViewTransformer</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Multiview Datasets</a><ul>
@@ -247,11 +246,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../changelog.html#id1">mvlearn.compose</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id6">mvlearn.compose</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id8">mvlearn.decomposition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id10">mvlearn.embed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id14">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id17">mvlearn.preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id9">mvlearn.construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id11">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id13">mvlearn.embed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id17">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id20">mvlearn.utils</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -665,7 +664,7 @@ linearly increasing following (Choi et al. 2017) section 2.2.3.</p>
         <a href="plotting.html" class="btn btn-neutral float-right" title="Plotting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="preprocessing.html" class="btn btn-neutral" title="Preprocessing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="compose.html" class="btn btn-neutral" title="Compose" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
