@@ -32,7 +32,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Omnbius Graph Embedding" href="plot_omnibus_embedding.html" />
-    <link rel="prev" title="Multiview CCA Tutorial" href="plot_mcca_tutorial.html" /> 
+    <link rel="prev" title="CCA Tutorial" href="plot_mcca_tutorial.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -128,13 +128,13 @@
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#examples-on-embed">Examples on embed</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mcca_tutorial.html">Multiview CCA Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mcca_tutorial.html">CCA Tutorial</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Deep CCA (DCCA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_kmcca_pgso_tutorial.html">Partial Gram-Schmidt Orthogonalization (PGSO) for KMCCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_cca_comparison.html">Comparing CCA Variants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICD) for KCCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_kcca_tutorial.html">Kernel CCA (KCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_kmcca_tutorial.html">Kernel MCCA (KMCCA) Tutorial</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-pipeline">Examples on pipeline</a><ul>
@@ -167,11 +167,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#canonical-correlation-analysis-cca">Canonical Correlation Analysis (CCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#multiview-canonical-correlation-analysis-mcca">Multiview Canonical Correlation Analysis (MCCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#kernel-mcca">Kernel MCCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#generalized-canonical-correlation-analysis-gcca">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#deep-canonical-correlation-analysis-dcca">Deep Canonical Correlation Analysis (DCCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
@@ -250,8 +250,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id6">mvlearn.compose</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id8">mvlearn.decomposition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id10">mvlearn.embed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id12">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id15">mvlearn.preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id14">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id17">mvlearn.preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -474,7 +474,7 @@ transformed and untransformed latents.</p>
 </pre></div>
 </div>
 <img alt="Transformed Testing Data View 1 vs. View 2 (Sinusoidal Transform + noise)" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_dcca_tutorial_005.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  50.133 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  35.298 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-embed-plot-dcca-tutorial-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <a class="reference download internal" download="" href="../../_downloads/90233127fa5fa8911b44eb58bb3540ed/plot_dcca_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_dcca_tutorial.py</span></code></a></div>
@@ -496,7 +496,7 @@ transformed and untransformed latents.</p>
         <a href="plot_omnibus_embedding.html" class="btn btn-neutral float-right" title="Omnbius Graph Embedding" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="plot_mcca_tutorial.html" class="btn btn-neutral" title="Multiview CCA Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_mcca_tutorial.html" class="btn btn-neutral" title="CCA Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

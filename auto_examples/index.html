@@ -128,13 +128,13 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#examples-on-embed">Examples on embed</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="embed/plot_mcca_tutorial.html">Multiview CCA Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embed/plot_mcca_tutorial.html">CCA Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embed/plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embed/plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embed/plot_kmcca_pgso_tutorial.html">Partial Gram-Schmidt Orthogonalization (PGSO) for KMCCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICD) for KCCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="embed/plot_kcca_tutorial.html">Kernel CCA (KCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embed/plot_kmcca_tutorial.html">Kernel MCCA (KMCCA) Tutorial</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#examples-on-pipeline">Examples on pipeline</a><ul>
@@ -167,11 +167,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../references/embed.html#canonical-correlation-analysis-cca">Canonical Correlation Analysis (CCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/embed.html#multiview-canonical-correlation-analysis-mcca">Multiview Canonical Correlation Analysis (MCCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/embed.html#kernel-mcca">Kernel MCCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../references/embed.html#generalized-canonical-correlation-analysis-gcca">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../references/embed.html#deep-canonical-correlation-analysis-dcca">Deep Canonical Correlation Analysis (DCCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
@@ -250,8 +250,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../changelog.html#id6">mvlearn.compose</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../changelog.html#id8">mvlearn.decomposition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../changelog.html#id10">mvlearn.embed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id12">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id15">mvlearn.preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id14">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id17">mvlearn.preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -438,9 +438,9 @@ can be done with the mvlearn library.</p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates the use of multiview CCA, which allows for greater than two views. A..."><div class="figure" id="id16">
-<img alt="Multiview CCA Tutorial" src="../_images/sphx_glr_plot_mcca_tutorial_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_mcca_tutorial.html#sphx-glr-auto-examples-embed-plot-mcca-tutorial-py"><span class="std std-ref">Multiview CCA Tutorial</span></a></span></p>
+<div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates the use of CCA for 2 views and multiview CCA (MCCA) for more than 2 ..."><div class="figure" id="id16">
+<img alt="CCA Tutorial" src="../_images/sphx_glr_plot_mcca_tutorial_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_mcca_tutorial.html#sphx-glr-auto-examples-embed-plot-mcca-tutorial-py"><span class="std std-ref">CCA Tutorial</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
@@ -456,27 +456,27 @@ can be done with the mvlearn library.</p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="MVMDS is a useful multiview dimensionaltiy reduction algorithm that allows the user to perform ..."><div class="figure" id="id19">
+<div class="sphx-glr-thumbcontainer" tooltip="Kernel matrices grow exponentially with the size of the data. There are immense storage and run..."><div class="figure" id="id19">
+<img alt="Partial Gram-Schmidt Orthogonalization (PGSO) for KMCCA" src="../_images/sphx_glr_plot_kmcca_pgso_tutorial_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_kmcca_pgso_tutorial.html#sphx-glr-auto-examples-embed-plot-kmcca-pgso-tutorial-py"><span class="std std-ref">Partial Gram-Schmidt Orthogonalization (PGSO) for KMCCA</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="MVMDS is a useful multiview dimensionaltiy reduction algorithm that allows the user to perform ..."><div class="figure" id="id20">
 <img alt="Multidimensional Scaling (MVMDS) Tutorial" src="../_images/sphx_glr_plot_mvmds_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_mvmds_tutorial.html#sphx-glr-auto-examples-embed-plot-mvmds-tutorial-py"><span class="std std-ref">Multidimensional Scaling (MVMDS) Tutorial</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="This tutorial shows a comparison of Kernel Canonical Correlation Analysis (KCCA) with three dif..."><div class="figure" id="id20">
+<div class="sphx-glr-thumbcontainer" tooltip="This tutorial shows a comparison of Canonical Correlation Analysis (CCA), Kernel CCA (KCCA) wit..."><div class="figure" id="id21">
 <img alt="Comparing CCA Variants" src="../_images/sphx_glr_plot_cca_comparison_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_cca_comparison.html#sphx-glr-auto-examples-embed-plot-cca-comparison-py"><span class="std std-ref">Comparing CCA Variants</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Kernel matrices grow exponentially with the size of the data. There are immense storage and run..."><div class="figure" id="id21">
-<img alt="Incomplete Cholesky Decomposition (ICD) for KCCA" src="../_images/sphx_glr_plot_kcca_icd_tutorial_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_kcca_icd_tutorial.html#sphx-glr-auto-examples-embed-plot-kcca-icd-tutorial-py"><span class="std std-ref">Incomplete Cholesky Decomposition (ICD) for KCCA</span></a></span></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="KCCA is a variant of Canonical Correlation Analysis that can use a nonlinear kernel to uncover ..."><div class="figure" id="id22">
-<img alt="Kernel CCA (KCCA) Tutorial" src="../_images/sphx_glr_plot_kcca_tutorial_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_kcca_tutorial.html#sphx-glr-auto-examples-embed-plot-kcca-tutorial-py"><span class="std std-ref">Kernel CCA (KCCA) Tutorial</span></a></span></p>
+<div class="sphx-glr-thumbcontainer" tooltip="KMCCA is a variant of Canonical Correlation Analysis that can use a nonlinear kernel to uncover..."><div class="figure" id="id22">
+<img alt="Kernel MCCA (KMCCA) Tutorial" src="../_images/sphx_glr_plot_kmcca_tutorial_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_kmcca_tutorial.html#sphx-glr-auto-examples-embed-plot-kmcca-tutorial-py"><span class="std std-ref">Kernel MCCA (KMCCA) Tutorial</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>

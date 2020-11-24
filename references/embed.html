@@ -128,13 +128,13 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_mcca_tutorial.html">Multiview CCA Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_mcca_tutorial.html">CCA Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_kmcca_pgso_tutorial.html">Partial Gram-Schmidt Orthogonalization (PGSO) for KMCCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICD) for KCCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_kcca_tutorial.html">Kernel CCA (KCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_kmcca_tutorial.html">Kernel MCCA (KMCCA) Tutorial</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
@@ -167,11 +167,11 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#canonical-correlation-analysis-cca">Canonical Correlation Analysis (CCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#multiview-canonical-correlation-analysis-mcca">Multiview Canonical Correlation Analysis (MCCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#kernel-mcca">Kernel MCCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generalized-canonical-correlation-analysis-gcca">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deep-canonical-correlation-analysis-dcca">Deep Canonical Correlation Analysis (DCCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#omnibus-embedding">Omnibus Embedding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#split-autoencoder">Split Autoencoder</a></li>
@@ -250,8 +250,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../changelog.html#id6">mvlearn.compose</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../changelog.html#id8">mvlearn.decomposition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../changelog.html#id10">mvlearn.embed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id12">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id15">mvlearn.preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id14">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id17">mvlearn.preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -337,6 +337,485 @@
             
   <div class="section" id="embedding">
 <h1>Embedding<a class="headerlink" href="#embedding" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="canonical-correlation-analysis-cca">
+<h2>Canonical Correlation Analysis (CCA)<a class="headerlink" href="#canonical-correlation-analysis-cca" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mvlearn.embed.CCA">
+<em class="property">class </em><code class="descclassname">mvlearn.embed.</code><code class="descname">CCA</code><span class="sig-paren">(</span><em>n_components=1</em>, <em>regs=None</em>, <em>signal_ranks=None</em>, <em>center=True</em>, <em>i_mcca_method='auto'</em>, <em>multiview_output=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/cca.html#CCA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.CCA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Canonical Correlation Analysis (CCA)</p>
+<p>CCA inherits from MultiCCA (MCCA) but is restricted to 2 views which
+allows for certain statistics to be computed about the results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n_components</strong> (<em>int | 'min' | 'max' | None</em><em> (</em><em>default 1</em><em>)</em>) -- Number of final components to compute. If <cite>int</cite>, will compute that
+many. If None, will compute as many as possible. 'min' and 'max' will
+respectively use the minimum/maximum number of features among views.</li>
+<li><strong>regs</strong> (<em>float | 'lw' | 'oas' | None</em><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>optional</em><em> (</em><em>default None</em><em>)</em>) -- <p>MCCA regularization for each data view, which can be important
+for high dimensional data. A list will specify for each view
+separately. If float, must be between 0 and 1 (inclusive).</p>
+<ul>
+<li>0 or None : corresponds to SUMCORR-AVGVAR MCCA.</li>
+<li>1 : partial least squares SVD (generalizes to more than 2 views)</li>
+<li>'lw' : Default <code class="docutils literal notranslate"><span class="pre">sklearn.covariance.ledoit_wolf</span></code> regularization</li>
+<li>'oas' : Default <code class="docutils literal notranslate"><span class="pre">sklearn.covariance.oas</span></code> regularization</li>
+</ul>
+</li>
+<li><strong>signal_ranks</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>optional</em><em> (</em><em>default None</em><em>)</em>) -- The initial signal rank to compute. If None, will compute the full SVD.
+A list will specify for each view separately.</li>
+<li><strong>center</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em> (</em><em>default True</em><em>)</em>) -- Whether or not to initially mean center the data. A list will specify
+for each view separately.</li>
+<li><strong>i_mcca_method</strong> (<em>'auto' | 'svd' | 'gevp'</em><em> (</em><em>default 'auto'</em><em>)</em>) -- Whether or not to use the SVD based method (only works with no
+regularization) or the gevp based method for informative MCCA.</li>
+<li><strong>multiview_output</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em><em> (</em><em>default True</em><em>)</em>) -- If True, the <code class="docutils literal notranslate"><span class="pre">.transform</span></code> method returns one dataset per view.
+Otherwise, it returns one dataset, of shape (n_samples, n_components)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="mvlearn.embed.CCA.means_">
+<code class="descname">means_</code><a class="headerlink" href="#mvlearn.embed.CCA.means_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The means of each view, each of shape (n_features,)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of numpy.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.embed.CCA.loadings_">
+<code class="descname">loadings_</code><a class="headerlink" href="#mvlearn.embed.CCA.loadings_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The loadings for each view used to project new data,
+each of shape (n_features_b, n_components).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of numpy.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.embed.CCA.common_score_norms_">
+<code class="descname">common_score_norms_</code><a class="headerlink" href="#mvlearn.embed.CCA.common_score_norms_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Column norms of the sum of the fitted view scores.
+Used for projecting new data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_components,)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.embed.CCA.evals_">
+<code class="descname">evals_</code><a class="headerlink" href="#mvlearn.embed.CCA.evals_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The generalized eigenvalue problem eigenvalues.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_components,)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.embed.CCA.n_views_">
+<code class="descname">n_views_</code><a class="headerlink" href="#mvlearn.embed.CCA.n_views_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of views</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.embed.CCA.n_features_">
+<code class="descname">n_features_</code><a class="headerlink" href="#mvlearn.embed.CCA.n_features_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of features in each fitted view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.embed.CCA.n_components_">
+<code class="descname">n_components_</code><a class="headerlink" href="#mvlearn.embed.CCA.n_components_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of components in each transformed view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA"><code class="xref py py-class docutils literal notranslate"><span class="pre">MCCA</span></code></a>, <a class="reference internal" href="#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA"><code class="xref py py-class docutils literal notranslate"><span class="pre">KMCCA</span></code></a></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="cca" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Kettenring, J. R., &quot;Canonical Analysis of Several Sets of
+Variables.&quot; Biometrika, 58 (1971), pp. 433-451</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Tenenhaus, A., et al. &quot;Regularized generalized canonical
+correlation analysis.&quot; Psychometrika, 76(2):257.</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.embed</span> <span class="kn">import</span> <span class="n">CCA</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X1</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="mf">2.</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span><span class="mf">5.</span><span class="p">,</span><span class="mf">4.</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X2</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.2</span><span class="p">,</span> <span class="mf">5.9</span><span class="p">],</span> <span class="p">[</span><span class="mf">11.9</span><span class="p">,</span> <span class="mf">12.3</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cca</span> <span class="o">=</span> <span class="n">CCA</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cca</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">])</span>
+<span class="go">CCA()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs_scores</span> <span class="o">=</span> <span class="n">cca</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">])</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="mvlearn.embed.CCA.stats">
+<code class="descname">stats</code><span class="sig-paren">(</span><em>scores</em>, <em>stat=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/cca.html#CCA.stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.CCA.stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute relevant statistics from the fitted CCA.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>scores</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>2</em><em>, </em><em>n_samples</em><em>, </em><em>n_components</em><em>)</em>) -- The CCA scores.</li>
+<li><strong>stat</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em><em> (</em><em>default None</em><em>)</em>) -- <p>The statistic to return. If None, returns a dictionary of all
+statistics. Otherwise, specifies one of the following statistics</p>
+<ul>
+<li><dl class="first docutils">
+<dt>'r' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
+<dd>Canonical correlations of each component.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>'Wilks' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
+<dd>Wilks' Lambda likelihood ratio statistic.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>'df1' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
+<dd>Degrees of freedom for the chi-squared statistic, and
+the numerator degrees of freedom for the F statistic.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>'df2' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
+<dd>Denominator degrees of freedom for the F statistic.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>'F' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
+<dd>Rao's approximate F statistic for H_0(k).</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>'pF' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
+<dd>Right-tail pvalue for stats['F'].</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>'chisq' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
+<dd>Bartlett's approximate chi-squared statistic for H_0(k)
+with Lawley's modification.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>'pChisq' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
+<dd>Right-tail pvalue for stats['chisq'].</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>stats</strong> -- Dict containing the statistics with keys specified above or
+one of the statistics if specified by the <cite>stat</cite> parameter.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.embed.CCA.canon_corrs">
+<code class="descname">canon_corrs</code><span class="sig-paren">(</span><em>scores</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.embed.CCA.canon_corrs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the canonical correlations between scores from all views.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scores</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n_views</em><em>, </em><em>n_samples</em><em>, </em><em>n_components</em><em>)</em>) -- The CCA scores.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>r</strong> -- The canonical correlations between each component. If more than
+two views, returns the correlation matrices.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_components,)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.embed.CCA.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.embed.CCA.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Learns decompositions of the views.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+<p>The data to fit to.</p>
+</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) -- Ignored variable.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong> -- Returns the instance itself.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)">object</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.embed.CCA.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.embed.CCA.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit CCA to the data and transforms the data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+<p>The views to fit and transform</p>
+</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) -- Ignored variable.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Xs_scores</strong> -- If <cite>multiview_output</cite>, returns the normed sum of transformed views</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.embed.CCA.inverse_transform">
+<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>scores</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.embed.CCA.inverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms scores back to the original space.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scores</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n_views</em><em>, </em><em>n_samples</em><em>, </em><em>n_components</em><em>)</em>) -- The CCA scores.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs_hat</strong> --<ul class="simple">
+<li>Xs_hat length: n_views</li>
+<li>Xs_hat[i] shape: (n_samples, n_features_i)</li>
+</ul>
+<p>The reconstructed views</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of array-likes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.embed.CCA.inverse_transform_view">
+<code class="descname">inverse_transform_view</code><span class="sig-paren">(</span><em>scores</em>, <em>view</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.embed.CCA.inverse_transform_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms scores back to the original space.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>scores</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_components</em><em>)</em>) -- The scores</li>
+<li><strong>view</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) -- The numeric index of the single view X with respect to the fitted
+views.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>X_hat</strong> -- The reconstructed view</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_samples, n_features)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.embed.CCA.score">
+<code class="descname">score</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.embed.CCA.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the sums of squared reconstruction errors for all views.</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[||X_{hat} - X||_2^2\]</div>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+<p>The views to reconstruct and score</p>
+</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) -- Ignored variable.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>sse</strong> -- Sums of squared reconstruction errors. If
+<code class="docutils literal notranslate"><span class="pre">self.multiview_output</span></code> is True, then the mean score is
+returned.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_views,)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.embed.CCA.score_view">
+<code class="descname">score_view</code><span class="sig-paren">(</span><em>X</em>, <em>view</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.embed.CCA.score_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the sum of squared reconstruction error for a view.</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[||X_{hat} - X||_2^2\]</div>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) -- The view to reconstruct and score</li>
+<li><strong>view</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) -- The numeric index of the single view Xs with respect to the fitted
+views.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>sse</strong> -- Sum of squared reconstruction errors</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.embed.CCA.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.embed.CCA.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform the views, projecting them using fitted loadings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+<p>The views to transform</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs_scores</strong> -- If <cite>multiview_output</cite>, returns the normed sum of transformed views</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.embed.CCA.transform_view">
+<code class="descname">transform_view</code><span class="sig-paren">(</span><em>X</em>, <em>view</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.embed.CCA.transform_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform a view, projecting it using fitted loadings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) -- The view to transform</li>
+<li><strong>view</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) -- The numeric index of the single view X with respect to the fitted
+views.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>X_scores</strong> -- Transformed view</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_samples, n_components)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="multiview-canonical-correlation-analysis-mcca">
 <h2>Multiview Canonical Correlation Analysis (MCCA)<a class="headerlink" href="#multiview-canonical-correlation-analysis-mcca" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -484,25 +963,26 @@ Used for projecting new data</p>
 <table class="docutils footnote" frame="void" id="mcca" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[1]</td><td>Kettenring, J. R., &quot;Canonical Analysis of Several Sets of
+<tr><td class="label">[3]</td><td>Kettenring, J. R., &quot;Canonical Analysis of Several Sets of
 Variables.&quot; Biometrika, 58 (1971), pp. 433-451</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id1" rules="none">
+<table class="docutils footnote" frame="void" id="id2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[2]</td><td>Tenenhaus, A., et al. &quot;Regularized generalized canonical
+<tr><td class="label">[4]</td><td>Tenenhaus, A., et al. &quot;Regularized generalized canonical
 correlation analysis.&quot; Psychometrika, 76(2):257.</td></tr>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.embed</span> <span class="kn">import</span> <span class="n">MCCA</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">X1</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="mf">2.</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span><span class="mf">5.</span><span class="p">,</span><span class="mf">4.</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X2</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.2</span><span class="p">,</span> <span class="mf">5.9</span><span class="p">],</span> <span class="p">[</span><span class="mf">11.9</span><span class="p">,</span> <span class="mf">12.3</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X3</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,],</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mcca</span> <span class="o">=</span> <span class="n">MCCA</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mcca</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mcca</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">X3</span><span class="p">])</span>
 <span class="go">MCCA()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs_scores</span> <span class="o">=</span> <span class="n">mcca</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs_scores</span> <span class="o">=</span> <span class="n">mcca</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">X3</span><span class="p">])</span>
 </pre></div>
 </div>
 <dl class="method">
@@ -513,7 +993,7 @@ correlation analysis.&quot; Psychometrika, 76(2):257.</td></tr>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scores</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_components</em><em>)</em>) -- The CCA scores.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scores</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n_views</em><em>, </em><em>n_samples</em><em>, </em><em>n_components</em><em>)</em>) -- The CCA scores.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs_hat</strong> --<ul class="simple">
 <li>Xs_hat length: n_views</li>
@@ -612,6 +1092,25 @@ views.</li>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.embed.MCCA.canon_corrs">
+<code class="descname">canon_corrs</code><span class="sig-paren">(</span><em>scores</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.embed.MCCA.canon_corrs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the canonical correlations between scores from all views.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scores</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n_views</em><em>, </em><em>n_samples</em><em>, </em><em>n_components</em><em>)</em>) -- The CCA scores.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>r</strong> -- The canonical correlations between each component. If more than
+two views, returns the correlation matrices.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_components,)</td>
 </tr>
 </tbody>
 </table>
@@ -730,7 +1229,7 @@ views.</li>
 <h2>Kernel MCCA<a class="headerlink" href="#kernel-mcca" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="mvlearn.embed.KMCCA">
-<em class="property">class </em><code class="descclassname">mvlearn.embed.</code><code class="descname">KMCCA</code><span class="sig-paren">(</span><em>n_components=1</em>, <em>kernel='linear'</em>, <em>kernel_params={}</em>, <em>regs=None</em>, <em>signal_ranks=None</em>, <em>sval_thresh=0.001</em>, <em>diag_mode='A'</em>, <em>center=True</em>, <em>filter_params=False</em>, <em>n_jobs=None</em>, <em>multiview_output=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/kmcca.html#KMCCA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.KMCCA" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mvlearn.embed.</code><code class="descname">KMCCA</code><span class="sig-paren">(</span><em>n_components=1</em>, <em>kernel='linear'</em>, <em>kernel_params={}</em>, <em>regs=None</em>, <em>signal_ranks=None</em>, <em>sval_thresh=0.001</em>, <em>diag_mode='A'</em>, <em>center=True</em>, <em>filter_params=False</em>, <em>n_jobs=None</em>, <em>multiview_output=True</em>, <em>pgso=False</em>, <em>tol=0.1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/kmcca.html#KMCCA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.KMCCA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Kernel multi-view canonical correlation analysis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -756,10 +1255,10 @@ singular gram matrices.</li>
 <li><strong>diag_mode</strong> (<em>'A' | 'B' | 'C'</em><em> (</em><em>default 'A'</em><em>)</em>) -- <p>Method of regularizing singular values <cite>s</cite> with regularization
 parameter <cite>r</cite></p>
 <ul>
-<li>'A' : <span class="math notranslate nohighlight">\((1 - r) * K^2 + r * K\)</span> <a class="footnote-reference" href="#kmcca" id="id2">[3]</a></li>
+<li>'A' : <span class="math notranslate nohighlight">\((1 - r) * K^2 + r * K\)</span> <a class="footnote-reference" href="#kmcca" id="id3">[5]</a></li>
 <li>'B' : <span class="math notranslate nohighlight">\((1-r) (K + n/2 \kappa * I)^2\)</span> where
-<span class="math notranslate nohighlight">\(\kappa = r / (1 - r)\)</span> <a class="footnote-reference" href="#id5" id="id3">[4]</a></li>
-<li>'C' : <span class="math notranslate nohighlight">\((1 - r) K^2 + r * I_n\)</span> <a class="footnote-reference" href="#id6" id="id4">[5]</a></li>
+<span class="math notranslate nohighlight">\(\kappa = r / (1 - r)\)</span> <a class="footnote-reference" href="#id7" id="id4">[6]</a></li>
+<li>'C' : <span class="math notranslate nohighlight">\((1 - r) K^2 + r * I_n\)</span> <a class="footnote-reference" href="#id8" id="id5">[7]</a></li>
 </ul>
 </li>
 <li><strong>center</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em> (</em><em>default True</em><em>)</em>) -- Whether or not to initially mean center the data. A list will
@@ -769,6 +1268,10 @@ specify for each view separately.</li>
 See <code class="docutils literal notranslate"><span class="pre">sklearn.metrics.pairwise.pairwise_kernels</span></code> documentation.</li>
 <li><strong>multiview_output</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em><em> (</em><em>default True</em><em>)</em>) -- If True, the <code class="docutils literal notranslate"><span class="pre">.transform</span></code> method returns one dataset per view.
 Otherwise, it returns one dataset, of shape (n_samples, n_components)</li>
+<li><strong>pgso</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em><em> (</em><em>default False</em><em>)</em>) -- If True, computes a partial Gram-Schmidt orthogonalization
+approximation of the kernel matrices to the given tolerance.</li>
+<li><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em> (</em><em>default 0.1</em><em>)</em>) -- The minimum matrix trace difference between a kernel matrix and its
+computed pgso approximation, relative to the kernel trace.</li>
 </ul>
 </td>
 </tr>
@@ -851,7 +1354,7 @@ Useful for projecting new data</p>
 <dd><ul class="simple">
 <li>Xs[i] shape (n_samples, n_features_i)</li>
 </ul>
-<p>The original data matrices for use in gram matrix computation
+<p>The original data matrices for use in kernel matrix computation
 during calls to <code class="docutils literal notranslate"><span class="pre">.transform</span></code>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -905,6 +1408,120 @@ during calls to <code class="docutils literal notranslate"><span class="pre">.tr
 </table>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="mvlearn.embed.KMCCA.pgso_Ls_">
+<code class="descname">pgso_Ls_</code><a class="headerlink" href="#mvlearn.embed.KMCCA.pgso_Ls_" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li>pgso_Ls_[i] shape (n_samples, rank_i)</li>
+</ul>
+<p>The Gram-Schmidt approximations of the kernel matrices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of numpy.ndarray, length (n_views,)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.embed.KMCCA.pgso_norms_">
+<code class="descname">pgso_norms_</code><a class="headerlink" href="#mvlearn.embed.KMCCA.pgso_norms_" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li>pgso_norms_[i] shape (rank_i,)</li>
+</ul>
+<p>The maximum norms found during the Gram-Schmidt procedure, descending</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of numpy.ndarray, length (n_views,)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.embed.KMCCA.pgso_idxs_">
+<code class="descname">pgso_idxs_</code><a class="headerlink" href="#mvlearn.embed.KMCCA.pgso_idxs_" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li>pgso_idxs_[i] shape (rank_i,)</li>
+</ul>
+<p>The sample indices of the maximum norms</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of numpy.ndarray, length (n_views,)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.embed.KMCCA.pgso_Xs_">
+<code class="descname">pgso_Xs_</code><a class="headerlink" href="#mvlearn.embed.KMCCA.pgso_Xs_" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li>pgso_Xs_[i] shape (rank_i, n_features)</li>
+</ul>
+<p>The samples with indices saved in <a href="#id21"><span class="problematic" id="id22">pgso_idxs_</span></a>, sorted by <a href="#id23"><span class="problematic" id="id24">pgso_norms_</span></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of numpy.ndarray, length (n_views,)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mvlearn.embed.KMCCA.pgso_ranks_">
+<code class="descname">pgso_ranks_</code><a class="headerlink" href="#mvlearn.embed.KMCCA.pgso_ranks_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ranks of the partial Gram-Schmidt results for each view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>, length (n_views,)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p class="rubric">Notes</p>
+<p>Traditional CCA aims to find useful projections of features in each view
+of data, computing a weighted sum, but may not extract useful descriptors
+of the data because of its linearity. KMCCA offers an alternative solution
+by first projecting the data onto a higher dimensional feature space.</p>
+<div class="math notranslate nohighlight">
+\[\phi: \mathbf{x} = (x_1,...,x_m) \mapsto
+\phi(\mathbf{x}) = (z_1,...,z_N),
+(m &lt;&lt; N)\]</div>
+<p>before performing CCA in the new feature space.</p>
+<p>Kernels are effectively distance functions that compute inner products in
+the higher dimensional feature space, a method known as the kernel trick.
+A kernel function K, such that for all <span class="math notranslate nohighlight">\(\mathbf{x},
+\mathbf{z} \in X\)</span></p>
+<div class="math notranslate nohighlight">
+\[K(\mathbf{x}, \mathbf{z}) = \langle\phi(\mathbf{x})
+\cdot \phi(\mathbf{z})\rangle.\]</div>
+<p>The kernel matrix <span class="math notranslate nohighlight">\(K_i\)</span> has entries computed from the kernel
+function. Using the kernel trick, loadings of the kernel matrix
+(<a href="#id25"><span class="problematic" id="id26">dual_vars_</span></a>) are solved for rather than of the features from <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
+<p>Kernel matrices grow exponentially with the size of data. They not only
+have to store <span class="math notranslate nohighlight">\(n^2\)</span> elements, but also face the complexity of matrix
+eigenvalue problems. In a Cholesky decomposition a positive definite
+matrix K is decomposed to a lower triangular matrix <span class="math notranslate nohighlight">\(L\)</span> :
+<span class="math notranslate nohighlight">\(K = LL'\)</span>.</p>
+<p>The dual partial Gram-Schmidt orthogonalization (PSGO) is equivalent to the
+Incomplete Cholesky Decomposition (ICD) which looks for a low rank
+approximation of <span class="math notranslate nohighlight">\(L\)</span>, reducing the cost of operations of the matrix
+such that <span class="math notranslate nohighlight">\(\frac{1}{\sum_i K_{ii}} tr(K - LL^T) \leq tol\)</span>.</p>
+<p>A PSGO tolerance yielding rank <span class="math notranslate nohighlight">\(m\)</span> leads to storage requirements of
+<span class="math notranslate nohighlight">\(O(mn)\)</span> instead of <span class="math notranslate nohighlight">\(O(n^2)\)</span> and becomes <span class="math notranslate nohighlight">\(O(nm^2)\)</span> instead
+of <span class="math notranslate nohighlight">\(O(n^3)\)</span> <a class="footnote-reference" href="#id8" id="id6">[7]</a>.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference internal" href="#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA"><code class="xref py py-class docutils literal notranslate"><span class="pre">MCCA</span></code></a></p>
@@ -913,33 +1530,34 @@ during calls to <code class="docutils literal notranslate"><span class="pre">.tr
 <table class="docutils footnote" frame="void" id="kmcca" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[3]</a></td><td>Hardoon D., et al. &quot;Canonical Correlation Analysis: An
+<tr><td class="label"><a class="fn-backref" href="#id3">[5]</a></td><td>Hardoon D., et al. &quot;Canonical Correlation Analysis: An
 Overview with Application to Learning Methods&quot;, Neural
 Computation, Volume 16 (12), pp 2639-2664, 2004.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id5" rules="none">
+<table class="docutils footnote" frame="void" id="id7" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[4]</a></td><td>Bach, F. and Jordan, M. &quot;Kernel Independent Component
+<tr><td class="label"><a class="fn-backref" href="#id4">[6]</a></td><td>Bach, F. and Jordan, M. &quot;Kernel Independent Component
 Analysis.&quot; JMLR, 3(Jul):1-48, 2002.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id6" rules="none">
+<table class="docutils footnote" frame="void" id="id8" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[5]</a></td><td>Kuss, M. and Graepel, T.. &quot;The Geometry of Kernel Canonical
+<tr><td class="label">[7]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id6">2</a>)</em> Kuss, M. and Graepel, T.. &quot;The Geometry of Kernel Canonical
 Correlation Analysis.&quot; MPI Technical Report, 108. (2003).</td></tr>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.embed</span> <span class="kn">import</span> <span class="n">KMCCA</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">X1</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="mf">2.</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span><span class="mf">5.</span><span class="p">,</span><span class="mf">4.</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X2</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.2</span><span class="p">,</span> <span class="mf">5.9</span><span class="p">],</span> <span class="p">[</span><span class="mf">11.9</span><span class="p">,</span> <span class="mf">12.3</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X3</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,],</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">kmcca</span> <span class="o">=</span> <span class="n">KMCCA</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">kmcca</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kmcca</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">X3</span><span class="p">])</span>
 <span class="go">KMCCA()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs_scores</span> <span class="o">=</span> <span class="n">kmcca</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs_scores</span> <span class="o">=</span> <span class="n">kmcca</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">X3</span><span class="p">])</span>
 </pre></div>
 </div>
 <dl class="method">
@@ -962,6 +1580,25 @@ views.</li>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_samples, n_components)</p>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.embed.KMCCA.canon_corrs">
+<code class="descname">canon_corrs</code><span class="sig-paren">(</span><em>scores</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.embed.KMCCA.canon_corrs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the canonical correlations between scores from all views.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scores</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n_views</em><em>, </em><em>n_samples</em><em>, </em><em>n_components</em><em>)</em>) -- The CCA scores.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>r</strong> -- The canonical correlations between each component. If more than
+two views, returns the correlation matrices.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>, shape (n_components,)</td>
 </tr>
 </tbody>
 </table>
@@ -1051,12 +1688,12 @@ views.</li>
 </dd></dl>
 
 </div>
-<div class="section" id="generalized-canonical-correlation-analysis">
-<h2>Generalized Canonical Correlation Analysis<a class="headerlink" href="#generalized-canonical-correlation-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="generalized-canonical-correlation-analysis-gcca">
+<h2>Generalized Canonical Correlation Analysis (GCCA)<a class="headerlink" href="#generalized-canonical-correlation-analysis-gcca" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="mvlearn.embed.GCCA">
 <em class="property">class </em><code class="descclassname">mvlearn.embed.</code><code class="descname">GCCA</code><span class="sig-paren">(</span><em>n_components=None</em>, <em>fraction_var=None</em>, <em>sv_tolerance=None</em>, <em>n_elbows=2</em>, <em>tall=False</em>, <em>max_rank=False</em>, <em>n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/gcca.html#GCCA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.GCCA" title="Permalink to this definition">¶</a></dt>
-<dd><p>An implementation of Generalized Canonical Correlation Analysis <a class="footnote-reference" href="#gcca" id="id7">[6]</a>
+<dd><p>An implementation of Generalized Canonical Correlation Analysis <a class="footnote-reference" href="#gcca" id="id9">[8]</a>
 suitable for cases where the number of features exceeds the number of
 samples by first applying single view dimensionality reduction. Computes
 individual projections into a common subspace such that the correlations
@@ -1147,7 +1784,7 @@ noise dimensions but at the cost of information from some views.</p>
 <table class="docutils footnote" frame="void" id="gcca" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[6]</a></td><td>B. Afshin-Pour, G.A. Hossein-Zadeh, S.C. Strother, H.
+<tr><td class="label"><a class="fn-backref" href="#id9">[8]</a></td><td>B. Afshin-Pour, G.A. Hossein-Zadeh, S.C. Strother, H.
 Soltanian-Zadeh. Enhancing reproducibility of fMRI statistical
 maps using generalized canonical correlation analysis in NPAIRS
 framework. Neuroimage, 60 (2012), pp. 1970-1981</td></tr>
@@ -1316,356 +1953,12 @@ from.</li>
 </dd></dl>
 
 </div>
-<div class="section" id="kernel-canonical-correlation-analysis">
-<h2>Kernel Canonical Correlation Analysis<a class="headerlink" href="#kernel-canonical-correlation-analysis" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mvlearn.embed.KCCA">
-<em class="property">class </em><code class="descclassname">mvlearn.embed.</code><code class="descname">KCCA</code><span class="sig-paren">(</span><em>n_components=2</em>, <em>ktype='linear'</em>, <em>constant=0.1</em>, <em>sigma=1.0</em>, <em>degree=2.0</em>, <em>reg=0.1</em>, <em>decomp='full'</em>, <em>method='kettenring-like'</em>, <em>mrank=2</em>, <em>precision=1e-06</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/kcca.html#KCCA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.KCCA" title="Permalink to this definition">¶</a></dt>
-<dd><p>The kernel canonical correlation analysis (KCCA) is a method
-that generalizes the classical linear canonical correlation
-analysis (CCA) to nonlinear setting.  It allows us to depict the
-nonlinear relation of two sets of variables and enables
-applications of classical multivariate data analysis
-originally constrained to linearity relation (CCA).</p>
-<p>If the linear kernel is used, this is equivalent to CCA.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>n_components</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>default = 2</em>) -- Number of canonical dimensions to keep</li>
-<li><strong>ktype</strong> (<em>string</em><em>, </em><em>default = 'linear'</em>) -- Type of kernel. If 'linear', KCCA is equivalent to CCA.
-- value can be 'linear', 'gaussian' or 'poly'</li>
-<li><strong>constant</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>default = 1.0</em>) -- Balances impact of lower-degree terms in Polynomial kernel</li>
-<li><strong>sigma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>default = 1.0</em>) -- Standard deviation of Gaussian kernel</li>
-<li><strong>degree</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>default = 2.0</em>) -- Degree of Polynomial kernel</li>
-<li><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>default = 0.1</em>) -- Regularization parameter</li>
-<li><strong>decomp</strong> (<em>string</em><em>, </em><em>default = 'full'</em>) -- Decomposition type. Incomplete Cholesky Decomposition (ICD)
-can reduce computation times and storage
-- value can be 'full' or 'icd'</li>
-<li><strong>method</strong> (<em>string</em><em>, </em><em>default = 'kettenring-like'</em>) -- Decomposition method
-- value can be only be 'kettenring-like'</li>
-<li><strong>mrank</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>default = 2</em>) -- The rank of the ICD approximated kernel matrix</li>
-<li><strong>precision</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>default = 0.000001</em>) -- Precision of computing the ICD kernel matrix</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
-<dt id="mvlearn.embed.KCCA.weights_">
-<code class="descname">weights_</code><a class="headerlink" href="#mvlearn.embed.KCCA.weights_" title="Permalink to this definition">¶</a></dt>
-<dd><p>Canonical weights for each view.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of array-likes</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<p class="rubric">Notes</p>
-<p>This class implements kernel canonical correlation analysis
-as described in <a class="footnote-reference" href="#kcca" id="id8">[7]</a> and <a class="footnote-reference" href="#id11" id="id9">[8]</a>.</p>
-<p>Traditional CCA aims to find useful projections of the
-high- dimensional variable sets onto the compact
-linear representations, the canonical components (<a href="#id24"><span class="problematic" id="id25">components_</span></a>).</p>
-<p>Each resulting canonical variate is computed from
-the weighted sum of every original variable indicated
-by the canonical weights (<a href="#id26"><span class="problematic" id="id27">weights_</span></a>).</p>
-<p>The canonical correlation quantifies the linear
-correspondence between the two views of data
-based on Pearson’s correlation between their
-canonical components.</p>
-<p>Canonical correlation can be seen as a metric of
-successful joint information reduction between two views
-and, therefore, routinely serves as a performance measure for CCA.</p>
-<p>CCA may not extract useful descriptors of the data because of
-its linearity. kCCA offers an alternative solution by first
-projecting the data onto a higher dimensional feature space.</p>
-<div class="math notranslate nohighlight">
-\[\phi: \mathbf{x} = (x_1,...,x_m) \mapsto
-\phi(\mathbf{x}) = (\phi(x_1),...,\phi(x_N)),
-(m &lt; N)\]</div>
-<p>before performing CCA in the new feature space.</p>
-<p>Kernels are methods of implicitly mapping data into a higher
-dimensional feature space, a method known as the kernel trick.
-A kernel function K, such that for all <span class="math notranslate nohighlight">\(\mathbf{x},
-\mathbf{z} \in X\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[K(\mathbf{x}, \mathbf{z}) = \langle\phi(\mathbf{x})
-\cdot \phi(\mathbf{z})\rangle,\]</div>
-<p>where <span class="math notranslate nohighlight">\(\phi\)</span> is a mapping from X to feature space F.</p>
-<p>The directions <span class="math notranslate nohighlight">\(\mathbf{w_x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{w_y}\)</span>
-(of length N) can be rewritten as the projection of the data
-onto the direction <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>
-(of length m):</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{w_x} = X'\alpha\]</div>
-<div class="math notranslate nohighlight">
-\[\mathbf{w_y} = Y'\beta\]</div>
-<p>Letting <span class="math notranslate nohighlight">\(K_x = XX'\)</span> and <span class="math notranslate nohighlight">\(K_x = XX'\)</span> be the kernel
-matrices and adding a regularization term (<span class="math notranslate nohighlight">\(\kappa\)</span>)
-to prevent overfitting, we are effectively solving for:</p>
-<div class="math notranslate nohighlight">
-\[\rho = \underset{\alpha,\beta}{\text{max}}
-\frac{\alpha'K_xK_y\beta}
-{\sqrt{(\alpha'K_x^2\alpha+\kappa\alpha'K_x\alpha)
-\cdot (\beta'K_y^2\beta + \kappa\beta'K_y\beta)}}\]</div>
-<p>Kernel matrices grow exponentially with the size of data. They not only
-have to store <span class="math notranslate nohighlight">\(n^2\)</span> elements, but also face the complexity of matrix
-eigenvalue problems. In a Cholesky decomposition a positive definite
-matrix A is decomposed to a lower triangular matrix <span class="math notranslate nohighlight">\(L\)</span> :
-<span class="math notranslate nohighlight">\(A = LL'\)</span>.</p>
-<p>The Incomplete Cholesky Decomposition (ICD) looks for a low rank
-approximation of <span class="math notranslate nohighlight">\(L\)</span> to reduce the cost of operations of the matrix
-such that <span class="math notranslate nohighlight">\(A $\approx$ $\tilde{L}$$\tilde{L}$'\)</span>. The algorithm skips
-a column if its diagonal element is small. The diagonal elements to the
-right of the column being updated are also updated. To select a column to
-update, it finds the largest diagonal element and pivots the element to
-the current diagonal by exchanging the corresponding rows and columns. The
-algorithm ends when all diagonal elemnts are below a specified accuracy.</p>
-<p>ICD with rank <span class="math notranslate nohighlight">\(m\)</span> yields storage requirements of <span class="math notranslate nohighlight">\(O(mn)\)</span>
-instead of <span class="math notranslate nohighlight">\(O(n^2)\)</span> and becomes <span class="math notranslate nohighlight">\(O(nm^2)\)</span> instead of
-<span class="math notranslate nohighlight">\(O(n^3)\)</span> <a class="footnote-reference" href="#id12" id="id10">[9]</a>. Unlike full decomposition, ICD cannot be
-performed out of sample i.e you must fit and transform on the same data.</p>
-<p class="rubric">References</p>
-<table class="docutils footnote" frame="void" id="kcca" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id8">[7]</a></td><td>D. R. Hardoon, S. Szedmak and J. Shawe-Taylor,
-&quot;Canonical Correlation Analysis: An Overview with
-Application to Learning Methods&quot;, Neural Computation,
-Volume 16 (12), Pages 2639--2664, 2004.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id11" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id9">[8]</a></td><td>J. R. Kettenring, “Canonical analysis of several sets of
-variables,”Biometrika, vol.58, no.3, pp.433–451,1971.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id12" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id10">[9]</a></td><td>M. I. Jordan, &quot;Regularizing KCCA, Cholesky Decomposition&quot;,
-Lecture 9 Notes: CS281B/Stat241B, University of California,
-Berkeley.</td></tr>
-</tbody>
-</table>
-<p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.embed.kcca</span> <span class="kn">import</span> <span class="n">KCCA</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Define two latent variables</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">latvar1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">latvar2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Define independent components for each dataset</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">indep1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">indep2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">*</span><span class="n">indep1</span> <span class="o">+</span> <span class="mf">0.75</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">latvar1</span><span class="p">,</span> <span class="n">latvar2</span><span class="p">,</span> <span class="n">latvar1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">*</span><span class="n">indep2</span> <span class="o">+</span> <span class="mf">0.75</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">latvar1</span><span class="p">,</span> <span class="n">latvar2</span><span class="p">,</span>
-<span class="gp">... </span>                                  <span class="n">latvar1</span><span class="p">,</span> <span class="n">latvar2</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs_train</span> <span class="o">=</span> <span class="p">[</span><span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">80</span><span class="p">],</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="mi">80</span><span class="p">]]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">80</span><span class="p">:],</span> <span class="n">Xs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">80</span><span class="p">:]]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">kcca</span> <span class="o">=</span> <span class="n">KCCA</span><span class="p">(</span><span class="n">ktype</span> <span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">n_components</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>  <span class="n">reg</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">kcca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xs_train</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">linear_transform</span> <span class="o">=</span> <span class="n">kcca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xs_test</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stats</span> <span class="o">=</span> <span class="n">kcca</span><span class="o">.</span><span class="n">get_stats</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Print the correlations of first 3 transformed variates</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># from the testing data</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">])</span>
-<span class="go">[0.85363047 0.91171037 0.06029391]</span>
-</pre></div>
-</div>
-<dl class="method">
-<dt id="mvlearn.embed.KCCA.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/kcca.html#KCCA.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.KCCA.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates kcca mapping by determining
-canonical weghts from Xs.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-</ul>
-<blockquote>
-<div><ul>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-</div></blockquote>
-<p>The data for kcca to fit to.
-Each sample will receive its own embedding.</p>
-</li>
-<li><strong>y</strong> (<em>ignored</em>) -- Included for API compliance.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">returns an instance of self</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.embed.KCCA.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/kcca.html#KCCA.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.KCCA.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Uses KCCA weights to transform Xs into canonical components
-and calculates correlations.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
-<li>Xs length: 2</li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-</div></blockquote>
-<p>The data for kcca to fit to.
-Each sample will receive its own embedding.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>components_</strong> --<ul class="simple">
-<li>Xs length: 2</li>
-<li>Xs[i] shape: (n_samples, n_samples)</li>
-</ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">returns Xs_transformed, a list of numpy.ndarray</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.embed.KCCA.get_stats">
-<code class="descname">get_stats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/kcca.html#KCCA.get_stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.KCCA.get_stats" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute relevant statistics for the KCCA model after fitting
-and transforming.</p>
-<p>Implementations of the statistics generally follow the code in
-the Matlab implementation of the function canoncorr.</p>
-<p>Note: most statistics are only available if the linear kernel is
-used and decomposition method is full,
-i.e. self.ktype=='linear' and self.decomp='full'.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>stats</strong> -- Dict containing the statistics, with the following keys:<ul class="simple">
-<li><dl class="first docutils">
-<dt>'r' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
-<dd>Canonical correlations of each component.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>'Wilks' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
-<dd>Wilks' Lambda likelihood ratio statistic.
-Only available if self.ktype == 'linear'.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>'df1' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
-<dd>Degrees of freedom for the chi-squared statistic, and
-the numerator degrees of freedom for the F statistic.
-Only available if self.ktype == 'linear'.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>'df2' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
-<dd>Denominator degrees of freedom for the F statistic.
-Only available if self.ktype == 'linear'.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>'F' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
-<dd>Rao's approximate F statistic for H_0(k).
-Only available if self.ktype == 'linear'.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>'pF' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
-<dd>Right-tail significance level for stats['F'].
-Only available if self.ktype == 'linear'.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>'chisq' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
-<dd>Bartlett's approximate chi-squared statistic for H_0(k)
-with Lawley's modification.
-Only available if self.ktype == 'linear'.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>'pChisq' <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray of shape (n_components,)</span></dt>
-<dd>Right-tail significance level for stats['chisq'].
-Only available if self.ktype == 'linear'.</dd>
-</dl>
-</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.embed.KCCA.fit_transform">
-<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.embed.KCCA.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit an embedder to the data and transform the data</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-</li>
-<li><strong>y</strong> (<em>array</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em><em>, </em><em>optional</em>) -- Targets to be used if fitting the algorithm is supervised.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>X_transformed</strong> --</p>
-<ul class="simple">
-<li>X_transformed length: n_views</li>
-<li>X_transformed[i] shape: (n_samples, n_components_i)</li>
-</ul>
-</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of numpy.ndarray</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="deep-canonical-correlation-analysis">
-<h2>Deep Canonical Correlation Analysis<a class="headerlink" href="#deep-canonical-correlation-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="deep-canonical-correlation-analysis-dcca">
+<h2>Deep Canonical Correlation Analysis (DCCA)<a class="headerlink" href="#deep-canonical-correlation-analysis-dcca" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="mvlearn.embed.DCCA">
 <em class="property">class </em><code class="descclassname">mvlearn.embed.</code><code class="descname">DCCA</code><span class="sig-paren">(</span><em>input_size1=None</em>, <em>input_size2=None</em>, <em>n_components=2</em>, <em>layer_sizes1=None</em>, <em>layer_sizes2=None</em>, <em>use_all_singular_values=False</em>, <em>device=device(type='cpu')</em>, <em>epoch_num=200</em>, <em>batch_size=800</em>, <em>learning_rate=0.001</em>, <em>reg_par=1e-05</em>, <em>tolerance=0.001</em>, <em>print_train_log_info=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/dcca.html#DCCA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.DCCA" title="Permalink to this definition">¶</a></dt>
-<dd><p>An implementation of Deep Canonical Correlation Analysis <a class="footnote-reference" href="#dcca" id="id13">[10]</a> with
+<dd><p>An implementation of Deep Canonical Correlation Analysis <a class="footnote-reference" href="#dcca" id="id10">[9]</a> with
 PyTorch. It computes projections into a common subspace in order to
 maximize the correlation between pairwise projections into the subspace
 from two views of data. To obtain these projections, two fully connected
@@ -1936,7 +2229,7 @@ to learn the best potentially nonlinear kernels for a variant of kernel
 CCA.</p>
 <p>The networks used for each view in DCCA consist of fully connected linear
 layers with a sigmoid activation function.</p>
-<p>The problem DCCA problem is formulated from <a class="footnote-reference" href="#dcca" id="id14">[10]</a>. Consider two
+<p>The problem DCCA problem is formulated from <a class="footnote-reference" href="#dcca" id="id11">[9]</a>. Consider two
 views <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span>. DCCA seeks to find the parameters for
 each view, <span class="math notranslate nohighlight">\(\Theta_1\)</span> and <span class="math notranslate nohighlight">\(\Theta_2\)</span>, such that they maximize</p>
 <div class="math notranslate nohighlight">
@@ -1988,7 +2281,7 @@ singular values of the matrix <span class="math notranslate nohighlight">\(T\)</
 <table class="docutils footnote" frame="void" id="dcca" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[10]</td><td><em>(<a class="fn-backref" href="#id13">1</a>, <a class="fn-backref" href="#id14">2</a>, <a class="fn-backref" href="#id19">3</a>, <a class="fn-backref" href="#id20">4</a>)</em> Andrew, G., Arora, R., Bilmes, J., &amp; Livescu, K. (2013,
+<tr><td class="label">[9]</td><td><em>(<a class="fn-backref" href="#id10">1</a>, <a class="fn-backref" href="#id11">2</a>, <a class="fn-backref" href="#id16">3</a>, <a class="fn-backref" href="#id17">4</a>)</em> Andrew, G., Arora, R., Bilmes, J., &amp; Livescu, K. (2013,
 February). Deep canonical correlation analysis. In
 International conference on machine learning (pp. 1247-1255).</td></tr>
 </tbody>
@@ -2104,7 +2397,7 @@ transformed views. Only returned if <code class="docutils literal notranslate"><
 <em class="property">class </em><code class="descclassname">mvlearn.embed.</code><code class="descname">Omnibus</code><span class="sig-paren">(</span><em>n_components=2</em>, <em>distance_metric='euclidean'</em>, <em>normalize='l1'</em>, <em>algorithm='randomized'</em>, <em>n_iter=5</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/omnibus.html#Omnibus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.Omnibus" title="Permalink to this definition">¶</a></dt>
 <dd><p>Omnibus computes the pairwise distances for each view. Each
 of these matrices is a n x n dissimilarity matrix where n is the number
-of rows in each view. Omnibus embedding <a class="footnote-reference" href="#omni" id="id15">[11]</a> is then performed
+of rows in each view. Omnibus embedding <a class="footnote-reference" href="#omni" id="id12">[10]</a> is then performed
 over the dissimilarity matrices and the computed embeddings are returned.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2131,7 +2424,7 @@ details.</li>
 <dt id="mvlearn.embed.Omnibus.embeddings_">
 <code class="descname">embeddings_</code><a class="headerlink" href="#mvlearn.embed.Omnibus.embeddings_" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of Omnibus embeddings. One embedding matrix is provided
-per view. If fit() has not been called, <a href="#id28"><span class="problematic" id="id29">embeddings_</span></a> is set to
+per view. If fit() has not been called, <a href="#id27"><span class="problematic" id="id28">embeddings_</span></a> is set to
 None.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2151,7 +2444,7 @@ for dissimilarity matrices.</p>
 <table class="docutils footnote" frame="void" id="omni" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id15">[11]</a></td><td><a class="reference external" href="https://graspy.neurodata.io/tutorials/embedding/omnibus">https://graspy.neurodata.io/tutorials/embedding/omnibus</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id12">[10]</a></td><td><a class="reference external" href="https://graspy.neurodata.io/tutorials/embedding/omnibus">https://graspy.neurodata.io/tutorials/embedding/omnibus</a></td></tr>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
@@ -2244,7 +2537,7 @@ X in Xs will receive its own embedding.</p>
 <dt id="mvlearn.embed.MVMDS">
 <em class="property">class </em><code class="descclassname">mvlearn.embed.</code><code class="descname">MVMDS</code><span class="sig-paren">(</span><em>n_components=2</em>, <em>num_iter=15</em>, <em>dissimilarity='euclidean'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/mvmds.html#MVMDS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.MVMDS" title="Permalink to this definition">¶</a></dt>
 <dd><p>An implementation of Classical Multiview Multidimensional Scaling for
-jointly reducing the dimensions of multiple views of data <a class="footnote-reference" href="#mvmds" id="id16">[12]</a>.
+jointly reducing the dimensions of multiple views of data <a class="footnote-reference" href="#mvmds" id="id13">[11]</a>.
 A Euclidean distance matrix is created for each view, double centered,
 and the k largest common eigenvectors between the matrices are found
 based on the stepwise estimation of common principal components. Using
@@ -2338,16 +2631,16 @@ fitting and transforming at once.</p>
 <table class="docutils footnote" frame="void" id="mvmds" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id16">[12]</a></td><td>Trendafilov, Nickolay T. “Stepwise Estimation of Common
+<tr><td class="label"><a class="fn-backref" href="#id13">[11]</a></td><td>Trendafilov, Nickolay T. “Stepwise Estimation of Common
 Principal Components.” Computational Statistics &amp;amp; Data
 Analysis, vol. 54, no. 12, 2010, pp. 3446–3457.,
 doi:10.1016/j.csda.2010.03.010.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id17" rules="none">
+<table class="docutils footnote" frame="void" id="id14" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[13]</td><td>Samir Kanaan-Izquierdo, Andrey Ziyatdinov,
+<tr><td class="label">[12]</td><td>Samir Kanaan-Izquierdo, Andrey Ziyatdinov,
 Maria Araceli Burgueño, Alexandre Perera-Lluna, Multiview: a software
 package for multiview pattern recognition methods, Bioinformatics,
 Volume 35, Issue 16, 15 August 2019, Pages 2877–2879</td></tr>
@@ -2418,7 +2711,7 @@ Embeds data matrix(s) using fitted projection matrices</p>
 <em class="property">class </em><code class="descclassname">mvlearn.embed.</code><code class="descname">SplitAE</code><span class="sig-paren">(</span><em>hidden_size=64</em>, <em>num_hidden_layers=2</em>, <em>embed_size=20</em>, <em>training_epochs=10</em>, <em>batch_size=16</em>, <em>learning_rate=0.001</em>, <em>print_info=False</em>, <em>print_graph=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/splitae.html#SplitAE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.SplitAE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implements an autoencoder that creates an embedding of a view View1 and
 from that embedding reconstructs View1 and another view View2, as
-described in <a class="footnote-reference" href="#split" id="id18">[14]</a>.</p>
+described in <a class="footnote-reference" href="#split" id="id15">[13]</a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2516,7 +2809,7 @@ and <span class="math notranslate nohighlight">\(\textbf{y}\)</span> is View2.</
 <table class="docutils footnote" frame="void" id="split" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id18">[14]</a></td><td>Weiran Wang, Raman Arora, Karen Livescu, and Jeff Bilmes.
+<tr><td class="label"><a class="fn-backref" href="#id15">[13]</a></td><td>Weiran Wang, Raman Arora, Karen Livescu, and Jeff Bilmes.
 &quot;<a class="reference external" href="http://proceedings.mlr.press/v37/wangb15.pdf">On Deep Multi-View Representation Learning.</a>&quot;,
 ICML, 2015.</td></tr>
 </tbody>
@@ -2699,7 +2992,7 @@ transformations on the two views of data.</p>
 <dt id="mvlearn.embed.cca_loss">
 <em class="property">class </em><code class="descclassname">mvlearn.embed.</code><code class="descname">cca_loss</code><span class="sig-paren">(</span><em>n_components</em>, <em>use_all_singular_values</em>, <em>device</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/dcca.html#cca_loss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.cca_loss" title="Permalink to this definition">¶</a></dt>
 <dd><p>An implementation of the loss function of linear CCA as introduced
-in the original paper for <code class="docutils literal notranslate"><span class="pre">DCCA</span></code> <a class="footnote-reference" href="#dcca" id="id19">[10]</a>. Details of how this loss
+in the original paper for <code class="docutils literal notranslate"><span class="pre">DCCA</span></code> <a class="footnote-reference" href="#dcca" id="id16">[9]</a>. Details of how this loss
 is computed can be found in the paper or in the documentation for
 <code class="docutils literal notranslate"><span class="pre">DCCA</span></code>.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2763,7 +3056,7 @@ If False, only use the top <code class="docutils literal notranslate"><span clas
 <dt id="mvlearn.embed.cca_loss.loss">
 <code class="descname">loss</code><span class="sig-paren">(</span><em>H1</em>, <em>H2</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/dcca.html#cca_loss.loss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.cca_loss.loss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the loss (negative correlation) between 2 views. Details can
-be found in <a class="footnote-reference" href="#dcca" id="id20">[10]</a> or the documentation for <code class="docutils literal notranslate"><span class="pre">DCCA</span></code>.</p>
+be found in <a class="footnote-reference" href="#dcca" id="id17">[9]</a> or the documentation for <code class="docutils literal notranslate"><span class="pre">DCCA</span></code>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -3079,7 +3372,7 @@ parameters in this module. Default: <code class="docutils literal notranslate"><
 <dt id="mvlearn.embed.select_dimension">
 <code class="descclassname">mvlearn.embed.</code><code class="descname">select_dimension</code><span class="sig-paren">(</span><em>X</em>, <em>n_components=None</em>, <em>n_elbows=2</em>, <em>threshold=None</em>, <em>return_likelihoods=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/utils.html#select_dimension"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.embed.select_dimension" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates profile likelihood from array based on Zhu and Godsie
-method <a class="footnote-reference" href="#id23" id="id22">[16]</a>. Elbows correspond to the optimal embedding
+method <a class="footnote-reference" href="#id20" id="id19">[15]</a>. Elbows correspond to the optimal embedding
 dimension.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -3116,14 +3409,14 @@ returned if <cite>return_likelihoods</cite> is True.</li>
 <table class="docutils footnote" frame="void" id="eutils" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[15]</td><td>Code from the <a class="reference external" href="https://github.com/neurodata/graspy">https://github.com/neurodata/graspy</a> package,
+<tr><td class="label">[14]</td><td>Code from the <a class="reference external" href="https://github.com/neurodata/graspy">https://github.com/neurodata/graspy</a> package,
 reproduced and shared with permission.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id23" rules="none">
+<table class="docutils footnote" frame="void" id="id20" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id22">[16]</a></td><td>Zhu, M. and Ghodsi, A. (2006).
+<tr><td class="label"><a class="fn-backref" href="#id19">[15]</a></td><td>Zhu, M. and Ghodsi, A. (2006).
 Automatic dimensionality selection from the scree plot via the
 use of profile likelihood. Computational Statistics &amp; Data
 Analysis, 51(2), pp.918-930.</td></tr>

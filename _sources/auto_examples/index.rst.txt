@@ -377,12 +377,12 @@ Examples on embed
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates the use of multiview CCA, which allows for greater than two views. A...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates the use of CCA for 2 views and multiview CCA (MCCA) for more than 2 ...">
 
 .. only:: html
 
  .. figure:: /auto_examples/embed/images/thumb/sphx_glr_plot_mcca_tutorial_thumb.png
-     :alt: Multiview CCA Tutorial
+     :alt: CCA Tutorial
 
      :ref:`sphx_glr_auto_examples_embed_plot_mcca_tutorial.py`
 
@@ -440,6 +440,27 @@ Examples on embed
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Kernel matrices grow exponentially with the size of the data. There are immense storage and run...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/embed/images/thumb/sphx_glr_plot_kmcca_pgso_tutorial_thumb.png
+     :alt: Partial Gram-Schmidt Orthogonalization (PGSO) for KMCCA
+
+     :ref:`sphx_glr_auto_examples_embed_plot_kmcca_pgso_tutorial.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/embed/plot_kmcca_pgso_tutorial
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="MVMDS is a useful multiview dimensionaltiy reduction algorithm that allows the user to perform ...">
 
 .. only:: html
@@ -461,7 +482,7 @@ Examples on embed
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial shows a comparison of Kernel Canonical Correlation Analysis (KCCA) with three dif...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial shows a comparison of Canonical Correlation Analysis (CCA), Kernel CCA (KCCA) wit...">
 
 .. only:: html
 
@@ -482,14 +503,14 @@ Examples on embed
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Kernel matrices grow exponentially with the size of the data. There are immense storage and run...">
+    <div class="sphx-glr-thumbcontainer" tooltip="KMCCA is a variant of Canonical Correlation Analysis that can use a nonlinear kernel to uncover...">
 
 .. only:: html
 
- .. figure:: /auto_examples/embed/images/thumb/sphx_glr_plot_kcca_icd_tutorial_thumb.png
-     :alt: Incomplete Cholesky Decomposition (ICD) for KCCA
+ .. figure:: /auto_examples/embed/images/thumb/sphx_glr_plot_kmcca_tutorial_thumb.png
+     :alt: Kernel MCCA (KMCCA) Tutorial
 
-     :ref:`sphx_glr_auto_examples_embed_plot_kcca_icd_tutorial.py`
+     :ref:`sphx_glr_auto_examples_embed_plot_kmcca_tutorial.py`
 
 .. raw:: html
 
@@ -499,28 +520,7 @@ Examples on embed
 .. toctree::
    :hidden:
 
-   /auto_examples/embed/plot_kcca_icd_tutorial
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="KCCA is a variant of Canonical Correlation Analysis that can use a nonlinear kernel to uncover ...">
-
-.. only:: html
-
- .. figure:: /auto_examples/embed/images/thumb/sphx_glr_plot_kcca_tutorial_thumb.png
-     :alt: Kernel CCA (KCCA) Tutorial
-
-     :ref:`sphx_glr_auto_examples_embed_plot_kcca_tutorial.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/embed/plot_kcca_tutorial
+   /auto_examples/embed/plot_kmcca_tutorial
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>

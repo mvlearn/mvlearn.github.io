@@ -126,13 +126,13 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-embed">Examples on embed</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_mcca_tutorial.html">Multiview CCA Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_mcca_tutorial.html">CCA Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../embed/plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../embed/plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kmcca_pgso_tutorial.html">Partial Gram-Schmidt Orthogonalization (PGSO) for KMCCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICD) for KCCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kcca_tutorial.html">Kernel CCA (KCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../embed/plot_kmcca_tutorial.html">Kernel MCCA (KMCCA) Tutorial</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-pipeline">Examples on pipeline</a><ul>
@@ -165,11 +165,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#canonical-correlation-analysis-cca">Canonical Correlation Analysis (CCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#multiview-canonical-correlation-analysis-mcca">Multiview Canonical Correlation Analysis (MCCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#kernel-mcca">Kernel MCCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#generalized-canonical-correlation-analysis-gcca">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#deep-canonical-correlation-analysis-dcca">Deep Canonical Correlation Analysis (DCCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
@@ -248,8 +248,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id6">mvlearn.compose</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id8">mvlearn.decomposition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id10">mvlearn.embed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id12">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id15">mvlearn.preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id14">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id17">mvlearn.preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -333,7 +333,7 @@
             
   <div class="section" id="computation-times">
 <span id="sphx-glr-auto-examples-plotting-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Permalink to this headline">¶</a></h1>
-<p><strong>00:02.587</strong> total execution time for <strong>auto_examples_plotting</strong> files:</p>
+<p><strong>00:02.365</strong> total execution time for <strong>auto_examples_plotting</strong> files:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="85%" />
@@ -342,11 +342,11 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="plot_quick_visualize_tutorial.html#sphx-glr-auto-examples-plotting-plot-quick-visualize-tutorial-py"><span class="std std-ref">Quickly Visualizing Multiview Data</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_quick_visualize_tutorial.py</span></code>)</td>
-<td>00:01.727</td>
+<td>00:01.555</td>
 <td>0.0 MB</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="plot_crossviews_plot.html#sphx-glr-auto-examples-plotting-plot-crossviews-plot-py"><span class="std std-ref">Plotting Multiview Data with a Cross-view Plot</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_crossviews_plot.py</span></code>)</td>
-<td>00:00.859</td>
+<td>00:00.811</td>
 <td>0.0 MB</td>
 </tr>
 </tbody>

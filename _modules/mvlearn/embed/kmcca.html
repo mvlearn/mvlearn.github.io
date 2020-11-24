@@ -126,13 +126,13 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_mcca_tutorial.html">Multiview CCA Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_mcca_tutorial.html">CCA Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kmcca_pgso_tutorial.html">Partial Gram-Schmidt Orthogonalization (PGSO) for KMCCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICD) for KCCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kcca_tutorial.html">Kernel CCA (KCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/embed/plot_kmcca_tutorial.html">Kernel MCCA (KMCCA) Tutorial</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
@@ -165,11 +165,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#canonical-correlation-analysis-cca">Canonical Correlation Analysis (CCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#multiview-canonical-correlation-analysis-mcca">Multiview Canonical Correlation Analysis (MCCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#kernel-mcca">Kernel MCCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#generalized-canonical-correlation-analysis-gcca">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#deep-canonical-correlation-analysis-dcca">Deep Canonical Correlation Analysis (DCCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
@@ -248,8 +248,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">mvlearn.compose</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id8">mvlearn.decomposition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id10">mvlearn.embed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id12">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id15">mvlearn.preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id14">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id17">mvlearn.preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -405,6 +405,14 @@
 <span class="sd">        If True, the ``.transform`` method returns one dataset per view.</span>
 <span class="sd">        Otherwise, it returns one dataset, of shape (n_samples, n_components)</span>
 
+<span class="sd">    pgso : bool, optional (default False)</span>
+<span class="sd">        If True, computes a partial Gram-Schmidt orthogonalization</span>
+<span class="sd">        approximation of the kernel matrices to the given tolerance.</span>
+
+<span class="sd">    tol : float (default 0.1)</span>
+<span class="sd">        The minimum matrix trace difference between a kernel matrix and its</span>
+<span class="sd">        computed pgso approximation, relative to the kernel trace.</span>
+
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    kernel_col_means_ : list of numpy.ndarray, shape (n_samples,)</span>
@@ -425,7 +433,7 @@
 
 <span class="sd">    Xs_ : list of numpy.ndarray, length (n_views,)</span>
 <span class="sd">        - Xs[i] shape (n_samples, n_features_i)</span>
-<span class="sd">        The original data matrices for use in gram matrix computation</span>
+<span class="sd">        The original data matrices for use in kernel matrix computation</span>
 <span class="sd">        during calls to ``.transform``.</span>
 
 <span class="sd">    n_views_ : int</span>
@@ -436,6 +444,67 @@
 
 <span class="sd">    n_components_ : int</span>
 <span class="sd">        The number of components in each transformed view</span>
+
+<span class="sd">    pgso_Ls_ : list of numpy.ndarray, length (n_views,)</span>
+<span class="sd">        - pgso_Ls_[i] shape (n_samples, rank_i)</span>
+<span class="sd">        The Gram-Schmidt approximations of the kernel matrices</span>
+
+<span class="sd">    pgso_norms_ : list of numpy.ndarray, length (n_views,)</span>
+<span class="sd">        - pgso_norms_[i] shape (rank_i,)</span>
+<span class="sd">        The maximum norms found during the Gram-Schmidt procedure, descending</span>
+
+<span class="sd">    pgso_idxs_ : list of numpy.ndarray, length (n_views,)</span>
+<span class="sd">        - pgso_idxs_[i] shape (rank_i,)</span>
+<span class="sd">        The sample indices of the maximum norms</span>
+
+<span class="sd">    pgso_Xs_ : list of numpy.ndarray, length (n_views,)</span>
+<span class="sd">        - pgso_Xs_[i] shape (rank_i, n_features)</span>
+<span class="sd">        The samples with indices saved in pgso_idxs_, sorted by pgso_norms_</span>
+
+<span class="sd">    pgso_ranks_ : list, length (n_views,)</span>
+<span class="sd">        The ranks of the partial Gram-Schmidt results for each view.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Traditional CCA aims to find useful projections of features in each view</span>
+<span class="sd">    of data, computing a weighted sum, but may not extract useful descriptors</span>
+<span class="sd">    of the data because of its linearity. KMCCA offers an alternative solution</span>
+<span class="sd">    by first projecting the data onto a higher dimensional feature space.</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \phi: \mathbf{x} = (x_1,...,x_m) \mapsto</span>
+<span class="sd">        \phi(\mathbf{x}) = (z_1,...,z_N),</span>
+<span class="sd">        (m &lt;&lt; N)</span>
+
+<span class="sd">    before performing CCA in the new feature space.</span>
+
+<span class="sd">    Kernels are effectively distance functions that compute inner products in</span>
+<span class="sd">    the higher dimensional feature space, a method known as the kernel trick.</span>
+<span class="sd">    A kernel function K, such that for all :math:`\mathbf{x},</span>
+<span class="sd">    \mathbf{z} \in X`</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        K(\mathbf{x}, \mathbf{z}) = \langle\phi(\mathbf{x})</span>
+<span class="sd">        \cdot \phi(\mathbf{z})\rangle.</span>
+
+<span class="sd">    The kernel matrix :math:`K_i` has entries computed from the kernel</span>
+<span class="sd">    function. Using the kernel trick, loadings of the kernel matrix</span>
+<span class="sd">    (dual_vars_) are solved for rather than of the features from :math:`\phi`.</span>
+
+<span class="sd">    Kernel matrices grow exponentially with the size of data. They not only</span>
+<span class="sd">    have to store :math:`n^2` elements, but also face the complexity of matrix</span>
+<span class="sd">    eigenvalue problems. In a Cholesky decomposition a positive definite</span>
+<span class="sd">    matrix K is decomposed to a lower triangular matrix :math:`L` :</span>
+<span class="sd">    :math:`K = LL&#39;`.</span>
+
+<span class="sd">    The dual partial Gram-Schmidt orthogonalization (PSGO) is equivalent to the</span>
+<span class="sd">    Incomplete Cholesky Decomposition (ICD) which looks for a low rank</span>
+<span class="sd">    approximation of :math:`L`, reducing the cost of operations of the matrix</span>
+<span class="sd">    such that :math:`\frac{1}{\sum_i K_{ii}} tr(K - LL^T) \leq tol`.</span>
+
+<span class="sd">    A PSGO tolerance yielding rank :math:`m` leads to storage requirements of</span>
+<span class="sd">    :math:`O(mn)` instead of :math:`O(n^2)` and becomes :math:`O(nm^2)` instead</span>
+<span class="sd">    of :math:`O(n^3)` [#3kmcca]_.</span>
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
@@ -454,12 +523,13 @@
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; from mvlearn.embed import KMCCA</span>
-<span class="sd">    &gt;&gt;&gt; X1 = [[0., 0., 1.], [1.,0.,0.], [2.,2.,2.], [3.,5.,4.]]</span>
+<span class="sd">    &gt;&gt;&gt; X1 = [[0, 0, 1], [1, 0, 0], [2, 2, 2], [3, 5, 4]]</span>
 <span class="sd">    &gt;&gt;&gt; X2 = [[0.1, -0.2], [0.9, 1.1], [6.2, 5.9], [11.9, 12.3]]</span>
+<span class="sd">    &gt;&gt;&gt; X3 = [[0, 1, 0], [1, 9, 0], [4, 3, 3,], [12, 8, 10]]</span>
 <span class="sd">    &gt;&gt;&gt; kmcca = KMCCA()</span>
-<span class="sd">    &gt;&gt;&gt; kmcca.fit([X1, X2])</span>
+<span class="sd">    &gt;&gt;&gt; kmcca.fit([X1, X2, X3])</span>
 <span class="sd">    KMCCA()</span>
-<span class="sd">    &gt;&gt;&gt; Xs_scores = kmcca.transform([X1, X2])</span>
+<span class="sd">    &gt;&gt;&gt; Xs_scores = kmcca.transform([X1, X2, X3])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
@@ -475,6 +545,8 @@
         <span class="n">filter_params</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">multiview_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">pgso</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">tol</span><span class="o">=</span><span class="mf">0.1</span>
     <span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">n_components</span>
@@ -488,6 +560,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">filter_params</span> <span class="o">=</span> <span class="n">filter_params</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">multiview_output</span> <span class="o">=</span> <span class="n">multiview_output</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pgso</span> <span class="o">=</span> <span class="n">pgso</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tol</span> <span class="o">=</span> <span class="n">tol</span>
 
     <span class="k">def</span> <span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Helper method for `.fit` function&quot;&quot;&quot;</span>
@@ -499,14 +573,32 @@
         <span class="c1"># set up (centered) kernels</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">kernel_col_means_</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_views_</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">kernel_mat_means_</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_views_</span>
-        <span class="n">Ks</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_views_</span><span class="p">):</span>
-            <span class="n">K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_kernel</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="n">b</span><span class="p">],</span> <span class="n">view</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">centers</span><span class="p">[</span><span class="n">b</span><span class="p">]:</span>
+        <span class="n">Ks</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pgso</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pgso_Ls_</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pgso_norms_</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pgso_idxs_</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pgso_Xs_</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pgso_ranks_</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Xs_</span> <span class="o">=</span> <span class="n">Xs</span>  <span class="c1"># stored for `transform` step</span>
+
+        <span class="k">for</span> <span class="n">view</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_views_</span><span class="p">):</span>
+            <span class="n">K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_kernel</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="n">view</span><span class="p">],</span> <span class="n">view</span><span class="o">=</span><span class="n">view</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pgso</span><span class="p">:</span>
+                <span class="n">L</span><span class="p">,</span> <span class="n">maxs</span><span class="p">,</span> <span class="n">idxs</span> <span class="o">=</span> <span class="n">_pgso_decomp</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pgso_Ls_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pgso_norms_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">maxs</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pgso_idxs_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idxs</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pgso_Xs_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="n">view</span><span class="p">][</span><span class="n">idxs</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pgso_ranks_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">maxs</span><span class="p">))</span>
+                <span class="n">K</span> <span class="o">=</span> <span class="n">L</span> <span class="o">@</span> <span class="n">L</span><span class="o">.</span><span class="n">T</span>
+                <span class="k">del</span> <span class="n">L</span>
+            <span class="k">if</span> <span class="n">centers</span><span class="p">[</span><span class="n">view</span><span class="p">]:</span>
                 <span class="n">K</span><span class="p">,</span> <span class="n">col_mean</span><span class="p">,</span> <span class="n">mat_mean</span> <span class="o">=</span> <span class="n">_center_kernel</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">kernel_col_means_</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">col_mean</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">kernel_mat_means_</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat_mean</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">kernel_col_means_</span><span class="p">[</span><span class="n">view</span><span class="p">]</span> <span class="o">=</span> <span class="n">col_mean</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">kernel_mat_means_</span><span class="p">[</span><span class="n">view</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat_mean</span>
             <span class="n">Ks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">dual_vars_</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">common_scores_normed</span><span class="p">,</span> \
@@ -518,9 +610,6 @@
                 <span class="n">regs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">regs</span><span class="p">,</span>
                 <span class="n">diag_mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">diag_mode</span><span class="p">,</span>
             <span class="p">)</span>
-
-        <span class="k">del</span> <span class="n">Ks</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">Xs_</span> <span class="o">=</span> <span class="n">Xs</span>  <span class="c1"># stored for `transform` step</span>
 
         <span class="k">return</span> <span class="n">scores</span><span class="p">,</span> <span class="n">common_scores_normed</span>
 
@@ -544,7 +633,13 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-        <span class="n">K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">view</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Xs_</span><span class="p">[</span><span class="n">view</span><span class="p">])</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pgso</span><span class="p">:</span>
+            <span class="n">K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="n">view</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pgso_Xs_</span><span class="p">[</span><span class="n">view</span><span class="p">])</span>
+            <span class="n">L</span> <span class="o">=</span> <span class="n">_pgso_construct</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pgso_Ls_</span><span class="p">[</span><span class="n">view</span><span class="p">],</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">pgso_idxs_</span><span class="p">[</span><span class="n">view</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">pgso_norms_</span><span class="p">[</span><span class="n">view</span><span class="p">])</span>
+            <span class="n">K</span> <span class="o">=</span> <span class="n">L</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">pgso_Ls_</span><span class="p">[</span><span class="n">view</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="n">view</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Xs_</span><span class="p">[</span><span class="n">view</span><span class="p">])</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel_col_means_</span><span class="p">[</span><span class="n">view</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">row_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">/</span> <span class="n">K</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">K</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel_col_means_</span><span class="p">[</span><span class="n">view</span><span class="p">]</span>
@@ -565,27 +660,26 @@
 <span class="sd">        view : int</span>
 <span class="sd">            The view index, for the kernel parameter selection</span>
 
-<span class="sd">        Y : numpy.ndarray, shape (m, d), optional (default=)</span>
+<span class="sd">        Y : numpy.ndarray, shape (m, d), optional (default None)</span>
 <span class="sd">            Second data matrix</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        K : numpy.ndarray, shape (n, n) or (n, m) if Y provided</span>
-<span class="sd">            The gram matrix with entries from the kernel function</span>
+<span class="sd">            The kernel matrix with entries from the kernel function</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
             <span class="n">kernel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="p">[</span><span class="n">view</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">kernel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span>
-
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel_params</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
             <span class="n">kernel_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel_params</span><span class="p">[</span><span class="n">view</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">kernel_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel_params</span>
 
         <span class="k">return</span> <span class="n">pairwise_kernels</span><span class="p">(</span>
-            <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="n">kernel</span><span class="p">,</span> <span class="n">filter_params</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">,</span>
-            <span class="o">**</span><span class="n">kernel_params</span><span class="p">)</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="n">kernel</span><span class="p">,</span> <span class="n">filter_params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_params</span><span class="p">,</span>
+            <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">,</span> <span class="o">**</span><span class="n">kernel_params</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">n_components_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -593,6 +687,91 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dual_vars_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Model has not been fitted properly yet&quot;</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_pgso_decomp</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Performs the partial Gram-Schmidt orthogonalization procedure</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        K : numpy.ndarray, shape (n_samples, n_samples)</span>
+<span class="sd">            The kernel matrix to approximate</span>
+
+<span class="sd">        tol : float, optional (default 0.1)</span>
+<span class="sd">            The tolerance of the kernel matrix approximation</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        L : numpy.ndarray, shape (n_samples, r)</span>
+<span class="sd">            The lower triangular approximation matrix</span>
+
+<span class="sd">        maxs : numpy.ndarray, shape (r,)</span>
+<span class="sd">            The maximum diagonal element of K during Gram-Schmidt iterations</span>
+
+<span class="sd">        indices : numpy.ndarray, shape (r,)</span>
+<span class="sd">            The sample indices of each of the values in `maxs`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The procedure iteratively constructs a lower triangular matrix L and</span>
+<span class="sd">    stops when the approximation L gives is below the tolerance, i.e.</span>
+
+<span class="sd">        ..math::</span>
+<span class="sd">            \frac{1}{\sum_i K_{ii}} tr(K - LL^T) \leq tol</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">norm2</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">norm2_sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">norm2</span><span class="p">)</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">max_sizes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">max_indices</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">max_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">norm2</span><span class="p">)</span>
+        <span class="n">max_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_idx</span><span class="p">)</span>
+        <span class="n">max_sizes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">norm2</span><span class="p">[</span><span class="n">max_idx</span><span class="p">]))</span>
+        <span class="n">L</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">K</span><span class="p">[:,</span> <span class="n">max_idx</span><span class="p">]</span> <span class="o">-</span> <span class="n">L</span><span class="p">[:,</span> <span class="p">:</span><span class="n">j</span><span class="p">]</span> <span class="o">@</span> <span class="n">L</span><span class="p">[</span><span class="n">max_idx</span><span class="p">,</span> <span class="p">:</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+            <span class="p">)</span> <span class="o">/</span> <span class="n">max_sizes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">norm2</span> <span class="o">-=</span> <span class="n">L</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">norm2</span><span class="p">)</span> <span class="o">/</span> <span class="n">norm2_sum</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+            <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">L</span><span class="p">[:,</span> <span class="p">:</span><span class="n">M</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">max_sizes</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">max_indices</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_pgso_construct</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">maxs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Constructs features for samples from a partial Gram-Schmidt</span>
+<span class="sd">    orthogonalization on different samples</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        K : numpy.ndarray, shape (n_new_samples, n_new_samples)</span>
+<span class="sd">            The kernel matrix of new samples to approximate</span>
+
+<span class="sd">        L : numpy.ndarray, shape (n_samples, r)</span>
+<span class="sd">            Lower triangular Gram-Schmidt decomposition of a kernel matrix</span>
+
+<span class="sd">        indices : numpy.ndarray, shape (n_features,)</span>
+<span class="sd">            The sample indices of the maximums</span>
+
+<span class="sd">        maxs : numpy.ndarray, shape (n_features,)</span>
+<span class="sd">            The maximum diagonal elements during construction of L</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        L_oos : numpy.ndarray, shape (n_samples, r)</span>
+<span class="sd">            The lower triangular approximation matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">L_oos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">K</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">L</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">L_oos</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">K</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">L_oos</span><span class="p">[:,</span> <span class="p">:</span><span class="n">j</span><span class="p">]</span> <span class="o">@</span> <span class="n">L</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="p">:</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="n">maxs</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">L_oos</span>
 
 
 <span class="k">def</span> <span class="nf">_kmcca_gevp</span><span class="p">(</span>

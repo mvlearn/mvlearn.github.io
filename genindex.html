@@ -127,13 +127,13 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#examples-on-embed">Examples on embed</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_mcca_tutorial.html">Multiview CCA Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_mcca_tutorial.html">CCA Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_kmcca_pgso_tutorial.html">Partial Gram-Schmidt Orthogonalization (PGSO) for KMCCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_kcca_icd_tutorial.html">Incomplete Cholesky Decomposition (ICD) for KCCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_kcca_tutorial.html">Kernel CCA (KCCA) Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_examples/embed/plot_kmcca_tutorial.html">Kernel MCCA (KMCCA) Tutorial</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#examples-on-pipeline">Examples on pipeline</a><ul>
@@ -166,11 +166,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="references/embed.html">Embedding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="references/embed.html#canonical-correlation-analysis-cca">Canonical Correlation Analysis (CCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="references/embed.html#multiview-canonical-correlation-analysis-mcca">Multiview Canonical Correlation Analysis (MCCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="references/embed.html#kernel-mcca">Kernel MCCA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="references/embed.html#generalized-canonical-correlation-analysis">Generalized Canonical Correlation Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="references/embed.html#kernel-canonical-correlation-analysis">Kernel Canonical Correlation Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="references/embed.html#deep-canonical-correlation-analysis">Deep Canonical Correlation Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/embed.html#generalized-canonical-correlation-analysis-gcca">Generalized Canonical Correlation Analysis (GCCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/embed.html#deep-canonical-correlation-analysis-dcca">Deep Canonical Correlation Analysis (DCCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="references/embed.html#split-autoencoder">Split Autoencoder</a></li>
@@ -249,8 +249,8 @@
 <li class="toctree-l3"><a class="reference internal" href="changelog.html#id6">mvlearn.compose</a></li>
 <li class="toctree-l3"><a class="reference internal" href="changelog.html#id8">mvlearn.decomposition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="changelog.html#id10">mvlearn.embed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="changelog.html#id12">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="changelog.html#id15">mvlearn.preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id14">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id17">mvlearn.preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -395,6 +395,16 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="references/embed.html#mvlearn.embed.CCA.canon_corrs">canon_corrs() (mvlearn.embed.CCA method)</a>
+
+      <ul>
+        <li><a href="references/embed.html#mvlearn.embed.KMCCA.canon_corrs">(mvlearn.embed.KMCCA method)</a>
+</li>
+        <li><a href="references/embed.html#mvlearn.embed.MCCA.canon_corrs">(mvlearn.embed.MCCA method)</a>
+</li>
+      </ul></li>
+      <li><a href="references/embed.html#mvlearn.embed.CCA">CCA (class in mvlearn.embed)</a>
+</li>
       <li><a href="references/embed.html#mvlearn.embed.cca_loss">cca_loss (class in mvlearn.embed)</a>
 </li>
       <li><a href="references/datasets.html#mvlearn.datasets.GaussianMixture.centers">centers (mvlearn.datasets.GaussianMixture attribute)</a>
@@ -419,13 +429,15 @@
       </ul></li>
       <li><a href="references/datasets.html#mvlearn.datasets.GaussianMixture.class_probs_">class_probs_ (mvlearn.datasets.GaussianMixture attribute)</a>
 </li>
-      <li><a href="references/semi_supervised.html#mvlearn.semi_supervised.CTClassifier.classes_">classes_ (mvlearn.semi_supervised.CTClassifier attribute)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="references/embed.html#mvlearn.embed.KMCCA.common_score_norms_">common_score_norms_ (mvlearn.embed.KMCCA attribute)</a>
+      <li><a href="references/semi_supervised.html#mvlearn.semi_supervised.CTClassifier.classes_">classes_ (mvlearn.semi_supervised.CTClassifier attribute)</a>
+</li>
+      <li><a href="references/embed.html#mvlearn.embed.CCA.common_score_norms_">common_score_norms_ (mvlearn.embed.CCA attribute)</a>
 
       <ul>
+        <li><a href="references/embed.html#mvlearn.embed.KMCCA.common_score_norms_">(mvlearn.embed.KMCCA attribute)</a>
+</li>
         <li><a href="references/embed.html#mvlearn.embed.MCCA.common_score_norms_">(mvlearn.embed.MCCA attribute)</a>
 </li>
       </ul></li>
@@ -493,17 +505,19 @@
         <li><a href="references/semi_supervised.html#mvlearn.semi_supervised.CTRegressor.estimator1_">(mvlearn.semi_supervised.CTRegressor attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="references/semi_supervised.html#mvlearn.semi_supervised.CTClassifier.estimator2_">estimator2_ (mvlearn.semi_supervised.CTClassifier attribute)</a>
 
       <ul>
         <li><a href="references/semi_supervised.html#mvlearn.semi_supervised.CTRegressor.estimator2_">(mvlearn.semi_supervised.CTRegressor attribute)</a>
 </li>
       </ul></li>
-      <li><a href="references/embed.html#mvlearn.embed.KMCCA.evals_">evals_ (mvlearn.embed.KMCCA attribute)</a>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="references/embed.html#mvlearn.embed.CCA.evals_">evals_ (mvlearn.embed.CCA attribute)</a>
 
       <ul>
+        <li><a href="references/embed.html#mvlearn.embed.KMCCA.evals_">(mvlearn.embed.KMCCA attribute)</a>
+</li>
         <li><a href="references/embed.html#mvlearn.embed.MCCA.evals_">(mvlearn.embed.MCCA attribute)</a>
 </li>
       </ul></li>
@@ -540,11 +554,11 @@
 </li>
         <li><a href="references/decomposition.html#mvlearn.decomposition.MultiviewICA.fit">(mvlearn.decomposition.MultiviewICA method)</a>
 </li>
+        <li><a href="references/embed.html#mvlearn.embed.CCA.fit">(mvlearn.embed.CCA method)</a>
+</li>
         <li><a href="references/embed.html#mvlearn.embed.DCCA.fit">(mvlearn.embed.DCCA method)</a>
 </li>
         <li><a href="references/embed.html#mvlearn.embed.GCCA.fit">(mvlearn.embed.GCCA method)</a>
-</li>
-        <li><a href="references/embed.html#mvlearn.embed.KCCA.fit">(mvlearn.embed.KCCA method)</a>
 </li>
         <li><a href="references/embed.html#mvlearn.embed.KMCCA.fit">(mvlearn.embed.KMCCA method)</a>
 </li>
@@ -596,11 +610,11 @@
 </li>
         <li><a href="references/decomposition.html#mvlearn.decomposition.MultiviewICA.fit_transform">(mvlearn.decomposition.MultiviewICA method)</a>
 </li>
+        <li><a href="references/embed.html#mvlearn.embed.CCA.fit_transform">(mvlearn.embed.CCA method)</a>
+</li>
         <li><a href="references/embed.html#mvlearn.embed.DCCA.fit_transform">(mvlearn.embed.DCCA method)</a>
 </li>
         <li><a href="references/embed.html#mvlearn.embed.GCCA.fit_transform">(mvlearn.embed.GCCA method)</a>
-</li>
-        <li><a href="references/embed.html#mvlearn.embed.KCCA.fit_transform">(mvlearn.embed.KCCA method)</a>
 </li>
         <li><a href="references/embed.html#mvlearn.embed.KMCCA.fit_transform">(mvlearn.embed.KMCCA method)</a>
 </li>
@@ -631,12 +645,10 @@
 </li>
       <li><a href="references/embed.html#mvlearn.embed.GCCA">GCCA (class in mvlearn.embed)</a>
 </li>
-      <li><a href="references/embed.html#mvlearn.embed.KCCA.get_stats">get_stats() (mvlearn.embed.KCCA method)</a>
+      <li><a href="references/datasets.html#mvlearn.datasets.GaussianMixture.get_Xy">get_Xy() (mvlearn.datasets.GaussianMixture method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="references/datasets.html#mvlearn.datasets.GaussianMixture.get_Xy">get_Xy() (mvlearn.datasets.GaussianMixture method)</a>
-</li>
       <li><a href="references/decomposition.html#mvlearn.decomposition.GroupICA">GroupICA (class in mvlearn.decomposition)</a>
 </li>
       <li><a href="references/decomposition.html#mvlearn.decomposition.GroupPCA">GroupPCA (class in mvlearn.decomposition)</a>
@@ -679,10 +691,10 @@
 </li>
       <li><a href="references/decomposition.html#mvlearn.decomposition.AJIVE.individual_ranks_">individual_ranks_ (mvlearn.decomposition.AJIVE attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="references/decomposition.html#mvlearn.decomposition.AJIVE.individual_scores_">individual_scores_ (mvlearn.decomposition.AJIVE attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="references/decomposition.html#mvlearn.decomposition.AJIVE.init_signal_ranks_">init_signal_ranks_ (mvlearn.decomposition.AJIVE attribute)</a>
 </li>
       <li><a href="references/embed.html#mvlearn.embed.DCCA.input_size1_">input_size1_ (mvlearn.embed.DCCA attribute)</a>
@@ -704,13 +716,19 @@
 </li>
         <li><a href="references/decomposition.html#mvlearn.decomposition.MultiviewICA.inverse_transform">(mvlearn.decomposition.MultiviewICA method)</a>
 </li>
+        <li><a href="references/embed.html#mvlearn.embed.CCA.inverse_transform">(mvlearn.embed.CCA method)</a>
+</li>
         <li><a href="references/embed.html#mvlearn.embed.MCCA.inverse_transform">(mvlearn.embed.MCCA method)</a>
 </li>
         <li><a href="references/preprocessing.html#mvlearn.preprocessing.ViewTransformer.inverse_transform">(mvlearn.preprocessing.ViewTransformer method)</a>
 </li>
       </ul></li>
-      <li><a href="references/embed.html#mvlearn.embed.MCCA.inverse_transform_view">inverse_transform_view() (mvlearn.embed.MCCA method)</a>
+      <li><a href="references/embed.html#mvlearn.embed.CCA.inverse_transform_view">inverse_transform_view() (mvlearn.embed.CCA method)</a>
+
+      <ul>
+        <li><a href="references/embed.html#mvlearn.embed.MCCA.inverse_transform_view">(mvlearn.embed.MCCA method)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -733,12 +751,10 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="references/semi_supervised.html#mvlearn.semi_supervised.CTRegressor.k_neighbors_">k_neighbors_ (mvlearn.semi_supervised.CTRegressor attribute)</a>
 </li>
-      <li><a href="references/embed.html#mvlearn.embed.KCCA">KCCA (class in mvlearn.embed)</a>
+      <li><a href="references/embed.html#mvlearn.embed.KMCCA.kernel_col_means_">kernel_col_means_ (mvlearn.embed.KMCCA attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="references/embed.html#mvlearn.embed.KMCCA.kernel_col_means_">kernel_col_means_ (mvlearn.embed.KMCCA attribute)</a>
-</li>
       <li><a href="references/embed.html#mvlearn.embed.KMCCA.kernel_mat_means_">kernel_mat_means_ (mvlearn.embed.KMCCA attribute)</a>
 </li>
       <li><a href="references/embed.html#mvlearn.embed.KMCCA">KMCCA (class in mvlearn.embed)</a>
@@ -777,8 +793,12 @@
 </li>
       <li><a href="references/datasets.html#mvlearn.datasets.load_UCImultifeature">load_UCImultifeature() (in module mvlearn.datasets)</a>
 </li>
-      <li><a href="references/embed.html#mvlearn.embed.MCCA.loadings_">loadings_ (mvlearn.embed.MCCA attribute)</a>
+      <li><a href="references/embed.html#mvlearn.embed.CCA.loadings_">loadings_ (mvlearn.embed.CCA attribute)</a>
+
+      <ul>
+        <li><a href="references/embed.html#mvlearn.embed.MCCA.loadings_">(mvlearn.embed.MCCA attribute)</a>
 </li>
+      </ul></li>
       <li><a href="references/embed.html#mvlearn.embed.cca_loss.loss">loss() (mvlearn.embed.cca_loss method)</a>
 </li>
       <li><a href="references/embed.html#mvlearn.embed.DCCA.loss_">loss_ (mvlearn.embed.DCCA attribute)</a>
@@ -801,6 +821,8 @@
 
       <ul>
         <li><a href="references/decomposition.html#mvlearn.decomposition.GroupICA.means_">(mvlearn.decomposition.GroupICA attribute)</a>
+</li>
+        <li><a href="references/embed.html#mvlearn.embed.CCA.means_">(mvlearn.embed.CCA attribute)</a>
 </li>
         <li><a href="references/embed.html#mvlearn.embed.MCCA.means_">(mvlearn.embed.MCCA attribute)</a>
 </li>
@@ -846,6 +868,8 @@
       <ul>
         <li><a href="references/decomposition.html#mvlearn.decomposition.GroupPCA.n_components_">(mvlearn.decomposition.GroupPCA attribute)</a>
 </li>
+        <li><a href="references/embed.html#mvlearn.embed.CCA.n_components_">(mvlearn.embed.CCA attribute)</a>
+</li>
         <li><a href="references/embed.html#mvlearn.embed.DCCA.n_components_">(mvlearn.embed.DCCA attribute)</a>
 </li>
         <li><a href="references/embed.html#mvlearn.embed.KMCCA.n_components_">(mvlearn.embed.KMCCA attribute)</a>
@@ -863,6 +887,8 @@
         <li><a href="references/decomposition.html#mvlearn.decomposition.GroupICA.n_features_">(mvlearn.decomposition.GroupICA attribute)</a>
 </li>
         <li><a href="references/decomposition.html#mvlearn.decomposition.GroupPCA.n_features_">(mvlearn.decomposition.GroupPCA attribute)</a>
+</li>
+        <li><a href="references/embed.html#mvlearn.embed.CCA.n_features_">(mvlearn.embed.CCA attribute)</a>
 </li>
         <li><a href="references/embed.html#mvlearn.embed.KMCCA.n_features_">(mvlearn.embed.KMCCA attribute)</a>
 </li>
@@ -895,6 +921,8 @@
         <li><a href="references/decomposition.html#mvlearn.decomposition.GroupICA.n_views_">(mvlearn.decomposition.GroupICA attribute)</a>
 </li>
         <li><a href="references/decomposition.html#mvlearn.decomposition.GroupPCA.n_views_">(mvlearn.decomposition.GroupPCA attribute)</a>
+</li>
+        <li><a href="references/embed.html#mvlearn.embed.CCA.n_views_">(mvlearn.embed.CCA attribute)</a>
 </li>
         <li><a href="references/embed.html#mvlearn.embed.KMCCA.n_views_">(mvlearn.embed.KMCCA attribute)</a>
 </li>
@@ -939,6 +967,18 @@
 </li>
       <li><a href="references/decomposition.html#mvlearn.decomposition.MultiviewICA.pcas_">pcas_ (mvlearn.decomposition.MultiviewICA attribute)</a>
 </li>
+      <li><a href="references/embed.html#mvlearn.embed.KMCCA.pgso_idxs_">pgso_idxs_ (mvlearn.embed.KMCCA attribute)</a>
+</li>
+      <li><a href="references/embed.html#mvlearn.embed.KMCCA.pgso_Ls_">pgso_Ls_ (mvlearn.embed.KMCCA attribute)</a>
+</li>
+      <li><a href="references/embed.html#mvlearn.embed.KMCCA.pgso_norms_">pgso_norms_ (mvlearn.embed.KMCCA attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="references/embed.html#mvlearn.embed.KMCCA.pgso_ranks_">pgso_ranks_ (mvlearn.embed.KMCCA attribute)</a>
+</li>
+      <li><a href="references/embed.html#mvlearn.embed.KMCCA.pgso_Xs_">pgso_Xs_ (mvlearn.embed.KMCCA attribute)</a>
+</li>
       <li><a href="references/cluster.html#mvlearn.cluster.MultiviewCoRegSpectralClustering.predict">predict() (mvlearn.cluster.MultiviewCoRegSpectralClustering method)</a>
 
       <ul>
@@ -953,8 +993,6 @@
         <li><a href="references/semi_supervised.html#mvlearn.semi_supervised.CTRegressor.predict">(mvlearn.semi_supervised.CTRegressor method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="references/semi_supervised.html#mvlearn.semi_supervised.CTClassifier.predict_proba">predict_proba() (mvlearn.semi_supervised.CTClassifier method)</a>
 </li>
       <li><a href="references/embed.html#mvlearn.embed.GCCA.projection_mats_">projection_mats_ (mvlearn.embed.GCCA attribute)</a>
@@ -1003,10 +1041,18 @@
 </li>
       <li><a href="references/datasets.html#mvlearn.datasets.GaussianMixture.sample_views">sample_views() (mvlearn.datasets.GaussianMixture method)</a>
 </li>
-      <li><a href="references/embed.html#mvlearn.embed.MCCA.score">score() (mvlearn.embed.MCCA method)</a>
+      <li><a href="references/embed.html#mvlearn.embed.CCA.score">score() (mvlearn.embed.CCA method)</a>
+
+      <ul>
+        <li><a href="references/embed.html#mvlearn.embed.MCCA.score">(mvlearn.embed.MCCA method)</a>
 </li>
-      <li><a href="references/embed.html#mvlearn.embed.MCCA.score_view">score_view() (mvlearn.embed.MCCA method)</a>
+      </ul></li>
+      <li><a href="references/embed.html#mvlearn.embed.CCA.score_view">score_view() (mvlearn.embed.CCA method)</a>
+
+      <ul>
+        <li><a href="references/embed.html#mvlearn.embed.MCCA.score_view">(mvlearn.embed.MCCA method)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="references/embed.html#mvlearn.embed.select_dimension">select_dimension() (in module mvlearn.embed)</a>
@@ -1014,6 +1060,8 @@
       <li><a href="references/compose.html#mvlearn.compose.SimpleSplitter">SimpleSplitter (class in mvlearn.compose)</a>
 </li>
       <li><a href="references/embed.html#mvlearn.embed.SplitAE">SplitAE (class in mvlearn.embed)</a>
+</li>
+      <li><a href="references/embed.html#mvlearn.embed.CCA.stats">stats() (mvlearn.embed.CCA method)</a>
 </li>
       <li><a href="references/decomposition.html#mvlearn.decomposition.AJIVE.sv_thresholds_">sv_thresholds_ (mvlearn.decomposition.AJIVE attribute)</a>
 </li>
@@ -1042,11 +1090,11 @@
 </li>
         <li><a href="references/decomposition.html#mvlearn.decomposition.MultiviewICA.transform">(mvlearn.decomposition.MultiviewICA method)</a>
 </li>
+        <li><a href="references/embed.html#mvlearn.embed.CCA.transform">(mvlearn.embed.CCA method)</a>
+</li>
         <li><a href="references/embed.html#mvlearn.embed.DCCA.transform">(mvlearn.embed.DCCA method)</a>
 </li>
         <li><a href="references/embed.html#mvlearn.embed.GCCA.transform">(mvlearn.embed.GCCA method)</a>
-</li>
-        <li><a href="references/embed.html#mvlearn.embed.KCCA.transform">(mvlearn.embed.KCCA method)</a>
 </li>
         <li><a href="references/embed.html#mvlearn.embed.KMCCA.transform">(mvlearn.embed.KMCCA method)</a>
 </li>
@@ -1061,9 +1109,11 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="references/embed.html#mvlearn.embed.KMCCA.transform_view">transform_view() (mvlearn.embed.KMCCA method)</a>
+      <li><a href="references/embed.html#mvlearn.embed.CCA.transform_view">transform_view() (mvlearn.embed.CCA method)</a>
 
       <ul>
+        <li><a href="references/embed.html#mvlearn.embed.KMCCA.transform_view">(mvlearn.embed.KMCCA method)</a>
+</li>
         <li><a href="references/embed.html#mvlearn.embed.MCCA.transform_view">(mvlearn.embed.MCCA method)</a>
 </li>
       </ul></li>
@@ -1105,13 +1155,11 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="references/embed.html#mvlearn.embed.linear_cca.w_">w_ (mvlearn.embed.linear_cca attribute)</a>
 </li>
-      <li><a href="references/decomposition.html#mvlearn.decomposition.AJIVE.wedin_cutoff_">wedin_cutoff_ (mvlearn.decomposition.AJIVE attribute)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="references/decomposition.html#mvlearn.decomposition.AJIVE.wedin_samples_">wedin_samples_ (mvlearn.decomposition.AJIVE attribute)</a>
+      <li><a href="references/decomposition.html#mvlearn.decomposition.AJIVE.wedin_cutoff_">wedin_cutoff_ (mvlearn.decomposition.AJIVE attribute)</a>
 </li>
-      <li><a href="references/embed.html#mvlearn.embed.KCCA.weights_">weights_ (mvlearn.embed.KCCA attribute)</a>
+      <li><a href="references/decomposition.html#mvlearn.decomposition.AJIVE.wedin_samples_">wedin_samples_ (mvlearn.decomposition.AJIVE attribute)</a>
 </li>
   </ul></td>
 </tr></table>
