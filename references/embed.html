@@ -1819,12 +1819,8 @@ view.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
 <li>Xs length: n_views</li>
-</ul>
-<blockquote>
-<div><ul>
 <li>Xs[i] shape: (n_samples, n_features_i)</li>
 </ul>
-</div></blockquote>
 <p>The data to fit to. Each view will receive its own embedding.</p>
 </li>
 <li><strong>y</strong> (<em>ignored</em>) -- Included for API compliance.</li>
@@ -1854,12 +1850,8 @@ needs to be processed in batches.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
 <li>Xs length: n_views</li>
-</ul>
-<blockquote>
-<div><ul>
 <li>Xs[i] shape: (n_samples, n_features_i)</li>
 </ul>
-</div></blockquote>
 <p>The data to fit to. Each view will receive its own embedding.</p>
 </li>
 <li><strong>reset</strong> (<em>boolean</em><em> (</em><em>default = False</em><em>)</em>) -- If True, overwrites all prior computations.</li>
@@ -1890,12 +1882,8 @@ used for out-of-sample embeddings.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
 <li>Xs length: n_views</li>
-</ul>
-<blockquote>
-<div><ul>
 <li>Xs[i] shape: (n_samples, n_features_i)</li>
 </ul>
-</div></blockquote>
 <p>A list of data matrices from each view to transform based on the
 prior fit function. If view_idx is defined, then Xs is a 2D data
 matrix corresponding to a single view.</p>
@@ -2297,12 +2285,8 @@ linear CCA has maximum correlation.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
 <li>Xs length: n_views</li>
-</ul>
-<blockquote>
-<div><ul>
 <li>Xs[i] shape: (n_samples, n_features_i)</li>
 </ul>
-</div></blockquote>
 <p>The data to fit to. Each view will receive its own embedding.</p>
 </li>
 <li><strong>y</strong> (<em>ignored</em>) -- Included for API compliance.</li>
@@ -2330,12 +2314,8 @@ projection matrices. May be used for out-of-sample embeddings.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
 <li>Xs length: n_views</li>
-</ul>
-<blockquote>
-<div><ul class="simple">
 <li>Xs[i] shape: (n_samples, n_features_i)</li>
 </ul>
-</div></blockquote>
 <p>A list of data matrices from each view to transform based on the
 prior fit function. If view_idx defined, then Xs is a 2D data
 matrix corresponding to a single view.</p>
@@ -2471,12 +2451,8 @@ The embeddings are saved as a class attribute.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul>
 <li>Xs length: n_views</li>
-</ul>
-<blockquote>
-<div><ul>
 <li>Xs[i] shape: (n_samples, n_features_i)</li>
 </ul>
-</div></blockquote>
 <p>The data to embed based on the prior fit function. Each
 X in Xs will receive its own embedding.</p>
 </li>
@@ -2499,12 +2475,8 @@ the fit() function. The resulting embeddings are returned.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
 <li>Xs length: n_views</li>
-</ul>
-<blockquote>
-<div><ul class="simple">
 <li>Xs[i] shape: (n_samples, n_features_i)</li>
 </ul>
-</div></blockquote>
 <p>The data to embed based on the prior fit function. Each
 X in Xs will receive its own embedding.</p>
 </td>
