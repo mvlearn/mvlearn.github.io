@@ -328,17 +328,202 @@
             
   <h1>Source code for mvlearn.datasets.gaussian_mixture</h1><div class="highlight"><pre>
 <span></span><span class="c1"># License: MIT</span>
+<span class="c1"># Author: Ronan Perry</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ortho_group</span>
 
 
-<span class="k">def</span> <span class="nf">_add_noise</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">n_noise</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="make_gaussian_mixture"><a class="viewcode-back" href="../../../references/datasets.html#mvlearn.datasets.make_gaussian_mixture">[docs]</a><span class="k">def</span> <span class="nf">make_gaussian_mixture</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="p">,</span>
+    <span class="n">centers</span><span class="p">,</span>
+    <span class="n">covariances</span><span class="p">,</span>
+    <span class="n">transform</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+    <span class="n">noise</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">noise_dims</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">class_probs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">shuffle_random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">return_latents</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a two-view dataset from a Gaussian mixture model and</span>
+<span class="sd">    a transformation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_samples : int</span>
+<span class="sd">        The number of points in each view, divided across Gaussians per</span>
+<span class="sd">        `class_probs`.</span>
+<span class="sd">    centers : 1D array-like or list of 1D array-likes</span>
+<span class="sd">        The mean(s) of the Gaussian(s) from which the latent</span>
+<span class="sd">        points are sampled. If is a list of 1D array-likes, each is the</span>
+<span class="sd">        mean of a distinct Gaussian, sampled from with</span>
+<span class="sd">        probability given by `class_probs`. Otherwise is the mean of a</span>
+<span class="sd">        single Gaussian from which all are sampled.</span>
+<span class="sd">    covariances : 2D array-like or list of 2D array-likes</span>
+<span class="sd">        The covariance matrix(s) of the Gaussian(s), matched</span>
+<span class="sd">        to the specified centers.</span>
+<span class="sd">    transform : &#39;linear&#39; | &#39;sin&#39; | poly&#39; | callable, (default &#39;linear&#39;)</span>
+<span class="sd">        Transformation to perform on the latent variable. If a function,</span>
+<span class="sd">        applies it to the latent. Otherwise uses an implemented function.</span>
+<span class="sd">    noise : double or None (default=None)</span>
+<span class="sd">        Variance of mean zero Gaussian noise added to the first view</span>
+<span class="sd">    noise_dims : int or None (default=None)</span>
+<span class="sd">        Number of additional dimensions of standard normal noise to add</span>
+<span class="sd">    class_probs : array-like, default=None</span>
+<span class="sd">        A list of probabilities specifying the probability of a latent</span>
+<span class="sd">        point being sampled from each of the Gaussians. Must sum to 1. If</span>
+<span class="sd">        None, then is taken to be uniform over the Gaussians.</span>
+<span class="sd">    random_state : int, default=None</span>
+<span class="sd">        If set, can be used to reproduce the data generated.</span>
+<span class="sd">    shuffle : bool, default=False</span>
+<span class="sd">        If ``True``, data is shuffled so the labels are not ordered.</span>
+<span class="sd">    shuffle_random_state : int, default=None</span>
+<span class="sd">        If given, then sets the random state for shuffling the samples.</span>
+<span class="sd">        Ignored if ``shuffle=False``.</span>
+<span class="sd">    return_latents : boolean (defaul False)</span>
+<span class="sd">        If true, returns the non-noisy latent variables</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Xs : list of np.ndarray, each shape (n_samples, n_features)</span>
+<span class="sd">        The latent data and its noisy transformation</span>
+
+<span class="sd">    y : np.ndarray, shape (n_samples,)</span>
+<span class="sd">        The integer labels for each sample&#39;s Gaussian membership</span>
+
+<span class="sd">    latents : np.ndarray, shape (n_samples, n_features)</span>
+<span class="sd">        The non-noisy latent variables. Only returned if</span>
+<span class="sd">        ``return_latents=True``.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    For each class :math:`i` with prior probability :math:`p_i`,</span>
+<span class="sd">    center and covariance matrix :math:`\mu_i` and :math:`\Sigma_i`, and</span>
+<span class="sd">    :math:`n` total samples, the latent data is sampled such that:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        (X_1, y_1), \dots, (X_{np_i}, Y_{np_i}) \overset{i.i.d.}{\sim}</span>
+<span class="sd">            \mathcal{N}(\mu_i, \Sigma_i)</span>
+
+<span class="sd">    Two views of data are returned, the first being the latent samples and</span>
+<span class="sd">    the second being a specified transformation of the latent samples.</span>
+<span class="sd">    Additional noise may be added to the first view or added as noise</span>
+<span class="sd">    dimensions to both views.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from mvlearn.datasets import make_gaussian_mixture</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; n_samples = 10</span>
+<span class="sd">    &gt;&gt;&gt; centers = [[0,1], [0,-1]]</span>
+<span class="sd">    &gt;&gt;&gt; covariances = [np.eye(2), np.eye(2)]</span>
+<span class="sd">    &gt;&gt;&gt; Xs, y = make_gaussian_mixture(n_samples, centers, covariances,</span>
+<span class="sd">    ...                               shuffle=True, shuffle_random_state=42)</span>
+<span class="sd">    &gt;&gt;&gt; print(y)</span>
+<span class="sd">    [1. 0. 1. 0. 1. 0. 1. 0. 0. 1.]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">centers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">centers</span><span class="p">)</span>
+    <span class="n">covariances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">covariances</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">centers</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">centers</span> <span class="o">=</span> <span class="n">centers</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="k">if</span> <span class="n">covariances</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">covariances</span> <span class="o">=</span> <span class="n">covariances</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">centers</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;centers is of the incorrect shape&quot;</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">covariances</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;covariance matrix is of the incorrect shape&quot;</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">centers</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">covariances</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;The first dimensions of 2D centers and 3D covariances&quot;</span> <span class="o">+</span> \
+            <span class="s2">&quot; must be equal&quot;</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">class_probs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">class_probs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">centers</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">class_probs</span> <span class="o">/=</span> <span class="n">centers</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="nb">sum</span><span class="p">(</span><span class="n">class_probs</span><span class="p">)</span> <span class="o">!=</span> <span class="mf">1.0</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;elements of `class_probs` must sum to 1&quot;</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">centers</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_probs</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span>
+        <span class="n">covariances</span>
+    <span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_probs</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;centers, covariances, and class_probs must be of equal length&quot;</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+    <span class="n">latent</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span>
+                <span class="n">centers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">covariances</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">size</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">class_probs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_samples</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">class_probs</span><span class="p">))</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">i</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">class_probs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_samples</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">class_probs</span><span class="p">))</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># shuffle latent samples and labels</span>
+    <span class="k">if</span> <span class="n">shuffle</span><span class="p">:</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">shuffle_random_state</span><span class="p">)</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">latent</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
+        <span class="n">latent</span> <span class="o">=</span> <span class="n">latent</span><span class="p">[</span><span class="n">indices</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">transform</span><span class="p">):</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">latent</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="s2">&quot;&#39;transform&#39; must be of type string or a callable function,&quot;</span> <span class="o">+</span>
+            <span class="sa">f</span><span class="s2">&quot;not </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">transform</span> <span class="o">==</span> <span class="s2">&quot;linear&quot;</span><span class="p">:</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">_linear2view</span><span class="p">(</span><span class="n">latent</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">transform</span> <span class="o">==</span> <span class="s2">&quot;poly&quot;</span><span class="p">:</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">_poly2view</span><span class="p">(</span><span class="n">latent</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">transform</span> <span class="o">==</span> <span class="s2">&quot;sin&quot;</span><span class="p">:</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">_sin2view</span><span class="p">(</span><span class="n">latent</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Transform type must be one of {&#39;linear&#39;, &#39;poly&#39;, &#39;sin&#39;}&quot;</span> <span class="o">+</span>
+            <span class="sa">f</span><span class="s2">&quot; or a callable function. Not </span><span class="si">{</span><span class="n">transform</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">noise</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">latent</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">noise</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="o">*</span><span class="n">latent</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">X</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">latent</span><span class="p">,</span> <span class="n">X</span><span class="p">]</span>
+
+    <span class="c1"># if random_state is not None, make sure both views are independent</span>
+    <span class="c1"># but reproducible</span>
+    <span class="k">if</span> <span class="n">noise_dims</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">_add_noise</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">noise_dims</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">return_latents</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">latent</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">y</span></div>
+
+
+<span class="k">def</span> <span class="nf">_add_noise</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">n_noise</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Appends dimensions of standard normal noise to X</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
-    <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n_noise</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">X</span><span class="p">,</span> <span class="n">noise</span><span class="p">))</span>
+    <span class="n">noise_vars</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n_noise</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">X</span><span class="p">,</span> <span class="n">noise_vars</span><span class="p">))</span>
 
 
 <span class="k">def</span> <span class="nf">_linear2view</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -364,241 +549,6 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">X</span>
-
-
-<div class="viewcode-block" id="GaussianMixture"><a class="viewcode-back" href="../../../references/datasets.html#mvlearn.datasets.GaussianMixture">[docs]</a><span class="k">class</span> <span class="nc">GaussianMixture</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">n_samples</span><span class="p">,</span>
-        <span class="n">centers</span><span class="p">,</span>
-        <span class="n">covariances</span><span class="p">,</span>
-        <span class="n">class_probs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">shuffle_random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="p">):</span>
-        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Creates an object with a fixed latent variable sampled from a</span>
-<span class="sd">        (potentially) multivariate Gaussian distribution according to the</span>
-<span class="sd">        specified parameters and class probability priors.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        n_samples : int</span>
-<span class="sd">            The number of points in each view, divided across Gaussians per</span>
-<span class="sd">            `class_probs`.</span>
-<span class="sd">        centers : 1D array-like or list of 1D array-likes</span>
-<span class="sd">            The mean(s) of the Gaussian(s) from which the latent</span>
-<span class="sd">            points are sampled. If is a list of 1D array-likes, each is the</span>
-<span class="sd">            mean of a distinct Gaussian, sampled from with</span>
-<span class="sd">            probability given by `class_probs`. Otherwise is the mean of a</span>
-<span class="sd">            single Gaussian from which all are sampled.</span>
-<span class="sd">        covariances : 2D array-like or list of 2D array-likes</span>
-<span class="sd">            The covariance matrix(s) of the Gaussian(s), matched</span>
-<span class="sd">            to the specified centers.</span>
-<span class="sd">        class_probs : array-like, default=None</span>
-<span class="sd">            A list of probabilities specifying the probability of a latent</span>
-<span class="sd">            point being sampled from each of the Gaussians. Must sum to 1. If</span>
-<span class="sd">            None, then is taken to be uniform over the Gaussians.</span>
-<span class="sd">        random_state : int, default=None</span>
-<span class="sd">            If set, can be used to reproduce the data generated.</span>
-<span class="sd">        shuffle : bool, default=False</span>
-<span class="sd">            If ``True``, data is shuffled so the labels are not ordered.</span>
-<span class="sd">        shuffle_random_state : int, default=None</span>
-<span class="sd">            If given, then sets the random state for shuffling the samples.</span>
-<span class="sd">            Ignored if ``shuffle=False``.</span>
-
-<span class="sd">        Attributes</span>
-<span class="sd">        ----------</span>
-<span class="sd">        latent_ : np.ndarray, of shape (n_samples, n_dims)</span>
-<span class="sd">            Latent distribution data. latent[i] is randomly sampled from</span>
-<span class="sd">            a gaussian distribution with mean centers[i] and covariance</span>
-<span class="sd">            covariances[i].</span>
-<span class="sd">        y_ : np.ndarray, of shape (n_samples)</span>
-<span class="sd">            Integer labels denoting which Gaussian distribution each sample</span>
-<span class="sd">            came from.</span>
-<span class="sd">        Xs_ : list of array-like, of shape (2, n_samples, n_dims)</span>
-<span class="sd">            List of views of data created by transforming the latent.</span>
-<span class="sd">        centers : ndarray of shape (n_classes, n_dims)</span>
-<span class="sd">            The mean(s) of the Gaussian(s) from which the latent</span>
-<span class="sd">            points are sampled.</span>
-<span class="sd">        covariances : ndarray of shape (n_classes, n_dims, n_dims)</span>
-<span class="sd">            The covariance matrix(s) of the Gaussian(s).</span>
-<span class="sd">        class_probs_ : array-like of shape (n_classes,)</span>
-<span class="sd">            A list correponding to the fraction of samples from each class and</span>
-<span class="sd">            whose entries sum to 1.</span>
-
-<span class="sd">        Notes</span>
-<span class="sd">        -----</span>
-<span class="sd">        For each class :math:`i` with prior probability :math:`p_i`,</span>
-<span class="sd">        center and covariance matrix :math:`\mu_i` and :math:`\Sigma_i`, and</span>
-<span class="sd">        :math:`n` total samples, the latent data is sampled such that:</span>
-
-<span class="sd">        .. math::</span>
-<span class="sd">            (X_1, y_1), \dots, (X_{np_i}, Y_{np_i}) \overset{i.i.d.}{\sim}</span>
-<span class="sd">                \mathcal{N}(\mu_i, \Sigma_i)</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; from mvlearn.datasets import GaussianMixture</span>
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; n_samples = 10</span>
-<span class="sd">        &gt;&gt;&gt; centers = [[0,1], [0,-1]]</span>
-<span class="sd">        &gt;&gt;&gt; covariances = [np.eye(2), np.eye(2)]</span>
-<span class="sd">        &gt;&gt;&gt; GM = GaussianMixture(n_samples, centers, covariances,</span>
-<span class="sd">        ...                      shuffle=True, shuffle_random_state=42)</span>
-<span class="sd">        &gt;&gt;&gt; GM = GM.sample_views(transform=&#39;poly&#39;, n_noise=2)</span>
-<span class="sd">        &gt;&gt;&gt; Xs, y = GM.get_Xy()</span>
-<span class="sd">        &gt;&gt;&gt; print(y)</span>
-<span class="sd">        [1. 0. 1. 0. 1. 0. 1. 0. 0. 1.]</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">centers_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">centers</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">covariances_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">covariances</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_samples</span> <span class="o">=</span> <span class="n">n_samples</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">class_probs_</span> <span class="o">=</span> <span class="n">class_probs</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">shuffle</span> <span class="o">=</span> <span class="n">shuffle</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">shuffle_random_state</span> <span class="o">=</span> <span class="n">shuffle_random_state</span>
-
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">centers_</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">centers_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">centers_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">covariances_</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">covariances_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">centers_</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;centers is of the incorrect shape&quot;</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">covariances_</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;covariance matrix is of the incorrect shape&quot;</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">centers_</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">covariances_</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;The first dimensions of 2D centers and 3D covariances </span><span class="se">\</span>
-<span class="s2">                must be equal&quot;</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">centers_</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span>
-            <span class="s2">&quot;O&quot;</span>
-        <span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">covariances_</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s2">&quot;O&quot;</span><span class="p">):</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;elements of covariances or centers are of </span><span class="se">\</span>
-<span class="s2">                inconsistent lengths or are not floats nor ints&quot;</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_probs_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">class_probs_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">centers_</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">class_probs_</span> <span class="o">/=</span> <span class="bp">self</span><span class="o">.</span><span class="n">centers_</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">class_probs_</span><span class="p">)</span> <span class="o">!=</span> <span class="mf">1.0</span><span class="p">:</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;elements of `class_probs` must sum to 1&quot;</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">centers_</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">class_probs_</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">covariances_</span>
-        <span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">class_probs_</span><span class="p">):</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="s2">&quot;centers, covariances, and class_probs must be of equal length&quot;</span>
-            <span class="p">)</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-
-        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">latent_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
-            <span class="p">[</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">centers_</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
-                    <span class="n">size</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">class_probs_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_samples</span><span class="p">),</span>
-                <span class="p">)</span>
-                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">class_probs_</span><span class="p">))</span>
-            <span class="p">]</span>
-        <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
-            <span class="p">[</span>
-                <span class="n">i</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">class_probs_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_samples</span><span class="p">))</span>
-                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">class_probs_</span><span class="p">))</span>
-            <span class="p">]</span>
-        <span class="p">)</span>
-
-        <span class="c1"># shuffle latent samples and labels</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">shuffle</span><span class="p">:</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shuffle_random_state</span><span class="p">)</span>
-            <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">latent_</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">latent_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">latent_</span><span class="p">[</span><span class="n">indices</span><span class="p">,</span> <span class="p">:]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">y_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
-
-<div class="viewcode-block" id="GaussianMixture.sample_views"><a class="viewcode-back" href="../../../references/datasets.html#mvlearn.datasets.GaussianMixture.sample_views">[docs]</a>    <span class="k">def</span> <span class="nf">sample_views</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">n_noise</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Transforms one latent view by specified transformation and adds noise.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        transform : function or one of {&#39;linear&#39;, &#39;sin&#39;, poly&#39;},</span>
-<span class="sd">            default = &#39;linear&#39;</span>
-<span class="sd">            Transformation to perform on the latent variable. If a function,</span>
-<span class="sd">            applies it to the latent. Otherwise uses an implemented function.</span>
-<span class="sd">        n_noise : int, default = 1</span>
-<span class="sd">            number of noise dimensions to add to transformed latent</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        self : returns an instance of self</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">transform</span><span class="p">):</span>
-            <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">latent_</span><span class="p">])</span>
-        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;&#39;transform&#39; must be of type string or a callable function,</span><span class="se">\</span>
-<span class="s2">                not </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
-            <span class="p">)</span>
-        <span class="k">elif</span> <span class="n">transform</span> <span class="o">==</span> <span class="s2">&quot;linear&quot;</span><span class="p">:</span>
-            <span class="n">X</span> <span class="o">=</span> <span class="n">_linear2view</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">latent_</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">transform</span> <span class="o">==</span> <span class="s2">&quot;poly&quot;</span><span class="p">:</span>
-            <span class="n">X</span> <span class="o">=</span> <span class="n">_poly2view</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">latent_</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">transform</span> <span class="o">==</span> <span class="s2">&quot;sin&quot;</span><span class="p">:</span>
-            <span class="n">X</span> <span class="o">=</span> <span class="n">_sin2view</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">latent_</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s2">&quot;Transform type must be one of {&#39;linear&#39;, &#39;poly&#39;</span><span class="se">\</span>
-<span class="s2">                , &#39;sin&#39;} or a callable function. Not &quot;</span>
-                <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">transform</span><span class="si">}</span><span class="s2">&quot;</span>
-            <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">Xs_</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">latent_</span><span class="p">,</span> <span class="n">X</span><span class="p">]</span>
-
-        <span class="c1"># if random_state is not None, make sure both views are independent</span>
-        <span class="c1"># but reproducible</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">Xs_</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">_add_noise</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">n_noise</span><span class="o">=</span><span class="n">n_noise</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
-                <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">Xs_</span>
-            <span class="p">]</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">Xs_</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">_add_noise</span><span class="p">(</span>
-                    <span class="n">X</span><span class="p">,</span> <span class="n">n_noise</span><span class="o">=</span><span class="n">n_noise</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span>
-                <span class="p">)</span>
-                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">X</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Xs_</span><span class="p">)</span>
-            <span class="p">]</span>
-
-        <span class="k">return</span> <span class="bp">self</span></div>
-
-<div class="viewcode-block" id="GaussianMixture.get_Xy"><a class="viewcode-back" href="../../../references/datasets.html#mvlearn.datasets.GaussianMixture.get_Xy">[docs]</a>    <span class="k">def</span> <span class="nf">get_Xy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latents</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns the sampled views or latent variables.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        latents : boolean, default=False</span>
-<span class="sd">            If true, returns the latent variables rather than the</span>
-<span class="sd">            transformed views.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        (Xs, y) : the transformed views and their labels. If `latents=True`,</span>
-<span class="sd">            returns the latent variables instead of Xs.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">latents</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">latent_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;Xs_&quot;</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="s2">&quot;sample_views has not been called yet&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Xs_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>
