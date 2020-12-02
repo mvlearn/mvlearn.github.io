@@ -164,7 +164,7 @@ independent component analysis (groupICA) from scratch using `mvlearn`.
 
 We use the group ICA of *Calhoun et al. "A method for making group
 inferences from functional MRI data using independent component analysis.",
-Human brain mapping 14.3 (2001): 140-151.* as reference.
+Human Brain Mapping 14.3 (2001): 140-151.* as reference.
 
 GroupICA takes a multiview dataset, and tries to extract from it some shared
 independent sources. In its usual formulation, it consists of three simple
@@ -255,7 +255,7 @@ This is easily implemented using `mvlearn` and scikit-learn pipelines:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.325 seconds)
+   **Total running time of the script:** ( 0 minutes  0.210 seconds)
 
 
 .. _sphx_glr_download_auto_examples_compose_plot_pipeline_sklearn_integration.py:

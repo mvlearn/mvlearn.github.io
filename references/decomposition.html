@@ -497,9 +497,10 @@ is the noise level.</p>
 <table class="docutils footnote" frame="void" id="mvica" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[1]</td><td>Hugo Richard, Luigi Gresele, Aapo Hyvärinen, Bertrand Thirion,
-Alexandre Gramfort, Pierre Ablin. Modeling Shared Responses in
-Neuroimaging Studies through MultiView ICA. arXiv 2020.</td></tr>
+<tr><td class="label">[1]</td><td>Hugo Richard, et al. &quot;Modeling shared
+responses in neuroimaging studies through multiview ICA.&quot; In
+Pre-proceedings of Advances in Neural Information Processing
+Systems, volume 33, 2020</td></tr>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
@@ -803,10 +804,10 @@ features in the dataset <cite>i</cite>.</p>
 <table class="docutils footnote" frame="void" id="groupica" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[2]</td><td>Calhoun, Vince, et al. &quot;A method for making group
-inferences from functional MRI data using independent
-component analysis.&quot;
-Human brain mapping 14.3 (2001): 140-151.</td></tr>
+<tr><td class="label">[2]</td><td>Vince D Calhoun, et al.
+&quot;A method for making group inferences from
+functional MRI data using independent component analysis.&quot;
+Human Brain Mapping, 14(3):140–151, 2001.</td></tr>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
@@ -1186,10 +1187,10 @@ Allows to recover each original dataset from reduced data.</p>
 <table class="docutils footnote" frame="void" id="grouppca" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[3]</td><td>Calhoun, Vince, et al. &quot;A method for making group
-inferences from functional MRI data using independent
-component analysis.&quot;
-Human brain mapping 14.3 (2001): 140-151.</td></tr>
+<tr><td class="label">[3]</td><td>Vince D Calhoun, et al.
+&quot;A method for making group inferences from
+functional MRI data using independent component analysis.&quot;
+Human Brain Mapping, 14(3):140–151, 2001.</td></tr>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
@@ -1671,6 +1672,15 @@ the equation:</p>
 <p>Much of this implementation has been adapted from <strong>Iain Carmichael</strong>
 Ph.D.'s pip-installable package, <em>jive</em>, the code for which is
 <a class="reference external" href="https://github.com/idc9/py_jive">linked here</a>.</p>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[4]</a></td><td>Qing Feng, Meilei Jiang, Jan Hannig, and J.S. Marron.
+&quot;Angle-based joint and individual variation explained.&quot; Journal of
+Multivariate Analysis, 166:241–265, 2018.</td></tr>
+</tbody>
+</table>
 <p class="rubric">Examples</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.factorization.ajive</span> <span class="kn">import</span> <span class="n">AJIVE</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
@@ -1685,15 +1695,6 @@ Ph.D.'s pip-installable package, <em>jive</em>, the code for which is
 <span class="go">(2000, 76)</span>
 </pre></div>
 </div>
-<p class="rubric">References</p>
-<table class="docutils footnote" frame="void" id="id2" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[4]</a></td><td>Feng, Qing, et al. “Angle-Based Joint and Individual
-Variation Explained.” Journal of Multivariate Analysis,
-vol. 166, 2018, pp. 241–265., doi:10.1016/j.jmva.2018.03.008.</td></tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="mvlearn.decomposition.AJIVE.fit">
 <code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/ajive.html#AJIVE.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.AJIVE.fit" title="Permalink to this definition">¶</a></dt>
