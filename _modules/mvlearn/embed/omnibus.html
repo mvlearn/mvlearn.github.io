@@ -345,7 +345,15 @@
 <span class="c1"># Code from the https://github.com/neurodata/graspy package,</span>
 <span class="c1"># reproduced and shared with permission.</span>
 
-<span class="kn">from</span> <span class="nn">graspy.embed</span> <span class="kn">import</span> <span class="n">OmnibusEmbed</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">graspy.embed</span> <span class="kn">import</span> <span class="n">OmnibusEmbed</span>
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">. package graspy required for this function. &quot;</span> <span class="o">+</span>
+           <span class="s2">&quot;Please consult the mvlearn installation instructions at &quot;</span> <span class="o">+</span>
+           <span class="s2">&quot;https://github.com/mvlearn/mvlearn to correctly install &quot;</span> <span class="o">+</span>
+           <span class="s2">&quot;this dependency.&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">pairwise_distances</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">normalize</span>
 

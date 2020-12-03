@@ -341,7 +341,6 @@
 <span class="c1"># all copies or substantial portions of the Software.</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">sklearn.exceptions</span> <span class="kn">import</span> <span class="n">NotFittedError</span>
@@ -351,11 +350,11 @@
     <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
     <span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">BatchSampler</span><span class="p">,</span> <span class="n">SequentialSampler</span><span class="p">,</span> <span class="n">RandomSampler</span>
 <span class="k">except</span> <span class="ne">ModuleNotFoundError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s1">. torch dependencies required for this function. </span><span class="se">\</span>
-<span class="s1">    Please consult the mvlearn installation instructions at </span><span class="se">\</span>
-<span class="s1">    https://github.com/mvlearn/mvlearn to correctly install torch </span><span class="se">\</span>
-<span class="s1">    dependencies.&#39;</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">. torch dependencies required for this function. &quot;</span> <span class="o">+</span>
+           <span class="s2">&quot;Please consult the mvlearn installation instructions at &quot;</span> <span class="o">+</span>
+           <span class="s2">&quot;https://github.com/mvlearn/mvlearn to correctly install &quot;</span> <span class="o">+</span>
+           <span class="s2">&quot;torch dependency.&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseEmbed</span>
 <span class="kn">from</span> <span class="nn">..utils.utils</span> <span class="kn">import</span> <span class="n">check_Xs</span>
