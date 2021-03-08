@@ -245,6 +245,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#unreleased">Unreleased</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-4-1">Version 0.4.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id2">mvlearn.compose</a></li>
@@ -574,7 +575,7 @@ is very high.</p>
     <span class="n">noise</span> <span class="o">=</span> <span class="mf">0.005</span> <span class="o">-</span> <span class="mf">0.01</span><span class="o">*</span><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.random.html#numpy.random.random" title="numpy.random.random" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span></a><span class="p">((</span><span class="n">view1_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">50</span><span class="p">))</span>
     <span class="n">t_mat</span> <span class="o">*=</span> <span class="n">noise</span>
     <span class="n">transformed</span> <span class="o">=</span> <span class="n">view1_data</span> <span class="o">@</span> <span class="n">t_mat</span>
-    <span class="n">view2_data</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.expit.html#scipy.special.expit" title="scipy.special.expit" class="sphx-glr-backref-module-scipy-special sphx-glr-backref-type-py-data"><span class="n">special</span><span class="o">.</span><span class="n">expit</span></a><span class="p">(</span><span class="n">transformed</span><span class="p">)</span>
+    <span class="n">view2_data</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">special</span><span class="o">.</span><span class="n">expit</span></a><span class="p">(</span><span class="n">transformed</span><span class="p">)</span>
 
     <span class="c1"># Shuffle and normalize vectors</span>
     <span class="n">shuffled_inds</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.permutation.html#numpy.random.permutation" title="numpy.random.permutation" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span></a><span class="p">(</span><span class="n">num_samples</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">view1_classes</span><span class="p">))</span>
@@ -633,7 +634,7 @@ Singleview Concatenated NMI Score: 0.259
 Multiview NMI Score: 0.234
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  18.616 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  22.614 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-cluster-plot-mv-kmeans-validation-complex-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <a class="reference download internal" download="" href="../../_downloads/c58f7d5e37eb237d938c263640ea237f/plot_mv_kmeans_validation_complex.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mv_kmeans_validation_complex.py</span></code></a></div>

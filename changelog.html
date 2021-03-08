@@ -245,6 +245,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#unreleased">Unreleased</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-0-4-1">Version 0.4.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-0-4-0">Version 0.4.0</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">mvlearn.compose</a></li>
@@ -345,6 +346,12 @@
 <li><span class="raw-html"><font color="red">[Fix]</font></span> : something that previously didn’t work as documentated – or according to reasonable expectations – should now work.</li>
 <li><span class="raw-html"><font color="DarkOrange">[API]</font></span> : you will need to change your code to have the same effect in the future; or a feature will be removed in the future.</li>
 </ul>
+<div class="section" id="unreleased">
+<h2>Unreleased<a class="headerlink" href="#unreleased" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>[Fix] <code class="docutils literal notranslate"><span class="pre">CCA</span></code> now only acepts integer arguments for <code class="docutils literal notranslate"><span class="pre">n_components</span></code>, upper bounded by the minimum number of view features. Previously it accepted options that <code class="docutils literal notranslate"><span class="pre">MCCA</span></code> accepted which are only valid for greater than two views. This also had the effect of errors with <code class="docutils literal notranslate"><span class="pre">cca.get_stats</span></code>. <cite>#279 &lt;https://github.com/mvlearn/mvlearn/pull/279&gt;</cite> by <a class="reference external" href="http://rflperry.github.io/">Ronan Perry</a>.</li>
+</ul>
+</div>
 <div class="section" id="version-0-4-1">
 <h2>Version 0.4.1<a class="headerlink" href="#version-0-4-1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
