@@ -93,6 +93,7 @@
             
               <p class="caption"><span class="caption-text">Using mvlearn</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../install.html#including-optional-dependencies-for-full-functionality">Including optional dependencies for full functionality</a></li>
@@ -110,10 +111,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Coregularized Spectral Clustering Comparison</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. Singleview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_spectral_validation_complex.html">Conditional Independence of Views on Multiview Spectral Clustering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/cluster/plot_mv_kmeans_validation_complex.html">Conditional Independence of Views on Multiview KMeans Clustering</a></li>
 </ul>
@@ -126,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-datasets">Examples on datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/datasets/plot_gaussianmixtures.html">Generating Multiview Data from Gaussian Mixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/datasets/plot_nutrimouse.html">An mvlearn case study: the Nutrimouse dataset</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../auto_examples/index.html#examples-on-decomposition">Examples on decomposition</a><ul>
@@ -207,6 +209,7 @@
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Multiview Datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nutrimouse-dataset">Nutrimouse dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#data-simulator">Data Simulator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#factor-model">Factor Model</a></li>
 </ul>
@@ -345,7 +348,7 @@
 <h2>UCI multiple feature dataset (located <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Multiple+Features">here</a>)<a class="headerlink" href="#uci-multiple-feature-dataset-located-here" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="mvlearn.datasets.load_UCImultifeature">
-<code class="descclassname">mvlearn.datasets.</code><code class="descname">load_UCImultifeature</code><span class="sig-paren">(</span><em>select_labeled='all'</em>, <em>views='all'</em>, <em>shuffle=False</em>, <em>random_state=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/datasets/base.html#load_UCImultifeature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.datasets.load_UCImultifeature" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mvlearn.datasets.</code><code class="descname">load_UCImultifeature</code><span class="sig-paren">(</span><em>select_labeled='all'</em>, <em>views='all'</em>, <em>shuffle=False</em>, <em>random_state=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/datasets/uci_multifeature.html#load_UCImultifeature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.datasets.load_UCImultifeature" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load the UCI multiple features dataset <a class="footnote-reference" href="#data" id="id1">[1]</a>, taken from the UCI
 Machine Learning Repository <a class="footnote-reference" href="#uci" id="id2">[2]</a> at
 <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Multiple+Features">https://archive.ics.uci.edu/ml/datasets/Multiple+Features</a>. This data set
@@ -413,6 +416,90 @@ combined classifiers&quot;, Kybernetika, 34(4):381-386, 1998</td></tr>
 <span class="go">[(2000, 76), (2000, 216), (2000, 64), (2000, 240), (2000, 47), (2000, 6)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="go">(2000,)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="nutrimouse-dataset">
+<h2>Nutrimouse dataset<a class="headerlink" href="#nutrimouse-dataset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="mvlearn.datasets.load_nutrimouse">
+<code class="descclassname">mvlearn.datasets.</code><code class="descname">load_nutrimouse</code><span class="sig-paren">(</span><em>return_Xs_y=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/datasets/nutrimouse.html#load_nutrimouse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.datasets.load_nutrimouse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the Nutrimouse dataset <a class="footnote-reference" href="#paper" id="id3">[3]</a>, a two-view dataset from a nutrition
+study on mice, as available from
+<a class="reference external" href="https://CRAN.R-project.org/package=CCA">https://CRAN.R-project.org/package=CCA</a> <a class="footnote-reference" href="#r" id="id4">[4]</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>return_Xs_y</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>default=False</em>) -- If <code class="docutils literal notranslate"><span class="pre">True</span></code>, returns an <code class="docutils literal notranslate"><span class="pre">(Xs,</span> <span class="pre">y)</span></code> tuple of the multiple views and
+sample labels as strings. Otherwise returns all the data in a
+dictionary-like <cite>sklearn.utils.Bunch</cite> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul>
+<li><strong>dataset</strong> (<cite>sklearn.utils.Bunch</cite> object following key: value pairs) -- (see Notes for details). Returned if <code class="docutils literal notranslate"><span class="pre">return_Xs_y</span></code> is False.
+gene : numpy.ndarray, shape (40, 120)<blockquote>
+<div>The gene expressions (1st view).</div></blockquote>
+<dl class="docutils">
+<dt>lipid <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray, shape (40, 21)</span></dt>
+<dd>The fatty acid concentrations (2nd view)</dd>
+<dt>genotype <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray, shape (40,)</span></dt>
+<dd>The genotype label (1st label).</dd>
+<dt>diet <span class="classifier-delimiter">:</span> <span class="classifier">numpy.ndarray, shape (40,)</span></dt>
+<dd>The diet label (2nd label).</dd>
+<dt>gene_feature_names <span class="classifier-delimiter">:</span> <span class="classifier">list, length 120</span></dt>
+<dd>The names of the genes.</dd>
+<dt>lipid_feature_names <span class="classifier-delimiter">:</span> <span class="classifier">list, length 21</span></dt>
+<dd>The names of the fatty acids.</dd>
+</dl>
+</li>
+<li><strong>(Xs, y)</strong> (<em>2-tuple of the multiple views and labels as strings</em>) -- Returned if <code class="docutils literal notranslate"><span class="pre">return_Xs_y</span></code> is False.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>This data consists of two views from a nutrition study of 40 mice:</p>
+<ul class="simple">
+<li>gene : expressions of 120 potentially relevant genes</li>
+<li>lipid : concentrations of 21 hepatic fatty acids</li>
+</ul>
+<p>Each mouse has two labels, four mice per pair of labels:</p>
+<ul class="simple">
+<li>genotype (2 classes) : wt, ppar</li>
+<li>diet (5 classes) : REF, COC, SUN, LIN, FISH</li>
+</ul>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="paper" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>P. Martin, H. Guillou, F. Lasserre, S. Déjean, A. Lan, J-M.
+Pascussi, M. San Cristobal, P. Legrand, P. Besse, T. Pineau.
+&quot;Novel aspects of PPARalpha-mediated regulation of lipid and
+xenobiotic metabolism revealed through a nutrigenomic study.&quot;
+Hepatology, 2007.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="r" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>González I., Déjean S., Martin P.G.P and Baccini, A. (2008) CCA:
+&quot;An R Package to Extend Canonical Correlation Analysis.&quot; Journal
+of Statistical Software, 23(12).</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_nutrimouse</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load both views and labels</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xs</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_nutrimouse</span><span class="p">(</span><span class="n">return_Xs_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">))</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">([</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Xs</span><span class="p">])</span>
+<span class="go">[(40, 120), (40, 21)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(40, 2)</span>
 </pre></div>
 </div>
 </dd></dl>

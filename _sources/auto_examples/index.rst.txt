@@ -89,6 +89,27 @@ Examples on cluster
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Here, we directly compare multiview methods available within *mvlearn* to analagous singleview ...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/cluster/images/thumb/sphx_glr_plot_mv_vs_singleview_spectral_thumb.png
+     :alt: Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits
+
+     :ref:`sphx_glr_auto_examples_cluster_plot_mv_vs_singleview_spectral.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/cluster/plot_mv_vs_singleview_spectral
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="This tutorial compares the multiview and singleview k-means algorithms on synthetic data to bui...">
 
 .. only:: html
@@ -149,27 +170,6 @@ Examples on cluster
    :hidden:
 
    /auto_examples/cluster/plot_mv_spectral_validation_simulated
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Here, we directly compare multiview methods available within *mvlearn* to analagous singleview ...">
-
-.. only:: html
-
- .. figure:: /auto_examples/cluster/images/thumb/sphx_glr_plot_mv_vs_singleview_spectral_thumb.png
-     :alt: Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits
-
-     :ref:`sphx_glr_auto_examples_cluster_plot_mv_vs_singleview_spectral.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/cluster/plot_mv_vs_singleview_spectral
 
 .. raw:: html
 
@@ -323,6 +323,27 @@ Examples on datasets
    :hidden:
 
    /auto_examples/datasets/plot_gaussianmixtures
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we show how one may utilize various tools of mvlearn. We demonstrate applicat...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/datasets/images/thumb/sphx_glr_plot_nutrimouse_thumb.png
+     :alt: An mvlearn case study: the Nutrimouse dataset
+
+     :ref:`sphx_glr_auto_examples_datasets_plot_nutrimouse.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/datasets/plot_nutrimouse
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>

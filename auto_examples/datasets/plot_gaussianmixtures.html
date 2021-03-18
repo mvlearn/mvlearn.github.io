@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="ICA: a tutorial" href="../decomposition/plot_group_ica_tutorial.html" />
+    <link rel="next" title="An mvlearn case study: the Nutrimouse dataset" href="plot_nutrimouse.html" />
     <link rel="prev" title="Loading and Viewing the UCI Multiple Features Dataset" href="plot_load_ucimultifeature.html" /> 
 
   
@@ -93,6 +93,7 @@
             
               <p class="caption"><span class="caption-text">Using mvlearn</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../install.html#including-optional-dependencies-for-full-functionality">Including optional dependencies for full functionality</a></li>
@@ -110,10 +111,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Coregularized Spectral Clustering Comparison</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. Singleview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_complex.html">Conditional Independence of Views on Multiview Spectral Clustering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_complex.html">Conditional Independence of Views on Multiview KMeans Clustering</a></li>
 </ul>
@@ -126,6 +127,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#examples-on-datasets">Examples on datasets</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Generating Multiview Data from Gaussian Mixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_nutrimouse.html">An mvlearn case study: the Nutrimouse dataset</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-decomposition">Examples on decomposition</a><ul>
@@ -207,6 +209,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../references/datasets.html">Multiview Datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#nutrimouse-dataset">Nutrimouse dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#data-simulator">Data Simulator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#factor-model">Factor Model</a></li>
 </ul>
@@ -389,7 +392,7 @@ mixtures and plot the views against each other using a crossviews plot.</p>
                 <span class="n">equal_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.136 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.440 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-datasets-plot-gaussianmixtures-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <a class="reference download internal" download="" href="../../_downloads/651ce28a41648253ff15629768537624/plot_gaussianmixtures.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_gaussianmixtures.py</span></code></a></div>
@@ -407,7 +410,7 @@ mixtures and plot the views against each other using a crossviews plot.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../decomposition/plot_group_ica_tutorial.html" class="btn btn-neutral float-right" title="ICA: a tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot_nutrimouse.html" class="btn btn-neutral float-right" title="An mvlearn case study: the Nutrimouse dataset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="plot_load_ucimultifeature.html" class="btn btn-neutral" title="Loading and Viewing the UCI Multiple Features Dataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

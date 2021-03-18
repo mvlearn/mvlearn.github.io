@@ -35,7 +35,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Multiview Independent Component Analysis (ICA) Comparison" href="plot_mv_ica_tutorial.html" />
-    <link rel="prev" title="Generating Multiview Data from Gaussian Mixtures" href="../datasets/plot_gaussianmixtures.html" /> 
+    <link rel="prev" title="An mvlearn case study: the Nutrimouse dataset" href="../datasets/plot_nutrimouse.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -93,6 +93,7 @@
             
               <p class="caption"><span class="caption-text">Using mvlearn</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../install.html#including-optional-dependencies-for-full-functionality">Including optional dependencies for full functionality</a></li>
@@ -110,10 +111,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Coregularized Spectral Clustering Comparison</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. Singleview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_spectral_validation_complex.html">Conditional Independence of Views on Multiview Spectral Clustering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cluster/plot_mv_kmeans_validation_complex.html">Conditional Independence of Views on Multiview KMeans Clustering</a></li>
 </ul>
@@ -126,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-datasets">Examples on datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../datasets/plot_gaussianmixtures.html">Generating Multiview Data from Gaussian Mixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_nutrimouse.html">An mvlearn case study: the Nutrimouse dataset</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#examples-on-decomposition">Examples on decomposition</a><ul class="current">
@@ -207,6 +209,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../references/datasets.html">Multiview Datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#nutrimouse-dataset">Nutrimouse dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#data-simulator">Data Simulator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#factor-model">Factor Model</a></li>
 </ul>
@@ -438,7 +441,7 @@ correctly estimated, up to scale and permutation.</p>
 </div>
 <img alt="plot group ica tutorial" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_group_ica_tutorial_004.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7fa759ae63d0&gt;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7f20ef740f10&gt;
 </pre></div>
 </div>
 </div>
@@ -474,7 +477,7 @@ the following.</p>
 <li><img alt="plot group ica tutorial" class="sphx-glr-multi-img first" src="../../_images/sphx_glr_plot_group_ica_tutorial_006.png" />
 </li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.863 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.370 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-decomposition-plot-group-ica-tutorial-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <a class="reference download internal" download="" href="../../_downloads/99901fd9b85fd940662e9b130415ee5b/plot_group_ica_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_group_ica_tutorial.py</span></code></a></div>
@@ -496,7 +499,7 @@ the following.</p>
         <a href="plot_mv_ica_tutorial.html" class="btn btn-neutral float-right" title="Multiview Independent Component Analysis (ICA) Comparison" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../datasets/plot_gaussianmixtures.html" class="btn btn-neutral" title="Generating Multiview Data from Gaussian Mixtures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../datasets/plot_nutrimouse.html" class="btn btn-neutral" title="An mvlearn case study: the Nutrimouse dataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

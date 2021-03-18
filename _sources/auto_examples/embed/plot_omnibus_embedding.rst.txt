@@ -53,7 +53,7 @@ different views in the UCI handwritten digits dataset.
 
     # License: MIT
 
-    from mvlearn.datasets.base import load_UCImultifeature
+    from mvlearn.datasets import load_UCImultifeature
     import numpy as np
     from matplotlib import pyplot as plt
     from mvlearn.embed import omnibus
@@ -303,7 +303,7 @@ to make the plot more readable.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  12.182 seconds)
+   **Total running time of the script:** ( 0 minutes  15.349 seconds)
 
 
 .. _sphx_glr_download_auto_examples_embed_plot_omnibus_embedding.py:

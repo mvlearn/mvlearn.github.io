@@ -5,24 +5,24 @@
 
 Computation times
 =================
-**03:26.838** total execution time for **auto_examples_cluster** files:
+**03:29.083** total execution time for **auto_examples_cluster** files:
 
 +-----------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_cluster_plot_mv_spectral_validation_complex.py` (``plot_mv_spectral_validation_complex.py``)         | 01:48.499 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_cluster_plot_mv_spectral_validation_complex.py` (``plot_mv_spectral_validation_complex.py``)         | 01:59.451 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_cluster_plot_mv_spectral_validation_simulated.py` (``plot_mv_spectral_validation_simulated.py``)     | 00:27.262 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_cluster_plot_mv_spectral_validation_simulated.py` (``plot_mv_spectral_validation_simulated.py``)     | 00:22.421 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_cluster_plot_mv_kmeans_validation_complex.py` (``plot_mv_kmeans_validation_complex.py``)             | 00:18.504 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_cluster_plot_mv_kmeans_validation_complex.py` (``plot_mv_kmeans_validation_complex.py``)             | 00:21.183 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_cluster_plot_mv_vs_singleview_spectral.py` (``plot_mv_vs_singleview_spectral.py``)                   | 00:15.945 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_cluster_plot_mv_vs_singleview_spectral.py` (``plot_mv_vs_singleview_spectral.py``)                   | 00:13.899 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_cluster_plot_mv_spectral_tutorial.py` (``plot_mv_spectral_tutorial.py``)                             | 00:09.830 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_cluster_plot_mv_spectral_tutorial.py` (``plot_mv_spectral_tutorial.py``)                             | 00:08.679 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_cluster_plot_mv_coregularized_spectral_tutorial.py` (``plot_mv_coregularized_spectral_tutorial.py``) | 00:08.980 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_cluster_plot_mv_coregularized_spectral_tutorial.py` (``plot_mv_coregularized_spectral_tutorial.py``) | 00:07.792 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_cluster_plot_mv_spherical_kmeans_tutorial.py` (``plot_mv_spherical_kmeans_tutorial.py``)             | 00:05.978 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_cluster_plot_mv_kmeans_tutorial.py` (``plot_mv_kmeans_tutorial.py``)                                 | 00:05.492 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_cluster_plot_mv_kmeans_tutorial.py` (``plot_mv_kmeans_tutorial.py``)                                 | 00:05.924 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_cluster_plot_mv_kmeans_validation_simulated.py` (``plot_mv_kmeans_validation_simulated.py``)         | 00:05.279 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_cluster_plot_mv_kmeans_validation_simulated.py` (``plot_mv_kmeans_validation_simulated.py``)         | 00:05.916 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_cluster_plot_mv_spherical_kmeans_tutorial.py` (``plot_mv_spherical_kmeans_tutorial.py``)             | 00:04.886 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------+-----------+--------+

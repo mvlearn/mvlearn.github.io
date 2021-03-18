@@ -5,22 +5,22 @@
 
 Computation times
 =================
-**01:09.524** total execution time for **auto_examples_embed** files:
+**01:32.733** total execution time for **auto_examples_embed** files:
 
 +---------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_embed_plot_dcca_tutorial.py` (``plot_dcca_tutorial.py``)             | 00:24.038 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_embed_plot_mvmds_tutorial.py` (``plot_mvmds_tutorial.py``)           | 00:24.983 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_embed_plot_mvmds_tutorial.py` (``plot_mvmds_tutorial.py``)           | 00:21.457 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_embed_plot_cca_comparison.py` (``plot_cca_comparison.py``)           | 00:21.012 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_embed_plot_omnibus_embedding.py` (``plot_omnibus_embedding.py``)     | 00:12.182 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_embed_plot_dcca_tutorial.py` (``plot_dcca_tutorial.py``)             | 00:20.652 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_embed_plot_cca_comparison.py` (``plot_cca_comparison.py``)           | 00:03.312 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_embed_plot_omnibus_embedding.py` (``plot_omnibus_embedding.py``)     | 00:15.349 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_embed_plot_mcca_tutorial.py` (``plot_mcca_tutorial.py``)             | 00:03.054 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_embed_plot_mcca_tutorial.py` (``plot_mcca_tutorial.py``)             | 00:03.828 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_embed_plot_kmcca_tutorial.py` (``plot_kmcca_tutorial.py``)           | 00:02.316 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_embed_plot_kmcca_tutorial.py` (``plot_kmcca_tutorial.py``)           | 00:02.664 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_embed_plot_gcca_tutorial.py` (``plot_gcca_tutorial.py``)             | 00:01.781 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_embed_plot_gcca_tutorial.py` (``plot_gcca_tutorial.py``)             | 00:02.204 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_embed_plot_kmcca_pgso_tutorial.py` (``plot_kmcca_pgso_tutorial.py``) | 00:01.384 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_embed_plot_kmcca_pgso_tutorial.py` (``plot_kmcca_pgso_tutorial.py``) | 00:02.041 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------+-----------+--------+

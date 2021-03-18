@@ -35,7 +35,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Multiview Spectral Clustering Tutorial" href="plot_mv_spectral_tutorial.html" />
-    <link rel="prev" title="Multiview KMeans Tutorial" href="plot_mv_kmeans_tutorial.html" /> 
+    <link rel="prev" title="Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits" href="plot_mv_vs_singleview_spectral.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -93,6 +93,7 @@
             
               <p class="caption"><span class="caption-text">Using mvlearn</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../install.html#including-optional-dependencies-for-full-functionality">Including optional dependencies for full functionality</a></li>
@@ -110,10 +111,10 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_mv_coregularized_spectral_tutorial.html">Multiview Coregularized Spectral Clustering Comparison</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mv_kmeans_tutorial.html">Multiview KMeans Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Multiview vs. Singleview KMeans</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mv_spectral_tutorial.html">Multiview Spectral Clustering Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mv_spectral_validation_simulated.html">Multiview vs. Singleview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mv_spectral_validation_complex.html">Conditional Independence of Views on Multiview Spectral Clustering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mv_kmeans_validation_complex.html">Conditional Independence of Views on Multiview KMeans Clustering</a></li>
 </ul>
@@ -126,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-datasets">Examples on datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../datasets/plot_gaussianmixtures.html">Generating Multiview Data from Gaussian Mixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../datasets/plot_nutrimouse.html">An mvlearn case study: the Nutrimouse dataset</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples-on-decomposition">Examples on decomposition</a><ul>
@@ -207,6 +209,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../references/datasets.html">Multiview Datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#nutrimouse-dataset">Nutrimouse dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#data-simulator">Data Simulator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/datasets.html#factor-model">Factor Model</a></li>
 </ul>
@@ -635,7 +638,7 @@ concatenated data when views are informative but the data is fairly simple
 kmeans algorithm does perform better on well separated cluster components
 than it does on highly overlapping cluster components, which does validate
 it's basic functionality as a clustering algorithm.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.916 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.279 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-cluster-plot-mv-kmeans-validation-simulated-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <a class="reference download internal" download="" href="../../_downloads/6fdc129692a0cf6fef3d220e7d84de2e/plot_mv_kmeans_validation_simulated.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mv_kmeans_validation_simulated.py</span></code></a></div>
@@ -657,7 +660,7 @@ it's basic functionality as a clustering algorithm.</p>
         <a href="plot_mv_spectral_tutorial.html" class="btn btn-neutral float-right" title="Multiview Spectral Clustering Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="plot_mv_kmeans_tutorial.html" class="btn btn-neutral" title="Multiview KMeans Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_mv_vs_singleview_spectral.html" class="btn btn-neutral" title="Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

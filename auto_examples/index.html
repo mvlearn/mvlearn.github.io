@@ -93,6 +93,7 @@
             
               <p class="caption"><span class="caption-text">Using mvlearn</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../install.html#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../install.html#including-optional-dependencies-for-full-functionality">Including optional dependencies for full functionality</a></li>
@@ -110,10 +111,10 @@
 <li class="toctree-l3"><a class="reference internal" href="cluster/plot_mv_coregularized_spectral_tutorial.html">Multiview Coregularized Spectral Clustering Comparison</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cluster/plot_mv_spherical_kmeans_tutorial.html">Multiview Spherical KMeans Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cluster/plot_mv_kmeans_tutorial.html">Multiview KMeans Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cluster/plot_mv_kmeans_validation_simulated.html">Multiview vs. Singleview KMeans</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cluster/plot_mv_spectral_tutorial.html">Multiview Spectral Clustering Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cluster/plot_mv_spectral_validation_simulated.html">Multiview vs. Singleview Spectral Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cluster/plot_mv_vs_singleview_spectral.html">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cluster/plot_mv_spectral_validation_complex.html">Conditional Independence of Views on Multiview Spectral Clustering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cluster/plot_mv_kmeans_validation_complex.html">Conditional Independence of Views on Multiview KMeans Clustering</a></li>
 </ul>
@@ -126,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#examples-on-datasets">Examples on datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="datasets/plot_load_ucimultifeature.html">Loading and Viewing the UCI Multiple Features Dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="datasets/plot_gaussianmixtures.html">Generating Multiview Data from Gaussian Mixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasets/plot_nutrimouse.html">An mvlearn case study: the Nutrimouse dataset</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#examples-on-decomposition">Examples on decomposition</a><ul>
@@ -207,6 +209,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../references/datasets.html">Multiview Datasets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../references/datasets.html#nutrimouse-dataset">Nutrimouse dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/datasets.html#data-simulator">Data Simulator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/datasets.html#factor-model">Factor Model</a></li>
 </ul>
@@ -361,27 +364,27 @@ can be done with the mvlearn library.</p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="This tutorial compares the multiview and singleview k-means algorithms on synthetic data to bui..."><div class="figure" id="id4">
+<div class="sphx-glr-thumbcontainer" tooltip="Here, we directly compare multiview methods available within *mvlearn* to analagous singleview ..."><div class="figure" id="id4">
+<img alt="Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits" src="../_images/sphx_glr_plot_mv_vs_singleview_spectral_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="cluster/plot_mv_vs_singleview_spectral.html#sphx-glr-auto-examples-cluster-plot-mv-vs-singleview-spectral-py"><span class="std std-ref">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="This tutorial compares the multiview and singleview k-means algorithms on synthetic data to bui..."><div class="figure" id="id5">
 <img alt="Multiview vs. Singleview KMeans" src="../_images/sphx_glr_plot_mv_kmeans_validation_simulated_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="cluster/plot_mv_kmeans_validation_simulated.html#sphx-glr-auto-examples-cluster-plot-mv-kmeans-validation-simulated-py"><span class="std std-ref">Multiview vs. Singleview KMeans</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates how to use multiview spectral clustering to cluster multiview datase..."><div class="figure" id="id5">
+<div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates how to use multiview spectral clustering to cluster multiview datase..."><div class="figure" id="id6">
 <img alt="Multiview Spectral Clustering Tutorial" src="../_images/sphx_glr_plot_mv_spectral_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="cluster/plot_mv_spectral_tutorial.html#sphx-glr-auto-examples-cluster-plot-mv-spectral-tutorial-py"><span class="std std-ref">Multiview Spectral Clustering Tutorial</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="This tutorial compares multiview and singleview spectral clustering on synthetic multiview data..."><div class="figure" id="id6">
+<div class="sphx-glr-thumbcontainer" tooltip="This tutorial compares multiview and singleview spectral clustering on synthetic multiview data..."><div class="figure" id="id7">
 <img alt="Multiview vs. Singleview Spectral Clustering" src="../_images/sphx_glr_plot_mv_spectral_validation_simulated_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="cluster/plot_mv_spectral_validation_simulated.html#sphx-glr-auto-examples-cluster-plot-mv-spectral-validation-simulated-py"><span class="std std-ref">Multiview vs. Singleview Spectral Clustering</span></a></span></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Here, we directly compare multiview methods available within *mvlearn* to analagous singleview ..."><div class="figure" id="id7">
-<img alt="Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits" src="../_images/sphx_glr_plot_mv_vs_singleview_spectral_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="cluster/plot_mv_vs_singleview_spectral.html#sphx-glr-auto-examples-cluster-plot-mv-vs-singleview-spectral-py"><span class="std std-ref">Multiview vs. Singleview Spectral Clustering of UCI Multiview Digits</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
@@ -429,22 +432,28 @@ estimators and pipelines.</p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
+<div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we show how one may utilize various tools of mvlearn. We demonstrate applicat..."><div class="figure" id="id14">
+<img alt="An mvlearn case study: the Nutrimouse dataset" src="../_images/sphx_glr_plot_nutrimouse_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="datasets/plot_nutrimouse.html#sphx-glr-auto-examples-datasets-plot-nutrimouse-py"><span class="std std-ref">An mvlearn case study: the Nutrimouse dataset</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
 <div class="sphx-glr-clear"></div></div>
 <div class="section" id="examples-on-decomposition">
 <span id="sphx-glr-auto-examples-decomposition"></span><h2>Examples on decomposition<a class="headerlink" href="#examples-on-decomposition" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="Author: Pierre Ablin"><div class="figure" id="id14">
+<div class="sphx-glr-thumbcontainer" tooltip="Author: Pierre Ablin"><div class="figure" id="id15">
 <img alt="ICA: a tutorial" src="../_images/sphx_glr_plot_group_ica_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="decomposition/plot_group_ica_tutorial.html#sphx-glr-auto-examples-decomposition-plot-group-ica-tutorial-py"><span class="std std-ref">ICA: a tutorial</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Adopted from the code at `https://github.com/hugorichard/multiviewica`_ and their tutorial writ..."><div class="figure" id="id15">
+<div class="sphx-glr-thumbcontainer" tooltip="Adopted from the code at `https://github.com/hugorichard/multiviewica`_ and their tutorial writ..."><div class="figure" id="id16">
 <img alt="Multiview Independent Component Analysis (ICA) Comparison" src="../_images/sphx_glr_plot_mv_ica_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="decomposition/plot_mv_ica_tutorial.html#sphx-glr-auto-examples-decomposition-plot-mv-ica-tutorial-py"><span class="std std-ref">Multiview Independent Component Analysis (ICA) Comparison</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Adopted from the code at https://github.com/idc9/py_jive and tutorial written by:"><div class="figure" id="id16">
+<div class="sphx-glr-thumbcontainer" tooltip="Adopted from the code at https://github.com/idc9/py_jive and tutorial written by:"><div class="figure" id="id17">
 <img alt="Angle-based Joint and Individual Variation Explained (AJIVE)" src="../_images/sphx_glr_plot_ajive_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="decomposition/plot_ajive_tutorial.html#sphx-glr-auto-examples-decomposition-plot-ajive-tutorial-py"><span class="std std-ref">Angle-based Joint and Individual Variation Explained (AJIVE)</span></a></span></p>
 </div>
@@ -453,49 +462,49 @@ estimators and pipelines.</p>
 <div class="sphx-glr-clear"></div></div>
 <div class="section" id="examples-on-embed">
 <span id="sphx-glr-auto-examples-embed"></span><h2>Examples on embed<a class="headerlink" href="#examples-on-embed" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="In this tutorial we demonstrate the use of GCCA to uncover latent correlated information across..."><div class="figure" id="id17">
+<div class="sphx-glr-thumbcontainer" tooltip="In this tutorial we demonstrate the use of GCCA to uncover latent correlated information across..."><div class="figure" id="id18">
 <img alt="Generalized Canonical Correlation Analysis (GCCA) Tutorial" src="../_images/sphx_glr_plot_gcca_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_gcca_tutorial.html#sphx-glr-auto-examples-embed-plot-gcca-tutorial-py"><span class="std std-ref">Generalized Canonical Correlation Analysis (GCCA) Tutorial</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates the use of CCA for 2 views and multiview CCA (MCCA) for more than 2 ..."><div class="figure" id="id18">
+<div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates the use of CCA for 2 views and multiview CCA (MCCA) for more than 2 ..."><div class="figure" id="id19">
 <img alt="CCA Tutorial" src="../_images/sphx_glr_plot_mcca_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_mcca_tutorial.html#sphx-glr-auto-examples-embed-plot-mcca-tutorial-py"><span class="std std-ref">CCA Tutorial</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Deep CCA is an extension of Canonical Correlation Analysis which uses 2 Deep Neural Networks to..."><div class="figure" id="id19">
+<div class="sphx-glr-thumbcontainer" tooltip="Deep CCA is an extension of Canonical Correlation Analysis which uses 2 Deep Neural Networks to..."><div class="figure" id="id20">
 <img alt="Deep CCA (DCCA) Tutorial" src="../_images/sphx_glr_plot_dcca_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_dcca_tutorial.html#sphx-glr-auto-examples-embed-plot-dcca-tutorial-py"><span class="std std-ref">Deep CCA (DCCA) Tutorial</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="This demo shows you how to run Omnibus Embedding on multiview data. Omnibus embedding is origin..."><div class="figure" id="id20">
+<div class="sphx-glr-thumbcontainer" tooltip="This demo shows you how to run Omnibus Embedding on multiview data. Omnibus embedding is origin..."><div class="figure" id="id21">
 <img alt="Omnbius Graph Embedding" src="../_images/sphx_glr_plot_omnibus_embedding_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_omnibus_embedding.html#sphx-glr-auto-examples-embed-plot-omnibus-embedding-py"><span class="std std-ref">Omnbius Graph Embedding</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Kernel matrices grow exponentially with the size of the data. There are immense storage and run..."><div class="figure" id="id21">
+<div class="sphx-glr-thumbcontainer" tooltip="Kernel matrices grow exponentially with the size of the data. There are immense storage and run..."><div class="figure" id="id22">
 <img alt="Partial Gram-Schmidt Orthogonalization (PGSO) for KMCCA" src="../_images/sphx_glr_plot_kmcca_pgso_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_kmcca_pgso_tutorial.html#sphx-glr-auto-examples-embed-plot-kmcca-pgso-tutorial-py"><span class="std std-ref">Partial Gram-Schmidt Orthogonalization (PGSO) for KMCCA</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="MVMDS is a useful multiview dimensionaltiy reduction algorithm that allows the user to perform ..."><div class="figure" id="id22">
+<div class="sphx-glr-thumbcontainer" tooltip="MVMDS is a useful multiview dimensionaltiy reduction algorithm that allows the user to perform ..."><div class="figure" id="id23">
 <img alt="Multidimensional Scaling (MVMDS) Tutorial" src="../_images/sphx_glr_plot_mvmds_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_mvmds_tutorial.html#sphx-glr-auto-examples-embed-plot-mvmds-tutorial-py"><span class="std std-ref">Multidimensional Scaling (MVMDS) Tutorial</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="This tutorial shows a comparison of Canonical Correlation Analysis (CCA), Kernel CCA (KCCA) wit..."><div class="figure" id="id23">
+<div class="sphx-glr-thumbcontainer" tooltip="This tutorial shows a comparison of Canonical Correlation Analysis (CCA), Kernel CCA (KCCA) wit..."><div class="figure" id="id24">
 <img alt="Comparing CCA Variants" src="../_images/sphx_glr_plot_cca_comparison_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_cca_comparison.html#sphx-glr-auto-examples-embed-plot-cca-comparison-py"><span class="std std-ref">Comparing CCA Variants</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="KMCCA is a variant of Canonical Correlation Analysis that can use a nonlinear kernel to uncover..."><div class="figure" id="id24">
+<div class="sphx-glr-thumbcontainer" tooltip="KMCCA is a variant of Canonical Correlation Analysis that can use a nonlinear kernel to uncover..."><div class="figure" id="id25">
 <img alt="Kernel MCCA (KMCCA) Tutorial" src="../_images/sphx_glr_plot_kmcca_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="embed/plot_kmcca_tutorial.html#sphx-glr-auto-examples-embed-plot-kmcca-tutorial-py"><span class="std std-ref">Kernel MCCA (KMCCA) Tutorial</span></a></span></p>
 </div>
@@ -504,13 +513,13 @@ estimators and pipelines.</p>
 <div class="sphx-glr-clear"></div></div>
 <div class="section" id="examples-on-plotting">
 <span id="sphx-glr-auto-examples-plotting"></span><h2>Examples on plotting<a class="headerlink" href="#examples-on-plotting" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="Often, before beginning extensive analysis, it is a good idea to visualize your dataset to help..."><div class="figure" id="id25">
+<div class="sphx-glr-thumbcontainer" tooltip="Often, before beginning extensive analysis, it is a good idea to visualize your dataset to help..."><div class="figure" id="id26">
 <img alt="Quickly Visualizing Multiview Data" src="../_images/sphx_glr_plot_quick_visualize_tutorial_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="plotting/plot_quick_visualize_tutorial.html#sphx-glr-auto-examples-plotting-plot-quick-visualize-tutorial-py"><span class="std std-ref">Quickly Visualizing Multiview Data</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="In many cases with multi-view data, especially after use of an embedding algorithm, one is inte..."><div class="figure" id="id26">
+<div class="sphx-glr-thumbcontainer" tooltip="In many cases with multi-view data, especially after use of an embedding algorithm, one is inte..."><div class="figure" id="id27">
 <img alt="Plotting Multiview Data with a Cross-view Plot" src="../_images/sphx_glr_plot_crossviews_plot_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="plotting/plot_crossviews_plot.html#sphx-glr-auto-examples-plotting-plot-crossviews-plot-py"><span class="std std-ref">Plotting Multiview Data with a Cross-view Plot</span></a></span></p>
 </div>
@@ -519,13 +528,13 @@ estimators and pipelines.</p>
 <div class="sphx-glr-clear"></div></div>
 <div class="section" id="examples-on-semi-supervised">
 <span id="sphx-glr-auto-examples-semi-supervised"></span><h2>Examples on semi_supervised<a class="headerlink" href="#examples-on-semi-supervised" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates co-training regression on a semi-supervised regression task. The dat..."><div class="figure" id="id27">
+<div class="sphx-glr-thumbcontainer" tooltip="This tutorial demonstrates co-training regression on a semi-supervised regression task. The dat..."><div class="figure" id="id28">
 <img alt="2-View Semi-Supervised Regression" src="../_images/sphx_glr_plot_cotraining_regression_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="semi_supervised/plot_cotraining_regression.html#sphx-glr-auto-examples-semi-supervised-plot-cotraining-regression-py"><span class="std std-ref">2-View Semi-Supervised Regression</span></a></span></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we use the co-training classifier to do semi-supervised binary classification..."><div class="figure" id="id28">
+<div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we use the co-training classifier to do semi-supervised binary classification..."><div class="figure" id="id29">
 <img alt="2-View Semi-Supervised Classification" src="../_images/sphx_glr_plot_cotraining_classification_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="semi_supervised/plot_cotraining_classification.html#sphx-glr-auto-examples-semi-supervised-plot-cotraining-classification-py"><span class="std std-ref">2-View Semi-Supervised Classification</span></a></span></p>
 </div>
