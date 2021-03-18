@@ -206,7 +206,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../references/datasets.html">Multiview Datasets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#uci-multiple-feature-dataset">UCI multiple feature dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#nutrimouse-dataset">Nutrimouse dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#data-simulator">Data Simulator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#factor-model">Factor Model</a></li>
@@ -251,12 +251,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#unreleased">Unreleased</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-4-1">Version 0.4.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id2">mvlearn.compose</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id10">mvlearn.construct</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id12">mvlearn.decomposition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id14">mvlearn.embed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id18">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id21">mvlearn.utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id3">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id11">mvlearn.construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id13">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id15">mvlearn.embed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id19">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id22">mvlearn.utils</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -415,7 +415,7 @@
 <span class="sd">        batch size while training the network</span>
 <span class="sd">    learning_rate : float (default=0.001)</span>
 <span class="sd">        learning rate of the Adam optimizer</span>
-<span class="sd">    print_info : bool (default=True)</span>
+<span class="sd">    print_info : bool (default=False)</span>
 <span class="sd">        whether or not to print errors as the network trains.</span>
 <span class="sd">    print_graph : bool (default=True)</span>
 <span class="sd">        whether or not to graph training loss</span>
@@ -429,10 +429,12 @@
 <span class="sd">    view2_decoder_ : torch.nn.Module</span>
 <span class="sd">        the View2 decoding network as a PyTorch module</span>
 
-<span class="sd">    Warns</span>
-<span class="sd">    -----</span>
-<span class="sd">    In order to run SplitAE, pytorch and other certain optional dependencies</span>
-<span class="sd">    must be installed. See the installation page for details.</span>
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ModuleNotFoundError</span>
+<span class="sd">        In order to run SplitAE, pytorch and other certain optional</span>
+<span class="sd">        dependencies must be installed. See the installation page for</span>
+<span class="sd">        details.</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>

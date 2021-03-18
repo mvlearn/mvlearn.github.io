@@ -208,7 +208,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="references/datasets.html">Multiview Datasets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="references/datasets.html#uci-multiple-feature-dataset">UCI multiple feature dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="references/datasets.html#nutrimouse-dataset">Nutrimouse dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="references/datasets.html#data-simulator">Data Simulator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="references/datasets.html#factor-model">Factor Model</a></li>
@@ -253,12 +253,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#unreleased">Unreleased</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-0-4-1">Version 0.4.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-0-4-0">Version 0.4.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">mvlearn.compose</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">mvlearn.construct</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id12">mvlearn.decomposition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id14">mvlearn.embed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id18">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id21">mvlearn.utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">mvlearn.construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">mvlearn.embed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">mvlearn.utils</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#version-0-3-0">Version 0.3.0</a></li>
@@ -354,7 +354,7 @@
 <div class="section" id="unreleased">
 <h2>Unreleased<a class="headerlink" href="#unreleased" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>[Fix] <code class="docutils literal notranslate"><span class="pre">CCA</span></code> now only acepts integer arguments for <code class="docutils literal notranslate"><span class="pre">n_components</span></code>, upper bounded by the minimum number of view features. Previously it accepted options that <code class="docutils literal notranslate"><span class="pre">MCCA</span></code> accepted which are only valid for greater than two views. This also had the effect of errors with <code class="docutils literal notranslate"><span class="pre">cca.get_stats</span></code>. <cite>#279 &lt;https://github.com/mvlearn/mvlearn/pull/279&gt;</cite> by <a class="reference external" href="http://rflperry.github.io/">Ronan Perry</a>.</li>
+<li><span class="raw-html"><font color="red">[Fix]</font></span> <code class="docutils literal notranslate"><span class="pre">CCA</span></code> now only acepts integer arguments for <code class="docutils literal notranslate"><span class="pre">n_components</span></code>, upper bounded by the minimum number of view features. Previously it accepted options that <code class="docutils literal notranslate"><span class="pre">MCCA</span></code> accepted which are only valid for greater than two views. This also had the effect of errors with <code class="docutils literal notranslate"><span class="pre">cca.get_stats</span></code>. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/279">#279</a> by <a class="reference external" href="http://rflperry.github.io/">Ronan Perry</a>.</li>
 </ul>
 </div>
 <div class="section" id="version-0-4-1">
@@ -366,8 +366,8 @@
 <div class="section" id="version-0-4-0">
 <h2>Version 0.4.0<a class="headerlink" href="#version-0-4-0" title="Permalink to this headline">¶</a></h2>
 <p>Updates in this release:</p>
-<div class="section" id="id2">
-<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/main/mvlearn/compose">mvlearn.compose</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/main/mvlearn/compose">mvlearn.compose</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><span class="raw-html"><font color="green">[Major Feature]</font></span> Adds an <code class="docutils literal notranslate"><span class="pre">mvlearn.compose</span></code> module with Merger and Splitter objects to create single views from multiviews and vice versa: <code class="docutils literal notranslate"><span class="pre">ConcatMerger</span></code>, <code class="docutils literal notranslate"><span class="pre">AverageMerger</span></code>, and <code class="docutils literal notranslate"><span class="pre">SimpleSplitter</span></code>. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/228">#228</a>, <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/234">#234</a> by <a class="reference external" href="https://pierreablin.com/">Pierre Ablin</a>.</li>
 <li><span class="raw-html"><font color="green">[Major Feature]</font></span> Adds <code class="docutils literal notranslate"><span class="pre">ViewTransformer</span></code> to apply a single view transformer to each view separately. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/229">#229</a> by <a class="reference external" href="https://pierreablin.com/">Pierre Ablin</a>, <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/263">#263</a> by <a class="reference external" href="http://rflperry.github.io/">Ronan Perry</a>.</li>
@@ -376,35 +376,35 @@
 <li><span class="raw-html"><font color="DarkOrange">[API]</font></span> The <code class="docutils literal notranslate"><span class="pre">mvlearn.construct</span></code> module was merged into <code class="docutils literal notranslate"><span class="pre">mvlearn.compose</span></code> due to overlapping functionality. Any imports statements change accordingly. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/258">#258</a> by <a class="reference external" href="http://rflperry.github.io/">Ronan Perry</a>.</li>
 </ul>
 </div>
-<div class="section" id="id10">
-<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/main/mvlearn/construct">mvlearn.construct</a><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/main/mvlearn/construct">mvlearn.construct</a><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><span class="raw-html"><font color="DarkOrange">[API]</font></span> The <code class="docutils literal notranslate"><span class="pre">mvlearn.construct</span></code> module was merged into <code class="docutils literal notranslate"><span class="pre">mvlearn.compose</span></code> due to overlapping functionality and no longer exists. Any imports statements change accordingly. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/258">#258</a> by <a class="reference external" href="http://rflperry.github.io/">Ronan Perry</a>.</li>
 </ul>
 </div>
-<div class="section" id="id12">
-<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/main/mvlearn/decomposition">mvlearn.decomposition</a><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/main/mvlearn/decomposition">mvlearn.decomposition</a><a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><span class="raw-html"><font color="green">[Feature]</font></span> Adds <code class="docutils literal notranslate"><span class="pre">GroupICA</span></code> and <code class="docutils literal notranslate"><span class="pre">GroupPCA</span></code>. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/225">#225</a> by <a class="reference external" href="https://pierreablin.com/">Pierre Ablin</a> and <a class="reference external" href="https://github.com/hugorichard">Hugo Richard</a>.</li>
 </ul>
 </div>
-<div class="section" id="id14">
-<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/main/mvlearn/embed">mvlearn.embed</a><a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/main/mvlearn/embed">mvlearn.embed</a><a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><span class="raw-html"><font color="green">[Feature]</font></span> Adds Multi CCA (<code class="docutils literal notranslate"><span class="pre">MCCA</span></code>) and Kernel MCCA (<code class="docutils literal notranslate"><span class="pre">KMCCA</span></code>) for two or more views. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/249">#249</a> by <a class="reference external" href="http://rflperry.github.io/">Ronan Perry</a> and <a class="reference external" href="https://idc9.github.io/">Iain Carmichael</a>.</li>
 <li><span class="raw-html"><font color="green">[Feature]</font></span> Adds CCA, MCCA which requires 2 views but has a variety of interpretable statistics. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/251">#261</a> by <a class="reference external" href="http://rflperry.github.io/">Ronan Perry</a>.</li>
 <li><span class="raw-html"><font color="DarkOrange">[API]</font></span> Removes KCCA and moves its functionallity into KMCCA. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/251">#261</a> by <a class="reference external" href="http://rflperry.github.io/">Ronan Perry</a>.</li>
 </ul>
 </div>
-<div class="section" id="id18">
-<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/main/mvlearn/model_selection">mvlearn.model_selection</a><a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id19">
+<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/main/mvlearn/model_selection">mvlearn.model_selection</a><a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><span class="raw-html"><font color="green">[Major Feature]</font></span> Adds an <code class="docutils literal notranslate"><span class="pre">model_selection</span></code> module with multiview cross validation. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/234">#234</a> by <a class="reference external" href="https://pierreablin.com/">Pierre Ablin</a>.</li>
 <li><span class="raw-html"><font color="green">[Feature]</font></span> Adds the function <code class="docutils literal notranslate"><span class="pre">model_selection.train_test_split</span></code> to wrap that of <a class="reference external" href="https://scikit-learn.org/">sklearn &lt;scikit-learn</a> for multiview data or items. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/174">#174</a> by <a class="reference external" href="https://github.com/achang63">Alexander Chang</a> and <a class="reference external" href="https://gavinmischler.github.io/">Gavin Mischler</a>.</li>
 </ul>
 </div>
-<div class="section" id="id21">
-<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/main/mvlearn/utils">mvlearn.utils</a><a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id22">
+<h3><a class="reference external" href="https://github.com/mvlearn/mvlearn/tree/main/mvlearn/utils">mvlearn.utils</a><a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><span class="raw-html"><font color="blue">[Enhancement]</font></span> Adds a parameter to utils.check_Xs so that the function also returns the dimensions (n_views, n_samples, n_features) of the input dataset. <a class="reference external" href="https://github.com/mvlearn/mvlearn/pull/235">#235</a> by <a class="reference external" href="https://pierreablin.com/">Pierre Ablin</a>.</li>
 </ul>

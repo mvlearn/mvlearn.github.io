@@ -208,7 +208,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="datasets.html">Multiview Datasets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasets.html#uci-multiple-feature-dataset">UCI multiple feature dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="datasets.html#nutrimouse-dataset">Nutrimouse dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="datasets.html#data-simulator">Data Simulator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="datasets.html#factor-model">Factor Model</a></li>
@@ -253,12 +253,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#unreleased">Unreleased</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-4-1">Version 0.4.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id2">mvlearn.compose</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id10">mvlearn.construct</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id12">mvlearn.decomposition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id14">mvlearn.embed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id18">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id21">mvlearn.utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id3">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id11">mvlearn.construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id13">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id15">mvlearn.embed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id19">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id22">mvlearn.utils</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -2206,11 +2206,9 @@ between outputs of transformed views.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Warns:</th><td class="field-body"><ul class="first last simple">
-<li><strong>In order to run DCCA, pytorch and other certain optional dependencies must</strong></li>
-<li><strong>be installed. See the installation page for details.</strong></li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ModuleNotFoundError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code></a> -- In order to run DCCA, pytorch and other certain optional
+dependencies must be installed. See the installation page
+for details.</td>
 </tr>
 </tbody>
 </table>
@@ -2319,21 +2317,27 @@ projection matrices. May be used for out-of-sample embeddings.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
 <li>Xs length: n_views</li>
 <li>Xs[i] shape: (n_samples, n_features_i)</li>
 </ul>
 <p>A list of data matrices from each view to transform based on the
 prior fit function. If view_idx defined, then Xs is a 2D data
 matrix corresponding to a single view.</p>
+</li>
+<li><strong>return_loss</strong> (<em>boolean</em><em>, </em><em>default=False</em>) -- If <code class="docutils literal notranslate"><span class="pre">True</span></code>, returns the loss along with the transformed
+data in a tuple.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
 <li><strong>Xs_transformed</strong> (<em>list of array-likes or array-like</em>) -- Transformed samples. Same structure as Xs, but potentially
 different n_features_i.</li>
 <li><strong>loss</strong> (<em>float</em>) -- Average loss over data, defined as negative correlation of
 transformed views. Only returned if <code class="docutils literal notranslate"><span class="pre">return_loss=True</span></code>.</li>
 </ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -2699,7 +2703,7 @@ described in <a class="footnote-reference" href="#split" id="id15">[13]</a>.</p>
 <li><strong>training_epochs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> (</em><em>default=10</em><em>)</em>) -- how many times the network trains on the full dataset</li>
 <li><strong>batch_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> (</em><em>default=16</em><em>)</em><em>:</em>) -- batch size while training the network</li>
 <li><strong>learning_rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em> (</em><em>default=0.001</em><em>)</em>) -- learning rate of the Adam optimizer</li>
-<li><strong>print_info</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em> (</em><em>default=True</em><em>)</em>) -- whether or not to print errors as the network trains.</li>
+<li><strong>print_info</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em> (</em><em>default=False</em><em>)</em>) -- whether or not to print errors as the network trains.</li>
 <li><strong>print_graph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em> (</em><em>default=True</em><em>)</em>) -- whether or not to graph training loss</li>
 </ul>
 </td>
@@ -2752,11 +2756,9 @@ described in <a class="footnote-reference" href="#split" id="id15">[13]</a>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Warns:</th><td class="field-body"><ul class="first last simple">
-<li><strong>In order to run SplitAE, pytorch and other certain optional dependencies</strong></li>
-<li><strong>must be installed. See the installation page for details.</strong></li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ModuleNotFoundError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code></a> -- In order to run SplitAE, pytorch and other certain optional
+dependencies must be installed. See the installation page for
+details.</td>
 </tr>
 </tbody>
 </table>

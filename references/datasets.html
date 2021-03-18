@@ -208,7 +208,7 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Multiview Datasets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uci-multiple-feature-dataset">UCI multiple feature dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nutrimouse-dataset">Nutrimouse dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#data-simulator">Data Simulator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#factor-model">Factor Model</a></li>
@@ -253,12 +253,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#unreleased">Unreleased</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-4-1">Version 0.4.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id2">mvlearn.compose</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id10">mvlearn.construct</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id12">mvlearn.decomposition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id14">mvlearn.embed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id18">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id21">mvlearn.utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id3">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id11">mvlearn.construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id13">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id15">mvlearn.embed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id19">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id22">mvlearn.utils</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -344,8 +344,8 @@
             
   <div class="section" id="multiview-datasets">
 <h1>Multiview Datasets<a class="headerlink" href="#multiview-datasets" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="uci-multiple-feature-dataset-located-here">
-<h2>UCI multiple feature dataset (located <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Multiple+Features">here</a>)<a class="headerlink" href="#uci-multiple-feature-dataset-located-here" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="uci-multiple-feature-dataset">
+<h2>UCI multiple feature dataset<a class="headerlink" href="#uci-multiple-feature-dataset" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="mvlearn.datasets.load_UCImultifeature">
 <code class="descclassname">mvlearn.datasets.</code><code class="descname">load_UCImultifeature</code><span class="sig-paren">(</span><em>select_labeled='all'</em>, <em>views='all'</em>, <em>shuffle=False</em>, <em>random_state=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/datasets/uci_multifeature.html#load_UCImultifeature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.datasets.load_UCImultifeature" title="Permalink to this definition">¶</a></dt>
@@ -597,6 +597,9 @@ of features for each view.</li>
 <li><strong>joint_rank</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> (</em><em>default 1</em><em>)</em>) -- Rank of the common signal across views.</li>
 <li><strong>noise_std</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em> (</em><em>default 1</em><em>)</em>) -- Scale of noise distribution.</li>
 <li><strong>m</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em> (</em><em>default 1.5</em><em>)</em>) -- Signal strength.</li>
+<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>RandomState instance</em><em>, </em><em>optional</em><em> (</em><em>default=None</em><em>)</em>) -- Controls random orthonormal matrix sampling and random noise
+generation. Set for reproducible results.</li>
+<li><strong>return_decomp</strong> (<em>boolean</em><em>, </em><em>default=False</em>) -- If <code class="docutils literal notranslate"><span class="pre">True</span></code>, returns the <code class="docutils literal notranslate"><span class="pre">view_loadings</span></code> as well.</li>
 </ul>
 </td>
 </tr>
@@ -609,10 +612,10 @@ of features for each view.</li>
 <p>List of samples data matrices</p>
 </li>
 <li><p class="first"><strong>U</strong> (<em>(n_samples, joint_rank)</em>) -- The true orthonormal joint scores matrix. Returned if
-<cite>return_decomp</cite> is True.</p>
+<code class="docutils literal notranslate"><span class="pre">return_decomp</span></code> is True.</p>
 </li>
 <li><p class="first"><strong>view_loadings</strong> (<em>list of numpy.ndarray</em>) -- The true view loadings matrices. Returned if
-<cite>return_decomp</cite> is True.</p>
+<code class="docutils literal notranslate"><span class="pre">return_decomp</span></code> is True.</p>
 </li>
 </ul>
 </p>

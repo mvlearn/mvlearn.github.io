@@ -206,7 +206,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../references/datasets.html">Multiview Datasets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#uci-multiple-feature-dataset-located-here">UCI multiple feature dataset (located here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#uci-multiple-feature-dataset">UCI multiple feature dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#nutrimouse-dataset">Nutrimouse dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#data-simulator">Data Simulator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../references/datasets.html#factor-model">Factor Model</a></li>
@@ -251,12 +251,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#unreleased">Unreleased</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-4-1">Version 0.4.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id2">mvlearn.compose</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id10">mvlearn.construct</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id12">mvlearn.decomposition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id14">mvlearn.embed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id18">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id21">mvlearn.utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id3">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id11">mvlearn.construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id13">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id15">mvlearn.embed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id19">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id22">mvlearn.utils</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -375,6 +375,13 @@
 <span class="sd">    m : float (default 1.5)</span>
 <span class="sd">        Signal strength.</span>
 
+<span class="sd">    random_state : int or RandomState instance, optional (default=None)</span>
+<span class="sd">        Controls random orthonormal matrix sampling and random noise</span>
+<span class="sd">        generation. Set for reproducible results.</span>
+
+<span class="sd">    return_decomp : boolean, default=False</span>
+<span class="sd">        If ``True``, returns the ``view_loadings`` as well.</span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Xs : list of array-likes or numpy.ndarray</span>
@@ -384,11 +391,11 @@
 
 <span class="sd">    U: (n_samples, joint_rank)</span>
 <span class="sd">        The true orthonormal joint scores matrix. Returned if</span>
-<span class="sd">        `return_decomp` is True.</span>
+<span class="sd">        ``return_decomp`` is True.</span>
 
 <span class="sd">    view_loadings: list of numpy.ndarray</span>
 <span class="sd">        The true view loadings matrices. Returned if</span>
-<span class="sd">        `return_decomp` is True.</span>
+<span class="sd">        ``return_decomp`` is True.</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
