@@ -861,7 +861,7 @@ Human Brain Mapping, 14(3):140–151, 2001.</td></tr>
 
 <dl class="method">
 <dt id="mvlearn.decomposition.GroupICA.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/groupica.html#GroupICA.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupICA.transform" title="Permalink to this definition">¶</a></dt>
+<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em>, <em>index=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/groupica.html#GroupICA.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupICA.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform the data Xs into sources.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -874,6 +874,11 @@ Human Brain Mapping, 14(3):140–151, 2001.</td></tr>
 </ul>
 </li>
 <li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) -- Ignored variable.</li>
+<li><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>array-like</em><em>, </em><em>default=None</em>) -- The index or list of indices of the fitted views to which the
+inputted views correspond. If None, there should be as many
+inputted views as the fitted views and in the same order.
+Note that the index parameter is not available in all methods of
+mvlearn yet.</li>
 </ul>
 </td>
 </tr>
@@ -893,20 +898,30 @@ shared sources.</p>
 
 <dl class="method">
 <dt id="mvlearn.decomposition.GroupICA.inverse_transform">
-<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>X_transformed</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/groupica.html#GroupICA.inverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupICA.inverse_transform" title="Permalink to this definition">¶</a></dt>
+<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>X_transformed</em>, <em>index=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/groupica.html#GroupICA.inverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupICA.inverse_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recover multiview data from transformed data.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>X_transformed</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- If <cite>multiview_output</cite> is True, it must be a list of arrays of shape
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>X_transformed</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- If <cite>multiview_output</cite> is True, it must be a list of arrays of shape
 (n_samples, n_components) containing estimated sources.
 If <cite>multiview_output</cite> is False, it must be a single
-array containing shared sources.</td>
+array containing shared sources.</li>
+<li><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>array-like</em><em>, </em><em>default=None</em>) -- The index or list of indices of the fitted views to which the
+inputted views correspond. If None, there should be as many
+inputted views as the fitted views and in the same order.
+Note that the index parameter is not available in all methods of
+mvlearn yet.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs</strong> -- The recovered individual datasets.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Xs</strong> -- The recovered individual datasets.</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of arrays</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of arrays</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1244,7 +1259,7 @@ Human Brain Mapping, 14(3):140–151, 2001.</td></tr>
 
 <dl class="method">
 <dt id="mvlearn.decomposition.GroupPCA.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/grouppca.html#GroupPCA.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.transform" title="Permalink to this definition">¶</a></dt>
+<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em>, <em>index=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/grouppca.html#GroupPCA.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply groupPCA to Xs.</p>
 <p>Xs is projected on the principal components learned
 from the training set.</p>
@@ -1259,6 +1274,11 @@ from the training set.</p>
 </ul>
 </li>
 <li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) -- Ignored variable.</li>
+<li><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>array-like</em><em>, </em><em>default=None</em>) -- The index or list of indices of the fitted views to which the
+inputted views correspond. If None, there should be as many
+inputted views as the fitted views and in the same order.
+Note that the index parameter is not available in all methods of
+mvlearn yet.</li>
 </ul>
 </td>
 </tr>
@@ -1278,7 +1298,7 @@ shared principal components.</p>
 
 <dl class="method">
 <dt id="mvlearn.decomposition.GroupPCA.inverse_transform">
-<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>X_transformed</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/grouppca.html#GroupPCA.inverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.inverse_transform" title="Permalink to this definition">¶</a></dt>
+<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>X_transformed</em>, <em>index=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/grouppca.html#GroupPCA.inverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.GroupPCA.inverse_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recover multiview data from transformed data.</p>
 <p>Returns an array Xs such that the transform of Xs would be
 X_transformed</p>
@@ -1286,11 +1306,21 @@ X_transformed</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>X_transformed</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- The dataset corresponding to transformed data</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>X_transformed</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- The dataset corresponding to transformed data</li>
+<li><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>array-like</em><em>, </em><em>default=None</em>) -- The index or list of indices of the fitted views to which the
+inputted views correspond. If None, there should be as many
+inputted views as the fitted views and in the same order.
+Note that the index parameter is not available in all methods of
+mvlearn yet.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs</strong> -- The recovered individual datasets</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Xs</strong> -- The recovered individual datasets</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of arrays</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of arrays</p>
+</td>
 </tr>
 </tbody>
 </table>
