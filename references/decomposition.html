@@ -522,60 +522,80 @@ Systems, volume 33, 2020</td></tr>
 </pre></div>
 </div>
 <dl class="method">
+<dt id="mvlearn.decomposition.MultiviewICA.fit_reduced">
+<code class="descname">fit_reduced</code><span class="sig-paren">(</span><em>reduced_X</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/multiviewica.html#MultiviewICA.fit_reduced"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.fit_reduced" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the model with reduced data
+:param reduced_X:
+:type reduced_X: np array of shape (n_views, n_samples, n_components)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li><strong>unmixing</strong> (<em>np array of shape (n_views, n_components, n_components)</em>) -- such that reduced_X[i].dot(unmixing[i].T) unmixes the data</li>
+<li><strong>sources</strong> (<em>np array of shape (n_samples, n_components)</em>)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.MultiviewICA.aggregate">
+<code class="descname">aggregate</code><span class="sig-paren">(</span><em>X_transformed</em>, <em>index=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/multiviewica.html#MultiviewICA.aggregate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregate transformed data to form a unique output</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>X_transformed</strong> (<em>list of array-likes</em>) -- The transformed data.
+If <cite>multiview_output</cite> is True, it is a list with the estimated
+individual principal components.
+If <cite>multiview_output</cite> is False, it is a single array containing the
+shared principal components.</li>
+<li><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>array-like</em><em>, </em><em>default=None</em>) -- The index or list of indices of the fitted views to which the
+inputted views correspond. If None, there should be as many
+inputted views as the fitted views and in the same order.
+Note that the index parameter is not available in all methods of
+mvlearn yet.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Source</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np array of shape (n_samples, n_components)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="mvlearn.decomposition.MultiviewICA.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/multiviewica.html#MultiviewICA.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.fit" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fits the model.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>Xs</strong> (<em>list of np arrays of shape</em><em> (</em><em>n_voxels</em><em>, </em><em>n_samples</em><em>)</em>) -- Input data: X[i] is the data of subject i</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em>) -- <ul>
+<li>Xs shape: (n_views,)</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+</li>
 <li><strong>y</strong> (<em>ignored</em>) -- </li>
 </ul>
 </td>
 </tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.decomposition.MultiviewICA.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/multiviewica.html#MultiviewICA.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Recover the sources from each view (apply unmixing matrix).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>Training data to recover a source and unmixing matrices from.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong></p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs_new</strong> -- The mixed sources from the single source and per-view unmixings.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.decomposition.MultiviewICA.inverse_transform">
-<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>X_transformed</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/decomposition/multiviewica.html#MultiviewICA.inverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.inverse_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transforms the sources back to the mixed data for each view
-(apply mixing matrix).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>X_transformed</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- The dataset corresponding to transformed data</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs_new</strong> -- The mixed sources from the single source and per-view unmixings.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">returns an instance of self.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -608,6 +628,68 @@ Systems, volume 33, 2020</td></tr>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.MultiviewICA.inverse_transform">
+<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>X_transformed</em>, <em>index=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.inverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms the sources back to the mixed data for each view
+(apply mixing matrix).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>X_transformed</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- The dataset corresponding to transformed data</li>
+<li><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>array-like</em><em>, </em><em>default=None</em>) -- The index or list of indices of the fitted views to which the
+inputted views correspond. If None, there should be as many
+inputted views as the fitted views and in the same order.
+Note that the index parameter is not available in all methods of
+mvlearn yet.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Xs_new</strong> -- The mixed sources from the single source and per-view unmixings.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mvlearn.decomposition.MultiviewICA.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>index=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.decomposition.MultiviewICA.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recover the sources from each view (apply unmixing matrix).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
+<li>Xs length: n_views</li>
+<li>Xs[i] shape: (n_samples, n_features_i)</li>
+</ul>
+<p>Training data to recover a source and unmixing matrices from.</p>
+</li>
+<li><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>array-like</em><em>, </em><em>default=None</em>) -- The index or list of indices of the fitted views to which the
+inputted views correspond. If None, there should be as many
+inputted views as the fitted views and in the same order.
+Note that the index parameter is not available in all methods of
+mvlearn yet.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Xs_new</strong> -- The mixed sources from the single source and per-view unmixings.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a>, shape (n_views, n_samples, n_components)</p>
 </td>
 </tr>
 </tbody>

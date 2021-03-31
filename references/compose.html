@@ -1345,7 +1345,7 @@ self.base_estimator.</p>
 </div>
 <dl class="method">
 <dt id="mvlearn.compose.ViewTransformer.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/wrap.html#ViewTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.ViewTransformer.transform" title="Permalink to this definition">¶</a></dt>
+<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>index=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/wrap.html#ViewTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.ViewTransformer.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform each dataset</p>
 <p>Applies the transform of each transformer on the
 individual views.</p>
@@ -1353,17 +1353,27 @@ individual views.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
 <li>Xs length: n_views</li>
 <li>Xs[i] shape: (n_samples, n_features_i)</li>
 </ul>
 <p>The input data.</p>
+</li>
+<li><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>array-like</em><em>, </em><em>default=None</em>) -- The index or list of indices of the fitted views to which the
+inputted views correspond. If None, there should be as many
+inputted views as the fitted views and in the same order.
+Note that the index parameter is not available in all methods of
+mvlearn yet.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs_transformed</strong> -- List of length n_views.
-The transformed data.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Xs_transformed</strong> -- List of length n_views.
+The transformed data.</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of array-likes</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1401,7 +1411,7 @@ The transformed data.</p>
 
 <dl class="method">
 <dt id="mvlearn.compose.ViewTransformer.inverse_transform">
-<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>Xs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/wrap.html#ViewTransformer.inverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.ViewTransformer.inverse_transform" title="Permalink to this definition">¶</a></dt>
+<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>index=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/wrap.html#ViewTransformer.inverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.ViewTransformer.inverse_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the inverse transform of a dataset</p>
 <p>Applies the inverse_transform function of each
 transformer on the individual datasets</p>
@@ -1409,17 +1419,27 @@ transformer on the individual datasets</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
 <li>Xs length: n_views</li>
 <li>Xs[i] shape: (n_samples, n_features_i)</li>
 </ul>
 <p>The input data.</p>
+</li>
+<li><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>array-like</em><em>, </em><em>default=None</em>) -- The index or list of indices of the fitted views to which the
+inputted views correspond. If None, there should be as many
+inputted views as the fitted views and in the same order.
+Note that the index parameter is not available in all methods of
+mvlearn yet.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs_transformed</strong> -- List of length n_views.
-The transformed data.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Xs_transformed</strong> -- List of length n_views.
+The transformed data.</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of array-likes</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes</p>
+</td>
 </tr>
 </tbody>
 </table>
