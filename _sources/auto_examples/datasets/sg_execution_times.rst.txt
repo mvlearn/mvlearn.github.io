@@ -5,12 +5,12 @@
 
 Computation times
 =================
-**00:12.794** total execution time for **auto_examples_datasets** files:
+**00:12.026** total execution time for **auto_examples_datasets** files:
 
 +--------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_datasets_plot_load_ucimultifeature.py` (``plot_load_ucimultifeature.py``) | 00:08.286 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_datasets_plot_load_ucimultifeature.py` (``plot_load_ucimultifeature.py``) | 00:07.574 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_datasets_plot_nutrimouse.py` (``plot_nutrimouse.py``)                     | 00:03.260 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_datasets_plot_nutrimouse.py` (``plot_nutrimouse.py``)                     | 00:03.327 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_datasets_plot_gaussianmixtures.py` (``plot_gaussianmixtures.py``)         | 00:01.249 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_datasets_plot_gaussianmixtures.py` (``plot_gaussianmixtures.py``)         | 00:01.125 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------------+-----------+--------+

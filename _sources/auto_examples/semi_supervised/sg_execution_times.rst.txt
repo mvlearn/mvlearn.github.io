@@ -5,10 +5,10 @@
 
 Computation times
 =================
-**00:33.995** total execution time for **auto_examples_semi_supervised** files:
+**00:29.874** total execution time for **auto_examples_semi_supervised** files:
 
 +-------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_semi_supervised_plot_cotraining_regression.py` (``plot_cotraining_regression.py``)         | 00:28.240 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_semi_supervised_plot_cotraining_regression.py` (``plot_cotraining_regression.py``)         | 00:24.876 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_semi_supervised_plot_cotraining_classification.py` (``plot_cotraining_classification.py``) | 00:05.756 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_semi_supervised_plot_cotraining_classification.py` (``plot_cotraining_classification.py``) | 00:04.998 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------------+-----------+--------+
