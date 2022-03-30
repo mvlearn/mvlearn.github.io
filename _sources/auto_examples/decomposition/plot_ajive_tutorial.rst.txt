@@ -161,9 +161,10 @@ initial signal rank for each view.
 
 
 
-.. image:: /auto_examples/decomposition/images/sphx_glr_plot_ajive_tutorial_001.png
-    :alt: Scree Plot View 1, Scree Plot View 2
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/decomposition/images/sphx_glr_plot_ajive_tutorial_001.png
+   :alt: Scree Plot View 1, Scree Plot View 2
+   :srcset: /auto_examples/decomposition/images/sphx_glr_plot_ajive_tutorial_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -223,9 +224,10 @@ When Both Views are the Same
 
 
 
-.. image:: /auto_examples/decomposition/images/sphx_glr_plot_ajive_tutorial_002.png
-    :alt: View 0: Raw Data, View 0: Joint, View 0: Individual, View 0: Noise, View 1: Raw Data, View 1: Joint, View 1: Individual, View 1: Noise
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/decomposition/images/sphx_glr_plot_ajive_tutorial_002.png
+   :alt: View 0: Raw Data, View 0: Joint, View 0: Individual, View 0: Noise, View 1: Raw Data, View 1: Joint, View 1: Individual, View 1: Noise
+   :srcset: /auto_examples/decomposition/images/sphx_glr_plot_ajive_tutorial_002.png
+   :class: sphx-glr-single-img
 
 
 
@@ -252,9 +254,10 @@ When the Views are Different
 
 
 
-.. image:: /auto_examples/decomposition/images/sphx_glr_plot_ajive_tutorial_003.png
-    :alt: View 0: Raw Data, View 0: Joint, View 0: Individual, View 0: Noise, View 1: Raw Data, View 1: Joint, View 1: Individual, View 1: Noise
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/decomposition/images/sphx_glr_plot_ajive_tutorial_003.png
+   :alt: View 0: Raw Data, View 0: Joint, View 0: Individual, View 0: Noise, View 1: Raw Data, View 1: Joint, View 1: Individual, View 1: Noise
+   :srcset: /auto_examples/decomposition/images/sphx_glr_plot_ajive_tutorial_003.png
+   :class: sphx-glr-single-img
 
 
 
@@ -263,7 +266,7 @@ When the Views are Different
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.367 seconds)
+   **Total running time of the script:** ( 0 minutes  4.316 seconds)
 
 
 .. _sphx_glr_download_auto_examples_decomposition_plot_ajive_tutorial.py:

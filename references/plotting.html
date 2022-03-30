@@ -1,78 +1,44 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Plotting &mdash; mvlearn alpha documentation</title>
-  
-
-  
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/mvlearn-logo-32x32.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Utility Functions" href="utils.html" />
     <link rel="prev" title="Multiview Datasets" href="datasets.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../index.html">
-          
-
-          
-            
             <img src="../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.4.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +46,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using mvlearn</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a><ul>
@@ -226,7 +182,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Information</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to mvlearn</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
@@ -269,217 +225,161 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Useful Links</span></p>
+<p class="caption" role="heading"><span class="caption-text">Useful Links</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">mvlearn</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Reference</a> &raquo;</li>
-        
       <li>Plotting</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/mvlearn/mvlearn/blob/main/docs/references/plotting.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="plotting">
+             
+  <section id="plotting">
 <h1>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="quick-visualize">
+<section id="quick-visualize">
 <h2>Quick Visualize<a class="headerlink" href="#quick-visualize" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="mvlearn.plotting.quick_visualize">
-<code class="descclassname">mvlearn.plotting.</code><code class="descname">quick_visualize</code><span class="sig-paren">(</span><em>Xs</em>, <em>labels=None</em>, <em>figsize=(5</em>, <em>5)</em>, <em>title=None</em>, <em>cmap=None</em>, <em>show=True</em>, <em>context='notebook'</em>, <em>ax_ticks=True</em>, <em>ax_labels=True</em>, <em>scatter_kwargs={}</em>, <em>fig_kwargs={}</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/plotting/plot.html#quick_visualize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.plotting.quick_visualize" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="mvlearn.plotting.quick_visualize">
+<span class="sig-prename descclassname"><span class="pre">mvlearn.plotting.</span></span><span class="sig-name descname"><span class="pre">quick_visualize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Xs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'notebook'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax_ticks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatter_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/plotting/plot.html#quick_visualize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.plotting.quick_visualize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes common principal components using MVMDS for dimensionality
 reduction and plots the multi-view data on a single 2D plot for easy
 visualization. This can be thought of as the multi-view analog of
 using PCA to decompose data and plot on principal components.</p>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="embed.html#mvlearn.embed.MVMDS" title="mvlearn.embed.MVMDS"><code class="xref py py-func docutils literal notranslate"><span class="pre">mvlearn.embed.MVMDS()</span></code></a></p>
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="embed.html#mvlearn.embed.MVMDS" title="mvlearn.embed.MVMDS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mvlearn.embed.MVMDS</span></code></a></p>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><em>numpy.ndarray</em></a>) -- <ul>
+<li><p>Xs length: n_views</p></li>
+<li><p>Xs[i] shape: (n_samples, n_features_i)</p></li>
 </ul>
 <p>The multi-view data to reduce to a single plot.</p>
-</li>
-<li><strong>labels</strong> (<em>boolean</em><em>, </em><em>default=None</em>) -- Sets the labels of the samples.</li>
-<li><strong>figsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><em>tuple</em></a><em>, </em><em>default=</em><em>(</em><em>5</em><em>,</em><em>5</em><em>)</em>) -- Sets the figure size.</li>
-<li><strong>title</strong> (<em>string</em><em>, </em><em>default=None</em>) -- Sets the title of the figure.</li>
-<li><strong>cmap</strong> (<em>String</em><em>, </em><em>default=None</em>) -- Colormap argument for matplotlib.pyplot.scatter.</li>
-<li><strong>show</strong> (<em>boolean</em><em>, </em><em>default=True</em>) -- Shows the plots if true. Returns the objects otherwise.</li>
-<li><strong>context</strong> (<em>one of {'paper'</em><em>, </em><em>'notebook'</em><em>, </em><em>'talk'</em><em>, </em><em>'poster</em><em>, </em><em>None}</em><em>,</em>) -- default='notebook'
-Sets the seaborn plotting context.</li>
-<li><strong>ax_ticks</strong> (<em>boolean</em><em>, </em><em>default=True</em>) -- Whether to have tick marks on the axes.</li>
-<li><strong>ax_labels</strong> (<em>boolean</em><em>, </em><em>default=True</em>) -- Whether to label the axes with the view and dimension numbers.</li>
-<li><strong>scatter_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>default={}</em>) -- Additional matplotlib.pyplot.scatter arguments.</li>
-<li><strong>fig_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>default={}</em>) -- Additional matplotlib.pyplot.figure arguments.</li>
+</p></li>
+<li><p><strong>labels</strong> (<em>boolean</em><em>, </em><em>default=None</em>) -- Sets the labels of the samples.</p></li>
+<li><p><strong>figsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a><em>, </em><em>default=</em><em>(</em><em>5</em><em>,</em><em>5</em><em>)</em>) -- Sets the figure size.</p></li>
+<li><p><strong>title</strong> (<em>string</em><em>, </em><em>default=None</em>) -- Sets the title of the figure.</p></li>
+<li><p><strong>cmap</strong> (<em>String</em><em>, </em><em>default=None</em>) -- Colormap argument for matplotlib.pyplot.scatter.</p></li>
+<li><p><strong>show</strong> (<em>boolean</em><em>, </em><em>default=True</em>) -- Shows the plots if true. Returns the objects otherwise.</p></li>
+<li><p><strong>context</strong> (<em>one of {'paper'</em><em>, </em><em>'notebook'</em><em>, </em><em>'talk'</em><em>, </em><em>'poster</em><em>, </em><em>None}</em><em>,</em>) -- default='notebook'
+Sets the seaborn plotting context.</p></li>
+<li><p><strong>ax_ticks</strong> (<em>boolean</em><em>, </em><em>default=True</em>) -- Whether to have tick marks on the axes.</p></li>
+<li><p><strong>ax_labels</strong> (<em>boolean</em><em>, </em><em>default=True</em>) -- Whether to label the axes with the view and dimension numbers.</p></li>
+<li><p><strong>scatter_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>default={}</em>) -- Additional matplotlib.pyplot.scatter arguments.</p></li>
+<li><p><strong>fig_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>default={}</em>) -- Additional matplotlib.pyplot.figure arguments.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>fig</strong> -- Only returned if <cite>show=False</cite>.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">figure object</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>fig</strong> -- Only returned if <cite>show=False</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>figure object</p>
+</dd>
+</dl>
 <p class="rubric">Notes</p>
 <p>This function simply uses <code class="docutils literal notranslate"><span class="pre">MVMDS</span></code> with <code class="docutils literal notranslate"><span class="pre">n_components=2</span></code> to
 reduce arbitrarily many views of input data to 2-dimensions, then
 makes a scatter plot.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/quick_visualize.png"><img alt="Quick Visualization of Multi-view Data" src="../_images/quick_visualize.png" style="width: 250px;" /></a>
-</div>
+</figure>
 </dd></dl>
 
-</div>
-<div class="section" id="crossviews-plot">
+</section>
+<section id="crossviews-plot">
 <h2>Crossviews Plot<a class="headerlink" href="#crossviews-plot" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="mvlearn.plotting.crossviews_plot">
-<code class="descclassname">mvlearn.plotting.</code><code class="descname">crossviews_plot</code><span class="sig-paren">(</span><em>Xs</em>, <em>labels=None</em>, <em>dimensions=None</em>, <em>figsize=(10</em>, <em>10)</em>, <em>title=None</em>, <em>cmap=None</em>, <em>show=True</em>, <em>context='notebook'</em>, <em>equal_axes=False</em>, <em>ax_ticks=True</em>, <em>ax_labels=True</em>, <em>scatter_kwargs={}</em>, <em>fig_kwargs={}</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/plotting/plot.html#crossviews_plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.plotting.crossviews_plot" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="mvlearn.plotting.crossviews_plot">
+<span class="sig-prename descclassname"><span class="pre">mvlearn.plotting.</span></span><span class="sig-name descname"><span class="pre">crossviews_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Xs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimensions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(10,</span> <span class="pre">10)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'notebook'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equal_axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax_ticks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatter_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/plotting/plot.html#crossviews_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.plotting.crossviews_plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots each dimension fron one view against each dimension from a second
 view. If both views are the same, this reduces to a pairplot.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><em>numpy.ndarray</em></a>) -- <ul>
+<li><p>Xs length: n_views</p></li>
+<li><p>Xs[i] shape: (n_samples, n_features_i)</p></li>
 </ul>
 <p>The two views to plot against one another. If one view has fewer
 dimensions than the other, only that many will be plotted.</p>
-</li>
-<li><strong>labels</strong> (<em>boolean</em><em>, </em><em>default=None</em>) -- Sets the labels of the samples.</li>
-<li><strong>dimensions</strong> (<em>array-like of ints</em><em>, </em><em>default=None</em>) -- The dimensions of the views to plot. If <cite>None</cite>, all dimensions up
-to the minimum between the views will be plotted.</li>
-<li><strong>figsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><em>tuple</em></a><em>, </em><em>default=</em><em>(</em><em>10</em><em>,</em><em>10</em><em>)</em>) -- Sets the grid figure size.</li>
-<li><strong>title</strong> (<em>string</em><em>, </em><em>default=None</em>) -- Sets the title of the grid.</li>
-<li><strong>cmap</strong> (<em>String</em><em>, </em><em>default=None</em>) -- Colormap argument for matplotlib.pyplot.scatter.</li>
-<li><strong>show</strong> (<em>boolean</em><em>, </em><em>default=False</em>) -- Shows the plots if true. Returns the objects otherwise.</li>
-<li><strong>context</strong> (<em>one of {'paper'</em><em>, </em><em>'notebook'</em><em>, </em><em>'talk'</em><em>, </em><em>'poster</em><em>, </em><em>None}</em><em>,</em>) -- default='notebook'
-Sets the seaborn plotting context.</li>
-<li><strong>equal_axes</strong> (<em>boolean</em><em>, </em><em>default=False</em>) -- Equalizes the axes of the plots on the diagonals if true.</li>
-<li><strong>ax_ticks</strong> (<em>boolean</em><em>, </em><em>default=True</em>) -- Whether to have tick marks on the axes.</li>
-<li><strong>ax_labels</strong> (<em>boolean</em><em>, </em><em>default=True</em>) -- Whether to label the axes with the view and dimension numbers.</li>
-<li><strong>scatter_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>default={}</em>) -- Additional matplotlib.pyplot.scatter arguments.</li>
-<li><strong>fig_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>default={}</em>) -- Additional matplotlib.pyplot.subplots arguments.</li>
+</p></li>
+<li><p><strong>labels</strong> (<em>boolean</em><em>, </em><em>default=None</em>) -- Sets the labels of the samples.</p></li>
+<li><p><strong>dimensions</strong> (<em>array-like of ints</em><em>, </em><em>default=None</em>) -- The dimensions of the views to plot. If <cite>None</cite>, all dimensions up
+to the minimum between the views will be plotted.</p></li>
+<li><p><strong>figsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a><em>, </em><em>default=</em><em>(</em><em>10</em><em>,</em><em>10</em><em>)</em>) -- Sets the grid figure size.</p></li>
+<li><p><strong>title</strong> (<em>string</em><em>, </em><em>default=None</em>) -- Sets the title of the grid.</p></li>
+<li><p><strong>cmap</strong> (<em>String</em><em>, </em><em>default=None</em>) -- Colormap argument for matplotlib.pyplot.scatter.</p></li>
+<li><p><strong>show</strong> (<em>boolean</em><em>, </em><em>default=False</em>) -- Shows the plots if true. Returns the objects otherwise.</p></li>
+<li><p><strong>context</strong> (<em>one of {'paper'</em><em>, </em><em>'notebook'</em><em>, </em><em>'talk'</em><em>, </em><em>'poster</em><em>, </em><em>None}</em><em>,</em>) -- default='notebook'
+Sets the seaborn plotting context.</p></li>
+<li><p><strong>equal_axes</strong> (<em>boolean</em><em>, </em><em>default=False</em>) -- Equalizes the axes of the plots on the diagonals if true.</p></li>
+<li><p><strong>ax_ticks</strong> (<em>boolean</em><em>, </em><em>default=True</em>) -- Whether to have tick marks on the axes.</p></li>
+<li><p><strong>ax_labels</strong> (<em>boolean</em><em>, </em><em>default=True</em>) -- Whether to label the axes with the view and dimension numbers.</p></li>
+<li><p><strong>scatter_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>default={}</em>) -- Additional matplotlib.pyplot.scatter arguments.</p></li>
+<li><p><strong>fig_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>default={}</em>) -- Additional matplotlib.pyplot.subplots arguments.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>(fig, axes)</strong> -- Only returned if <cite>show=False</cite>.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple of the figure and its axes.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>(fig, axes)</strong> -- Only returned if <cite>show=False</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple of the figure and its axes.</p>
+</dd>
+</dl>
 <p class="rubric">Notes</p>
 <p>Below is an example figure generated from 2 views with 2 features
 each.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/crossviews_plot_example.png"><img alt="Quick Visualization of Multi-view Data" src="../_images/crossviews_plot_example.png" style="width: 250px;" /></a>
-</div>
+</figure>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="utils.html" class="btn btn-neutral float-right" title="Utility Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="datasets.html" class="btn btn-neutral" title="Multiview Datasets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="datasets.html" class="btn btn-neutral float-left" title="Multiview Datasets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="utils.html" class="btn btn-neutral float-right" title="Utility Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019-2020
-
-    </p>
+    <p>&#169; Copyright 2019-2020.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 <p style="text-align: center; margin: .5rem;">
     <a href="https://www.netlify.com">
         <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
@@ -489,34 +389,11 @@ each.</p>
 
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/js/copybutton.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });

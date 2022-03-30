@@ -99,15 +99,17 @@ added independently to both the transformed and untransformed latents.
 
     *
 
-      .. image:: /auto_examples/embed/images/sphx_glr_plot_dcca_tutorial_001.png
-          :alt: Latent Variable
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/embed/images/sphx_glr_plot_dcca_tutorial_001.png
+         :alt: Latent Variable
+         :srcset: /auto_examples/embed/images/sphx_glr_plot_dcca_tutorial_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/embed/images/sphx_glr_plot_dcca_tutorial_002.png
-          :alt: Testing Data View 1 vs. View 2 (Polynomial Transform + noise)
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/embed/images/sphx_glr_plot_dcca_tutorial_002.png
+         :alt: Testing Data View 1 vs. View 2 (Polynomial Transform + noise)
+         :srcset: /auto_examples/embed/images/sphx_glr_plot_dcca_tutorial_002.png
+         :class: sphx-glr-multi-img
 
 
 
@@ -165,9 +167,10 @@ We can see that it has uncovered the latent correlation between views.
 
 
 
-.. image:: /auto_examples/embed/images/sphx_glr_plot_dcca_tutorial_003.png
-    :alt: Transformed Testing Data View 1 vs. View 2 (Polynomial Transform + noise)
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/embed/images/sphx_glr_plot_dcca_tutorial_003.png
+   :alt: Transformed Testing Data View 1 vs. View 2 (Polynomial Transform + noise)
+   :srcset: /auto_examples/embed/images/sphx_glr_plot_dcca_tutorial_003.png
+   :class: sphx-glr-single-img
 
 
 
@@ -209,9 +212,10 @@ transformed and untransformed latents.
 
 
 
-.. image:: /auto_examples/embed/images/sphx_glr_plot_dcca_tutorial_004.png
-    :alt: Testing Data View 1 vs. View 2 (Polynomial Transform + noise)
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/embed/images/sphx_glr_plot_dcca_tutorial_004.png
+   :alt: Testing Data View 1 vs. View 2 (Polynomial Transform + noise)
+   :srcset: /auto_examples/embed/images/sphx_glr_plot_dcca_tutorial_004.png
+   :class: sphx-glr-single-img
 
 
 
@@ -268,9 +272,10 @@ We can see that it has uncovered the latent correlation between views.
 
 
 
-.. image:: /auto_examples/embed/images/sphx_glr_plot_dcca_tutorial_005.png
-    :alt: Transformed Testing Data View 1 vs. View 2 (Sinusoidal Transform + noise)
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/embed/images/sphx_glr_plot_dcca_tutorial_005.png
+   :alt: Transformed Testing Data View 1 vs. View 2 (Sinusoidal Transform + noise)
+   :srcset: /auto_examples/embed/images/sphx_glr_plot_dcca_tutorial_005.png
+   :class: sphx-glr-single-img
 
 
 
@@ -279,7 +284,7 @@ We can see that it has uncovered the latent correlation between views.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  18.534 seconds)
+   **Total running time of the script:** ( 1 minutes  48.054 seconds)
 
 
 .. _sphx_glr_download_auto_examples_embed_plot_dcca_tutorial.py:

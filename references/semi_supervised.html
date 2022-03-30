@@ -1,78 +1,44 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Semi-Supervised &mdash; mvlearn alpha documentation</title>
-  
-
-  
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/mvlearn-logo-32x32.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Model Selection" href="model_selection.html" />
     <link rel="prev" title="Clustering" href="cluster.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../index.html">
-          
-
-          
-            
             <img src="../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.4.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +46,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using mvlearn</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a><ul>
@@ -226,7 +182,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Information</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to mvlearn</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
@@ -269,221 +225,158 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Useful Links</span></p>
+<p class="caption" role="heading"><span class="caption-text">Useful Links</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">mvlearn</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Reference</a> &raquo;</li>
-        
       <li>Semi-Supervised</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/mvlearn/mvlearn/blob/main/docs/references/semi_supervised.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="semi-supervised">
+             
+  <section id="semi-supervised">
 <h1>Semi-Supervised<a class="headerlink" href="#semi-supervised" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="cotraining-classifier">
+<section id="cotraining-classifier">
 <h2>Cotraining Classifier<a class="headerlink" href="#cotraining-classifier" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mvlearn.semi_supervised.CTClassifier">
-<em class="property">class </em><code class="descclassname">mvlearn.semi_supervised.</code><code class="descname">CTClassifier</code><span class="sig-paren">(</span><em>estimator1=None</em>, <em>estimator2=None</em>, <em>p=None</em>, <em>n=None</em>, <em>unlabeled_pool_size=75</em>, <em>num_iter=50</em>, <em>random_state=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/semi_supervised/ctclassifier.html#CTClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="mvlearn.semi_supervised.CTClassifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.semi_supervised.</span></span><span class="sig-name descname"><span class="pre">CTClassifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimator1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimator2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unlabeled_pool_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/semi_supervised/ctclassifier.html#CTClassifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class implements the co-training classifier for supervised and
-semi-supervised learning with the framework as described in <a class="footnote-reference" href="#ctc" id="id1">[1]</a>.
+semi-supervised learning with the framework as described in <a class="footnote-reference brackets" href="#ctc" id="id1">1</a>.
 The best use case is when the 2 views of input data are sufficiently
-distinct and independent as detailed in <a class="footnote-reference" href="#ctc" id="id2">[1]</a>. However, this can
+distinct and independent as detailed in <a class="footnote-reference brackets" href="#ctc" id="id2">1</a>. However, this can
 also be successful when a single matrix of input data is given as
 both views and two estimators are chosen which are quite different.
-<a class="footnote-reference" href="#id4" id="id3">[2]</a>. See the examples below.</p>
+<a class="footnote-reference brackets" href="#id4" id="id3">2</a>. See the examples below.</p>
 <p>In the semi-supervised case, performance can vary greatly, so using
 a separate validation set or cross validation procedure is
 recommended to ensure the classifier has fit well.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>estimator1</strong> (<em>classifier object</em><em>, </em><em>(</em><em>default=sklearn GaussianNB</em><em>)</em>) -- The classifier object which will be trained on view 1 of the data.
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>estimator1</strong> (<em>classifier object</em><em>, </em><em>(</em><em>default=sklearn GaussianNB</em><em>)</em>) -- The classifier object which will be trained on view 1 of the data.
 This classifier should support the predict_proba() function so that
 classification probabilities can be computed and co-training can be
-performed effectively.</li>
-<li><strong>estimator2</strong> (<em>classifier object</em><em>, </em><em>(</em><em>default=sklearn GaussianNB</em><em>)</em>) -- The classifier object which will be trained on view 2 of the data.
+performed effectively.</p></li>
+<li><p><strong>estimator2</strong> (<em>classifier object</em><em>, </em><em>(</em><em>default=sklearn GaussianNB</em><em>)</em>) -- The classifier object which will be trained on view 2 of the data.
 Does not need to be of the same type as <code class="docutils literal notranslate"><span class="pre">estimator1</span></code>, but should
-support predict_proba().</li>
-<li><strong>p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em> (</em><em>default=None</em><em>)</em>) -- The number of positive classifications from the unlabeled_pool
+support predict_proba().</p></li>
+<li><p><strong>p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em> (</em><em>default=None</em><em>)</em>) -- The number of positive classifications from the unlabeled_pool
 training set which will be given a positive &quot;label&quot;. If None, the
 default is the floor of the ratio of positive to negative examples
 in the labeled training data (at least 1). If only one of <code class="docutils literal notranslate"><span class="pre">p</span></code> or
 <code class="docutils literal notranslate"><span class="pre">n</span></code> is not None, the other will be set to be the same. When the
 labels are 0 or 1, positive is defined as 1, and in general, positive
-is the larger label.</li>
-<li><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em> (</em><em>default=None</em><em>)</em>) -- The number of negative classifications from the unlabeled_pool
+is the larger label.</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em> (</em><em>default=None</em><em>)</em>) -- The number of negative classifications from the unlabeled_pool
 training set which will be given a negative &quot;label&quot;. If None, the
 default is the floor of the ratio of positive to negative examples
 in the labeled training data (at least 1). If only one of <code class="docutils literal notranslate"><span class="pre">p</span></code> or
 <code class="docutils literal notranslate"><span class="pre">n</span></code> is not None, the other will be set to be the same. When the
 labels are 0 or 1, negative is defined as 0, and in general, negative
-is the smaller label.</li>
-<li><strong>unlabeled_pool_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em> (</em><em>default=75</em><em>)</em>) -- The number of unlabeled_pool samples which will be kept in a
+is the smaller label.</p></li>
+<li><p><strong>unlabeled_pool_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em> (</em><em>default=75</em><em>)</em>) -- The number of unlabeled_pool samples which will be kept in a
 separate pool for classification and selection by the updated
-classifier at each training iteration.</li>
-<li><strong>num_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em> (</em><em>default=50</em><em>)</em>) -- The maximum number of training iterations to run.</li>
-<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> (</em><em>default=None</em><em>)</em>) -- The starting random seed for fit() and class operations, passed to
-numpy.random.seed().</li>
+classifier at each training iteration.</p></li>
+<li><p><strong>num_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em> (</em><em>default=50</em><em>)</em>) -- The maximum number of training iterations to run.</p></li>
+<li><p><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> (</em><em>default=None</em><em>)</em>) -- The starting random seed for fit() and class operations, passed to
+numpy.random.seed().</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
-<dt id="mvlearn.semi_supervised.CTClassifier.estimator1_">
-<code class="descname">estimator1_</code><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.estimator1_" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.semi_supervised.CTClassifier.estimator1_">
+<span class="sig-name descname"><span class="pre">estimator1_</span></span><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.estimator1_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The classifier used on view 1.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">classifier object</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>classifier object</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.semi_supervised.CTClassifier.estimator2_">
-<code class="descname">estimator2_</code><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.estimator2_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.semi_supervised.CTClassifier.estimator2_">
+<span class="sig-name descname"><span class="pre">estimator2_</span></span><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.estimator2_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The classifier used on view 2.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">classifier object</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>classifier object</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.semi_supervised.CTClassifier.class_name_">
-<code class="descname">class_name_</code><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.class_name_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.semi_supervised.CTClassifier.class_name_">
+<span class="sig-name descname"><span class="pre">class_name_</span></span><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.class_name_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the class.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.semi_supervised.CTClassifier.p_">
-<code class="descname">p_</code><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.p_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.semi_supervised.CTClassifier.p_">
+<span class="sig-name descname"><span class="pre">p_</span></span><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.p_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of positive classifications from the unlabeled_pool
 training set which will be given a positive &quot;label&quot; each round.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a>, optional (default=None)</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a>, optional (default=None)</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.semi_supervised.CTClassifier.n_">
-<code class="descname">n_</code><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.n_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.semi_supervised.CTClassifier.n_">
+<span class="sig-name descname"><span class="pre">n_</span></span><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.n_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of negative classifications from the unlabeled_pool
 training set which will be given a negative &quot;label&quot; each round.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a>, optional (default=None)</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a>, optional (default=None)</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.semi_supervised.CTClassifier.classes_">
-<code class="descname">classes_</code><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.classes_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.semi_supervised.CTClassifier.classes_">
+<span class="sig-name descname"><span class="pre">classes_</span></span><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.classes_" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unique class labels.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array-like of shape (n_classes,)</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array-like of shape (n_classes,)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Supervised learning of single-view data with 2 distinct estimators</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Supervised learning of single-view data with 2 distinct estimators</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.semi_supervised</span> <span class="kn">import</span> <span class="n">CTClassifier</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -495,7 +388,7 @@ training set which will be given a negative &quot;label&quot; each round.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X1_train</span><span class="p">,</span> <span class="n">X1_test</span><span class="p">,</span> <span class="n">l_train</span><span class="p">,</span> <span class="n">l_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Supervised learning with a single view of data and 2 estimator types</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Supervised learning with a single view of data and 2 estimator types</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">estimator1</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">estimator2</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ctc</span> <span class="o">=</span> <span class="n">CTClassifier</span><span class="p">(</span><span class="n">estimator1</span><span class="p">,</span> <span class="n">estimator2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -528,8 +421,8 @@ is described in detail below.</p>
 <p>Given:</p>
 <blockquote>
 <div><ul class="simple">
-<li>a set <em>L</em> of labeled training samples (with 2 views)</li>
-<li>a set <em>U</em> of unlabeled samples (with 2 views)</li>
+<li><p>a set <em>L</em> of labeled training samples (with 2 views)</p></li>
+<li><p>a set <em>U</em> of unlabeled samples (with 2 views)</p></li>
 </ul>
 </div></blockquote>
 <p>Create a pool <em>U'</em> of examples by choosing <em>u</em> examples at random
@@ -537,284 +430,144 @@ from <em>U</em></p>
 <p>Loop for <em>k</em> iterations</p>
 <blockquote>
 <div><ul class="simple">
-<li>Use <em>L</em> to train a classifier <em>h1</em> (<code class="docutils literal notranslate"><span class="pre">estimator1</span></code>) that considers
-only the view 1 portion of the data (i.e. Xs[0])</li>
-<li>Use <em>L</em> to train a classifier <em>h2</em> (<code class="docutils literal notranslate"><span class="pre">estimator2</span></code>) that considers
-only the view 2 portion of the data (i.e. Xs[1])</li>
-<li>Allow <em>h1</em> to label <em>p</em> (<code class="docutils literal notranslate"><span class="pre">self.p_</span></code>) positive and <em>n</em> (<code class="docutils literal notranslate"><span class="pre">self.n_</span></code>)
-negative samples from view 1 of <em>U'</em></li>
-<li>Allow <em>h2</em> to label <em>p</em> positive and <em>n</em> negative samples
-from view 2 of <em>U'</em></li>
-<li>Add these self-labeled samples to <em>L</em></li>
-<li>Randomly take 2*p* + 2*n* samples from <em>U</em> to replenish <em>U'</em></li>
+<li><p>Use <em>L</em> to train a classifier <em>h1</em> (<code class="docutils literal notranslate"><span class="pre">estimator1</span></code>) that considers
+only the view 1 portion of the data (i.e. Xs[0])</p></li>
+<li><p>Use <em>L</em> to train a classifier <em>h2</em> (<code class="docutils literal notranslate"><span class="pre">estimator2</span></code>) that considers
+only the view 2 portion of the data (i.e. Xs[1])</p></li>
+<li><p>Allow <em>h1</em> to label <em>p</em> (<code class="docutils literal notranslate"><span class="pre">self.p_</span></code>) positive and <em>n</em> (<code class="docutils literal notranslate"><span class="pre">self.n_</span></code>)
+negative samples from view 1 of <em>U'</em></p></li>
+<li><p>Allow <em>h2</em> to label <em>p</em> positive and <em>n</em> negative samples
+from view 2 of <em>U'</em></p></li>
+<li><p>Add these self-labeled samples to <em>L</em></p></li>
+<li><p>Randomly take 2*p* + 2*n* samples from <em>U</em> to replenish <em>U'</em></p></li>
 </ul>
 </div></blockquote>
 <p class="rubric">References</p>
-<table class="docutils footnote" frame="void" id="ctc" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>)</em> Blum, A., and Mitchell, T. &quot;Combining labeled and unlabeled
+<dl class="footnote brackets">
+<dt class="label" id="ctc"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
+<dd><p>Blum, A., and Mitchell, T. &quot;Combining labeled and unlabeled
 data with co-training.&quot; In Proceedings of the Eleventh Annual
-Conference on Computational Learning Theory, pages 92–100, 1998.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id4" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td>Goldman, Sally, and Yan Zhou. &quot;Enhancing supervised
+Conference on Computational Learning Theory, pages 92–100, 1998.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p>Goldman, Sally, and Yan Zhou. &quot;Enhancing supervised
 learning with unlabeled data.&quot; In Proceedings of the Eleventh
-Annual Conference on Computational Learning Theory, 2000.</td></tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="mvlearn.semi_supervised.CTClassifier.fit_predict">
-<code class="descname">fit_predict</code><span class="sig-paren">(</span><em>Xs</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.fit_predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit a co-train estimator to the semi-supervised data and
-then predict.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<blockquote>
-<div>A list of the different views of data to fit and
-then predict.</div></blockquote>
-</li>
-<li><strong>y</strong> (<em>array</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) -- Targets of the training data. Unlabeled examples should
-have label np.nan.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y_pred</strong> -- Predictions for each sample.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array-like (n_samples,)</p>
-</td>
-</tr>
-</tbody>
-</table>
+Annual Conference on Computational Learning Theory, 2000.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="mvlearn.semi_supervised.CTClassifier.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/semi_supervised/ctclassifier.html#CTClassifier.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit the classifier object to the data in Xs, y.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>A list of the different views of data to train on.</p>
-</li>
-<li><strong>y</strong> (<em>array</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) -- The labels of the training data. Unlabeled examples should
-have label np.nan.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">returns an instance of self</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.semi_supervised.CTClassifier.predict">
-<code class="descname">predict</code><span class="sig-paren">(</span><em>Xs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/semi_supervised/ctclassifier.html#CTClassifier.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Predict the classes of the examples in the two input views.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>A list of the different views of data to predict.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>y_pred</strong> -- The predicted class of each input example. If the two classifiers
-don't agree, pick the one with the highest predicted probability
-from predict_proba().</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">array-like (n_samples,)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.semi_supervised.CTClassifier.predict_proba">
-<code class="descname">predict_proba</code><span class="sig-paren">(</span><em>Xs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/semi_supervised/ctclassifier.html#CTClassifier.predict_proba"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.semi_supervised.CTClassifier.predict_proba" title="Permalink to this definition">¶</a></dt>
-<dd><p>Predict the probability of each example belonging to a each class.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>A list of the different views of data to predict.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>y_proba</strong> -- The probability of each sample being in each class.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">array-like (n_samples, n_classes)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="cotraining-regressor">
+</section>
+<section id="cotraining-regressor">
 <h2>Cotraining Regressor<a class="headerlink" href="#cotraining-regressor" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mvlearn.semi_supervised.CTRegressor">
-<em class="property">class </em><code class="descclassname">mvlearn.semi_supervised.</code><code class="descname">CTRegressor</code><span class="sig-paren">(</span><em>estimator1=None</em>, <em>estimator2=None</em>, <em>k_neighbors=5</em>, <em>unlabeled_pool_size=50</em>, <em>num_iter=100</em>, <em>random_state=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/semi_supervised/ctregression.html#CTRegressor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="mvlearn.semi_supervised.CTRegressor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.semi_supervised.</span></span><span class="sig-name descname"><span class="pre">CTRegressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimator1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimator2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_neighbors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unlabeled_pool_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/semi_supervised/ctregression.html#CTRegressor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class implements the co-training regression for supervised
-and semi supervised learning with the framework as described in <a class="footnote-reference" href="#ctr" id="id5">[3]</a>.
+and semi supervised learning with the framework as described in <a class="footnote-reference brackets" href="#ctr" id="id5">3</a>.
 The best use case is when 2 views of input data are sufficiently
-distinct and independent as detailed in <a class="footnote-reference" href="#ctr" id="id6">[3]</a>. However this can also
+distinct and independent as detailed in <a class="footnote-reference brackets" href="#ctr" id="id6">3</a>. However this can also
 be successfull when a single matrix of input data is given as
 both views and two estimators are choosen
-which are quite different <a class="footnote-reference" href="#id9" id="id7">[4]</a>.</p>
+which are quite different <a class="footnote-reference brackets" href="#id9" id="id7">4</a>.</p>
 <p>In the semi-supervised case, performance can vary greatly, so using
 a separate validation set or cross validation procedure is
 recommended to ensure the regression model has fit well.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>estimator1</strong> (<em>sklearn object</em><em>, </em><em>(</em><em>only supports KNeighborsRegressor</em><em>)</em>) -- The regressor object which will be trained on view1 of the data.</li>
-<li><strong>estimator2</strong> (<em>sklearn object</em><em>, </em><em>(</em><em>only supports KNeighborsRegressor</em><em>)</em>) -- The regressir object which will be trained on view2 of the data.</li>
-<li><strong>k_neighbors</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em> (</em><em>default = 5</em><em>)</em>) -- The number of neighbors to be considered for determining the mean
-squared error.</li>
-<li><strong>unlabeled_pool_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em> (</em><em>default = 50</em><em>)</em>) -- The number of unlabeled_pool samples which will be kept in a
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>estimator1</strong> (<em>sklearn object</em><em>, </em><em>(</em><em>only supports KNeighborsRegressor</em><em>)</em>) -- The regressor object which will be trained on view1 of the data.</p></li>
+<li><p><strong>estimator2</strong> (<em>sklearn object</em><em>, </em><em>(</em><em>only supports KNeighborsRegressor</em><em>)</em>) -- The regressir object which will be trained on view2 of the data.</p></li>
+<li><p><strong>k_neighbors</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em> (</em><em>default = 5</em><em>)</em>) -- The number of neighbors to be considered for determining the mean
+squared error.</p></li>
+<li><p><strong>unlabeled_pool_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em> (</em><em>default = 50</em><em>)</em>) -- The number of unlabeled_pool samples which will be kept in a
 separate pool for regression and selection by the updated
-regressor at each training iteration.</li>
-<li><strong>num_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em> (</em><em>default = 100</em><em>)</em>) -- The maximum number of iteration to be performed</li>
-<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> (</em><em>default = None</em><em>)</em>) -- The seed for fit() method and other class operations</li>
+regressor at each training iteration.</p></li>
+<li><p><strong>num_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em> (</em><em>default = 100</em><em>)</em>) -- The maximum number of iteration to be performed</p></li>
+<li><p><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> (</em><em>default = None</em><em>)</em>) -- The seed for fit() method and other class operations</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
-<dt id="mvlearn.semi_supervised.CTRegressor.estimator1_">
-<code class="descname">estimator1_</code><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.estimator1_" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">regressor object, used on view1</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.semi_supervised.CTRegressor.estimator1_">
+<span class="sig-name descname"><span class="pre">estimator1_</span></span><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.estimator1_" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>regressor object, used on view1</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.semi_supervised.CTRegressor.estimator2_">
-<code class="descname">estimator2_</code><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.estimator2_" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">regressor object, used on view2</td>
-</tr>
-</tbody>
-</table>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.semi_supervised.CTRegressor.estimator2_">
+<span class="sig-name descname"><span class="pre">estimator2_</span></span><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.estimator2_" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>regressor object, used on view2</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.semi_supervised.CTRegressor.class_name_">
-<code class="descname">class_name_</code><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.class_name_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.semi_supervised.CTRegressor.class_name_">
+<span class="sig-name descname"><span class="pre">class_name_</span></span><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.class_name_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the class.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.semi_supervised.CTRegressor.k_neighbors_">
-<code class="descname">k_neighbors_</code><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.k_neighbors_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.semi_supervised.CTRegressor.k_neighbors_">
+<span class="sig-name descname"><span class="pre">k_neighbors_</span></span><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.k_neighbors_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of neighbors to be considered for determining
 the mean squared error.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.semi_supervised.CTRegressor.unlabeled_pool_size">
-<code class="descname">unlabeled_pool_size</code><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.unlabeled_pool_size" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.semi_supervised.CTRegressor.unlabeled_pool_size">
+<span class="sig-name descname"><span class="pre">unlabeled_pool_size</span></span><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.unlabeled_pool_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of unlabeled_pool samples which will be kept in a
 separate pool for regression and selection by the updated
 regressor at each training iteration.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.semi_supervised.CTRegressor.num_iter">
-<code class="descname">num_iter</code><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.num_iter" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.semi_supervised.CTRegressor.num_iter">
+<span class="sig-name descname"><span class="pre">num_iter</span></span><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.num_iter" title="Permalink to this definition">¶</a></dt>
 <dd><p>The maximum number of iterations to be performed</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.semi_supervised.CTRegressor.n_views">
-<code class="descname">n_views</code><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.n_views" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.semi_supervised.CTRegressor.n_views">
+<span class="sig-name descname"><span class="pre">n_views</span></span><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.n_views" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of views in the data</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.semi_supervised</span> <span class="kn">import</span> <span class="n">CTRegressor</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.semi_supervised</span> <span class="kn">import</span> <span class="n">CTRegressor</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsRegressor</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># X1 and X2 are the 2 views of the data</span>
@@ -846,38 +599,35 @@ samples. This regressor uses 2 sklearn regressors which work individually
 on each view but which share information and thus result in improved
 performance over looking at the views completely separately.
 The regressor needs to be KNeighborsRegressor,
-as described in the <a class="footnote-reference" href="#ctr" id="id8">[3]</a>.</p>
+as described in the <a class="footnote-reference brackets" href="#ctr" id="id8">3</a>.</p>
 <p>Algorithm: Given</p>
 <blockquote>
 <div><ul class="simple">
-<li>a set <em>L1</em>, <em>L2</em> having labeled training</li>
+<li><p>a set <em>L1</em>, <em>L2</em> having labeled training</p></li>
 </ul>
 <p>samples of each view respectively</p>
 <ul class="simple">
-<li>a set <em>U</em> of unlabeled samples</li>
+<li><p>a set <em>U</em> of unlabeled samples</p></li>
 </ul>
 <p>Create a pool <em>U'</em> of examples by choosing examples at random
 from <em>U</em></p>
 <ul class="simple">
-<li>Use <em>L1</em> to train a regressor <em>h1</em> (<code class="docutils literal notranslate"><span class="pre">estimator1</span></code>) that considers
-only the view1 portion of the data (i.e. Xs[0])</li>
-<li>Use <em>L2</em> to train a regressor <em>h2</em> (<code class="docutils literal notranslate"><span class="pre">estimator2</span></code>) that considers
-only the view2 portion of the data (i.e. Xs[1])</li>
+<li><p>Use <em>L1</em> to train a regressor <em>h1</em> (<code class="docutils literal notranslate"><span class="pre">estimator1</span></code>) that considers
+only the view1 portion of the data (i.e. Xs[0])</p></li>
+<li><p>Use <em>L2</em> to train a regressor <em>h2</em> (<code class="docutils literal notranslate"><span class="pre">estimator2</span></code>) that considers
+only the view2 portion of the data (i.e. Xs[1])</p></li>
 </ul>
-<dl class="docutils">
-<dt>Loop for <em>T</em> iterations</dt>
-<dd><ul class="first">
-<li><dl class="first docutils">
-<dt>for each view <em>j</em></dt>
-<dd><ul class="first last">
-<li><dl class="first docutils">
-<dt>for each <em>u</em> in <em>U'</em></dt>
-<dd><ul class="first simple">
-<li>Calculate the neighbors of <em>u</em></li>
-<li>Predict the value of <em>u</em> using <em>hj</em> estimator</li>
-<li>create a new estimator <em>hj'</em> with same parameters</li>
+<dl>
+<dt>Loop for <em>T</em> iterations</dt><dd><ul>
+<li><dl>
+<dt>for each view <em>j</em></dt><dd><ul>
+<li><dl>
+<dt>for each <em>u</em> in <em>U'</em></dt><dd><ul class="simple">
+<li><p>Calculate the neighbors of <em>u</em></p></li>
+<li><p>Predict the value of <em>u</em> using <em>hj</em> estimator</p></li>
+<li><p>create a new estimator <em>hj'</em> with same parameters</p></li>
 </ul>
-<p class="last">as that of <em>hj</em> and train it on the data (<em>Lj</em> union <em>u</em>)
+<p>as that of <em>hj</em> and train it on the data (<em>Lj</em> union <em>u</em>)
 * predict the value of neighbors from estimator <em>hj</em>
 and calculate the mean squared error with respect to
 original values
@@ -893,10 +643,9 @@ with respect to original values
 </dd>
 </dl>
 </li>
-<li><p class="first">select the index with maximum positive value from both</p>
-</li>
+<li><p>select the index with maximum positive value from both</p></li>
 </ul>
-<p class="last">the <em>delta1</em> and <em>delta2</em>
+<p>the <em>delta1</em> and <em>delta2</em>
 * let the indexes selected be <em>index1</em> and <em>index2</em>
 * Add the <em>index1</em> to <em>L2</em>
 * Add the <em>index2</em> to <em>L1</em>
@@ -908,138 +657,41 @@ it by taking unlabeled index from <em>U</em>
 </dl>
 </div></blockquote>
 <p class="rubric">References</p>
-<table class="docutils footnote" frame="void" id="ctr" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id6">2</a>, <a class="fn-backref" href="#id8">3</a>)</em> Zhou, Zhi-Hua and Li, Ming. &quot;Semi-supervised regression with
+<dl class="footnote brackets">
+<dt class="label" id="ctr"><span class="brackets">3</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id6">2</a>,<a href="#id8">3</a>)</span></dt>
+<dd><p>Zhou, Zhi-Hua and Li, Ming. &quot;Semi-supervised regression with
 co-training.&quot; In Proceedings of the 19th International Joint
-Conference on Artificial Intelligence, page 908–913, 2005</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id9" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[4]</a></td><td>Goldman, Sally, and Yan Zhou. &quot;Enhancing supervised
+Conference on Artificial Intelligence, page 908–913, 2005</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id7">4</a></span></dt>
+<dd><p>Goldman, Sally, and Yan Zhou. &quot;Enhancing supervised
 learning with unlabeled data.&quot; In Proceedings of the Eleventh
-Annual Conference on Computational Learning Theory, 2000.</td></tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="mvlearn.semi_supervised.CTRegressor.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/semi_supervised/ctregression.html#CTRegressor.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit the regressor object to the data in Xs, y.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>A list of the different views of data to train on.</p>
-</li>
-<li><strong>y</strong> (<em>array</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) -- The target values of the training data. Unlabeled examples
-should have label np.nan.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">returns an instance of self</p>
-</td>
-</tr>
-</tbody>
-</table>
+Annual Conference on Computational Learning Theory, 2000.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="mvlearn.semi_supervised.CTRegressor.predict">
-<code class="descname">predict</code><span class="sig-paren">(</span><em>Xs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/semi_supervised/ctregression.html#CTRegressor.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Predict the values of the samples in the two input views.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>A list of the different views of data to predict.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>y_pred</strong> -- The average of the predictions from both estimators is returned</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">array-like (n_samples,)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.semi_supervised.CTRegressor.fit_predict">
-<code class="descname">fit_predict</code><span class="sig-paren">(</span><em>Xs</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.semi_supervised.CTRegressor.fit_predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit a co-train estimator to the semi-supervised data and
-then predict.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<blockquote>
-<div>A list of the different views of data to fit and
-then predict.</div></blockquote>
-</li>
-<li><strong>y</strong> (<em>array</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) -- Targets of the training data. Unlabeled examples should
-have label np.nan.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y_pred</strong> -- Predictions for each sample.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array-like (n_samples,)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="model_selection.html" class="btn btn-neutral float-right" title="Model Selection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cluster.html" class="btn btn-neutral" title="Clustering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cluster.html" class="btn btn-neutral float-left" title="Clustering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="model_selection.html" class="btn btn-neutral float-right" title="Model Selection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019-2020
-
-    </p>
+    <p>&#169; Copyright 2019-2020.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 <p style="text-align: center; margin: .5rem;">
     <a href="https://www.netlify.com">
         <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
@@ -1049,34 +701,11 @@ have label np.nan.</li>
 
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/js/copybutton.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });

@@ -243,15 +243,17 @@ perform better than on singleview clustering for just one view.
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_001.png
-          :alt: Ground Truth View 1, Ground Truth View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_001.png
+         :alt: Ground Truth View 1, Ground Truth View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_002.png
-          :alt: Multiview Clustering View 1, Multiview Clustering View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_002.png
+         :alt: Multiview Clustering View 1, Multiview Clustering View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_002.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -315,15 +317,17 @@ views as inputs.
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_003.png
-          :alt: Ground Truth View 1, Ground Truth View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_003.png
+         :alt: Ground Truth View 1, Ground Truth View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_003.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_004.png
-          :alt: Multiview Clustering View 1, Multiview Clustering View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_004.png
+         :alt: Multiview Clustering View 1, Multiview Clustering View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_004.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -388,15 +392,17 @@ perform better than on singleview clustering for just one view.
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_005.png
-          :alt: Ground Truth View 1, Ground Truth View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_005.png
+         :alt: Ground Truth View 1, Ground Truth View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_005.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_006.png
-          :alt: Multiview Clustering View 1, Multiview Clustering View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_006.png
+         :alt: Multiview Clustering View 1, Multiview Clustering View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_006.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -460,15 +466,17 @@ the input.
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_007.png
-          :alt: Ground Truth View 1, Ground Truth View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_007.png
+         :alt: Ground Truth View 1, Ground Truth View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_007.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_008.png
-          :alt: Multiview Clustering View 1, Multiview Clustering View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_008.png
+         :alt: Multiview Clustering View 1, Multiview Clustering View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_simulated_008.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -506,7 +514,7 @@ it's basic functionality as a clustering algorithm.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.572 seconds)
+   **Total running time of the script:** ( 1 minutes  17.627 seconds)
 
 
 .. _sphx_glr_download_auto_examples_cluster_plot_mv_kmeans_validation_simulated.py:

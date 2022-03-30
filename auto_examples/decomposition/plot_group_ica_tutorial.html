@@ -1,78 +1,45 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ICA: a tutorial &mdash; mvlearn alpha documentation</title>
-  
-
-  
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/mvlearn-logo-32x32.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/js/copybutton.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Multiview Independent Component Analysis (ICA) Comparison" href="plot_mv_ica_tutorial.html" />
     <link rel="prev" title="An mvlearn case study: the Nutrimouse dataset" href="../datasets/plot_nutrimouse.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../../index.html">
-          
-
-          
-            
             <img src="../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.4.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +47,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using mvlearn</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a><ul>
@@ -226,7 +183,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Information</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to mvlearn</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
@@ -269,85 +226,44 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Useful Links</span></p>
+<p class="caption" role="heading"><span class="caption-text">Useful Links</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">mvlearn</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">Examples Gallery</a> &raquo;</li>
-        
       <li>ICA: a tutorial</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/mvlearn/mvlearn/blob/main/docs/auto_examples/decomposition/plot_group_ica_tutorial.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-decomposition-plot-group-ica-tutorial-py"><span class="std std-ref">here</span></a>
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-decomposition-plot-group-ica-tutorial-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="ica-a-tutorial">
+<section class="sphx-glr-example-title" id="ica-a-tutorial">
 <span id="sphx-glr-auto-examples-decomposition-plot-group-ica-tutorial-py"></span><h1>ICA: a tutorial<a class="headerlink" href="#ica-a-tutorial" title="Permalink to this headline">¶</a></h1>
 <p>Author: Pierre Ablin</p>
 <p>Group ICA extends the celebrated Independent Component Analysis to multiple
@@ -370,17 +286,17 @@ allows to extract signals that are comon across views.</p>
 <span class="kn">from</span> <span class="nn">mvlearn.decomposition</span> <span class="kn">import</span> <a href="../../references/decomposition.html#mvlearn.decomposition.GroupICA" title="mvlearn.decomposition.GroupICA" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-class"><span class="n">GroupICA</span></a>
 </pre></div>
 </div>
-<div class="section" id="define-a-function-to-plot-sources">
+<section id="define-a-function-to-plot-sources">
 <h2>Define a Function to Plot Sources<a class="headerlink" href="#define-a-function-to-plot-sources" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_sources</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="p">):</span>
     <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_samples</span></a><span class="p">,</span> <span class="n">n_sources</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span><span class="o">.</span><span class="n">shape</span></a>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="matplotlib.pyplot.subplots" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="n">n_sources</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="matplotlib.pyplot.subplots" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="n">n_sources</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">sig</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span><span class="o">.</span><span class="n">T</span></a><span class="p">):</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="define-independent-sources-and-generate-noisy-observations">
+</section>
+<section id="define-independent-sources-and-generate-noisy-observations">
 <h2>Define Independent Sources and Generate Noisy Observations<a class="headerlink" href="#define-independent-sources-and-generate-noisy-observations" title="Permalink to this headline">¶</a></h2>
 <p>Define indepdent sources. Next, generate some views, which are noisy
 observations of linear transforms of these sources.</p>
@@ -405,13 +321,11 @@ observations of linear transforms of these sources.</p>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><img alt="plot group ica tutorial" class="sphx-glr-multi-img first" src="../../_images/sphx_glr_plot_group_ica_tutorial_001.png" />
-</li>
-<li><img alt="plot group ica tutorial" class="sphx-glr-multi-img first" src="../../_images/sphx_glr_plot_group_ica_tutorial_002.png" />
-</li>
+<li><img src="../../_images/sphx_glr_plot_group_ica_tutorial_001.png" srcset="../../_images/sphx_glr_plot_group_ica_tutorial_001.png" alt="plot group ica tutorial" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_group_ica_tutorial_002.png" srcset="../../_images/sphx_glr_plot_group_ica_tutorial_002.png" alt="plot group ica tutorial" class = "sphx-glr-multi-img"/></li>
 </ul>
-</div>
-<div class="section" id="apply-group-ica">
+</section>
+<section id="apply-group-ica">
 <h2>Apply Group ICA<a class="headerlink" href="#apply-group-ica" title="Permalink to this headline">¶</a></h2>
 <p>Next, we can apply group ICA. The option <cite>multiview_output=False</cite> means that
 we want to recover the estimated sources when we do <cite>.transform</cite>. Here, we
@@ -419,13 +333,12 @@ look at what the algorithm estimates as the sources from the multiview
 data.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../references/decomposition.html#mvlearn.decomposition.GroupICA" title="mvlearn.decomposition.GroupICA" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">groupica</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.GroupICA" title="mvlearn.decomposition.GroupICA" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-class"><span class="n">GroupICA</span></a><span class="p">(</span><span class="n">multiview_output</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
 
-<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimated_sources</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.GroupICA.transform" title="mvlearn.decomposition.GroupICA.transform" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-method"><span class="n">groupica</span><span class="o">.</span><span class="n">transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimated_sources</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.GroupICA" title="mvlearn.decomposition.GroupICA" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">groupica</span></a><span class="o">.</span><span class="n">transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
 <span class="n">plot_sources</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimated_sources</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="plot group ica tutorial" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_group_ica_tutorial_003.png" />
-</div>
-<div class="section" id="inspect-estimated-mixings">
+<img src="../../_images/sphx_glr_plot_group_ica_tutorial_003.png" srcset="../../_images/sphx_glr_plot_group_ica_tutorial_003.png" alt="plot group ica tutorial" class = "sphx-glr-single-img"/></section>
+<section id="inspect-estimated-mixings">
 <h2>Inspect Estimated Mixings<a class="headerlink" href="#inspect-estimated-mixings" title="Permalink to this headline">¶</a></h2>
 <p>We see they look pretty good! We can also wheck that it has correctly
 predicted each mixing matrix. The estimated mixing matrices are stored in
@@ -436,21 +349,20 @@ close to a scale and permuation matrix: in this case, the sources are
 correctly estimated, up to scale and permutation.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimated_mixings</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">groupica</span><span class="o">.</span><span class="n">individual_mixing_</span></a>
 
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.matshow.html#matplotlib.pyplot.matshow" title="matplotlib.pyplot.matshow" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot" title="numpy.dot" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">dot</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.pinv.html#numpy.linalg.pinv" title="numpy.linalg.pinv" class="sphx-glr-backref-module-numpy-linalg sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimated_mixings</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mixings</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.matshow.html#matplotlib.pyplot.matshow" title="matplotlib.pyplot.matshow" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot" title="numpy.dot" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">dot</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.pinv.html#numpy.linalg.pinv" title="numpy.linalg.pinv" class="sphx-glr-backref-module-numpy-linalg sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimated_mixings</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mixings</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 </pre></div>
 </div>
-<img alt="plot group ica tutorial" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_group_ica_tutorial_004.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7fbb5c196290&gt;
+<img src="../../_images/sphx_glr_plot_group_ica_tutorial_004.png" srcset="../../_images/sphx_glr_plot_group_ica_tutorial_004.png" alt="plot group ica tutorial" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7f344a3c8250&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="group-ica-on-only-2-views">
+</section>
+<section id="group-ica-on-only-2-views">
 <h2>Group ICA on Only 2 Views<a class="headerlink" href="#group-ica-on-only-2-views" title="Permalink to this headline">¶</a></h2>
 <p>A great advantage of groupICA is that it leverages the multiple views to
 reduce noise. For instance, if only had two views, we would have obtained
 the following.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimated_sources</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.GroupICA.fit_transform" title="mvlearn.decomposition.GroupICA.fit_transform" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-method"><span class="n">groupica</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimated_sources</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.GroupICA" title="mvlearn.decomposition.GroupICA" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">groupica</span></a><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">plot_sources</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimated_sources</span></a><span class="p">)</span>
 
 <span class="c1"># Another important property of group ICA is that it can recover signals that</span>
@@ -464,7 +376,7 @@ the following.</p>
       <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mixings</span></a><span class="p">]</span>
 
 
-<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimated_sources</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.GroupICA.fit_transform" title="mvlearn.decomposition.GroupICA.fit_transform" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-method"><span class="n">groupica</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimated_sources</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.GroupICA" title="mvlearn.decomposition.GroupICA" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">groupica</span></a><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
 <span class="n">plot_sources</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimated_sources</span></a><span class="p">)</span>
 
 <span class="c1"># It recovers the common source on one channel, and the other estimated</span>
@@ -472,47 +384,40 @@ the following.</p>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><img alt="plot group ica tutorial" class="sphx-glr-multi-img first" src="../../_images/sphx_glr_plot_group_ica_tutorial_005.png" />
-</li>
-<li><img alt="plot group ica tutorial" class="sphx-glr-multi-img first" src="../../_images/sphx_glr_plot_group_ica_tutorial_006.png" />
-</li>
+<li><img src="../../_images/sphx_glr_plot_group_ica_tutorial_005.png" srcset="../../_images/sphx_glr_plot_group_ica_tutorial_005.png" alt="plot group ica tutorial" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_group_ica_tutorial_006.png" srcset="../../_images/sphx_glr_plot_group_ica_tutorial_006.png" alt="plot group ica tutorial" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.896 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.884 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-decomposition-plot-group-ica-tutorial-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<a class="reference download internal" download="" href="../../_downloads/99901fd9b85fd940662e9b130415ee5b/plot_group_ica_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_group_ica_tutorial.py</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/a4b07ec5104e02108604e7a8e53c71d3/plot_group_ica_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_group_ica_tutorial.py</span></code></a></p>
+</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<a class="reference download internal" download="" href="../../_downloads/4deabe4297e14641851ebc4109012fa2/plot_group_ica_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_group_ica_tutorial.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/b1dc42a1fdd4e6c202ed3879d36ab706/plot_group_ica_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_group_ica_tutorial.ipynb</span></code></a></p>
+</div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="plot_mv_ica_tutorial.html" class="btn btn-neutral float-right" title="Multiview Independent Component Analysis (ICA) Comparison" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../datasets/plot_nutrimouse.html" class="btn btn-neutral" title="An mvlearn case study: the Nutrimouse dataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../datasets/plot_nutrimouse.html" class="btn btn-neutral float-left" title="An mvlearn case study: the Nutrimouse dataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_mv_ica_tutorial.html" class="btn btn-neutral float-right" title="Multiview Independent Component Analysis (ICA) Comparison" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019-2020
-
-    </p>
+    <p>&#169; Copyright 2019-2020.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 <p style="text-align: center; margin: .5rem;">
     <a href="https://www.netlify.com">
         <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
@@ -522,34 +427,11 @@ the following.</p>
 
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });

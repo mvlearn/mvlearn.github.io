@@ -1,78 +1,44 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Angle-based Joint and Individual Variation Explained (AJIVE) &mdash; mvlearn alpha documentation</title>
-  
-
-  
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/mvlearn-logo-32x32.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/js/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Generalized Canonical Correlation Analysis (GCCA) Tutorial" href="../embed/plot_gcca_tutorial.html" />
     <link rel="prev" title="Multiview Independent Component Analysis (ICA) Comparison" href="plot_mv_ica_tutorial.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../../index.html">
-          
-
-          
-            
             <img src="../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.4.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +46,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using mvlearn</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a><ul>
@@ -226,7 +182,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Information</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to mvlearn</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
@@ -269,85 +225,44 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Useful Links</span></p>
+<p class="caption" role="heading"><span class="caption-text">Useful Links</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">mvlearn</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">Examples Gallery</a> &raquo;</li>
-        
       <li>Angle-based Joint and Individual Variation Explained (AJIVE)</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/mvlearn/mvlearn/blob/main/docs/auto_examples/decomposition/plot_ajive_tutorial.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-decomposition-plot-ajive-tutorial-py"><span class="std std-ref">here</span></a>
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-decomposition-plot-ajive-tutorial-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="angle-based-joint-and-individual-variation-explained-ajive">
+<section class="sphx-glr-example-title" id="angle-based-joint-and-individual-variation-explained-ajive">
 <span id="sphx-glr-auto-examples-decomposition-plot-ajive-tutorial-py"></span><h1>Angle-based Joint and Individual Variation Explained (AJIVE)<a class="headerlink" href="#angle-based-joint-and-individual-variation-explained-ajive" title="Permalink to this headline">¶</a></h1>
 <p>Adopted from the code at <a class="reference external" href="https://github.com/idc9/py_jive">https://github.com/idc9/py_jive</a> and tutorial
 written by:</p>
@@ -358,8 +273,8 @@ Statistics, vol. 7, no. 1, 2013, pp. 523–542., doi:10.1214/12-aoas597.</p>
 <p>AJIVE is a useful algorithm that decomposes multiple views of data into two
 main pieces</p>
 <ul class="simple">
-<li>Joint Variation</li>
-<li>Individual Variation</li>
+<li><p>Joint Variation</p></li>
+<li><p>Individual Variation</p></li>
 </ul>
 <p>whose sum is the original data minus noise. This notebook will demonstrate the
 functionality of AJIVE and show some examples of the algorithm's usefulness.</p>
@@ -371,7 +286,7 @@ functionality of AJIVE and show some examples of the algorithm's usefulness.</p>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
-<div class="section" id="data-creation">
+<section id="data-creation">
 <h2>Data Creation<a class="headerlink" href="#data-creation" title="Permalink to this headline">¶</a></h2>
 <p>Here we create data in the same way detailed in the initial JIVE paper:</p>
 <p>The two views are created with shared joint variation, unique individual
@@ -413,12 +328,12 @@ variation, and independent noise.</p>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_diff</span></a> <span class="o">=</span> <span class="p">[</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X1</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X2</span></a><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="scree-plots">
+</section>
+<section id="scree-plots">
 <h2>Scree Plots<a class="headerlink" href="#scree-plots" title="Permalink to this headline">¶</a></h2>
 <p>Scree plots allow us to observe variation and determine an appropriate
 initial signal rank for each view.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure" title="matplotlib.figure.Figure" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fig</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">axes</span></a> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="matplotlib.pyplot.subplots" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="matplotlib.figure.Figure" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fig</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">axes</span></a> <span class="o">=</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="matplotlib.pyplot.subplots" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">U</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">V</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd" title="numpy.linalg.svd" class="sphx-glr-backref-module-numpy-linalg sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X1</span></a><span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vars1</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum" title="numpy.sum" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">U</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">S</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">V</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd" title="numpy.linalg.svd" class="sphx-glr-backref-module-numpy-linalg sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X2</span></a><span class="p">)</span>
@@ -430,22 +345,21 @@ initial signal rank for each view.</p>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">axes</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of top singular values&#39;</span><span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">axes</span></a><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of top singular values&#39;</span><span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">axes</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Percent variance explained&#39;</span><span class="p">)</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 
 <span class="c1"># Based on the scree plots, we fit AJIVE with both initial signal ranks set to</span>
 <span class="c1"># 2.</span>
 
 
 <a href="../../references/decomposition.html#mvlearn.decomposition.AJIVE" title="mvlearn.decomposition.AJIVE" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ajive1</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.AJIVE" title="mvlearn.decomposition.AJIVE" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-class"><span class="n">AJIVE</span></a><span class="p">(</span><span class="n">init_signal_ranks</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Js_1</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.AJIVE.fit_transform" title="mvlearn.decomposition.AJIVE.fit_transform" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-method"><span class="n">ajive1</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_same</span></a><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Js_1</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.AJIVE" title="mvlearn.decomposition.AJIVE" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ajive1</span></a><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_same</span></a><span class="p">)</span>
 
 <a href="../../references/decomposition.html#mvlearn.decomposition.AJIVE" title="mvlearn.decomposition.AJIVE" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ajive2</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.AJIVE" title="mvlearn.decomposition.AJIVE" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-class"><span class="n">AJIVE</span></a><span class="p">(</span><span class="n">init_signal_ranks</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Js_2</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.AJIVE.fit_transform" title="mvlearn.decomposition.AJIVE.fit_transform" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-method"><span class="n">ajive2</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_diff</span></a><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Js_2</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.AJIVE" title="mvlearn.decomposition.AJIVE" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ajive2</span></a><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_diff</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="Scree Plot View 1, Scree Plot View 2" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_ajive_tutorial_001.png" />
-</div>
-<div class="section" id="heatmap-visualizations">
+<img src="../../_images/sphx_glr_plot_ajive_tutorial_001.png" srcset="../../_images/sphx_glr_plot_ajive_tutorial_001.png" alt="Scree Plot View 1, Scree Plot View 2" class = "sphx-glr-single-img"/></section>
+<section id="heatmap-visualizations">
 <h2>Heatmap Visualizations<a class="headerlink" href="#heatmap-visualizations" title="Permalink to this headline">¶</a></h2>
 <p>Here we are using heatmaps to visualize the decomposition of our views. As we
 can see when we use two of the same views there is no Individualized
@@ -457,72 +371,65 @@ can be seen in their corresponding heatmaps.</p>
     <span class="n">n_blocks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">blocks</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_views</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_blocks</span><span class="p">):</span>
-            <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="matplotlib.pyplot.subplot" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="n">n_blocks</span><span class="p">,</span> <span class="n">n_views</span><span class="p">,</span> <span class="n">j</span><span class="o">*</span><span class="n">n_views</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="matplotlib.pyplot.subplot" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="n">n_blocks</span><span class="p">,</span> <span class="n">n_views</span><span class="p">,</span> <span class="n">j</span><span class="o">*</span><span class="n">n_views</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
             <a href="https://seaborn.pydata.org/generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap" class="sphx-glr-backref-module-seaborn sphx-glr-backref-type-py-function"><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span></a><span class="p">(</span><span class="n">blocks</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">xticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                         <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdBu&quot;</span><span class="p">)</span>
-            <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;View </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">names</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;View </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">names</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="section" id="when-both-views-are-the-same">
+<section id="when-both-views-are-the-same">
 <h3>When Both Views are the Same<a class="headerlink" href="#when-both-views-are-the-same" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">residuals</span></a> <span class="o">=</span> <span class="p">[</span><span class="n">v1</span> <span class="o">-</span> <span class="n">X</span> <span class="k">for</span> <span class="n">v1</span><span class="p">,</span> <span class="n">X</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_same</span></a><span class="p">,</span> <a href="../../references/decomposition.html#mvlearn.decomposition.AJIVE.inverse_transform" title="mvlearn.decomposition.AJIVE.inverse_transform" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-method"><span class="n">ajive1</span><span class="o">.</span><span class="n">inverse_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Js_1</span></a><span class="p">))]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">residuals</span></a> <span class="o">=</span> <span class="p">[</span><span class="n">v1</span> <span class="o">-</span> <span class="n">X</span> <span class="k">for</span> <span class="n">v1</span><span class="p">,</span> <span class="n">X</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_same</span></a><span class="p">,</span> <a href="../../references/decomposition.html#mvlearn.decomposition.AJIVE" title="mvlearn.decomposition.AJIVE" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ajive1</span></a><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Js_1</span></a><span class="p">))]</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">individual_mats</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.AJIVE.individual_mats_" title="mvlearn.decomposition.AJIVE.individual_mats_" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-attribute"><span class="n">ajive1</span><span class="o">.</span><span class="n">individual_mats_</span></a>
 <span class="n">plot_blocks</span><span class="p">([</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_same</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Js_1</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">individual_mats</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">residuals</span></a><span class="p">],</span>
             <span class="p">[</span><span class="s2">&quot;Raw Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Joint&quot;</span><span class="p">,</span> <span class="s2">&quot;Individual&quot;</span><span class="p">,</span> <span class="s2">&quot;Noise&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<img alt="View 0: Raw Data, View 0: Joint, View 0: Individual, View 0: Noise, View 1: Raw Data, View 1: Joint, View 1: Individual, View 1: Noise" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_ajive_tutorial_002.png" />
-</div>
-<div class="section" id="when-the-views-are-different">
+<img src="../../_images/sphx_glr_plot_ajive_tutorial_002.png" srcset="../../_images/sphx_glr_plot_ajive_tutorial_002.png" alt="View 0: Raw Data, View 0: Joint, View 0: Individual, View 0: Noise, View 1: Raw Data, View 1: Joint, View 1: Individual, View 1: Noise" class = "sphx-glr-single-img"/></section>
+<section id="when-the-views-are-different">
 <h3>When the Views are Different<a class="headerlink" href="#when-the-views-are-different" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s1">&#39;Different Views&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s1">&#39;Different Views&#39;</span><span class="p">)</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">individual_mats</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.AJIVE.individual_mats_" title="mvlearn.decomposition.AJIVE.individual_mats_" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-attribute"><span class="n">ajive2</span><span class="o">.</span><span class="n">individual_mats_</span></a>
-<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_inv</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.AJIVE.inverse_transform" title="mvlearn.decomposition.AJIVE.inverse_transform" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-method"><span class="n">ajive2</span><span class="o">.</span><span class="n">inverse_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Js_2</span></a><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_inv</span></a> <span class="o">=</span> <a href="../../references/decomposition.html#mvlearn.decomposition.AJIVE" title="mvlearn.decomposition.AJIVE" class="sphx-glr-backref-module-mvlearn-decomposition sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ajive2</span></a><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Js_2</span></a><span class="p">)</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">residuals</span></a> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="o">-</span> <span class="n">X</span> <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">X</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_diff</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_inv</span></a><span class="p">)]</span>
 <span class="n">plot_blocks</span><span class="p">([</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_diff</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Js_2</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">individual_mats</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">residuals</span></a><span class="p">],</span>
             <span class="p">[</span><span class="s2">&quot;Raw Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Joint&quot;</span><span class="p">,</span> <span class="s2">&quot;Individual&quot;</span><span class="p">,</span> <span class="s2">&quot;Noise&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<img alt="View 0: Raw Data, View 0: Joint, View 0: Individual, View 0: Noise, View 1: Raw Data, View 1: Joint, View 1: Individual, View 1: Noise" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_ajive_tutorial_003.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.367 seconds)</p>
+<img src="../../_images/sphx_glr_plot_ajive_tutorial_003.png" srcset="../../_images/sphx_glr_plot_ajive_tutorial_003.png" alt="View 0: Raw Data, View 0: Joint, View 0: Individual, View 0: Noise, View 1: Raw Data, View 1: Joint, View 1: Individual, View 1: Noise" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.316 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-decomposition-plot-ajive-tutorial-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<a class="reference download internal" download="" href="../../_downloads/3fd165feaa3f4b4a9cb5fff9a644cd24/plot_ajive_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_ajive_tutorial.py</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/c137df1091fc0ca28b64223e3de705b9/plot_ajive_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_ajive_tutorial.py</span></code></a></p>
+</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<a class="reference download internal" download="" href="../../_downloads/cbc4122b9d507120aa2f128504df064e/plot_ajive_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_ajive_tutorial.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/5597dd8f653dd72629b88ecb5e666dac/plot_ajive_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_ajive_tutorial.ipynb</span></code></a></p>
+</div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../embed/plot_gcca_tutorial.html" class="btn btn-neutral float-right" title="Generalized Canonical Correlation Analysis (GCCA) Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="plot_mv_ica_tutorial.html" class="btn btn-neutral" title="Multiview Independent Component Analysis (ICA) Comparison" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_mv_ica_tutorial.html" class="btn btn-neutral float-left" title="Multiview Independent Component Analysis (ICA) Comparison" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../embed/plot_gcca_tutorial.html" class="btn btn-neutral float-right" title="Generalized Canonical Correlation Analysis (GCCA) Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019-2020
-
-    </p>
+    <p>&#169; Copyright 2019-2020.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 <p style="text-align: center; margin: .5rem;">
     <a href="https://www.netlify.com">
         <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
@@ -532,34 +439,11 @@ can be seen in their corresponding heatmaps.</p>
 
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });

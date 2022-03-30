@@ -1,76 +1,42 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Computation times &mdash; mvlearn alpha documentation</title>
-  
-
-  
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/mvlearn-logo-32x32.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/js/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../../index.html">
-          
-
-          
-            
             <img src="../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.4.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -78,18 +44,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using mvlearn</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a><ul>
@@ -224,7 +180,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Information</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to mvlearn</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
@@ -267,119 +223,78 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Useful Links</span></p>
+<p class="caption" role="heading"><span class="caption-text">Useful Links</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">mvlearn</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Computation times</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/mvlearn/mvlearn/blob/main/docs/auto_examples/decomposition/sg_execution_times.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="computation-times">
+             
+  <section id="computation-times">
 <span id="sphx-glr-auto-examples-decomposition-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Permalink to this headline">¶</a></h1>
-<p><strong>00:15.187</strong> total execution time for <strong>auto_examples_decomposition</strong> files:</p>
-<table border="1" class="docutils">
+<p><strong>00:13.706</strong> total execution time for <strong>auto_examples_decomposition</strong> files:</p>
+<table class="docutils align-default">
 <colgroup>
-<col width="85%" />
-<col width="9%" />
-<col width="6%" />
+<col style="width: 85%" />
+<col style="width: 9%" />
+<col style="width: 6%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="plot_mv_ica_tutorial.html#sphx-glr-auto-examples-decomposition-plot-mv-ica-tutorial-py"><span class="std std-ref">Multiview Independent Component Analysis (ICA) Comparison</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_mv_ica_tutorial.py</span></code>)</td>
-<td>00:09.924</td>
-<td>0.0 MB</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_mv_ica_tutorial.html#sphx-glr-auto-examples-decomposition-plot-mv-ica-tutorial-py"><span class="std std-ref">Multiview Independent Component Analysis (ICA) Comparison</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_mv_ica_tutorial.py</span></code>)</p></td>
+<td><p>00:08.505</p></td>
+<td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="plot_ajive_tutorial.html#sphx-glr-auto-examples-decomposition-plot-ajive-tutorial-py"><span class="std std-ref">Angle-based Joint and Individual Variation Explained (AJIVE)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_ajive_tutorial.py</span></code>)</td>
-<td>00:04.367</td>
-<td>0.0 MB</td>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_ajive_tutorial.html#sphx-glr-auto-examples-decomposition-plot-ajive-tutorial-py"><span class="std std-ref">Angle-based Joint and Individual Variation Explained (AJIVE)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_ajive_tutorial.py</span></code>)</p></td>
+<td><p>00:04.316</p></td>
+<td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="plot_group_ica_tutorial.html#sphx-glr-auto-examples-decomposition-plot-group-ica-tutorial-py"><span class="std std-ref">ICA: a tutorial</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_group_ica_tutorial.py</span></code>)</td>
-<td>00:00.896</td>
-<td>0.0 MB</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_group_ica_tutorial.html#sphx-glr-auto-examples-decomposition-plot-group-ica-tutorial-py"><span class="std std-ref">ICA: a tutorial</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_group_ica_tutorial.py</span></code>)</p></td>
+<td><p>00:00.884</p></td>
+<td><p>0.0 MB</p></td>
 </tr>
 </tbody>
 </table>
-</div>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019-2020
-
-    </p>
+    <p>&#169; Copyright 2019-2020.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 <p style="text-align: center; margin: .5rem;">
     <a href="https://www.netlify.com">
         <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
@@ -389,34 +304,11 @@
 
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });

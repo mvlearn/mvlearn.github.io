@@ -1,78 +1,44 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Compose &mdash; mvlearn alpha documentation</title>
-  
-
-  
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/mvlearn-logo-32x32.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Multiview Datasets" href="datasets.html" />
     <link rel="prev" title="Model Selection" href="model_selection.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../index.html">
-          
-
-          
-            
             <img src="../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.4.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +46,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using mvlearn</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a><ul>
@@ -226,7 +182,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Information</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to mvlearn</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
@@ -269,442 +225,157 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Useful Links</span></p>
+<p class="caption" role="heading"><span class="caption-text">Useful Links</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">mvlearn</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Reference</a> &raquo;</li>
-        
       <li>Compose</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/mvlearn/mvlearn/blob/main/docs/references/compose.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="compose">
+             
+  <section id="compose">
 <h1>Compose<a class="headerlink" href="#compose" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="averagemerger">
+<section id="averagemerger">
 <h2>AverageMerger<a class="headerlink" href="#averagemerger" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mvlearn.compose.AverageMerger">
-<em class="property">class </em><code class="descclassname">mvlearn.compose.</code><code class="descname">AverageMerger</code><a class="reference internal" href="../_modules/mvlearn/compose/merge.html#AverageMerger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.AverageMerger" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="mvlearn.compose.AverageMerger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.compose.</span></span><span class="sig-name descname"><span class="pre">AverageMerger</span></span><a class="reference internal" href="../_modules/mvlearn/compose/merge.html#AverageMerger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.compose.AverageMerger" title="Permalink to this definition">¶</a></dt>
 <dd><p>A transformer that computes the mean of multiview datasets</p>
 <p>Take a multiview dataset and transform it in a single view dataset
 by averaging across views</p>
-<dl class="attribute">
-<dt id="mvlearn.compose.AverageMerger.n_feature_">
-<code class="descname">n_feature_</code><a class="headerlink" href="#mvlearn.compose.AverageMerger.n_feature_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.compose.AverageMerger.n_feature_">
+<span class="sig-name descname"><span class="pre">n_feature_</span></span><a class="headerlink" href="#mvlearn.compose.AverageMerger.n_feature_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of feature in each view of the input dataset
 Must be the same for each dataset.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of ints</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of ints</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.compose.AverageMerger.n_views_">
-<code class="descname">n_views_</code><a class="headerlink" href="#mvlearn.compose.AverageMerger.n_views_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.compose.AverageMerger.n_views_">
+<span class="sig-name descname"><span class="pre">n_views_</span></span><a class="headerlink" href="#mvlearn.compose.AverageMerger.n_views_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of views in the dataset</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#mvlearn.compose.ConcatMerger" title="mvlearn.compose.ConcatMerger"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConcatMerger</span></code></a></p>
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#mvlearn.compose.ConcatMerger" title="mvlearn.compose.ConcatMerger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConcatMerger</span></code></a></p>
 </div>
-<dl class="method">
-<dt id="mvlearn.compose.AverageMerger.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/merge.html#AverageMerger.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.AverageMerger.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to the data.</p>
-<p>Stores the number of features in each view, and checks that
-each view has the same number of features.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-</li>
-<li><strong>y</strong> -- Ignored</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong> -- Transformer instance.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)">object</a></p>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
-<dl class="method">
-<dt id="mvlearn.compose.AverageMerger.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/merge.html#AverageMerger.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.AverageMerger.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Merge the views by averaging</p>
-<p>Transform the multiview dataset into a single view by averaging
-the views</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-</li>
-<li><strong>y</strong> -- Ignored</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>X_transformed</strong> -- The average of the views.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">numpy.ndarray of shape (n_total_features, n_samples)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.compose.AverageMerger.fit_transform">
-<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.compose.AverageMerger.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit  to the data and merge</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-</li>
-<li><strong>y</strong> (<em>array</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em><em>, </em><em>optional</em>) -- </li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>X_transformed</strong> -- The singleview output</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">numpy.ndarray of shape (n_samples, n_features)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.compose.AverageMerger.inverse_transform">
-<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.compose.AverageMerger.inverse_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Take a single view dataset and split it into multiple views.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a><em>, </em><em>shape</em><em> (</em><em>n_total_features</em><em>, </em><em>n_samples</em><em>)</em>) -- The input dataset</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs</strong> --<ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of numpy.ndarray</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="concatmerger">
+</section>
+<section id="concatmerger">
 <h2>ConcatMerger<a class="headerlink" href="#concatmerger" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mvlearn.compose.ConcatMerger">
-<em class="property">class </em><code class="descclassname">mvlearn.compose.</code><code class="descname">ConcatMerger</code><a class="reference internal" href="../_modules/mvlearn/compose/merge.html#ConcatMerger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.ConcatMerger" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="mvlearn.compose.ConcatMerger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.compose.</span></span><span class="sig-name descname"><span class="pre">ConcatMerger</span></span><a class="reference internal" href="../_modules/mvlearn/compose/merge.html#ConcatMerger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.compose.ConcatMerger" title="Permalink to this definition">¶</a></dt>
 <dd><p>A transformer that stacks features of multiview datasets.</p>
 <p>Take a multiview dataset and transform it in a single view dataset
 by stacking features.</p>
-<dl class="attribute">
-<dt id="mvlearn.compose.ConcatMerger.n_features_">
-<code class="descname">n_features_</code><a class="headerlink" href="#mvlearn.compose.ConcatMerger.n_features_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.compose.ConcatMerger.n_features_">
+<span class="sig-name descname"><span class="pre">n_features_</span></span><a class="headerlink" href="#mvlearn.compose.ConcatMerger.n_features_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of features in each view of the input dataset</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of ints</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of ints</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.compose.ConcatMerger.n_total_features_">
-<code class="descname">n_total_features_</code><a class="headerlink" href="#mvlearn.compose.ConcatMerger.n_total_features_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.compose.ConcatMerger.n_total_features_">
+<span class="sig-name descname"><span class="pre">n_total_features_</span></span><a class="headerlink" href="#mvlearn.compose.ConcatMerger.n_total_features_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of features in the dataset, equal to the sum of <a href="#id3"><span class="problematic" id="id4">n_features_</span></a></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.compose.ConcatMerger.n_views_">
-<code class="descname">n_views_</code><a class="headerlink" href="#mvlearn.compose.ConcatMerger.n_views_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.compose.ConcatMerger.n_views_">
+<span class="sig-name descname"><span class="pre">n_views_</span></span><a class="headerlink" href="#mvlearn.compose.ConcatMerger.n_views_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of views in the dataset</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#mvlearn.compose.AverageMerger" title="mvlearn.compose.AverageMerger"><code class="xref py py-class docutils literal notranslate"><span class="pre">AverageMerger</span></code></a></p>
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#mvlearn.compose.AverageMerger" title="mvlearn.compose.AverageMerger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AverageMerger</span></code></a></p>
 </div>
-<dl class="method">
-<dt id="mvlearn.compose.ConcatMerger.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/merge.html#ConcatMerger.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.ConcatMerger.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to the data.</p>
-<p>Stores the number of features in each view</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-</li>
-<li><strong>y</strong> -- Ignored</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong> -- Transformer instance.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)">object</a></p>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
-<dl class="method">
-<dt id="mvlearn.compose.ConcatMerger.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/merge.html#ConcatMerger.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.ConcatMerger.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Merge the data by stacking its features.</p>
-<p>The multiple views are transformed into a single view dataset by
-stacking (i.e. concatenating) the features.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-</li>
-<li><strong>y</strong> -- Ignored</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>X_transformed</strong> -- The stacked data, containing all the stacked features.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">numpy.ndarray of shape (n_total_features, n_samples)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.compose.ConcatMerger.inverse_transform">
-<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/merge.html#ConcatMerger.inverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.ConcatMerger.inverse_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Take a single view dataset and split it into multiple views.</p>
-<p>The input dimension must match the fitted dimension of the multiview
-dataset.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a><em>, </em><em>shape</em><em> (</em><em>n_total_features</em><em>, </em><em>n_samples</em><em>)</em>) -- The input dataset</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs</strong> --<ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>The multiview dataset obtained by splitting features of X</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of numpy.ndarray</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.compose.ConcatMerger.fit_transform">
-<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.compose.ConcatMerger.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit  to the data and merge</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-</li>
-<li><strong>y</strong> (<em>array</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em><em>, </em><em>optional</em>) -- </li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>X_transformed</strong> -- The singleview output</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">numpy.ndarray of shape (n_samples, n_features)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="randomgaussianprojection">
+</section>
+<section id="randomgaussianprojection">
 <h2>RandomGaussianProjection<a class="headerlink" href="#randomgaussianprojection" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mvlearn.compose.RandomGaussianProjection">
-<em class="property">class </em><code class="descclassname">mvlearn.compose.</code><code class="descname">RandomGaussianProjection</code><span class="sig-paren">(</span><em>n_views</em>, <em>n_components='auto'</em>, <em>eps=0.1</em>, <em>random_state=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/random_gaussian_projection.html#RandomGaussianProjection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.RandomGaussianProjection" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="mvlearn.compose.RandomGaussianProjection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.compose.</span></span><span class="sig-name descname"><span class="pre">RandomGaussianProjection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_views</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/random_gaussian_projection.html#RandomGaussianProjection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.compose.RandomGaussianProjection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Random Gaussian Projection method for constructing multiple views.
 Each view is constructed using sklearn's random Gaussian projection.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>n_views</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) -- Number of views to construct</li>
-<li><strong>n_components</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>'auto'</em><em>, </em><em>optional</em><em> (</em><em>default &quot;auto&quot;</em><em>)</em>) -- Dimensionality of target projection space, see
-sklearn.random_projection.GaussianRandomProjection for details.</li>
-<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em><em> (</em><em>default 0.1</em><em>)</em>) -- Parameter for controlling quality of embedding when
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_views</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- Number of views to construct</p></li>
+<li><p><strong>n_components</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> or </em><em>'auto'</em><em>, </em><em>optional</em><em> (</em><em>default &quot;auto&quot;</em><em>)</em>) -- Dimensionality of target projection space, see
+sklearn.random_projection.GaussianRandomProjection for details.</p></li>
+<li><p><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em><em> (</em><em>default 0.1</em><em>)</em>) -- Parameter for controlling quality of embedding when
 n_components = &quot;auto&quot; according to the Johnson-Lindenstrauss lemma
-A smaller value leads to a better emedding (see sklearn for details).</li>
-<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>RandomState instance</em><em>, </em><em>optional</em><em> (</em><em>default None</em><em>)</em>) -- Controls the random sampling of Gaussian projections. Set for
-reproducible results.</li>
+A smaller value leads to a better emedding (see sklearn for details).</p></li>
+<li><p><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> or </em><em>RandomState instance</em><em>, </em><em>optional</em><em> (</em><em>default None</em><em>)</em>) -- Controls the random sampling of Gaussian projections. Set for
+reproducible results.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
-<dt id="mvlearn.compose.RandomGaussianProjection.GaussianRandomProjections_">
-<code class="descname">GaussianRandomProjections_</code><a class="headerlink" href="#mvlearn.compose.RandomGaussianProjection.GaussianRandomProjections_" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.compose.RandomGaussianProjection.GaussianRandomProjections_">
+<span class="sig-name descname"><span class="pre">GaussianRandomProjections_</span></span><a class="headerlink" href="#mvlearn.compose.RandomGaussianProjection.GaussianRandomProjections_" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of GaussianRandomProjection instances fitted to construct each
 view.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>, length n_views</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>, length n_views</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Notes</p>
@@ -712,7 +383,7 @@ view.</p>
 from <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.random_projection">sklearn.random_projection</a> and creates multiple
 projections.</p>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.compose</span> <span class="kn">import</span> <span class="n">RandomGaussianProjection</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.compose</span> <span class="kn">import</span> <span class="n">RandomGaussianProjection</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rgp</span> <span class="o">=</span> <span class="n">RandomGaussianProjection</span><span class="p">(</span><span class="n">n_views</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_components</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -723,168 +394,78 @@ projections.</p>
 <span class="go">(1000, 10)</span>
 </pre></div>
 </div>
-<dl class="method">
-<dt id="mvlearn.compose.RandomGaussianProjection.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>X</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/random_gaussian_projection.html#RandomGaussianProjection.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.RandomGaussianProjection.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to the singleview data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>X</strong> (<em>array of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_total_features</em><em>)</em>) -- Input dataset</li>
-<li><strong>y</strong> (<em>Ignored</em>) -- </li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong> -- The Transformer instance</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)">object</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.compose.RandomGaussianProjection.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/random_gaussian_projection.html#RandomGaussianProjection.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.RandomGaussianProjection.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transforms the singleview dataset and into a multiview dataset.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>X</strong> (<em>array of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) -- Input dataset</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs</strong> --<ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_components)</li>
-</ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of array-likes or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.compose.RandomGaussianProjection.fit_transform">
-<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>X</em>, <em>y=None</em>, <em>**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.compose.RandomGaussianProjection.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to data, then transform it.</p>
-<p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
-and returns a transformed version of <cite>X</cite>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>X</strong> (<em>array-like of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) -- Input samples.</li>
-<li><strong>y</strong> (<em>array-like of shape</em><em> (</em><em>n_samples</em><em>,</em><em>) or </em><em>(</em><em>n_samples</em><em>, </em><em>n_outputs</em><em>)</em><em>,                 </em><em>default=None</em>) -- Target values (None for unsupervised transformations).</li>
-<li><strong>**fit_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) -- Additional fit parameters.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>X_new</strong> -- Transformed array.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray array of shape (n_samples, n_features_new)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 </dd></dl>
 
 <p>Read more about sklearn's implementation <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.random_projection.GaussianRandomProjection.html">here</a>.</p>
-</div>
-<div class="section" id="randomsubspacemethod">
+</section>
+<section id="randomsubspacemethod">
 <h2>RandomSubspaceMethod<a class="headerlink" href="#randomsubspacemethod" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mvlearn.compose.RandomSubspaceMethod">
-<em class="property">class </em><code class="descclassname">mvlearn.compose.</code><code class="descname">RandomSubspaceMethod</code><span class="sig-paren">(</span><em>n_views</em>, <em>subspace_dim</em>, <em>random_state=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/rsm.html#RandomSubspaceMethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.RandomSubspaceMethod" title="Permalink to this definition">¶</a></dt>
-<dd><p>Random Subspace Method <a class="footnote-reference" href="#rsm" id="id1">[1]</a> for constructing multiple views.
+<dl class="py class">
+<dt class="sig sig-object py" id="mvlearn.compose.RandomSubspaceMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.compose.</span></span><span class="sig-name descname"><span class="pre">RandomSubspaceMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_views</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subspace_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/rsm.html#RandomSubspaceMethod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.compose.RandomSubspaceMethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Random Subspace Method <a class="footnote-reference brackets" href="#rsm" id="id1">1</a> for constructing multiple views.
 Each view is constructed by randomly selecting features from X.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>n_views</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) -- Number of views to construct</li>
-<li><strong>subspace_dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) -- Number of features from the data to subsample. If float, is between 0
-and 1 and denotes the proportion of features to subsample.</li>
-<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>RandomState instance</em><em>, </em><em>optional</em><em> (</em><em>default None</em><em>)</em>) -- Controls the random sampling of features. Set for
-reproducible results.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_views</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- Number of views to construct</p></li>
+<li><p><strong>subspace_dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) -- Number of features from the data to subsample. If float, is between 0
+and 1 and denotes the proportion of features to subsample.</p></li>
+<li><p><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> or </em><em>RandomState instance</em><em>, </em><em>optional</em><em> (</em><em>default None</em><em>)</em>) -- Controls the random sampling of features. Set for
+reproducible results.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
-<dt id="mvlearn.compose.RandomSubspaceMethod.n_features_">
-<code class="descname">n_features_</code><a class="headerlink" href="#mvlearn.compose.RandomSubspaceMethod.n_features_" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.compose.RandomSubspaceMethod.n_features_">
+<span class="sig-name descname"><span class="pre">n_features_</span></span><a class="headerlink" href="#mvlearn.compose.RandomSubspaceMethod.n_features_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of features in the fitted data</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>, length n_views</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>, length n_views</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.compose.RandomSubspaceMethod.subspace_dim_">
-<code class="descname">subspace_dim_</code><a class="headerlink" href="#mvlearn.compose.RandomSubspaceMethod.subspace_dim_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.compose.RandomSubspaceMethod.subspace_dim_">
+<span class="sig-name descname"><span class="pre">subspace_dim_</span></span><a class="headerlink" href="#mvlearn.compose.RandomSubspaceMethod.subspace_dim_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of features subsampled in each view</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.compose.RandomSubspaceMethod.subspace_indices_">
-<code class="descname">subspace_indices_</code><a class="headerlink" href="#mvlearn.compose.RandomSubspaceMethod.subspace_indices_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.compose.RandomSubspaceMethod.subspace_indices_">
+<span class="sig-name descname"><span class="pre">subspace_indices_</span></span><a class="headerlink" href="#mvlearn.compose.RandomSubspaceMethod.subspace_indices_" title="Permalink to this definition">¶</a></dt>
 <dd><p>Feature indices to subsample for each view</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of numpy.ndarray, length n_views</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of numpy.ndarray, length n_views</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">References</p>
-<table class="docutils footnote" frame="void" id="rsm" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Tin Kam Ho. &quot;The random subspace method for constructing
+<dl class="footnote brackets">
+<dt class="label" id="rsm"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Tin Kam Ho. &quot;The random subspace method for constructing
 decision forests.&quot; IEEE Transactions on Pattern Analysis and
-Machine Intelligence, 20(8):832–844, 1998.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id2" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[2]</td><td>Dacheng Tao, Xiaoou Tang, Xuelong Li and Xindong Wu,
+Machine Intelligence, 20(8):832–844, 1998.</p>
+</dd>
+<dt class="label" id="id2"><span class="brackets">2</span></dt>
+<dd><p>Dacheng Tao, Xiaoou Tang, Xuelong Li and Xindong Wu,
 &quot;Asymmetric bagging and random subspace for support vector
 machines-based relevance feedback in image retrieval,&quot; in
 IEEE Transactions on Pattern Analysis and Machine Intelligence,
-28(7):1088-1099, July 2006</td></tr>
-</tbody>
-</table>
+28(7):1088-1099, July 2006</p>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.compose</span> <span class="kn">import</span> <span class="n">RandomSubspaceMethod</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.compose</span> <span class="kn">import</span> <span class="n">RandomSubspaceMethod</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rsm</span> <span class="o">=</span> <span class="n">RandomSubspaceMethod</span><span class="p">(</span><span class="n">n_views</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">subspace_dim</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -895,296 +476,95 @@ IEEE Transactions on Pattern Analysis and Machine Intelligence,
 <span class="go">(1000, 10)</span>
 </pre></div>
 </div>
-<dl class="method">
-<dt id="mvlearn.compose.RandomSubspaceMethod.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>X</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/rsm.html#RandomSubspaceMethod.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.RandomSubspaceMethod.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to the singleview data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>X</strong> (<em>array of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_total_features</em><em>)</em>) -- Input dataset</li>
-<li><strong>y</strong> (<em>Ignored</em>) -- </li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong> -- The Transformer instance</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)">object</a></p>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
-<dl class="method">
-<dt id="mvlearn.compose.RandomSubspaceMethod.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/rsm.html#RandomSubspaceMethod.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.RandomSubspaceMethod.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transforms the singleview dataset and into a multiview dataset.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>X</strong> (<em>array of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) -- Input dataset</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>Xs</strong> --<ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, subspace_dim)</li>
-</ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of array-likes or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.compose.RandomSubspaceMethod.fit_transform">
-<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>X</em>, <em>y=None</em>, <em>**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.compose.RandomSubspaceMethod.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to data, then transform it.</p>
-<p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
-and returns a transformed version of <cite>X</cite>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>X</strong> (<em>array-like of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) -- Input samples.</li>
-<li><strong>y</strong> (<em>array-like of shape</em><em> (</em><em>n_samples</em><em>,</em><em>) or </em><em>(</em><em>n_samples</em><em>, </em><em>n_outputs</em><em>)</em><em>,                 </em><em>default=None</em>) -- Target values (None for unsupervised transformations).</li>
-<li><strong>**fit_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) -- Additional fit parameters.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>X_new</strong> -- Transformed array.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray array of shape (n_samples, n_features_new)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="simplesplitter">
+</section>
+<section id="simplesplitter">
 <h2>SimpleSplitter<a class="headerlink" href="#simplesplitter" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mvlearn.compose.SimpleSplitter">
-<em class="property">class </em><code class="descclassname">mvlearn.compose.</code><code class="descname">SimpleSplitter</code><span class="sig-paren">(</span><em>n_features</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/split.html#SimpleSplitter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.SimpleSplitter" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="mvlearn.compose.SimpleSplitter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.compose.</span></span><span class="sig-name descname"><span class="pre">SimpleSplitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_features</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/split.html#SimpleSplitter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.compose.SimpleSplitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>A transformer that splits the features of a single dataset.</p>
 <p>Take a singleview dataset and transform it in a multiview dataset
 by splitting features to different views</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>n_features</strong> (<em>list of ints</em>) -- The number of feature to keep in each split: Xs[i] will have shape
-(n_samples, n_features[i])</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
-<dt id="mvlearn.compose.SimpleSplitter.n_total_features_">
-<code class="descname">n_total_features_</code><a class="headerlink" href="#mvlearn.compose.SimpleSplitter.n_total_features_" title="Permalink to this definition">¶</a></dt>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n_features</strong> (<em>list of ints</em>) -- The number of feature to keep in each split: Xs[i] will have shape
+(n_samples, n_features[i])</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.compose.SimpleSplitter.n_total_features_">
+<span class="sig-name descname"><span class="pre">n_total_features_</span></span><a class="headerlink" href="#mvlearn.compose.SimpleSplitter.n_total_features_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of features in the dataset, equal to the sum of <a href="#id5"><span class="problematic" id="id6">n_features_</span></a></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.compose.SimpleSplitter.n_views_">
-<code class="descname">n_views_</code><a class="headerlink" href="#mvlearn.compose.SimpleSplitter.n_views_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.compose.SimpleSplitter.n_views_">
+<span class="sig-name descname"><span class="pre">n_views_</span></span><a class="headerlink" href="#mvlearn.compose.SimpleSplitter.n_views_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of views in the output dataset</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#mvlearn.compose.ConcatMerger" title="mvlearn.compose.ConcatMerger"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConcatMerger</span></code></a></p>
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#mvlearn.compose.ConcatMerger" title="mvlearn.compose.ConcatMerger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConcatMerger</span></code></a></p>
 </div>
-<dl class="method">
-<dt id="mvlearn.compose.SimpleSplitter.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>X</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/split.html#SimpleSplitter.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.SimpleSplitter.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to the data.</p>
-<p>Checks that X has a compatible shape.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>X</strong> (<em>array of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_total_features</em><em>)</em>) -- Input dataset</li>
-<li><strong>y</strong> -- Ignored</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong> -- Transformer instance.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)">object</a></p>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
-<dl class="method">
-<dt id="mvlearn.compose.SimpleSplitter.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>X</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/split.html#SimpleSplitter.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.SimpleSplitter.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Split data</p>
-<p>The singleview dataset and transform it in a multiview dataset
-by splitting features to different views</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>X</strong> (<em>array of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_total_features</em><em>)</em>) -- Input dataset</li>
-<li><strong>y</strong> -- Ignored</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>Xs_transformed</strong> --</p>
-<ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.compose.SimpleSplitter.fit_transform">
-<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>X</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/split.html#SimpleSplitter.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.SimpleSplitter.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to the data and split</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>X</strong> (<em>array of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) -- Input data</li>
-<li><strong>y</strong> (<em>array</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em><em>, </em><em>optional</em>) -- </li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><strong>Xs_transformed</strong> --</p>
-<ul class="simple">
-<li>Xs shape: (n_views,)</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.compose.SimpleSplitter.inverse_transform">
-<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>Xs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/split.html#SimpleSplitter.inverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.SimpleSplitter.inverse_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Take a multiview dataset and merge it in a single view</p>
-<p>The input dimension must match the fitted dimension of the multiview
-dataset.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of numpy.ndarray</em>) -- <ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>The input multiview dataset</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>X</strong> -- The output singleview dataset</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a>, shape (n_total_features, n_samples)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="viewclassifier">
+</section>
+<section id="viewclassifier">
 <h2>ViewClassifier<a class="headerlink" href="#viewclassifier" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mvlearn.compose.ViewClassifier">
-<em class="property">class </em><code class="descclassname">mvlearn.compose.</code><code class="descname">ViewClassifier</code><span class="sig-paren">(</span><em>base_estimator</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/wrap.html#ViewClassifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.ViewClassifier" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="mvlearn.compose.ViewClassifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.compose.</span></span><span class="sig-name descname"><span class="pre">ViewClassifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_estimator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/wrap.html#ViewClassifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.compose.ViewClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply a sklearn classifier to each view of a dataset</p>
 <p>Build a classifier from multiview data by using one
 or more individual scikit-learn classifiers on each view.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>base_estimator</strong> (<em>a sklearn classifier instance</em><em>, or </em><em>a list</em>) -- Either a single sklearn classifier that will be applied to each
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_estimator</strong> (<em>a sklearn classifier instance</em><em>, or </em><em>a list</em>) -- Either a single sklearn classifier that will be applied to each
 view. One clone of the estimator will correspond to each view.
 Otherwise, it should be a list of estimators, of length the number of
-views in the multiview dataset.</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
-<dt id="mvlearn.compose.ViewClassifier.n_views_">
-<code class="descname">n_views_</code><a class="headerlink" href="#mvlearn.compose.ViewClassifier.n_views_" title="Permalink to this definition">¶</a></dt>
+views in the multiview dataset.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.compose.ViewClassifier.n_views_">
+<span class="sig-name descname"><span class="pre">n_views_</span></span><a class="headerlink" href="#mvlearn.compose.ViewClassifier.n_views_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of views in the input dataset</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.compose.ViewClassifier.estimators_">
-<code class="descname">estimators_</code><a class="headerlink" href="#mvlearn.compose.ViewClassifier.estimators_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.compose.ViewClassifier.estimators_">
+<span class="sig-name descname"><span class="pre">estimators_</span></span><a class="headerlink" href="#mvlearn.compose.ViewClassifier.estimators_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The list of classifiers used to predict data labels. If
 self.base_estimator is a single estimator, this is a list containing
 clones of that estimator, otherwise it is one view of
 self.base_estimator.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of objects of length <a href="#id7"><span class="problematic" id="id8">n_views_</span></a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of objects of length <a href="#id7"><span class="problematic" id="id8">n_views_</span></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.compose</span> <span class="kn">import</span> <span class="n">ViewClassifier</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Xs</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_UCImultifeature</span><span class="p">()</span>
@@ -1194,144 +574,52 @@ self.base_estimator.</p>
 <span class="go">(2000,)</span>
 </pre></div>
 </div>
-<dl class="method">
-<dt id="mvlearn.compose.ViewClassifier.predict">
-<code class="descname">predict</code><span class="sig-paren">(</span><em>Xs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/wrap.html#ViewClassifier.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.ViewClassifier.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the predicted class labels using majority vote of the
-predictions from each view.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>The data to predict</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>y_hat</strong> -- Predicted class labels for each sample</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">array-like of shape (n_samples,)</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
-<dl class="method">
-<dt id="mvlearn.compose.ViewClassifier.score">
-<code class="descname">score</code><span class="sig-paren">(</span><em>Xs</em>, <em>y</em>, <em>sample_weight=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/wrap.html#ViewClassifier.score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.ViewClassifier.score" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the mean accuracy on the given test data and labels.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>The data to predict</p>
-</li>
-<li><strong>y</strong> (<em>array-like of shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) -- True labels for X.</li>
-<li><strong>sample_weight</strong> (<em>array-like of shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em><em>, </em><em>default=None</em>) -- Sample weights.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>score</strong> -- Mean accuracy of self.predict(Xs) w.r.t. y</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.compose.ViewClassifier.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.compose.ViewClassifier.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit each estimator to the data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>The data to fit to.</p>
-</li>
-<li><strong>y</strong> (<em>array-like of length</em><em> (</em><em>n_samples</em><em>,</em><em>)</em><em>, </em><em>optional</em><em> (</em><em>default None</em><em>)</em>) -- Targets for a supervised estimation task</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong> -- Returns the instance itself.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)">object</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="viewtransformer">
+</section>
+<section id="viewtransformer">
 <h2>ViewTransformer<a class="headerlink" href="#viewtransformer" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mvlearn.compose.ViewTransformer">
-<em class="property">class </em><code class="descclassname">mvlearn.compose.</code><code class="descname">ViewTransformer</code><span class="sig-paren">(</span><em>base_estimator</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/wrap.html#ViewTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.ViewTransformer" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="mvlearn.compose.ViewTransformer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.compose.</span></span><span class="sig-name descname"><span class="pre">ViewTransformer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_estimator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/wrap.html#ViewTransformer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.compose.ViewTransformer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply a sklearn transformer to each view of a dataset</p>
 <p>Build a transformer from multiview dataset to multiview dataset by
 using one or more individual scikit-learn transformers on each view.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>base_estimator</strong> (<em>a sklearn transformer instance</em><em>, or </em><em>a list</em>) -- Either a single sklearn transformer that will be applied to each
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_estimator</strong> (<em>a sklearn transformer instance</em><em>, or </em><em>a list</em>) -- Either a single sklearn transformer that will be applied to each
 view. One clone of the estimator will correspond to each view.
 Otherwise, it should be a list of estimators, of length the number of
-views in the multiview dataset.</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
-<dt id="mvlearn.compose.ViewTransformer.n_views_">
-<code class="descname">n_views_</code><a class="headerlink" href="#mvlearn.compose.ViewTransformer.n_views_" title="Permalink to this definition">¶</a></dt>
+views in the multiview dataset.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.compose.ViewTransformer.n_views_">
+<span class="sig-name descname"><span class="pre">n_views_</span></span><a class="headerlink" href="#mvlearn.compose.ViewTransformer.n_views_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of views in the input dataset</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.compose.ViewTransformer.estimators_">
-<code class="descname">estimators_</code><a class="headerlink" href="#mvlearn.compose.ViewTransformer.estimators_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.compose.ViewTransformer.estimators_">
+<span class="sig-name descname"><span class="pre">estimators_</span></span><a class="headerlink" href="#mvlearn.compose.ViewTransformer.estimators_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The list of transformers used to transform data. If
 self.base_estimator is a single transformer, it is a list containing
 clones of that transformer, otherwise it is a view of
 self.base_estimator.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of objects of length <a href="#id9"><span class="problematic" id="id10">n_views_</span></a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of objects of length <a href="#id9"><span class="problematic" id="id10">n_views_</span></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.compose</span> <span class="kn">import</span> <span class="n">ViewTransformer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Xs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_UCImultifeature</span><span class="p">()</span>
@@ -1343,167 +631,29 @@ self.base_estimator.</p>
 <span class="go">(2000, 2)</span>
 </pre></div>
 </div>
-<dl class="method">
-<dt id="mvlearn.compose.ViewTransformer.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>index=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/wrap.html#ViewTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.ViewTransformer.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transform each dataset</p>
-<p>Applies the transform of each transformer on the
-individual views.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>The input data.</p>
-</li>
-<li><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>array-like</em><em>, </em><em>default=None</em>) -- The index or list of indices of the fitted views to which the
-inputted views correspond. If None, there should be as many
-inputted views as the fitted views and in the same order.
-Note that the index parameter is not available in all methods of
-mvlearn yet.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Xs_transformed</strong> -- List of length n_views.
-The transformed data.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes</p>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
-<dl class="method">
-<dt id="mvlearn.compose.ViewTransformer.fit_transform">
-<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/wrap.html#ViewTransformer.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.ViewTransformer.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit and transform each dataset</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>The data to fit to.</p>
-</li>
-<li><strong>y</strong> (<em>numpy.ndarray of shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em><em>, </em><em>optional</em><em> (</em><em>default None</em><em>)</em>) -- Target values if a supervised transformation.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Xs_transformed</strong> -- List of length n_views.
-The transformed data.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.compose.ViewTransformer.inverse_transform">
-<code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>Xs</em>, <em>index=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/compose/wrap.html#ViewTransformer.inverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.compose.ViewTransformer.inverse_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the inverse transform of a dataset</p>
-<p>Applies the inverse_transform function of each
-transformer on the individual datasets</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>The input data.</p>
-</li>
-<li><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em> or </em><em>array-like</em><em>, </em><em>default=None</em>) -- The index or list of indices of the fitted views to which the
-inputted views correspond. If None, there should be as many
-inputted views as the fitted views and in the same order.
-Note that the index parameter is not available in all methods of
-mvlearn yet.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Xs_transformed</strong> -- List of length n_views.
-The transformed data.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of array-likes</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.compose.ViewTransformer.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.compose.ViewTransformer.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit each estimator to the data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>The data to fit to.</p>
-</li>
-<li><strong>y</strong> (<em>array-like of length</em><em> (</em><em>n_samples</em><em>,</em><em>)</em><em>, </em><em>optional</em><em> (</em><em>default None</em><em>)</em>) -- Targets for a supervised estimation task</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong> -- Returns the instance itself.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)">object</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="datasets.html" class="btn btn-neutral float-right" title="Multiview Datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="model_selection.html" class="btn btn-neutral" title="Model Selection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="model_selection.html" class="btn btn-neutral float-left" title="Model Selection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="datasets.html" class="btn btn-neutral float-right" title="Multiview Datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019-2020
-
-    </p>
+    <p>&#169; Copyright 2019-2020.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 <p style="text-align: center; margin: .5rem;">
     <a href="https://www.netlify.com">
         <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
@@ -1513,34 +663,11 @@ The transformed data.</p>
 
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/js/copybutton.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });

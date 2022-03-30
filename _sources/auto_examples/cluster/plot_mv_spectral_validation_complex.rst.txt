@@ -265,15 +265,17 @@ concatenated views, which is surprising.
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_spectral_validation_complex_001.png
-          :alt: True Labels View 1, True Labels View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_spectral_validation_complex_001.png
+         :alt: True Labels View 1, True Labels View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_spectral_validation_complex_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_spectral_validation_complex_002.png
-          :alt: Multiview Clustering Results View 1, Multiview Clustering Results View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_spectral_validation_complex_002.png
+         :alt: Multiview Clustering Results View 1, Multiview Clustering Results View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_spectral_validation_complex_002.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -423,7 +425,7 @@ the views are conditionally dependent.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  41.052 seconds)
+   **Total running time of the script:** ( 1 minutes  34.398 seconds)
 
 
 .. _sphx_glr_download_auto_examples_cluster_plot_mv_spectral_validation_complex.py:

@@ -176,15 +176,17 @@ algorithm below, along with the true class labels.
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_tutorial_001.png
-          :alt: Multiview KMeans Clusters View 1, Multiview KMeans Clusters View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_tutorial_001.png
+         :alt: Multiview KMeans Clusters View 1, Multiview KMeans Clusters View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_tutorial_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_tutorial_002.png
-          :alt: True Labels View 1, True Labels View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_tutorial_002.png
+         :alt: True Labels View 1, True Labels View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_tutorial_002.png
+         :class: sphx-glr-multi-img
 
 
 
@@ -193,7 +195,7 @@ algorithm below, along with the true class labels.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.482 seconds)
+   **Total running time of the script:** ( 0 minutes  9.289 seconds)
 
 
 .. _sphx_glr_download_auto_examples_cluster_plot_mv_kmeans_tutorial.py:

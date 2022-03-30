@@ -237,15 +237,17 @@ results from the original Multiview clustering paper.
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_complex_001.png
-          :alt: True Labels View 1, True Labels View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_complex_001.png
+         :alt: True Labels View 1, True Labels View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_complex_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_complex_002.png
-          :alt: Multiview Clustering Results View 1, Multiview Clustering Results View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_complex_002.png
+         :alt: Multiview Clustering Results View 1, Multiview Clustering Results View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_complex_002.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -386,15 +388,17 @@ conditionally dependent.
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_complex_003.png
-          :alt: True Labels View 1, True Labels View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_complex_003.png
+         :alt: True Labels View 1, True Labels View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_complex_003.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_complex_004.png
-          :alt: Multiview Clustering Results View 1, Multiview Clustering Results View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_complex_004.png
+         :alt: Multiview Clustering Results View 1, Multiview Clustering Results View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_kmeans_validation_complex_004.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -418,7 +422,7 @@ conditionally dependent.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  18.825 seconds)
+   **Total running time of the script:** ( 1 minutes  27.814 seconds)
 
 
 .. _sphx_glr_download_auto_examples_cluster_plot_mv_kmeans_validation_complex.py:

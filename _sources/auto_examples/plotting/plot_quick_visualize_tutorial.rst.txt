@@ -70,9 +70,10 @@ showing us that it can be projected to a nearly-separable subspace.
 
 
 
-.. image:: /auto_examples/plotting/images/sphx_glr_plot_quick_visualize_tutorial_001.png
-    :alt: Labeled Data in 2D
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/plotting/images/sphx_glr_plot_quick_visualize_tutorial_001.png
+   :alt: Labeled Data in 2D
+   :srcset: /auto_examples/plotting/images/sphx_glr_plot_quick_visualize_tutorial_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -81,7 +82,7 @@ showing us that it can be projected to a nearly-separable subspace.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.520 seconds)
+   **Total running time of the script:** ( 0 minutes  1.711 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plotting_plot_quick_visualize_tutorial.py:

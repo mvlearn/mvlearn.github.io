@@ -102,9 +102,9 @@ Cluster each view separately and compute nmi
 
     Single-view View 1 NMI Score: 0.620
 
-    Single-view View 2 NMI Score: 0.009
+    Single-view View 2 NMI Score: 0.007
 
-    Single-view Concatenated NMI Score: 0.009
+    Single-view Concatenated NMI Score: 0.007
 
 
 
@@ -174,15 +174,17 @@ spectral clustering algorithm below, along with the true class labels.
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_coregularized_spectral_tutorial_001.png
-          :alt: Ground Truth
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_coregularized_spectral_tutorial_001.png
+         :alt: Ground Truth
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_coregularized_spectral_tutorial_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_coregularized_spectral_tutorial_002.png
-          :alt: Multi-view Clustering
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_coregularized_spectral_tutorial_002.png
+         :alt: Multi-view Clustering
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_coregularized_spectral_tutorial_002.png
+         :class: sphx-glr-multi-img
 
 
 
@@ -191,7 +193,7 @@ spectral clustering algorithm below, along with the true class labels.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  9.724 seconds)
+   **Total running time of the script:** ( 1 minutes  44.226 seconds)
 
 
 .. _sphx_glr_download_auto_examples_cluster_plot_mv_coregularized_spectral_tutorial.py:

@@ -112,9 +112,10 @@ of the six views are as follows:
 
 
 
-.. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_vs_singleview_spectral_001.png
-    :alt: Fourier Coefficients, Profile Correlations, Karhunen- Loeve, Pixel Averages, Zernike Moments, Morphological Features
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_vs_singleview_spectral_001.png
+   :alt: Fourier Coefficients, Profile Correlations, Karhunen- Loeve, Pixel Averages, Zernike Moments, Morphological Features
+   :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_vs_singleview_spectral_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -163,9 +164,10 @@ there are in the data.
 
 
 
-.. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_vs_singleview_spectral_002.png
-    :alt: PCA embedding (concatenated), MVMDS embedding (multiview)
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_vs_singleview_spectral_002.png
+   :alt: PCA embedding (concatenated), MVMDS embedding (multiview)
+   :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_vs_singleview_spectral_002.png
+   :class: sphx-glr-single-img
 
 
 
@@ -247,15 +249,17 @@ clearly dominates its singleview approach.
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_vs_singleview_spectral_003.png
-          :alt: True labels, Concatenated clustering labels
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_vs_singleview_spectral_003.png
+         :alt: True labels, Concatenated clustering labels
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_vs_singleview_spectral_003.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_vs_singleview_spectral_004.png
-          :alt: True labels, Multiview clustering labels
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_vs_singleview_spectral_004.png
+         :alt: True labels, Multiview clustering labels
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_vs_singleview_spectral_004.png
+         :class: sphx-glr-multi-img
 
 
 
@@ -264,7 +268,7 @@ clearly dominates its singleview approach.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  13.247 seconds)
+   **Total running time of the script:** ( 0 minutes  16.468 seconds)
 
 
 .. _sphx_glr_download_auto_examples_cluster_plot_mv_vs_singleview_spectral.py:

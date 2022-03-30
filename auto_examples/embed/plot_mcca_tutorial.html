@@ -1,78 +1,44 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CCA Tutorial &mdash; mvlearn alpha documentation</title>
-  
-
-  
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/mvlearn-logo-32x32.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/js/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Deep CCA (DCCA) Tutorial" href="plot_dcca_tutorial.html" />
     <link rel="prev" title="Generalized Canonical Correlation Analysis (GCCA) Tutorial" href="plot_gcca_tutorial.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../../index.html">
-          
-
-          
-            
             <img src="../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.4.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +46,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using mvlearn</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a><ul>
@@ -226,7 +182,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Information</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to mvlearn</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
@@ -269,85 +225,44 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Useful Links</span></p>
+<p class="caption" role="heading"><span class="caption-text">Useful Links</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">mvlearn</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">Examples Gallery</a> &raquo;</li>
-        
       <li>CCA Tutorial</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/mvlearn/mvlearn/blob/main/docs/auto_examples/embed/plot_mcca_tutorial.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-embed-plot-mcca-tutorial-py"><span class="std std-ref">here</span></a>
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-embed-plot-mcca-tutorial-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="cca-tutorial">
+<section class="sphx-glr-example-title" id="cca-tutorial">
 <span id="sphx-glr-auto-examples-embed-plot-mcca-tutorial-py"></span><h1>CCA Tutorial<a class="headerlink" href="#cca-tutorial" title="Permalink to this headline">¶</a></h1>
 <p>This tutorial demonstrates the use of CCA for 2 views and multiview CCA (MCCA)
 for more than 2 views. As is demonstrated, they allow for both the addition of
@@ -374,7 +289,7 @@ regularization as well as the use of a kernel to compute the distance
     <span class="n">return_decomp</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="section" id="cca">
+<section id="cca">
 <h2>CCA<a class="headerlink" href="#cca" title="Permalink to this headline">¶</a></h2>
 <p>CCA, equivalent to 2 view MCCA, learns transformations of the views,
 projecting a linear combination of the features to a component such that the
@@ -386,7 +301,7 @@ found components correlate well.</p>
 <a href="../../references/embed.html#mvlearn.embed.CCA" title="mvlearn.embed.CCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cca</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.CCA" title="mvlearn.embed.CCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class"><span class="n">CCA</span></a><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">joint_rank</span></a><span class="p">)</span>
 
 <span class="c1"># the fit-transform method outputs the scores for each view</span>
-<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cca_scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.CCA.fit_transform" title="mvlearn.embed.CCA.fit_transform" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">cca</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cca_scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.CCA" title="mvlearn.embed.CCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cca</span></a><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
 <a href="../../references/plotting.html#mvlearn.plotting.crossviews_plot" title="mvlearn.plotting.crossviews_plot" class="sphx-glr-backref-module-mvlearn-plotting sphx-glr-backref-type-py-function"><span class="n">crossviews_plot</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cca_scores</span></a><span class="p">,</span>
                 <span class="n">title</span><span class="o">=</span><span class="s1">&#39;CCA scores (first two views fitted)&#39;</span><span class="p">,</span>
                 <span class="n">equal_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -396,19 +311,18 @@ found components correlate well.</p>
 <span class="c1"># calculated. We assess the canonical correlations achieved and</span>
 <span class="c1"># their significance using the p-values from a Wilk&#39;s Lambda test</span>
 
-<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stats</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.CCA.stats" title="mvlearn.embed.CCA.stats" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">cca</span><span class="o">.</span><span class="n">stats</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cca_scores</span></a><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stats</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.CCA" title="mvlearn.embed.CCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cca</span></a><span class="o">.</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stats</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cca_scores</span></a><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Canonical Correlations: </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stats</span></a><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Wilk</span><span class="se">\&#39;</span><span class="s1">s Lambda Test pvalues: </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stats</span></a><span class="p">[</span><span class="s2">&quot;pF&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="CCA scores (first two views fitted)" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_mcca_tutorial_001.png" />
-<p class="sphx-glr-script-out">Out:</p>
+<img src="../../_images/sphx_glr_plot_mcca_tutorial_001.png" srcset="../../_images/sphx_glr_plot_mcca_tutorial_001.png" alt="CCA scores (first two views fitted)" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Canonical Correlations: [0.97683992 0.94623958 0.83236882]
 Wilk&#39;s Lambda Test pvalues: [1.11022302e-16 1.11022302e-16 1.11022302e-16]
 </pre></div>
 </div>
-</div>
-<div class="section" id="regularized-cca">
+</section>
+<section id="regularized-cca">
 <h2>Regularized CCA<a class="headerlink" href="#regularized-cca" title="Permalink to this headline">¶</a></h2>
 <p>We can add regularization with the <cite>regs</cite> argument to handle
 high-dimensional data. This data is simple, and so it makes little
@@ -417,18 +331,17 @@ difference. Here, we use MCCA for all 3 views.</p>
 <a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class"><span class="n">MCCA</span></a><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">joint_rank</span></a><span class="p">,</span> <span class="n">regs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 
 <span class="c1"># the fit-transform method outputs the scores for each view</span>
-<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.MCCA.fit_transform" title="mvlearn.embed.MCCA.fit_transform" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">mcca</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca</span></a><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
 <a href="../../references/plotting.html#mvlearn.plotting.crossviews_plot" title="mvlearn.plotting.crossviews_plot" class="sphx-glr-backref-module-mvlearn-plotting sphx-glr-backref-type-py-function"><span class="n">crossviews_plot</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span>
                 <span class="n">title</span><span class="o">=</span><span class="s1">&#39;MCCA scores with regularization (first 2 views shown)&#39;</span><span class="p">,</span>
                 <span class="n">equal_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                 <span class="n">scatter_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">})</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Canonical Correlations:&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><a href="../../references/embed.html#mvlearn.embed.MCCA.canon_corrs" title="mvlearn.embed.MCCA.canon_corrs" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">mcca</span><span class="o">.</span><span class="n">canon_corrs</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca</span></a><span class="o">.</span><span class="n">canon_corrs</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="MCCA scores with regularization (first 2 views shown)" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_mcca_tutorial_002.png" />
-<p class="sphx-glr-script-out">Out:</p>
+<img src="../../_images/sphx_glr_plot_mcca_tutorial_002.png" srcset="../../_images/sphx_glr_plot_mcca_tutorial_002.png" alt="MCCA scores with regularization (first 2 views shown)" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Canonical Correlations:
 [[[1.         0.97667891 0.97566468]
   [0.97667891 1.         0.97828026]
@@ -443,8 +356,8 @@ difference. Here, we use MCCA for all 3 views.</p>
   [0.82482284 0.82443132 1.        ]]]
 </pre></div>
 </div>
-</div>
-<div class="section" id="informative-mcca-pca-then-mcca">
+</section>
+<section id="informative-mcca-pca-then-mcca">
 <h2>Informative MCCA: PCA then MCCA<a class="headerlink" href="#informative-mcca-pca-then-mcca" title="Permalink to this headline">¶</a></h2>
 <p>We can also handle high-dimensional data with i-MCCA. We first compute a
 low rank PCA for each view, then run MCCA on the reduced data. With rank 2
@@ -453,18 +366,17 @@ plot.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># i-MCCA where we first extract the first 2 PCs from each data view</span>
 <a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class"><span class="n">MCCA</span></a><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">joint_rank</span></a><span class="p">,</span> <span class="n">signal_ranks</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
-<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.MCCA.fit_transform" title="mvlearn.embed.MCCA.fit_transform" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">mcca</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca</span></a><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
 <a href="../../references/plotting.html#mvlearn.plotting.crossviews_plot" title="mvlearn.plotting.crossviews_plot" class="sphx-glr-backref-module-mvlearn-plotting sphx-glr-backref-type-py-function"><span class="n">crossviews_plot</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span>
                 <span class="n">title</span><span class="o">=</span><span class="s1">&#39;PCA-MCCA scores: rank 2 PCA (first 2 views shown)&#39;</span><span class="p">,</span>
                 <span class="n">equal_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                 <span class="n">scatter_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">})</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Canonical Correlations:&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><a href="../../references/embed.html#mvlearn.embed.MCCA.canon_corrs" title="mvlearn.embed.MCCA.canon_corrs" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">mcca</span><span class="o">.</span><span class="n">canon_corrs</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca</span></a><span class="o">.</span><span class="n">canon_corrs</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="PCA-MCCA scores: rank 2 PCA (first 2 views shown)" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_mcca_tutorial_003.png" />
-<p class="sphx-glr-script-out">Out:</p>
+<img src="../../_images/sphx_glr_plot_mcca_tutorial_003.png" srcset="../../_images/sphx_glr_plot_mcca_tutorial_003.png" alt="PCA-MCCA scores: rank 2 PCA (first 2 views shown)" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Canonical Correlations:
 [[[ 1.          0.97612813  0.97510341]
   [ 0.97612813  1.          0.97754325]
@@ -479,26 +391,25 @@ plot.</p>
   [-0.94276507 -0.89227834  1.        ]]]
 </pre></div>
 </div>
-</div>
-<div class="section" id="kernel-mcca">
+</section>
+<section id="kernel-mcca">
 <h2>Kernel MCCA<a class="headerlink" href="#kernel-mcca" title="Permalink to this headline">¶</a></h2>
 <p>We can compute kernel MCCA with the KMCCA() object. With the linear kernel,
 this behaves just like MCCA.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># fit kernel MCCA with a linear kernel</span>
 <a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class"><span class="n">KMCCA</span></a><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">joint_rank</span></a><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
 
-<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca_scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KMCCA.fit_transform" title="mvlearn.embed.KMCCA.fit_transform" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">kmcca</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca_scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca</span></a><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
 <a href="../../references/plotting.html#mvlearn.plotting.crossviews_plot" title="mvlearn.plotting.crossviews_plot" class="sphx-glr-backref-module-mvlearn-plotting sphx-glr-backref-type-py-function"><span class="n">crossviews_plot</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca_scores</span></a><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span>
                 <span class="n">title</span><span class="o">=</span><span class="s1">&#39;KMCCA scores: linear kernel (first 2 views shown)&#39;</span><span class="p">,</span>
                 <span class="n">equal_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                 <span class="n">scatter_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">})</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Canonical Correlations:&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><a href="../../references/embed.html#mvlearn.embed.MCCA.canon_corrs" title="mvlearn.embed.MCCA.canon_corrs" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">mcca</span><span class="o">.</span><span class="n">canon_corrs</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><a href="../../references/embed.html#mvlearn.embed.MCCA" title="mvlearn.embed.MCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca</span></a><span class="o">.</span><span class="n">canon_corrs</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mcca_scores</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="KMCCA scores: linear kernel (first 2 views shown)" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_mcca_tutorial_004.png" />
-<p class="sphx-glr-script-out">Out:</p>
+<img src="../../_images/sphx_glr_plot_mcca_tutorial_004.png" srcset="../../_images/sphx_glr_plot_mcca_tutorial_004.png" alt="KMCCA scores: linear kernel (first 2 views shown)" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Canonical Correlations:
 [[[ 1.          0.97612813  0.97510341]
   [ 0.97612813  1.          0.97754325]
@@ -513,42 +424,37 @@ this behaves just like MCCA.</p>
   [-0.94276507 -0.89227834  1.        ]]]
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.228 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.240 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-embed-plot-mcca-tutorial-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<a class="reference download internal" download="" href="../../_downloads/153e3950bf477e35e4372c376956bbee/plot_mcca_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mcca_tutorial.py</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/e41c02709f0fb70003a15082343bd348/plot_mcca_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mcca_tutorial.py</span></code></a></p>
+</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<a class="reference download internal" download="" href="../../_downloads/028b5e2a964acc7a6eba1a12e5584781/plot_mcca_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_mcca_tutorial.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/0757dc2c072710689d62e30d8c78073a/plot_mcca_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_mcca_tutorial.ipynb</span></code></a></p>
+</div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="plot_dcca_tutorial.html" class="btn btn-neutral float-right" title="Deep CCA (DCCA) Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="plot_gcca_tutorial.html" class="btn btn-neutral" title="Generalized Canonical Correlation Analysis (GCCA) Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_gcca_tutorial.html" class="btn btn-neutral float-left" title="Generalized Canonical Correlation Analysis (GCCA) Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_dcca_tutorial.html" class="btn btn-neutral float-right" title="Deep CCA (DCCA) Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019-2020
-
-    </p>
+    <p>&#169; Copyright 2019-2020.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 <p style="text-align: center; margin: .5rem;">
     <a href="https://www.netlify.com">
         <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
@@ -558,34 +464,11 @@ this behaves just like MCCA.</p>
 
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });

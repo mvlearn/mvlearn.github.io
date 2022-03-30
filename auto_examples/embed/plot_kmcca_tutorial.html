@@ -1,78 +1,44 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kernel MCCA (KMCCA) Tutorial &mdash; mvlearn alpha documentation</title>
-  
-
-  
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/mvlearn-logo-32x32.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/js/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Quickly Visualizing Multiview Data" href="../plotting/plot_quick_visualize_tutorial.html" />
     <link rel="prev" title="Comparing CCA Variants" href="plot_cca_comparison.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../../index.html">
-          
-
-          
-            
             <img src="../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.4.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +46,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using mvlearn</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a><ul>
@@ -226,7 +182,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Information</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to mvlearn</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
@@ -269,85 +225,44 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Useful Links</span></p>
+<p class="caption" role="heading"><span class="caption-text">Useful Links</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">mvlearn</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">Examples Gallery</a> &raquo;</li>
-        
       <li>Kernel MCCA (KMCCA) Tutorial</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/mvlearn/mvlearn/blob/main/docs/auto_examples/embed/plot_kmcca_tutorial.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-embed-plot-kmcca-tutorial-py"><span class="std std-ref">here</span></a>
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-embed-plot-kmcca-tutorial-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="kernel-mcca-kmcca-tutorial">
+<section class="sphx-glr-example-title" id="kernel-mcca-kmcca-tutorial">
 <span id="sphx-glr-auto-examples-embed-plot-kmcca-tutorial-py"></span><h1>Kernel MCCA (KMCCA) Tutorial<a class="headerlink" href="#kernel-mcca-kmcca-tutorial" title="Permalink to this headline">¶</a></h1>
 <p>KMCCA is a variant of Canonical Correlation Analysis that can use a
 nonlinear kernel to uncover nonlinear correlations between views of data
@@ -423,7 +338,7 @@ performance. The only method as of now is 'kettenring-like'.</p>
         <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="section" id="linear-kernel">
+<section id="linear-kernel">
 <h2>Linear Kernel<a class="headerlink" href="#linear-kernel" title="Permalink to this headline">¶</a></h2>
 <p>Here we show how KMCCA with a linear kernel can uncover the highly correlated
 latent distribution of the 2 views which are related with a linear
@@ -433,7 +348,7 @@ relationship, and then transform the data into that latent space.</p>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_train</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_test</span></a> <span class="o">=</span> <a href="../../references/model_selection.html#mvlearn.model_selection.train_test_split" title="mvlearn.model_selection.train_test_split" class="sphx-glr-backref-module-mvlearn-model_selection sphx-glr-backref-type-py-function"><span class="n">train_test_split</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class"><span class="n">KMCCA</span></a><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">regs</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KMCCA.fit_transform" title="mvlearn.embed.KMCCA.fit_transform" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">kmcca</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_test</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca</span></a><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_test</span></a><span class="p">)</span>
 
 <a href="../../references/plotting.html#mvlearn.plotting.crossviews_plot" title="mvlearn.plotting.crossviews_plot" class="sphx-glr-backref-module-mvlearn-plotting sphx-glr-backref-type-py-function"><span class="n">crossviews_plot</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">,</span> <span class="n">ax_ticks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">equal_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                 <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Simulated data crossplot: linear setting&#39;</span><span class="p">)</span>
@@ -443,21 +358,19 @@ relationship, and then transform the data into that latent space.</p>
 
 <span class="c1"># Now, we assess the canonical correlations achieved on the testing data</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Test data canonical correlations: </span><span class="si">{</span><a href="../../references/embed.html#mvlearn.embed.KMCCA.canon_corrs" title="mvlearn.embed.KMCCA.canon_corrs" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">kmcca</span><span class="o">.</span><span class="n">canon_corrs</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Test data canonical correlations: </span><span class="si">{</span><a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca</span></a><span class="o">.</span><span class="n">canon_corrs</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><img alt="Simulated data crossplot: linear setting" class="sphx-glr-multi-img first" src="../../_images/sphx_glr_plot_kmcca_tutorial_001.png" />
-</li>
-<li><img alt="Scores crossplot: linear KMCCA" class="sphx-glr-multi-img first" src="../../_images/sphx_glr_plot_kmcca_tutorial_002.png" />
-</li>
+<li><img src="../../_images/sphx_glr_plot_kmcca_tutorial_001.png" srcset="../../_images/sphx_glr_plot_kmcca_tutorial_001.png" alt="Simulated data crossplot: linear setting" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_kmcca_tutorial_002.png" srcset="../../_images/sphx_glr_plot_kmcca_tutorial_002.png" alt="Scores crossplot: linear KMCCA" class = "sphx-glr-multi-img"/></li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Test data canonical correlations: [0.96539304 0.95785531 0.24668706 0.07577206]
 </pre></div>
 </div>
-</div>
-<div class="section" id="polynomial-kernel">
+</section>
+<section id="polynomial-kernel">
 <h2>Polynomial Kernel<a class="headerlink" href="#polynomial-kernel" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here we show how KMCCA with a polynomial kernel can uncover the highly</span>
 <span class="c1"># correlated latent distribution of the 2 views which are related with a</span>
@@ -470,7 +383,7 @@ relationship, and then transform the data into that latent space.</p>
 <a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class"><span class="n">KMCCA</span></a><span class="p">(</span>
     <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;poly&quot;</span><span class="p">,</span> <span class="n">kernel_params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;degree&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;coef0&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>
     <span class="n">n_components</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">regs</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KMCCA.fit" title="mvlearn.embed.KMCCA.fit" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">kmcca</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_train</span></a><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_test</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca</span></a><span class="o">.</span><span class="n">fit</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_train</span></a><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_test</span></a><span class="p">)</span>
 
 <a href="../../references/plotting.html#mvlearn.plotting.crossviews_plot" title="mvlearn.plotting.crossviews_plot" class="sphx-glr-backref-module-mvlearn-plotting sphx-glr-backref-type-py-function"><span class="n">crossviews_plot</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">,</span> <span class="n">ax_ticks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">equal_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                 <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Simulated data crossplot: polynomial setting&#39;</span><span class="p">)</span>
@@ -480,21 +393,19 @@ relationship, and then transform the data into that latent space.</p>
 
 <span class="c1"># Now, we assess the canonical correlations achieved on the testing data</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Test data canonical correlations: </span><span class="si">{</span><a href="../../references/embed.html#mvlearn.embed.KMCCA.canon_corrs" title="mvlearn.embed.KMCCA.canon_corrs" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">kmcca</span><span class="o">.</span><span class="n">canon_corrs</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Test data canonical correlations: </span><span class="si">{</span><a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca</span></a><span class="o">.</span><span class="n">canon_corrs</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><img alt="Simulated data crossplot: polynomial setting" class="sphx-glr-multi-img first" src="../../_images/sphx_glr_plot_kmcca_tutorial_003.png" />
-</li>
-<li><img alt="Scores crossplot: polynomial KMCCA" class="sphx-glr-multi-img first" src="../../_images/sphx_glr_plot_kmcca_tutorial_004.png" />
-</li>
+<li><img src="../../_images/sphx_glr_plot_kmcca_tutorial_003.png" srcset="../../_images/sphx_glr_plot_kmcca_tutorial_003.png" alt="Simulated data crossplot: polynomial setting" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_kmcca_tutorial_004.png" srcset="../../_images/sphx_glr_plot_kmcca_tutorial_004.png" alt="Scores crossplot: polynomial KMCCA" class = "sphx-glr-multi-img"/></li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Test data canonical correlations: [ 0.82270834  0.9629903  -0.34427048  0.50149524]
 </pre></div>
 </div>
-</div>
-<div class="section" id="gaussian-kernel">
+</section>
+<section id="gaussian-kernel">
 <h2>Gaussian Kernel<a class="headerlink" href="#gaussian-kernel" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here we show how KMCCA with a gaussian kernel can uncover the highly</span>
 <span class="c1"># correlated latent distribution of the 2 views which are related with a</span>
@@ -506,7 +417,7 @@ relationship, and then transform the data into that latent space.</p>
 
 <a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class"><span class="n">KMCCA</span></a><span class="p">(</span>
     <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;rbf&quot;</span><span class="p">,</span> <span class="n">kernel_params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">regs</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KMCCA.fit" title="mvlearn.embed.KMCCA.fit" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">kmcca</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_train</span></a><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_test</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a> <span class="o">=</span> <a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca</span></a><span class="o">.</span><span class="n">fit</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_train</span></a><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs_test</span></a><span class="p">)</span>
 
 <a href="../../references/plotting.html#mvlearn.plotting.crossviews_plot" title="mvlearn.plotting.crossviews_plot" class="sphx-glr-backref-module-mvlearn-plotting sphx-glr-backref-type-py-function"><span class="n">crossviews_plot</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">,</span> <span class="n">ax_ticks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">equal_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                 <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Simulated data crossplot: Gaussian setting&#39;</span><span class="p">)</span>
@@ -516,55 +427,48 @@ relationship, and then transform the data into that latent space.</p>
 
 <span class="c1"># Now, we assess the canonical correlations achieved on the testing data</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Test data canonical correlations: </span><span class="si">{</span><a href="../../references/embed.html#mvlearn.embed.KMCCA.canon_corrs" title="mvlearn.embed.KMCCA.canon_corrs" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-method"><span class="n">kmcca</span><span class="o">.</span><span class="n">canon_corrs</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Test data canonical correlations: </span><span class="si">{</span><a href="../../references/embed.html#mvlearn.embed.KMCCA" title="mvlearn.embed.KMCCA" class="sphx-glr-backref-module-mvlearn-embed sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmcca</span></a><span class="o">.</span><span class="n">canon_corrs</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><img alt="Simulated data crossplot: Gaussian setting" class="sphx-glr-multi-img first" src="../../_images/sphx_glr_plot_kmcca_tutorial_005.png" />
-</li>
-<li><img alt="Scores crossplot: Gaussian KMCCA" class="sphx-glr-multi-img first" src="../../_images/sphx_glr_plot_kmcca_tutorial_006.png" />
-</li>
+<li><img src="../../_images/sphx_glr_plot_kmcca_tutorial_005.png" srcset="../../_images/sphx_glr_plot_kmcca_tutorial_005.png" alt="Simulated data crossplot: Gaussian setting" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_kmcca_tutorial_006.png" srcset="../../_images/sphx_glr_plot_kmcca_tutorial_006.png" alt="Scores crossplot: Gaussian KMCCA" class = "sphx-glr-multi-img"/></li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Test data canonical correlations: [0.9966364  0.99352519]
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.386 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.645 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-embed-plot-kmcca-tutorial-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<a class="reference download internal" download="" href="../../_downloads/fd932a5bde3e52d75fcc6f7fd289ab81/plot_kmcca_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_kmcca_tutorial.py</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/29ac082190e7b5cbcdea31e2275fa046/plot_kmcca_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_kmcca_tutorial.py</span></code></a></p>
+</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<a class="reference download internal" download="" href="../../_downloads/da364d92283fddbb8a65b4bde6424e63/plot_kmcca_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_kmcca_tutorial.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/f58041369305ca1e8260b63f541a26eb/plot_kmcca_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_kmcca_tutorial.ipynb</span></code></a></p>
+</div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../plotting/plot_quick_visualize_tutorial.html" class="btn btn-neutral float-right" title="Quickly Visualizing Multiview Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="plot_cca_comparison.html" class="btn btn-neutral" title="Comparing CCA Variants" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_cca_comparison.html" class="btn btn-neutral float-left" title="Comparing CCA Variants" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../plotting/plot_quick_visualize_tutorial.html" class="btn btn-neutral float-right" title="Quickly Visualizing Multiview Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019-2020
-
-    </p>
+    <p>&#169; Copyright 2019-2020.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 <p style="text-align: center; margin: .5rem;">
     <a href="https://www.netlify.com">
         <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
@@ -574,34 +478,11 @@ relationship, and then transform the data into that latent space.</p>
 
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });

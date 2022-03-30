@@ -34,15 +34,17 @@ mixtures and plot the views against each other using a crossviews plot.
 
     *
 
-      .. image:: /auto_examples/datasets/images/sphx_glr_plot_gaussianmixtures_001.png
-          :alt: Latent Variable
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/datasets/images/sphx_glr_plot_gaussianmixtures_001.png
+         :alt: Latent Variable
+         :srcset: /auto_examples/datasets/images/sphx_glr_plot_gaussianmixtures_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/datasets/images/sphx_glr_plot_gaussianmixtures_002.png
-          :alt: View 1 vs. View 2 (Polynomial Transform + noise)
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/datasets/images/sphx_glr_plot_gaussianmixtures_002.png
+         :alt: View 1 vs. View 2 (Polynomial Transform + noise)
+         :srcset: /auto_examples/datasets/images/sphx_glr_plot_gaussianmixtures_002.png
+         :class: sphx-glr-multi-img
 
 
 
@@ -88,7 +90,7 @@ mixtures and plot the views against each other using a crossviews plot.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.125 seconds)
+   **Total running time of the script:** ( 0 minutes  1.158 seconds)
 
 
 .. _sphx_glr_download_auto_examples_datasets_plot_gaussianmixtures.py:

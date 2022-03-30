@@ -108,7 +108,7 @@ Use the MultiviewSphericalKMeans instance to cluster the data
 
  .. code-block:: none
 
-    multiview NMI Score: 0.806
+    multiview NMI Score: 0.819
 
 
 
@@ -144,15 +144,17 @@ algorithm below, along with the true class labels.
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_spherical_kmeans_tutorial_001.png
-          :alt: True Labels View 1, True Labels View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_spherical_kmeans_tutorial_001.png
+         :alt: True Labels View 1, True Labels View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_spherical_kmeans_tutorial_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/cluster/images/sphx_glr_plot_mv_spherical_kmeans_tutorial_002.png
-          :alt: multiview KMeans Clusters View 1, multiview KMeans Clusters View 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/cluster/images/sphx_glr_plot_mv_spherical_kmeans_tutorial_002.png
+         :alt: multiview KMeans Clusters View 1, multiview KMeans Clusters View 2
+         :srcset: /auto_examples/cluster/images/sphx_glr_plot_mv_spherical_kmeans_tutorial_002.png
+         :class: sphx-glr-multi-img
 
 
 
@@ -190,7 +192,7 @@ Clustering.
 
  .. code-block:: none
 
-    multiview NMI Score: 0.556
+    multiview NMI Score: 0.575
 
 
 
@@ -199,7 +201,7 @@ Clustering.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.981 seconds)
+   **Total running time of the script:** ( 0 minutes  5.418 seconds)
 
 
 .. _sphx_glr_download_auto_examples_cluster_plot_mv_spherical_kmeans_tutorial.py:

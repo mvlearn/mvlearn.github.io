@@ -131,9 +131,10 @@ Visualizing the Results
 
 
 
-.. image:: /auto_examples/embed/images/sphx_glr_plot_omnibus_embedding_001.png
-    :alt: Latent Positions from Omnibus Embedding
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/embed/images/sphx_glr_plot_omnibus_embedding_001.png
+   :alt: Latent Positions from Omnibus Embedding
+   :srcset: /auto_examples/embed/images/sphx_glr_plot_omnibus_embedding_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -207,9 +208,10 @@ Lines are drawn between corresponding samples in the two views.
 
 
 
-.. image:: /auto_examples/embed/images/sphx_glr_plot_omnibus_embedding_002.png
-    :alt: Latent Positions from Omnibus Embedding
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/embed/images/sphx_glr_plot_omnibus_embedding_002.png
+   :alt: Latent Positions from Omnibus Embedding
+   :srcset: /auto_examples/embed/images/sphx_glr_plot_omnibus_embedding_002.png
+   :class: sphx-glr-single-img
 
 
 
@@ -292,9 +294,10 @@ to make the plot more readable.
 
 
 
-.. image:: /auto_examples/embed/images/sphx_glr_plot_omnibus_embedding_003.png
-    :alt: Latent Positions from Omnibus Embedding
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/embed/images/sphx_glr_plot_omnibus_embedding_003.png
+   :alt: Latent Positions from Omnibus Embedding
+   :srcset: /auto_examples/embed/images/sphx_glr_plot_omnibus_embedding_003.png
+   :class: sphx-glr-single-img
 
 
 
@@ -303,7 +306,7 @@ to make the plot more readable.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  12.882 seconds)
+   **Total running time of the script:** ( 0 minutes  13.444 seconds)
 
 
 .. _sphx_glr_download_auto_examples_embed_plot_omnibus_embedding.py:

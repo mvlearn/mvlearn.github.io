@@ -1,78 +1,44 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Multiview Coregularized Spectral Clustering Comparison &mdash; mvlearn alpha documentation</title>
-  
-
-  
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/mvlearn-logo-32x32.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/js/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Multiview Spherical KMeans Tutorial" href="plot_mv_spherical_kmeans_tutorial.html" />
     <link rel="prev" title="Examples Gallery" href="../index.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../../index.html">
-          
-
-          
-            
             <img src="../../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.4.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +46,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using mvlearn</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a><ul>
@@ -226,7 +182,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Information</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to mvlearn</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
@@ -269,85 +225,44 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Useful Links</span></p>
+<p class="caption" role="heading"><span class="caption-text">Useful Links</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">mvlearn</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">Examples Gallery</a> &raquo;</li>
-        
       <li>Multiview Coregularized Spectral Clustering Comparison</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/mvlearn/mvlearn/blob/main/docs/auto_examples/cluster/plot_mv_coregularized_spectral_tutorial.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-cluster-plot-mv-coregularized-spectral-tutorial-py"><span class="std std-ref">here</span></a>
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-cluster-plot-mv-coregularized-spectral-tutorial-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="multiview-coregularized-spectral-clustering-comparison">
+<section class="sphx-glr-example-title" id="multiview-coregularized-spectral-clustering-comparison">
 <span id="sphx-glr-auto-examples-cluster-plot-mv-coregularized-spectral-tutorial-py"></span><h1>Multiview Coregularized Spectral Clustering Comparison<a class="headerlink" href="#multiview-coregularized-spectral-clustering-comparison" title="Permalink to this headline">¶</a></h1>
 <p>Here we will compare the performance of the Co-Regularized multiview and
 singleview spectral clustering. We will evaluate the purity of
@@ -377,7 +292,7 @@ input types.</p>
     <span class="n">select_labeled</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_class</span></a><span class="p">)),</span> <span class="n">views</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="section" id="singleview-spectral-clustering">
+<section id="singleview-spectral-clustering">
 <h2>Singleview spectral clustering<a class="headerlink" href="#singleview-spectral-clustering" title="Permalink to this headline">¶</a></h2>
 <p>Cluster each view separately and compute nmi</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s_spectral</span> <span class="o">=</span> <span class="n">SpectralClustering</span><span class="p">(</span>
@@ -399,19 +314,19 @@ input types.</p>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Single-view View 1 NMI Score: 0.620
 
-Single-view View 2 NMI Score: 0.009
+Single-view View 2 NMI Score: 0.007
 
-Single-view Concatenated NMI Score: 0.009
+Single-view Concatenated NMI Score: 0.007
 </pre></div>
 </div>
-</div>
-<div class="section" id="co-regularized-multiview-spectral-clustering">
+</section>
+<section id="co-regularized-multiview-spectral-clustering">
 <h2>Co-Regularized multiview spectral clustering<a class="headerlink" href="#co-regularized-multiview-spectral-clustering" title="Permalink to this headline">¶</a></h2>
 <p>Use the MultiviewSpectralClustering instance to cluster the data</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../references/cluster.html#mvlearn.cluster.MultiviewCoRegSpectralClustering" title="mvlearn.cluster.MultiviewCoRegSpectralClustering" class="sphx-glr-backref-module-mvlearn-cluster sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">m_spectral1</span></a> <span class="o">=</span> <a href="../../references/cluster.html#mvlearn.cluster.MultiviewCoRegSpectralClustering" title="mvlearn.cluster.MultiviewCoRegSpectralClustering" class="sphx-glr-backref-module-mvlearn-cluster sphx-glr-backref-type-py-class"><span class="n">MultiviewCoRegSpectralClustering</span></a><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_class</span></a><span class="p">,</span>
                                                <span class="n">random_state</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">RANDOM_SEED</span></a><span class="p">,</span>
                                                <span class="n">n_init</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">m_clusters1</span></a> <span class="o">=</span> <a href="../../references/cluster.html#mvlearn.cluster.MultiviewCoRegSpectralClustering.fit_predict" title="mvlearn.cluster.MultiviewCoRegSpectralClustering.fit_predict" class="sphx-glr-backref-module-mvlearn-cluster sphx-glr-backref-type-py-method"><span class="n">m_spectral1</span><span class="o">.</span><span class="n">fit_predict</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">m_clusters1</span></a> <span class="o">=</span> <a href="../../references/cluster.html#mvlearn.cluster.MultiviewCoRegSpectralClustering" title="mvlearn.cluster.MultiviewCoRegSpectralClustering" class="sphx-glr-backref-module-mvlearn-cluster sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">m_spectral1</span></a><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Xs</span></a><span class="p">)</span>
 
 <span class="c1"># Compute nmi between true class labels and multi-view cluster labels</span>
 <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">m_nmi1</span></a> <span class="o">=</span> <span class="n">nmi_score</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">m_clusters1</span></a><span class="p">)</span>
@@ -422,8 +337,8 @@ Single-view Concatenated NMI Score: 0.009
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Multi-view NMI Score: 0.663
 </pre></div>
 </div>
-</div>
-<div class="section" id="visualize-results">
+</section>
+<section id="visualize-results">
 <h2>Visualize Results<a class="headerlink" href="#visualize-results" title="Permalink to this headline">¶</a></h2>
 <p>Plots of clusters produced by multiview spectral clustering and the true
 clusters.</p>
@@ -436,47 +351,40 @@ spectral clustering algorithm below, along with the true class labels.</p>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><img alt="Ground Truth" class="sphx-glr-multi-img first" src="../../_images/sphx_glr_plot_mv_coregularized_spectral_tutorial_001.png" />
-</li>
-<li><img alt="Multi-view Clustering" class="sphx-glr-multi-img first" src="../../_images/sphx_glr_plot_mv_coregularized_spectral_tutorial_002.png" />
-</li>
+<li><img src="../../_images/sphx_glr_plot_mv_coregularized_spectral_tutorial_001.png" srcset="../../_images/sphx_glr_plot_mv_coregularized_spectral_tutorial_001.png" alt="Ground Truth" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_mv_coregularized_spectral_tutorial_002.png" srcset="../../_images/sphx_glr_plot_mv_coregularized_spectral_tutorial_002.png" alt="Multi-view Clustering" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  9.724 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  44.226 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-cluster-plot-mv-coregularized-spectral-tutorial-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<a class="reference download internal" download="" href="../../_downloads/b539db279af5879f5559f361a4af0653/plot_mv_coregularized_spectral_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mv_coregularized_spectral_tutorial.py</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/5bedfdf123167fe721cae968427b34c1/plot_mv_coregularized_spectral_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mv_coregularized_spectral_tutorial.py</span></code></a></p>
+</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<a class="reference download internal" download="" href="../../_downloads/efc30fd491cd684ad6e9cddce6975e39/plot_mv_coregularized_spectral_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_mv_coregularized_spectral_tutorial.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/463f5dec3b7c8d23c708bf9791a56550/plot_mv_coregularized_spectral_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_mv_coregularized_spectral_tutorial.ipynb</span></code></a></p>
+</div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="plot_mv_spherical_kmeans_tutorial.html" class="btn btn-neutral float-right" title="Multiview Spherical KMeans Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../index.html" class="btn btn-neutral" title="Examples Gallery" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Examples Gallery" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_mv_spherical_kmeans_tutorial.html" class="btn btn-neutral float-right" title="Multiview Spherical KMeans Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019-2020
-
-    </p>
+    <p>&#169; Copyright 2019-2020.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 <p style="text-align: center; margin: .5rem;">
     <a href="https://www.netlify.com">
         <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
@@ -486,34 +394,11 @@ spectral clustering algorithm below, along with the true class labels.</p>
 
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });

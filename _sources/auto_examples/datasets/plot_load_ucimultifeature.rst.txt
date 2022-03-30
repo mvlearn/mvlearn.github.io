@@ -76,9 +76,10 @@ Here We can load the entire dataset (all 10 digits). Then, visualize in 2D.
 
 
 
-.. image:: /auto_examples/datasets/images/sphx_glr_plot_load_ucimultifeature_001.png
-    :alt: 10-class data
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/datasets/images/sphx_glr_plot_load_ucimultifeature_001.png
+   :alt: 10-class data
+   :srcset: /auto_examples/datasets/images/sphx_glr_plot_load_ucimultifeature_001.png
+   :class: sphx-glr-single-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -123,9 +124,10 @@ reproducibility. Then, we visualize in 2D.
 
 
 
-.. image:: /auto_examples/datasets/images/sphx_glr_plot_load_ucimultifeature_002.png
-    :alt: 2-class data
-    :class: sphx-glr-single-img
+.. image-sg:: /auto_examples/datasets/images/sphx_glr_plot_load_ucimultifeature_002.png
+   :alt: 2-class data
+   :srcset: /auto_examples/datasets/images/sphx_glr_plot_load_ucimultifeature_002.png
+   :class: sphx-glr-single-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -148,7 +150,7 @@ reproducibility. Then, we visualize in 2D.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.574 seconds)
+   **Total running time of the script:** ( 0 minutes  7.359 seconds)
 
 
 .. _sphx_glr_download_auto_examples_datasets_plot_load_ucimultifeature.py:

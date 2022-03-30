@@ -160,15 +160,17 @@ better.
 
     *
 
-      .. image:: /auto_examples/embed/images/sphx_glr_plot_mvmds_tutorial_001.png
-          :alt: MVMDS Reduced Data (10-class), PCA Reduced Data (10-class)
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/embed/images/sphx_glr_plot_mvmds_tutorial_001.png
+         :alt: MVMDS Reduced Data (10-class), PCA Reduced Data (10-class)
+         :srcset: /auto_examples/embed/images/sphx_glr_plot_mvmds_tutorial_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/embed/images/sphx_glr_plot_mvmds_tutorial_002.png
-          :alt: MVMDS Reduced Data (4-class), PCA Reduced Data (4-class)
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/embed/images/sphx_glr_plot_mvmds_tutorial_002.png
+         :alt: MVMDS Reduced Data (4-class), PCA Reduced Data (4-class)
+         :srcset: /auto_examples/embed/images/sphx_glr_plot_mvmds_tutorial_002.png
+         :class: sphx-glr-multi-img
 
 
 
@@ -248,15 +250,17 @@ the fit_transform function to properly return the correct components)*
 
     *
 
-      .. image:: /auto_examples/embed/images/sphx_glr_plot_mvmds_tutorial_003.png
-          :alt: First 4 MVMDS Components Computed With 6 Views (No Noise)
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/embed/images/sphx_glr_plot_mvmds_tutorial_003.png
+         :alt: First 4 MVMDS Components Computed With 6 Views (No Noise)
+         :srcset: /auto_examples/embed/images/sphx_glr_plot_mvmds_tutorial_003.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/embed/images/sphx_glr_plot_mvmds_tutorial_004.png
-          :alt: First 4 PCA Components Computed With 1 View
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/embed/images/sphx_glr_plot_mvmds_tutorial_004.png
+         :alt: First 4 PCA Components Computed With 1 View
+         :srcset: /auto_examples/embed/images/sphx_glr_plot_mvmds_tutorial_004.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -273,7 +277,7 @@ the fit_transform function to properly return the correct components)*
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  22.145 seconds)
+   **Total running time of the script:** ( 0 minutes  22.068 seconds)
 
 
 .. _sphx_glr_download_auto_examples_embed_plot_mvmds_tutorial.py:

@@ -151,15 +151,17 @@ relationship, and then transform the data into that latent space.
 
     *
 
-      .. image:: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_001.png
-          :alt: Simulated data crossplot: linear setting
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_001.png
+         :alt: Simulated data crossplot: linear setting
+         :srcset: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_002.png
-          :alt: Scores crossplot: linear KMCCA
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_002.png
+         :alt: Scores crossplot: linear KMCCA
+         :srcset: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_002.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -214,15 +216,17 @@ Polynomial Kernel
 
     *
 
-      .. image:: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_003.png
-          :alt: Simulated data crossplot: polynomial setting
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_003.png
+         :alt: Simulated data crossplot: polynomial setting
+         :srcset: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_003.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_004.png
-          :alt: Scores crossplot: polynomial KMCCA
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_004.png
+         :alt: Scores crossplot: polynomial KMCCA
+         :srcset: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_004.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -275,15 +279,17 @@ Gaussian Kernel
 
     *
 
-      .. image:: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_005.png
-          :alt: Simulated data crossplot: Gaussian setting
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_005.png
+         :alt: Simulated data crossplot: Gaussian setting
+         :srcset: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_005.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_006.png
-          :alt: Scores crossplot: Gaussian KMCCA
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_006.png
+         :alt: Scores crossplot: Gaussian KMCCA
+         :srcset: /auto_examples/embed/images/sphx_glr_plot_kmcca_tutorial_006.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -300,7 +306,7 @@ Gaussian Kernel
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.386 seconds)
+   **Total running time of the script:** ( 0 minutes  2.645 seconds)
 
 
 .. _sphx_glr_download_auto_examples_embed_plot_kmcca_tutorial.py:

@@ -1,78 +1,45 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clustering &mdash; mvlearn alpha documentation</title>
-  
-
-  
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/mvlearn-logo-32x32.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/copybutton.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Semi-Supervised" href="semi_supervised.html" />
     <link rel="prev" title="Decomposition" href="decomposition.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="../index.html">
-          
-
-          
-            
             <img src="../_static/mvlearn-logo-transparent-white.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.4.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +47,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Using mvlearn</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using mvlearn</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a><ul>
@@ -226,7 +183,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Information</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to mvlearn</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#submitting-a-bug-report-or-a-feature-request">Submitting a bug report or a feature request</a><ul>
@@ -269,148 +226,97 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Useful Links</span></p>
+<p class="caption" role="heading"><span class="caption-text">Useful Links</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn">mvlearn &#64; GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/mvlearn/">mvlearn &#64; PyPI</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/mvlearn/mvlearn/issues">Issue Tracker</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">mvlearn</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Reference</a> &raquo;</li>
-        
       <li>Clustering</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/mvlearn/mvlearn/blob/main/docs/references/cluster.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="clustering">
+             
+  <section id="clustering">
 <h1>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="multiview-spectral-clustering">
+<section id="multiview-spectral-clustering">
 <h2>Multiview Spectral Clustering<a class="headerlink" href="#multiview-spectral-clustering" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mvlearn.cluster.MultiviewSpectralClustering">
-<em class="property">class </em><code class="descclassname">mvlearn.cluster.</code><code class="descname">MultiviewSpectralClustering</code><span class="sig-paren">(</span><em>n_clusters=2</em>, <em>random_state=None</em>, <em>info_view=None</em>, <em>max_iter=10</em>, <em>n_init=10</em>, <em>affinity='rbf'</em>, <em>gamma=None</em>, <em>n_neighbors=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/cluster/mv_spectral.html#MultiviewSpectralClustering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.cluster.MultiviewSpectralClustering" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="mvlearn.cluster.MultiviewSpectralClustering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.cluster.</span></span><span class="sig-name descname"><span class="pre">MultiviewSpectralClustering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info_view</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">affinity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rbf'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_neighbors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/cluster/mv_spectral.html#MultiviewSpectralClustering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.cluster.MultiviewSpectralClustering" title="Permalink to this definition">¶</a></dt>
 <dd><p>An implementation of multi-view spectral clustering.</p>
 <p>An implementation of multi-view spectral clustering using the
-basic co-training framework as described in <a class="footnote-reference" href="#clu" id="id1">[1]</a>.
+basic co-training framework as described in <a class="footnote-reference brackets" href="#clu" id="id1">1</a>.
 Additionally, this can be effective when the dataset naturally
 contains features that are of 2 different data types, such as
-continuous features and categorical features <a class="footnote-reference" href="#id8" id="id2">[4]</a>, and then the
+continuous features and categorical features <a class="footnote-reference brackets" href="#id8" id="id2">4</a>, and then the
 original features are separated into two views in this way.</p>
 <p>This algorithm can handle 2 or more views of data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>n_clusters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) -- The number of clusters</li>
-<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- Determines random number generation for k-means.</li>
-<li><strong>info_view</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- The most informative view. Must be between 0 and n_views-1
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_clusters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- The number of clusters</p></li>
+<li><p><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- Determines random number generation for k-means.</p></li>
+<li><p><strong>info_view</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- The most informative view. Must be between 0 and n_views-1
 If given, then the final clustering will be performed on the
 designated view alone. Otherwise, the algorithm will concatenate
-across all views and cluster on the result.</li>
-<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=10</em>) -- The maximum number of iterations to run the clustering
-algorithm.</li>
-<li><strong>n_init</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=10</em>) -- The number of random initializations to use for k-means clustering.</li>
-<li><strong>affinity</strong> (<em>string</em><em>, </em><em>optional</em><em>, </em><em>default='rbf'</em>) -- The affinity metric used to construct the affinity matrix. Options
+across all views and cluster on the result.</p></li>
+<li><p><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=10</em>) -- The maximum number of iterations to run the clustering
+algorithm.</p></li>
+<li><p><strong>n_init</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=10</em>) -- The number of random initializations to use for k-means clustering.</p></li>
+<li><p><strong>affinity</strong> (<em>string</em><em>, </em><em>optional</em><em>, </em><em>default='rbf'</em>) -- The affinity metric used to construct the affinity matrix. Options
 include 'rbf' (radial basis function), 'nearest_neighbors', and
-'poly' (polynomial)</li>
-<li><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- Kernel coefficient for rbf and polynomial kernels. If None then
+'poly' (polynomial)</p></li>
+<li><p><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- Kernel coefficient for rbf and polynomial kernels. If None then
 gamma is computed as 1 / (2 * median(pair_wise_distances(X))^2)
-for each data view X.</li>
-<li><strong>n_neighbors</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=10</em>) -- Only used if nearest neighbors is selected for affinity. The
-number of neighbors to use for the nearest neighbors kernel.</li>
+for each data view X.</p></li>
+<li><p><strong>n_neighbors</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=10</em>) -- Only used if nearest neighbors is selected for affinity. The
+number of neighbors to use for the nearest neighbors kernel.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
-<dt id="mvlearn.cluster.MultiviewSpectralClustering.labels_">
-<code class="descname">labels_</code><a class="headerlink" href="#mvlearn.cluster.MultiviewSpectralClustering.labels_" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.cluster.MultiviewSpectralClustering.labels_">
+<span class="sig-name descname"><span class="pre">labels_</span></span><a class="headerlink" href="#mvlearn.cluster.MultiviewSpectralClustering.labels_" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cluster labels for each sample in the fitted data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array-like, shape (n_samples)</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array-like, shape (n_samples)</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.cluster.MultiviewSpectralClustering.embedding_">
-<code class="descname">embedding_</code><a class="headerlink" href="#mvlearn.cluster.MultiviewSpectralClustering.embedding_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.cluster.MultiviewSpectralClustering.embedding_">
+<span class="sig-name descname"><span class="pre">embedding_</span></span><a class="headerlink" href="#mvlearn.cluster.MultiviewSpectralClustering.embedding_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The final spectral representation of the data to be used as input
 for the KMeans clustering step.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array-like, shape (n_samples, n_clusters)</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array-like, shape (n_samples, n_clusters)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Notes</p>
@@ -439,49 +345,44 @@ Spectral clustering algorithm for 2 views.</p>
 <p>Input: Similarity matrix for both views: <span class="math notranslate nohighlight">\(\mathbf{K}_1, \mathbf{K}_2\)</span></p>
 <p>Output: Assignments to k clusters</p>
 <ol class="arabic">
-<li><p class="first">Initialize: <span class="math notranslate nohighlight">\(\mathbf{L}_v = \mathbf{D}_v^{-1/2}
+<li><p>Initialize: <span class="math notranslate nohighlight">\(\mathbf{L}_v = \mathbf{D}_v^{-1/2}
 \mathbf{K}_v\mathbf{D}_v^{-1/2}\)</span> for <span class="math notranslate nohighlight">\(v = 1, 2\)</span>
 <span class="math notranslate nohighlight">\(\mathbf{U}_v^0\)</span> is an <span class="math notranslate nohighlight">\(n \times k\)</span> matrix with the
-top k eigenvectors of <span class="math notranslate nohighlight">\(\mathbf{L}_v\)</span> for <span class="math notranslate nohighlight">\(v = 1, 2\)</span></p>
-</li>
-<li><p class="first">For <span class="math notranslate nohighlight">\(i = 1\)</span> to iter:</p>
+top k eigenvectors of <span class="math notranslate nohighlight">\(\mathbf{L}_v\)</span> for <span class="math notranslate nohighlight">\(v = 1, 2\)</span></p></li>
+<li><p>For <span class="math notranslate nohighlight">\(i = 1\)</span> to iter:</p>
 <blockquote>
 <div><ol class="loweralpha simple">
-<li><span class="math notranslate nohighlight">\(\mathbf{S}_1 = sym(\mathbf{U}_2^{i-1}
-{\mathbf{U}_2^{i-1}}^T\mathbf{K}_1)\)</span></li>
-<li><span class="math notranslate nohighlight">\(\mathbf{S}_2 = sym(\mathbf{U}_1^{i-1}
-{\mathbf{U}_1^{i-1}}^T\mathbf{K}_2)\)</span></li>
-<li>Use <span class="math notranslate nohighlight">\(\mathbf{S}_1\)</span> and <span class="math notranslate nohighlight">\(\mathbf{S}_2\)</span> as the new
+<li><p><span class="math notranslate nohighlight">\(\mathbf{S}_1 = sym(\mathbf{U}_2^{i-1}
+{\mathbf{U}_2^{i-1}}^T\mathbf{K}_1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{S}_2 = sym(\mathbf{U}_1^{i-1}
+{\mathbf{U}_1^{i-1}}^T\mathbf{K}_2)\)</span></p></li>
+<li><p>Use <span class="math notranslate nohighlight">\(\mathbf{S}_1\)</span> and <span class="math notranslate nohighlight">\(\mathbf{S}_2\)</span> as the new
 graph similarities and compute the Laplacians. Solve for the
 largest k eigenvectors to obtain <span class="math notranslate nohighlight">\(\mathbf{U}_1^i\)</span> and
-<span class="math notranslate nohighlight">\(\mathbf{U}_2^i\)</span>.</li>
+<span class="math notranslate nohighlight">\(\mathbf{U}_2^i\)</span>.</p></li>
 </ol>
 </div></blockquote>
 </li>
-<li><p class="first">Row-normalize <span class="math notranslate nohighlight">\(\mathbf{U}_1^i\)</span> and <span class="math notranslate nohighlight">\(\mathbf{U}_2^i\)</span>.</p>
-</li>
-<li><p class="first">Form matrix <span class="math notranslate nohighlight">\(\mathbf{V} = \mathbf{U}_v^i\)</span>, where <span class="math notranslate nohighlight">\(v\)</span> is
+<li><p>Row-normalize <span class="math notranslate nohighlight">\(\mathbf{U}_1^i\)</span> and <span class="math notranslate nohighlight">\(\mathbf{U}_2^i\)</span>.</p></li>
+<li><p>Form matrix <span class="math notranslate nohighlight">\(\mathbf{V} = \mathbf{U}_v^i\)</span>, where <span class="math notranslate nohighlight">\(v\)</span> is
 believed to be the most informative view a priori. If there is no
 prior knowledge on the view informativeness, matrix
 <span class="math notranslate nohighlight">\(\mathbf{V}\)</span> can also be set to the column-wise concatenation
-of the two <span class="math notranslate nohighlight">\(\mathbf{U}_v^i\)</span> s.</p>
-</li>
-<li><p class="first">Assign example j to cluster c if the j-th row of <span class="math notranslate nohighlight">\(\mathbf{V}\)</span>
-is assigned to cluster c by the k-means algorithm.</p>
-</li>
+of the two <span class="math notranslate nohighlight">\(\mathbf{U}_v^i\)</span> s.</p></li>
+<li><p>Assign example j to cluster c if the j-th row of <span class="math notranslate nohighlight">\(\mathbf{V}\)</span>
+is assigned to cluster c by the k-means algorithm.</p></li>
 </ol>
 <p class="rubric">References</p>
-<table class="docutils footnote" frame="void" id="clu" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Abhishek Kumar and Hal Daume. &quot;A co-training approach for
+<dl class="footnote brackets">
+<dt class="label" id="clu"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Abhishek Kumar and Hal Daume. &quot;A co-training approach for
 multi-view spectral clustering.&quot; In Proceedings of the 28th
 International Conference on Machine Learning, page 393–400.
-Omnipress, 2011.</td></tr>
-</tbody>
-</table>
+Omnipress, 2011.</p>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.cluster</span> <span class="kn">import</span> <span class="n">MultiviewSpectralClustering</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">normalized_mutual_info_score</span> <span class="k">as</span> <span class="n">nmi_score</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Get 5-class data</span>
@@ -495,174 +396,77 @@ Omnipress, 2011.</td></tr>
 <span class="go">0.872</span>
 </pre></div>
 </div>
-<dl class="method">
-<dt id="mvlearn.cluster.MultiviewSpectralClustering.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/cluster/mv_spectral.html#MultiviewSpectralClustering.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.cluster.MultiviewSpectralClustering.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs clustering on the multiple views of data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>This list must be of size n_views, corresponding to the number
-of views of data. Each view can have a different number of
-features, but they must have the same number of samples.</p>
-</li>
-<li><strong>y</strong> (<em>Ignored</em>) -- Not used, present for API consistency by convention.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">returns an instance of self.</p>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
-<dl class="method">
-<dt id="mvlearn.cluster.MultiviewSpectralClustering.fit_predict">
-<code class="descname">fit_predict</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.cluster.MultiviewSpectralClustering.fit_predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>A method for fitting then predicting cluster assignments.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>A list of different views to fit the model on.</p>
-</li>
-<li><strong>y</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) -- Labels for each sample. Only used by supervised algorithms.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>labels</strong> -- The predicted cluster labels for each sample.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array-like, shape (n_samples,)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.cluster.MultiviewSpectralClustering.predict">
-<code class="descname">predict</code><span class="sig-paren">(</span><em>Xs</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.cluster.MultiviewSpectralClustering.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>A method to predict cluster labels of multiview data.
-:param Xs:</p>
-<blockquote>
-<div><ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>A list of different views to cluster.</p>
-</div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>labels</strong> -- Returns the predicted cluster labels for each sample.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">array-like, shape (n_samples,)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="co-regularized-multiview-spectral-clustering">
+</section>
+<section id="co-regularized-multiview-spectral-clustering">
 <h2>Co-Regularized Multiview Spectral Clustering<a class="headerlink" href="#co-regularized-multiview-spectral-clustering" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mvlearn.cluster.MultiviewCoRegSpectralClustering">
-<em class="property">class </em><code class="descclassname">mvlearn.cluster.</code><code class="descname">MultiviewCoRegSpectralClustering</code><span class="sig-paren">(</span><em>n_clusters=2</em>, <em>v_lambda=2</em>, <em>random_state=None</em>, <em>info_view=None</em>, <em>max_iter=10</em>, <em>n_init=10</em>, <em>affinity='rbf'</em>, <em>gamma=None</em>, <em>n_neighbors=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/cluster/mv_coreg_spectral.html#MultiviewCoRegSpectralClustering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.cluster.MultiviewCoRegSpectralClustering" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="mvlearn.cluster.MultiviewCoRegSpectralClustering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.cluster.</span></span><span class="sig-name descname"><span class="pre">MultiviewCoRegSpectralClustering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_lambda</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info_view</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">affinity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rbf'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_neighbors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/cluster/mv_coreg_spectral.html#MultiviewCoRegSpectralClustering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.cluster.MultiviewCoRegSpectralClustering" title="Permalink to this definition">¶</a></dt>
 <dd><p>An implementation of co-regularized multi-view spectral clustering based on
 an unsupervied version of the co-training framework.
 This algorithm uses the pairwise co-regularization scheme as described
-in <a class="footnote-reference" href="#id4" id="id3">[2]</a>. This algorithm can handle 2 or more views of data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>n_clusters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) -- The number of clusters</li>
-<li><strong>v_lambda</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em><em>, </em><em>default=2</em>) -- The regularization parameter. This parameter trades-off the spectral
+in <a class="footnote-reference brackets" href="#id4" id="id3">2</a>. This algorithm can handle 2 or more views of data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_clusters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) -- The number of clusters</p></li>
+<li><p><strong>v_lambda</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em><em>, </em><em>default=2</em>) -- The regularization parameter. This parameter trades-off the spectral
 clustering objectives with the degree of agreement between each pair
-of views in the new representation. Must be a positive value.</li>
-<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- Determines random number generation for k-means.</li>
-<li><strong>info_view</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- The most informative view. Must be between 0 and n_views-1
+of views in the new representation. Must be a positive value.</p></li>
+<li><p><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- Determines random number generation for k-means.</p></li>
+<li><p><strong>info_view</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- The most informative view. Must be between 0 and n_views-1
 If given, then the final clustering will be performed on the
 designated view alone. Otherwise, the algorithm will concatenate
-across all views and cluster on the result.</li>
-<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=10</em>) -- The maximum number of iterations to run the clustering
-algorithm.</li>
-<li><strong>n_init</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=10</em>) -- The number of random initializations to use for k-means clustering.</li>
-<li><strong>affinity</strong> (<em>string</em><em>, </em><em>optional</em><em>, </em><em>default='rbf'</em>) -- The affinity metric used to construct the affinity matrix. Options
+across all views and cluster on the result.</p></li>
+<li><p><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=10</em>) -- The maximum number of iterations to run the clustering
+algorithm.</p></li>
+<li><p><strong>n_init</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=10</em>) -- The number of random initializations to use for k-means clustering.</p></li>
+<li><p><strong>affinity</strong> (<em>string</em><em>, </em><em>optional</em><em>, </em><em>default='rbf'</em>) -- The affinity metric used to construct the affinity matrix. Options
 include 'rbf' (radial basis function), 'nearest_neighbors', and
-'poly' (polynomial)</li>
-<li><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- Kernel coefficient for rbf and polynomial kernels. If None then
+'poly' (polynomial)</p></li>
+<li><p><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- Kernel coefficient for rbf and polynomial kernels. If None then
 gamma is computed as 1 / (2 * median(pair_wise_distances(X))^2)
-for each data view X.</li>
-<li><strong>n_neighbors</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=10</em>) -- Only used if nearest neighbors is selected for affinity. The
-number of neighbors to use for the nearest neighbors kernel.</li>
+for each data view X.</p></li>
+<li><p><strong>n_neighbors</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=10</em>) -- Only used if nearest neighbors is selected for affinity. The
+number of neighbors to use for the nearest neighbors kernel.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
-<dt id="mvlearn.cluster.MultiviewCoRegSpectralClustering.labels_">
-<code class="descname">labels_</code><a class="headerlink" href="#mvlearn.cluster.MultiviewCoRegSpectralClustering.labels_" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.cluster.MultiviewCoRegSpectralClustering.labels_">
+<span class="sig-name descname"><span class="pre">labels_</span></span><a class="headerlink" href="#mvlearn.cluster.MultiviewCoRegSpectralClustering.labels_" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cluster labels for each point.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array-like, shape (n_samples,)</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array-like, shape (n_samples,)</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.cluster.MultiviewCoRegSpectralClustering.embedding_">
-<code class="descname">embedding_</code><a class="headerlink" href="#mvlearn.cluster.MultiviewCoRegSpectralClustering.embedding_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.cluster.MultiviewCoRegSpectralClustering.embedding_">
+<span class="sig-name descname"><span class="pre">embedding_</span></span><a class="headerlink" href="#mvlearn.cluster.MultiviewCoRegSpectralClustering.embedding_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The final spectral representation of the data to be used as input
 for the KMeans clustering step.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array-like, shape (n_samples, n_clusters)</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array-like, shape (n_samples, n_clusters)</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.cluster.MultiviewCoRegSpectralClustering.objective_">
-<code class="descname">objective_</code><a class="headerlink" href="#mvlearn.cluster.MultiviewCoRegSpectralClustering.objective_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.cluster.MultiviewCoRegSpectralClustering.objective_">
+<span class="sig-name descname"><span class="pre">objective_</span></span><a class="headerlink" href="#mvlearn.cluster.MultiviewCoRegSpectralClustering.objective_" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of the spectral clustering objective for each view at
 the end of each iteration.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array-like, shape (n_views, n_iterations)</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array-like, shape (n_views, n_iterations)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Notes</p>
@@ -678,17 +482,16 @@ the disagreement term.</p>
 <p>For a fixed lambda and n, the objective function is bounded from above and
 non-decreasing. As such, the algorithm is guaranteed to converge.</p>
 <p class="rubric">References</p>
-<table class="docutils footnote" frame="void" id="id4" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td>Abhishek Kumar, Piyush Rai, and Hal Daume.  Co-regularized
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p>Abhishek Kumar, Piyush Rai, and Hal Daume.  Co-regularized
 multi-view spectral cluster-ing. In Proceedings of the 24th
 International Conference on Neural Information Processing Systems,
-page 1413–1421. Curran Associates Inc., 2011.</td></tr>
-</tbody>
-</table>
+page 1413–1421. Curran Associates Inc., 2011.</p>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.cluster</span> <span class="kn">import</span> <span class="n">MultiviewCoRegSpectralClustering</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">normalized_mutual_info_score</span> <span class="k">as</span> <span class="n">nmi_score</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Get 5-class data</span>
@@ -702,113 +505,30 @@ page 1413–1421. Curran Associates Inc., 2011.</td></tr>
 <span class="go">0.663</span>
 </pre></div>
 </div>
-<dl class="method">
-<dt id="mvlearn.cluster.MultiviewCoRegSpectralClustering.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/cluster/mv_coreg_spectral.html#MultiviewCoRegSpectralClustering.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.cluster.MultiviewCoRegSpectralClustering.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs clustering on the multiple views of data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>This list must be of size n_views, corresponding to the number
-of views of data. Each view can have a different number of
-features, but they must have the same number of samples.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>self</strong></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">returns an instance of self.</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
-<dl class="method">
-<dt id="mvlearn.cluster.MultiviewCoRegSpectralClustering.fit_predict">
-<code class="descname">fit_predict</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/cluster/mv_coreg_spectral.html#MultiviewCoRegSpectralClustering.fit_predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.cluster.MultiviewCoRegSpectralClustering.fit_predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs clustering on the multiple views of data and returns
-the cluster labels.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>This list must be of size n_views, corresponding to the number
-of views of data. Each view can have a different number of
-features, but they must have the same number of samples.</p>
-</li>
-<li><strong>y</strong> (<em>ignored</em>) -- Included for API compliance.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>labels</strong> -- The predicted cluster labels for each sample.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array-like, shape (n_samples,)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.cluster.MultiviewCoRegSpectralClustering.predict">
-<code class="descname">predict</code><span class="sig-paren">(</span><em>Xs</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.cluster.MultiviewCoRegSpectralClustering.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>A method to predict cluster labels of multiview data.
-:param Xs:</p>
-<blockquote>
-<div><ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>A list of different views to cluster.</p>
-</div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>labels</strong> -- Returns the predicted cluster labels for each sample.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">array-like, shape (n_samples,)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="multiview-k-means">
+</section>
+<section id="multiview-k-means">
 <h2>Multiview K Means<a class="headerlink" href="#multiview-k-means" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mvlearn.cluster.MultiviewKMeans">
-<em class="property">class </em><code class="descclassname">mvlearn.cluster.</code><code class="descname">MultiviewKMeans</code><span class="sig-paren">(</span><em>n_clusters=2</em>, <em>random_state=None</em>, <em>init='k-means++'</em>, <em>patience=5</em>, <em>max_iter=300</em>, <em>n_init=5</em>, <em>tol=0.0001</em>, <em>n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/cluster/mv_kmeans.html#MultiviewKMeans"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.cluster.MultiviewKMeans" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="mvlearn.cluster.MultiviewKMeans">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.cluster.</span></span><span class="sig-name descname"><span class="pre">MultiviewKMeans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'k-means++'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patience</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/cluster/mv_kmeans.html#MultiviewKMeans"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.cluster.MultiviewKMeans" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class implements multi-view k-means.</p>
 <p>This class implements multi-view k-means using the co-EM framework
-as described in <a class="footnote-reference" href="#id7" id="id5">[3]</a>. This algorithm is most suitable for cases
+as described in <a class="footnote-reference brackets" href="#id7" id="id5">3</a>. This algorithm is most suitable for cases
 in which the different views of data are conditionally independent.
 Additionally, this can be effective when the dataset naturally
 contains features that are of 2 different data types, such as
-continuous features and categorical features <a class="footnote-reference" href="#id8" id="id6">[4]</a>, and then the
+continuous features and categorical features <a class="footnote-reference brackets" href="#id8" id="id6">4</a>, and then the
 original features are separated into two views in this way.</p>
 <p>This algorithm currently handles two views of data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>n_clusters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=2</em>) -- The number of clusters</li>
-<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- Determines random number generation for initializing centroids.
-Can seed the random number generator with an int.</li>
-<li><strong>init</strong> (<em>{'k-means++'</em><em>, </em><em>'random'}</em><em> or </em><em>list of array-likes</em><em>, </em><em>default='k-means++'</em>) -- <p>Method of initializing centroids.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_clusters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=2</em>) -- The number of clusters</p></li>
+<li><p><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- Determines random number generation for initializing centroids.
+Can seed the random number generator with an int.</p></li>
+<li><p><strong>init</strong> (<em>{'k-means++'</em><em>, </em><em>'random'}</em><em> or </em><em>list of array-likes</em><em>, </em><em>default='k-means++'</em>) -- <p>Method of initializing centroids.</p>
 <p>'k-means++': selects initial cluster centers for k-means clustering
 via a method that speeds up convergence.</p>
 <p>'random': choose n_cluster samples from the data for the initial
@@ -818,53 +538,45 @@ equal to the number of views. Each of the array-likes should have
 the shape (n_clusters, n_features_i) for the ith view, where
 n_features_i is the number of features in the ith view of the input
 data.</p>
-</li>
-<li><strong>patience</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=5</em>) -- The number of EM iterations with no decrease in the objective
-function after which the algorithm will terminate.</li>
-<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=300</em>) -- The maximum number of EM iterations to run before
-termination.</li>
-<li><strong>n_init</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=5</em>) -- Number of times the k-means algorithm will run on different
+</p></li>
+<li><p><strong>patience</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=5</em>) -- The number of EM iterations with no decrease in the objective
+function after which the algorithm will terminate.</p></li>
+<li><p><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=300</em>) -- The maximum number of EM iterations to run before
+termination.</p></li>
+<li><p><strong>n_init</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=5</em>) -- Number of times the k-means algorithm will run on different
 centroid seeds. The final result will be the best output of
-n_init runs with respect to total inertia across all views.</li>
-<li><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>default=1e-4</em>) -- Relative tolerance with regards to inertia to declare convergence.</li>
-<li><strong>n_jobs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>default=None</em>) -- The number of jobs to use for computation. This works by computing
+n_init runs with respect to total inertia across all views.</p></li>
+<li><p><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>default=1e-4</em>) -- Relative tolerance with regards to inertia to declare convergence.</p></li>
+<li><p><strong>n_jobs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>default=None</em>) -- The number of jobs to use for computation. This works by computing
 each of the n_init runs in parallel.
-None means 1. -1 means using all processors.</li>
+None means 1. -1 means using all processors.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
-<dt id="mvlearn.cluster.MultiviewKMeans.labels_">
-<code class="descname">labels_</code><a class="headerlink" href="#mvlearn.cluster.MultiviewKMeans.labels_" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.cluster.MultiviewKMeans.labels_">
+<span class="sig-name descname"><span class="pre">labels_</span></span><a class="headerlink" href="#mvlearn.cluster.MultiviewKMeans.labels_" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cluster labels for each sample in the fitted data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array-like, shape (n_samples)</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array-like, shape (n_samples)</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.cluster.MultiviewKMeans.centroids_">
-<code class="descname">centroids_</code><a class="headerlink" href="#mvlearn.cluster.MultiviewKMeans.centroids_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.cluster.MultiviewKMeans.centroids_">
+<span class="sig-name descname"><span class="pre">centroids_</span></span><a class="headerlink" href="#mvlearn.cluster.MultiviewKMeans.centroids_" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">centroids_</span></code> length: n_views
 <code class="docutils literal notranslate"><span class="pre">centroids_[i]</span></code> shape: (n_clusters, n_features_i)</p>
 <p>The cluster centroids for each of the two views. <code class="docutils literal notranslate"><span class="pre">centroids_[0]</span></code>
 corresponds to the centroids of view 1 and <code class="docutils literal notranslate"><span class="pre">centroids_[1]</span></code>
 corresponds to the centroids of view 2.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of array-likes</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of array-likes</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Notes</p>
@@ -887,51 +599,45 @@ below.</p>
 <p><em>Co-EM Algorithm</em></p>
 <p>Input: Unlabeled data D with 2 views</p>
 <ol class="arabic">
-<li><p class="first">Initialize <span class="math notranslate nohighlight">\(\Theta_0^{(2)}\)</span>, T, <span class="math notranslate nohighlight">\(t = 0\)</span>.</p>
-</li>
-<li><p class="first">E step for view 2: compute expectation for hidden variables given</p>
-</li>
-<li><p class="first">Loop until stopping criterion is true:</p>
+<li><p>Initialize <span class="math notranslate nohighlight">\(\Theta_0^{(2)}\)</span>, T, <span class="math notranslate nohighlight">\(t = 0\)</span>.</p></li>
+<li><p>E step for view 2: compute expectation for hidden variables given</p></li>
+<li><p>Loop until stopping criterion is true:</p>
 <blockquote>
 <div><ol class="loweralpha simple">
-<li>For v = 1 ... 2:<ol class="lowerroman">
-<li><span class="math notranslate nohighlight">\(t = t + 1\)</span></li>
-<li>M step view v: Find model parameters <span class="math notranslate nohighlight">\(\Theta_t^{(v)}\)</span>
+<li><p>For v = 1 ... 2:</p>
+<ol class="lowerroman simple">
+<li><p><span class="math notranslate nohighlight">\(t = t + 1\)</span></p></li>
+<li><p>M step view v: Find model parameters <span class="math notranslate nohighlight">\(\Theta_t^{(v)}\)</span>
 that maximize the likelihood for the data given the expected
 values for hidden variables of view <span class="math notranslate nohighlight">\(\overline{v}\)</span> of
-iteration <span class="math notranslate nohighlight">\(t\)</span> - 1</li>
-<li>E step view <span class="math notranslate nohighlight">\(v\)</span>: compute expectation for hidden
-variables given the model parameters <span class="math notranslate nohighlight">\(\Theta_t^{(v)}\)</span></li>
+iteration <span class="math notranslate nohighlight">\(t\)</span> - 1</p></li>
+<li><p>E step view <span class="math notranslate nohighlight">\(v\)</span>: compute expectation for hidden
+variables given the model parameters <span class="math notranslate nohighlight">\(\Theta_t^{(v)}\)</span></p></li>
 </ol>
 </li>
 </ol>
 </div></blockquote>
 </li>
-<li><p class="first">return combined <span class="math notranslate nohighlight">\(\hat{\Theta} = \Theta_{t-1}^{(1)} \cup
-\Theta_t^{(2)}\)</span></p>
-</li>
+<li><p>return combined <span class="math notranslate nohighlight">\(\hat{\Theta} = \Theta_{t-1}^{(1)} \cup
+\Theta_t^{(2)}\)</span></p></li>
 </ol>
 <p>The final assignment of examples to partitions is performed by assigning
 each example to the cluster with the largest averaged posterior
 probability over both views.</p>
 <p class="rubric">References</p>
-<table class="docutils footnote" frame="void" id="id7" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id9">2</a>)</em> Steffen Bickel and Tobias Scheffer. Multi-view clustering. In
+<dl class="footnote brackets">
+<dt class="label" id="id7"><span class="brackets">3</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id9">2</a>)</span></dt>
+<dd><p>Steffen Bickel and Tobias Scheffer. Multi-view clustering. In
 Proceedings of the Fourth IEEE International Conference on Data
-Mining, page 19–26. IEEE Computer Society, 2004.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id8" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[4]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id6">2</a>, <a class="fn-backref" href="#id10">3</a>)</em> Guoqing Chao, Shiliang Sun, and J. Bi. A survey on multi-view
-clustering.arXiv preprint, arXiv:1712.06246, 2017.</td></tr>
-</tbody>
-</table>
+Mining, page 19–26. IEEE Computer Society, 2004.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets">4</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id6">2</a>,<a href="#id10">3</a>)</span></dt>
+<dd><p>Guoqing Chao, Shiliang Sun, and J. Bi. A survey on multi-view
+clustering.arXiv preprint, arXiv:1712.06246, 2017.</p>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.cluster</span> <span class="kn">import</span> <span class="n">MultiviewKMeans</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">normalized_mutual_info_score</span> <span class="k">as</span> <span class="n">nmi_score</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Get 5-class data</span>
@@ -945,118 +651,31 @@ clustering.arXiv preprint, arXiv:1712.06246, 2017.</td></tr>
 </pre></div>
 </div>
 <p>&quot;&quot;</p>
-<dl class="method">
-<dt id="mvlearn.cluster.MultiviewKMeans.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/cluster/mv_kmeans.html#MultiviewKMeans.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.cluster.MultiviewKMeans.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit the cluster centroids to the data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>This list must be of size 2, corresponding to the two views of
-the data. The two views can each have a different number of
-features, but they must have the same number of samples.</p>
-</li>
-<li><strong>y</strong> (<em>Ignored</em>) -- Not used, present for API consistency by convention.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">returns an instance of self.</p>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
-<dl class="method">
-<dt id="mvlearn.cluster.MultiviewKMeans.predict">
-<code class="descname">predict</code><span class="sig-paren">(</span><em>Xs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/cluster/mv_kmeans.html#MultiviewKMeans.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.cluster.MultiviewKMeans.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Predict the cluster labels for the data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>This list must be of size 2, corresponding to the two
-views of the data. The two views can each have a different
-number of features, but they must have the same number of samples.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>labels</strong> -- The predicted cluster labels for each sample.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">array-like, shape (n_samples,)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.cluster.MultiviewKMeans.fit_predict">
-<code class="descname">fit_predict</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.cluster.MultiviewKMeans.fit_predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>A method for fitting then predicting cluster assignments.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>A list of different views to fit the model on.</p>
-</li>
-<li><strong>y</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) -- Labels for each sample. Only used by supervised algorithms.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>labels</strong> -- The predicted cluster labels for each sample.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array-like, shape (n_samples,)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="multiview-spherical-k-means">
+</section>
+<section id="multiview-spherical-k-means">
 <h2>Multiview Spherical K Means<a class="headerlink" href="#multiview-spherical-k-means" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mvlearn.cluster.MultiviewSphericalKMeans">
-<em class="property">class </em><code class="descclassname">mvlearn.cluster.</code><code class="descname">MultiviewSphericalKMeans</code><span class="sig-paren">(</span><em>n_clusters=2</em>, <em>random_state=None</em>, <em>init='k-means++'</em>, <em>patience=5</em>, <em>max_iter=None</em>, <em>n_init=5</em>, <em>tol=0.0001</em>, <em>n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/cluster/mv_spherical_kmeans.html#MultiviewSphericalKMeans"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.cluster.MultiviewSphericalKMeans" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="mvlearn.cluster.MultiviewSphericalKMeans">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.cluster.</span></span><span class="sig-name descname"><span class="pre">MultiviewSphericalKMeans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'k-means++'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patience</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/cluster/mv_spherical_kmeans.html#MultiviewSphericalKMeans"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.cluster.MultiviewSphericalKMeans" title="Permalink to this definition">¶</a></dt>
 <dd><p>An implementation of multi-view spherical K-Means.</p>
 <p>An implementation of multi-view spherical K-Means using the
-co-EM framework as described in <a class="footnote-reference" href="#id7" id="id9">[3]</a>. This algorithm is
+co-EM framework as described in <a class="footnote-reference brackets" href="#id7" id="id9">3</a>. This algorithm is
 most suitable for cases in which the different views of data
 are conditionally independent. Additionally, this can be effective
 when the dataset naturally contains features that are of 2 different
 data types, such as continuous features and categorical features
-<a class="footnote-reference" href="#id8" id="id10">[4]</a>, and then the original features are separated into two
+<a class="footnote-reference brackets" href="#id8" id="id10">4</a>, and then the original features are separated into two
 views in this way.</p>
 <p>This algorithm currently handles two views of data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>n_clusters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=2</em>) -- The number of clusters</li>
-<li><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- Determines random number generation for initializing centroids.
-Can seed the random number generator with an int.</li>
-<li><strong>init</strong> (<em>{'k-means++'</em><em>, </em><em>'random'}</em><em> or </em><em>list of array-likes</em><em>, </em><em>default='k-means++'</em>) -- <p>Method of initializing centroids.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_clusters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=2</em>) -- The number of clusters</p></li>
+<li><p><strong>random_state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- Determines random number generation for initializing centroids.
+Can seed the random number generator with an int.</p></li>
+<li><p><strong>init</strong> (<em>{'k-means++'</em><em>, </em><em>'random'}</em><em> or </em><em>list of array-likes</em><em>, </em><em>default='k-means++'</em>) -- <p>Method of initializing centroids.</p>
 <p>'k-means++': selects initial cluster centers for k-means clustering
 via a method that speeds up convergence.</p>
 <p>'random': choose n_cluster samples from the data for the initial
@@ -1066,53 +685,45 @@ equal to the number of views. Each of the array-likes should have
 the shape (n_clusters, n_features_i) for the ith view, where
 n_features_i is the number of features in the ith view of the input
 data.</p>
-</li>
-<li><strong>patience</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=5</em>) -- The number of EM iterations with no decrease in the objective
-function after which the algorithm will terminate.</li>
-<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- The maximum number of EM iterations to run before
-termination.</li>
-<li><strong>n_init</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=5</em>) -- Number of times the k-means algorithm will run on different
+</p></li>
+<li><p><strong>patience</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=5</em>) -- The number of EM iterations with no decrease in the objective
+function after which the algorithm will terminate.</p></li>
+<li><p><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=None</em>) -- The maximum number of EM iterations to run before
+termination.</p></li>
+<li><p><strong>n_init</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em><em>, </em><em>default=5</em>) -- Number of times the k-means algorithm will run on different
 centroid seeds. The final result will be the best output of
-n_init runs with respect to total inertia across all views.</li>
-<li><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>default=1e-4</em>) -- Relative tolerance with regards to inertia to declare convergence.</li>
-<li><strong>n_jobs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>default=None</em>) -- The number of jobs to use for computation. This works by computing
+n_init runs with respect to total inertia across all views.</p></li>
+<li><p><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>default=1e-4</em>) -- Relative tolerance with regards to inertia to declare convergence.</p></li>
+<li><p><strong>n_jobs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>default=None</em>) -- The number of jobs to use for computation. This works by computing
 each of the n_init runs in parallel.
-None means 1. -1 means using all processors.</li>
+None means 1. -1 means using all processors.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
-<dt id="mvlearn.cluster.MultiviewSphericalKMeans.labels_">
-<code class="descname">labels_</code><a class="headerlink" href="#mvlearn.cluster.MultiviewSphericalKMeans.labels_" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.cluster.MultiviewSphericalKMeans.labels_">
+<span class="sig-name descname"><span class="pre">labels_</span></span><a class="headerlink" href="#mvlearn.cluster.MultiviewSphericalKMeans.labels_" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cluster labels for each sample in the fitted data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">array-like, shape (n_samples)</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array-like, shape (n_samples)</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mvlearn.cluster.MultiviewSphericalKMeans.centroids_">
-<code class="descname">centroids_</code><a class="headerlink" href="#mvlearn.cluster.MultiviewSphericalKMeans.centroids_" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mvlearn.cluster.MultiviewSphericalKMeans.centroids_">
+<span class="sig-name descname"><span class="pre">centroids_</span></span><a class="headerlink" href="#mvlearn.cluster.MultiviewSphericalKMeans.centroids_" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">centroids_</span></code> length: n_views
 <code class="docutils literal notranslate"><span class="pre">centroids_[i]</span></code> shape: (n_clusters, n_features_i)</p>
 <p>The cluster centroids for each of the two views. <code class="docutils literal notranslate"><span class="pre">centroids_[0]</span></code>
 corresponds to the centroids of view 1 and <code class="docutils literal notranslate"><span class="pre">centroids_[1]</span></code>
 corresponds to the centroids of view 2.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of array-likes</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of array-likes</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Notes</p>
@@ -1133,7 +744,7 @@ one view, and then using the computed hidden variables as the input for the
 maximization step in the other view. This algorithm is described in the
 section for multi-view k-means clustering.</p>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.datasets</span> <span class="kn">import</span> <span class="n">load_UCImultifeature</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.cluster</span> <span class="kn">import</span> <span class="n">MultiviewSphericalKMeans</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">normalized_mutual_info_score</span> <span class="k">as</span> <span class="n">nmi_score</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Get 5-class data</span>
@@ -1147,121 +758,29 @@ section for multi-view k-means clustering.</p>
 <span class="go">0.823</span>
 </pre></div>
 </div>
-<dl class="method">
-<dt id="mvlearn.cluster.MultiviewSphericalKMeans.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/cluster/mv_spherical_kmeans.html#MultiviewSphericalKMeans.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mvlearn.cluster.MultiviewSphericalKMeans.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit the cluster centroids to the data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>This list must be of size 2, corresponding to the two views of
-the data. The two views can each have a different number of
-features, but they must have the same number of samples.</p>
-</li>
-<li><strong>y</strong> (<em>Ignored</em>) -- Not used, present for API consistency by convention.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">returns an instance of self.</p>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
-<dl class="method">
-<dt id="mvlearn.cluster.MultiviewSphericalKMeans.fit_predict">
-<code class="descname">fit_predict</code><span class="sig-paren">(</span><em>Xs</em>, <em>y=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.cluster.MultiviewSphericalKMeans.fit_predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>A method for fitting then predicting cluster assignments.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul>
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>A list of different views to fit the model on.</p>
-</li>
-<li><strong>y</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) -- Labels for each sample. Only used by supervised algorithms.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>labels</strong> -- The predicted cluster labels for each sample.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array-like, shape (n_samples,)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mvlearn.cluster.MultiviewSphericalKMeans.predict">
-<code class="descname">predict</code><span class="sig-paren">(</span><em>Xs</em><span class="sig-paren">)</span><a class="headerlink" href="#mvlearn.cluster.MultiviewSphericalKMeans.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Predict the cluster labels for the data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Xs</strong> (<em>list of array-likes</em><em> or </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) -- <ul class="simple">
-<li>Xs length: n_views</li>
-<li>Xs[i] shape: (n_samples, n_features_i)</li>
-</ul>
-<p>This list must be of size 2, corresponding to the two
-views of the data. The two views can each have a different
-number of features, but they must have the same number of samples.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>labels</strong> -- The predicted cluster labels for each sample.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">array-like, shape (n_samples,)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="semi_supervised.html" class="btn btn-neutral float-right" title="Semi-Supervised" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="decomposition.html" class="btn btn-neutral" title="Decomposition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="decomposition.html" class="btn btn-neutral float-left" title="Decomposition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="semi_supervised.html" class="btn btn-neutral float-right" title="Semi-Supervised" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019-2020
-
-    </p>
+    <p>&#169; Copyright 2019-2020.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 <p style="text-align: center; margin: .5rem;">
     <a href="https://www.netlify.com">
         <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" />
@@ -1271,34 +790,11 @@ number of features, but they must have the same number of samples.</p>
 
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/js/copybutton.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
