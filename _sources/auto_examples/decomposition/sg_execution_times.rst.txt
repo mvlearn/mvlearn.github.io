@@ -5,12 +5,12 @@
 
 Computation times
 =================
-**00:13.706** total execution time for **auto_examples_decomposition** files:
+**00:13.356** total execution time for **auto_examples_decomposition** files:
 
 +---------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_decomposition_plot_mv_ica_tutorial.py` (``plot_mv_ica_tutorial.py``)       | 00:08.505 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_decomposition_plot_mv_ica_tutorial.py` (``plot_mv_ica_tutorial.py``)       | 00:08.426 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_decomposition_plot_ajive_tutorial.py` (``plot_ajive_tutorial.py``)         | 00:04.316 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_decomposition_plot_ajive_tutorial.py` (``plot_ajive_tutorial.py``)         | 00:04.041 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_decomposition_plot_group_ica_tutorial.py` (``plot_group_ica_tutorial.py``) | 00:00.884 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_decomposition_plot_group_ica_tutorial.py` (``plot_group_ica_tutorial.py``) | 00:00.889 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------+-----------+--------+

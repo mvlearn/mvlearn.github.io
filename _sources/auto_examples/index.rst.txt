@@ -497,27 +497,6 @@ Examples on embed
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This demo shows you how to run Omnibus Embedding on multiview data. Omnibus embedding is origin...">
-
-.. only:: html
-
- .. figure:: /auto_examples/embed/images/thumb/sphx_glr_plot_omnibus_embedding_thumb.png
-     :alt: Omnbius Graph Embedding
-
-     :ref:`sphx_glr_auto_examples_embed_plot_omnibus_embedding.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/embed/plot_omnibus_embedding
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="Kernel matrices grow exponentially with the size of the data. There are immense storage and run...">
 
 .. only:: html

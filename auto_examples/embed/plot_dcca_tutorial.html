@@ -24,7 +24,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Omnbius Graph Embedding" href="plot_omnibus_embedding.html" />
+    <link rel="next" title="Partial Gram-Schmidt Orthogonalization (PGSO) for KMCCA" href="plot_kmcca_pgso_tutorial.html" />
     <link rel="prev" title="CCA Tutorial" href="plot_mcca_tutorial.html" /> 
 </head>
 
@@ -96,7 +96,6 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mcca_tutorial.html">CCA Tutorial</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Deep CCA (DCCA) Tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_kmcca_pgso_tutorial.html">Partial Gram-Schmidt Orthogonalization (PGSO) for KMCCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_cca_comparison.html">Comparing CCA Variants</a></li>
@@ -122,7 +121,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#kernel-mcca">Kernel MCCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#generalized-canonical-correlation-analysis-gcca">Generalized Canonical Correlation Analysis (GCCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#deep-canonical-correlation-analysis-dcca">Deep Canonical Correlation Analysis (DCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#omnibus-embedding">Omnibus Embedding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#split-autoencoder">Split Autoencoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../references/embed.html#dcca-utilities">DCCA Utilities</a></li>
@@ -209,12 +207,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../changelog.html#unreleased">Unreleased</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-4-1">Version 0.4.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id3">mvlearn.compose</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id11">mvlearn.construct</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id13">mvlearn.decomposition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id15">mvlearn.embed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id19">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id22">mvlearn.utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id4">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id12">mvlearn.construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id14">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id16">mvlearn.embed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id20">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id23">mvlearn.utils</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -391,7 +389,7 @@ transformed and untransformed latents.</p>
                 <span class="n">equal_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_dcca_tutorial_005.png" srcset="../../_images/sphx_glr_plot_dcca_tutorial_005.png" alt="Transformed Testing Data View 1 vs. View 2 (Sinusoidal Transform + noise)" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  48.054 seconds)</p>
+<img src="../../_images/sphx_glr_plot_dcca_tutorial_005.png" srcset="../../_images/sphx_glr_plot_dcca_tutorial_005.png" alt="Transformed Testing Data View 1 vs. View 2 (Sinusoidal Transform + noise)" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  12.095 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-embed-plot-dcca-tutorial-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/ecc434e54ca56681edec53f63e8af0af/plot_dcca_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_dcca_tutorial.py</span></code></a></p>
@@ -409,7 +407,7 @@ transformed and untransformed latents.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="plot_mcca_tutorial.html" class="btn btn-neutral float-left" title="CCA Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_omnibus_embedding.html" class="btn btn-neutral float-right" title="Omnbius Graph Embedding" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_kmcca_pgso_tutorial.html" class="btn btn-neutral float-right" title="Partial Gram-Schmidt Orthogonalization (PGSO) for KMCCA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

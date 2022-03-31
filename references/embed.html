@@ -97,7 +97,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_gcca_tutorial.html">Generalized Canonical Correlation Analysis (GCCA) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_mcca_tutorial.html">CCA Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_dcca_tutorial.html">Deep CCA (DCCA) Tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_omnibus_embedding.html">Omnbius Graph Embedding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_kmcca_pgso_tutorial.html">Partial Gram-Schmidt Orthogonalization (PGSO) for KMCCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_mvmds_tutorial.html">Multidimensional Scaling (MVMDS) Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/embed/plot_cca_comparison.html">Comparing CCA Variants</a></li>
@@ -123,7 +122,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#kernel-mcca">Kernel MCCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#generalized-canonical-correlation-analysis-gcca">Generalized Canonical Correlation Analysis (GCCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#deep-canonical-correlation-analysis-dcca">Deep Canonical Correlation Analysis (DCCA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#omnibus-embedding">Omnibus Embedding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#multiview-multidimensional-scaling">Multiview Multidimensional Scaling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#split-autoencoder">Split Autoencoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#dcca-utilities">DCCA Utilities</a></li>
@@ -210,12 +208,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#unreleased">Unreleased</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-4-1">Version 0.4.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-4-0">Version 0.4.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id3">mvlearn.compose</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id11">mvlearn.construct</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id13">mvlearn.decomposition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id15">mvlearn.embed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id19">mvlearn.model_selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id22">mvlearn.utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id4">mvlearn.compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id12">mvlearn.construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id14">mvlearn.decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id16">mvlearn.embed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id20">mvlearn.model_selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id23">mvlearn.utils</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-3-0">Version 0.3.0</a></li>
@@ -743,7 +741,7 @@ during calls to <code class="docutils literal notranslate"><span class="pre">.tr
 <dd><ul class="simple">
 <li><p>pgso_Xs_[i] shape (rank_i, n_features)</p></li>
 </ul>
-<p>The samples with indices saved in <a href="#id20"><span class="problematic" id="id21">pgso_idxs_</span></a>, sorted by <a href="#id22"><span class="problematic" id="id23">pgso_norms_</span></a></p>
+<p>The samples with indices saved in <a href="#id19"><span class="problematic" id="id20">pgso_idxs_</span></a>, sorted by <a href="#id21"><span class="problematic" id="id22">pgso_norms_</span></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>list of numpy.ndarray, length (n_views,)</p>
@@ -781,7 +779,7 @@ A kernel function K, such that for all <span class="math notranslate nohighlight
 \cdot \phi(\mathbf{z})\rangle.\]</div>
 <p>The kernel matrix <span class="math notranslate nohighlight">\(K_i\)</span> has entries computed from the kernel
 function. Using the kernel trick, loadings of the kernel matrix
-(<a href="#id24"><span class="problematic" id="id25">dual_vars_</span></a>) are solved for rather than of the features from <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
+(<a href="#id23"><span class="problematic" id="id24">dual_vars_</span></a>) are solved for rather than of the features from <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
 <p>Kernel matrices grow exponentially with the size of data. They not only
 have to store <span class="math notranslate nohighlight">\(n^2\)</span> elements, but also face the complexity of matrix
 eigenvalue problems. In a Cholesky decomposition a positive definite
@@ -1209,7 +1207,7 @@ singular values of the matrix <span class="math notranslate nohighlight">\(T\)</
 </div>
 <p class="rubric">References</p>
 <dl class="footnote brackets">
-<dt class="label" id="dcca"><span class="brackets">9</span><span class="fn-backref">(<a href="#id10">1</a>,<a href="#id11">2</a>,<a href="#id16">3</a>)</span></dt>
+<dt class="label" id="dcca"><span class="brackets">9</span><span class="fn-backref">(<a href="#id10">1</a>,<a href="#id11">2</a>,<a href="#id15">3</a>)</span></dt>
 <dd><p>Andrew, G., et al., &quot;Deep canonical correlation analysis.&quot; In
 Proceedings of the 30th International Conference on International
 Conferenceon Machine Learning, volume 28, pages 1247–1255.
@@ -1219,78 +1217,13 @@ JMLR.org, 2013.</p>
 </dd></dl>
 
 </section>
-<section id="omnibus-embedding">
-<h2>Omnibus Embedding<a class="headerlink" href="#omnibus-embedding" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="mvlearn.embed.Omnibus">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.embed.</span></span><span class="sig-name descname"><span class="pre">Omnibus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'euclidean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'l1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'randomized'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/omnibus.html#Omnibus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.embed.Omnibus" title="Permalink to this definition">¶</a></dt>
-<dd><p>Omnibus computes the pairwise distances for each view. Each
-of these matrices is a n x n dissimilarity matrix where n is the number
-of rows in each view. Omnibus embedding <a class="footnote-reference brackets" href="#omni" id="id12">10</a> is then performed
-over the dissimilarity matrices and the computed embeddings are returned.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>n_components</strong> (<em>strictly positive int</em><em> (</em><em>default = 2</em><em>)</em>) -- Desired dimensionality of output embeddings. See graspy docs for
-additional details.</p></li>
-<li><p><strong>distance_metric</strong> (<em>string</em><em> (</em><em>default = 'euclidean'</em><em>)</em>) -- Distance metric used to compute pairwise distances. Metrics must
-be found in sklearn.neighbors.DistanceMetric.</p></li>
-<li><p><strong>normalize</strong> (<em>string</em><em> or </em><em>None</em><em> (</em><em>default = 'l1'</em><em>)</em>) -- Normalize function to use on views before computing
-pairwise distances. Must be 'l2', 'l1', 'max'
-or None. If None, the distance matrices will not be normalized.</p></li>
-<li><p><strong>algorithm</strong> (<em>string</em><em> (</em><em>default = 'randomized'</em><em>)</em>) -- SVD solver to use. Must be 'full', 'randomized', or 'truncated'.
-See graspy docs for details.</p></li>
-<li><p><strong>n_iter</strong> (<em>positive int</em><em> (</em><em>default = 5</em><em>)</em>) -- Number of iterations for randomized SVD solver. See graspy docs for
-details.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mvlearn.embed.Omnibus.embeddings_">
-<span class="sig-name descname"><span class="pre">embeddings_</span></span><a class="headerlink" href="#mvlearn.embed.Omnibus.embeddings_" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of Omnibus embeddings. One embedding matrix is provided
-per view. If fit() has not been called, <a href="#id26"><span class="problematic" id="id27">embeddings_</span></a> is set to
-None.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>list of arrays (default = None)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<p class="rubric">Notes</p>
-<p>From an implementation perspective, omnibus embedding is performed
-using the GrasPy package's implementation graspy.embed.OmnibusEmbed
-for dissimilarity matrices.</p>
-<p class="rubric">References</p>
-<dl class="footnote brackets">
-<dt class="label" id="omni"><span class="brackets"><a class="fn-backref" href="#id12">10</a></span></dt>
-<dd><p><a class="reference external" href="https://graspy.neurodata.io/tutorials/embedding/omnibus">https://graspy.neurodata.io/tutorials/embedding/omnibus</a></p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mvlearn.embed</span> <span class="kn">import</span> <span class="n">omnibus</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create 2 random data views with feature sizes 50 and 100</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">view1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">view2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">embedder</span> <span class="o">=</span> <span class="n">omnibus</span><span class="o">.</span><span class="n">Omnibus</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">embeddings</span> <span class="o">=</span> <span class="n">embedder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([</span><span class="n">view1</span><span class="p">,</span> <span class="n">view2</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">view1_hat</span><span class="p">,</span> <span class="n">view2_hat</span> <span class="o">=</span> <span class="n">embeddings</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">view1_hat</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">view2_hat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="go">(1000, 3) (1000, 3)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-</section>
 <section id="multiview-multidimensional-scaling">
 <h2>Multiview Multidimensional Scaling<a class="headerlink" href="#multiview-multidimensional-scaling" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="mvlearn.embed.MVMDS">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.embed.</span></span><span class="sig-name descname"><span class="pre">MVMDS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dissimilarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'euclidean'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/mvmds.html#MVMDS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.embed.MVMDS" title="Permalink to this definition">¶</a></dt>
 <dd><p>An implementation of Classical Multiview Multidimensional Scaling for
-jointly reducing the dimensions of multiple views of data <a class="footnote-reference brackets" href="#mvmds" id="id13">11</a>.
+jointly reducing the dimensions of multiple views of data <a class="footnote-reference brackets" href="#mvmds" id="id12">10</a>.
 A Euclidean distance matrix is created for each view, double centered,
 and the k largest common eigenvectors between the matrices are found
 based on the stepwise estimation of common principal components. Using
@@ -1375,12 +1308,12 @@ fitting and transforming at once.</p>
 </div>
 <p class="rubric">References</p>
 <dl class="footnote brackets">
-<dt class="label" id="mvmds"><span class="brackets"><a class="fn-backref" href="#id13">11</a></span></dt>
+<dt class="label" id="mvmds"><span class="brackets"><a class="fn-backref" href="#id12">10</a></span></dt>
 <dd><p>Trendafilov, Nickolay T. “Stepwise Estimation of Common
 Principal Components.” Computational Statistics &amp; Data
 Analysis, 54(12):3446–3457, 2010</p>
 </dd>
-<dt class="label" id="id14"><span class="brackets">12</span></dt>
+<dt class="label" id="id13"><span class="brackets">11</span></dt>
 <dd><p>Kanaan-Izquierdo, Samir, et al. &quot;Multiview: a software
 package for multiview pattern recognition methods.&quot; Bioinformatics,
 35(16):2877–2879, 2019</p>
@@ -1396,7 +1329,7 @@ package for multiview pattern recognition methods.&quot; Bioinformatics,
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.embed.</span></span><span class="sig-name descname"><span class="pre">SplitAE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hidden_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_hidden_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">embed_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_graph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/splitae.html#SplitAE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.embed.SplitAE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implements an autoencoder that creates an embedding of a view View1 and
 from that embedding reconstructs View1 and another view View2, as
-described in <a class="footnote-reference brackets" href="#split" id="id15">13</a>.</p>
+described in <a class="footnote-reference brackets" href="#split" id="id14">12</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1474,7 +1407,7 @@ the decoders, <span class="math notranslate nohighlight">\(\textbf{x}\)</span> i
 and <span class="math notranslate nohighlight">\(\textbf{y}\)</span> is View2.</p>
 <p class="rubric">References</p>
 <dl class="footnote brackets">
-<dt class="label" id="split"><span class="brackets"><a class="fn-backref" href="#id15">13</a></span></dt>
+<dt class="label" id="split"><span class="brackets"><a class="fn-backref" href="#id14">12</a></span></dt>
 <dd><p>Wang, Weiran, et al. &quot;On Deep Multi-View Representation
 Learning.&quot; In Proceedings of the 32nd International Conference on
 Machine Learning, 37:1083-1092, 2015.</p>
@@ -1525,7 +1458,7 @@ List of the means of the data in each view.</p>
 <dt class="sig sig-object py" id="mvlearn.embed.cca_loss">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mvlearn.embed.</span></span><span class="sig-name descname"><span class="pre">cca_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_components</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_all_singular_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/dcca.html#cca_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.embed.cca_loss" title="Permalink to this definition">¶</a></dt>
 <dd><p>An implementation of the loss function of linear CCA as introduced
-in the original paper for <code class="docutils literal notranslate"><span class="pre">DCCA</span></code> <a class="footnote-reference brackets" href="#dcca" id="id16">9</a>. Details of how this loss
+in the original paper for <code class="docutils literal notranslate"><span class="pre">DCCA</span></code> <a class="footnote-reference brackets" href="#dcca" id="id15">9</a>. Details of how this loss
 is computed can be found in the paper or in the documentation for
 <code class="docutils literal notranslate"><span class="pre">DCCA</span></code>.</p>
 <dl class="field-list simple">
@@ -1676,7 +1609,7 @@ values are used.</p></li>
 <dt class="sig sig-object py" id="mvlearn.embed.select_dimension">
 <span class="sig-prename descclassname"><span class="pre">mvlearn.embed.</span></span><span class="sig-name descname"><span class="pre">select_dimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_elbows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_likelihoods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mvlearn/embed/utils.html#select_dimension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvlearn.embed.select_dimension" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates profile likelihood from array based on Zhu and Godsie
-method <a class="footnote-reference brackets" href="#id19" id="id18">15</a>. Elbows correspond to the optimal embedding
+method <a class="footnote-reference brackets" href="#id18" id="id17">14</a>. Elbows correspond to the optimal embedding
 dimension.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1707,11 +1640,11 @@ returned if <cite>return_likelihoods</cite> is True.</p></li>
 </dl>
 <p class="rubric">References</p>
 <dl class="footnote brackets">
-<dt class="label" id="eutils"><span class="brackets">14</span></dt>
+<dt class="label" id="eutils"><span class="brackets">13</span></dt>
 <dd><p>Code from the <a class="reference external" href="https://github.com/neurodata/graspy">https://github.com/neurodata/graspy</a> package,
 reproduced and shared with permission.</p>
 </dd>
-<dt class="label" id="id19"><span class="brackets"><a class="fn-backref" href="#id18">15</a></span></dt>
+<dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id17">14</a></span></dt>
 <dd><p>Zhu, M. and Ghodsi, A.,
 &quot;Automatic dimensionality selection from the scree plot via the
 use of profile likelihood. Computational Statistics &amp; Data
