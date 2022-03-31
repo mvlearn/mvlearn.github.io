@@ -5,10 +5,10 @@
 
 Computation times
 =================
-**00:03.108** total execution time for **auto_examples_plotting** files:
+**00:02.470** total execution time for **auto_examples_plotting** files:
 
 +----------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plotting_plot_quick_visualize_tutorial.py` (``plot_quick_visualize_tutorial.py``) | 00:02.063 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plotting_plot_quick_visualize_tutorial.py` (``plot_quick_visualize_tutorial.py``) | 00:01.606 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plotting_plot_crossviews_plot.py` (``plot_crossviews_plot.py``)                   | 00:01.045 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plotting_plot_crossviews_plot.py` (``plot_crossviews_plot.py``)                   | 00:00.864 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------------+-----------+--------+
