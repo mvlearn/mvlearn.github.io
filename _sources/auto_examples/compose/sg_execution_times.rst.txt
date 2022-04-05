@@ -5,10 +5,10 @@
 
 Computation times
 =================
-**00:33.443** total execution time for **auto_examples_compose** files:
+**00:39.785** total execution time for **auto_examples_compose** files:
 
 +-----------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_compose_plot_multiview_construction.py` (``plot_multiview_construction.py``)             | 00:33.263 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_compose_plot_multiview_construction.py` (``plot_multiview_construction.py``)             | 00:39.541 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_compose_plot_pipeline_sklearn_integration.py` (``plot_pipeline_sklearn_integration.py``) | 00:00.180 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_compose_plot_pipeline_sklearn_integration.py` (``plot_pipeline_sklearn_integration.py``) | 00:00.244 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------+-----------+--------+

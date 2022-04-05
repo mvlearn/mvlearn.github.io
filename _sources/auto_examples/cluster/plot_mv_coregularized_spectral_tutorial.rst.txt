@@ -193,7 +193,7 @@ spectral clustering algorithm below, along with the true class labels.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 3 minutes  10.419 seconds)
+   **Total running time of the script:** ( 1 minutes  58.506 seconds)
 
 
 .. _sphx_glr_download_auto_examples_cluster_plot_mv_coregularized_spectral_tutorial.py:

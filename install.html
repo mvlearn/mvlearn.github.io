@@ -51,11 +51,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview of mvlearn</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Install</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installing-the-released-version-with-pip">Installing the released version with pip</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pip-installation-instructions">pip installation instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conda-installation-instructions">conda installation instructions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#including-optional-dependencies-for-full-functionality">Including optional dependencies for full functionality</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#installing-the-released-version-with-conda-forge">Installing the released version with conda-forge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#python-package-dependencies">Python package dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#hardware-requirements">Hardware requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#os-requirements">OS Requirements</a></li>
@@ -257,14 +257,15 @@
   <section id="install">
 <h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">mvlearn</span></code> can be installed by using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, GitHub, or through the conda-forge
-channel into an existing <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment.</p>
+channel into an existing <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment.
+See below for <a class="reference internal" href="#pipanchor"><span class="std std-ref">pip installation instructions</span></a> or <a class="reference internal" href="#condaanchor"><span class="std std-ref">conda installation instructions</span></a>.</p>
 <p><strong>IMPORTANT NOTE:</strong> <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code> has an optional dependencies for certain functions,
 and so special instructions must be followed to include these
 optional dependencies in the installation (if you do not have those packages already)
 in order to access all the features within <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code>.
 More details can be found in <a class="reference internal" href="#extradependencyanchor"><span class="std std-ref">Including optional dependencies for full functionality</span></a>.</p>
-<section id="installing-the-released-version-with-pip">
-<h2>Installing the released version with pip<a class="headerlink" href="#installing-the-released-version-with-pip" title="Permalink to this headline">¶</a></h2>
+<section id="pip-installation-instructions">
+<span id="pipanchor"></span><h2>pip installation instructions<a class="headerlink" href="#pip-installation-instructions" title="Permalink to this headline">¶</a></h2>
 <p>Below we assume you have the default Python3 environment already configured on
 your computer and you intend to install <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code> inside of it.  If you want
 to create and work with Python virtual environments, please follow instructions
@@ -294,6 +295,20 @@ top-level source directory using the Terminal:</p>
 </pre></div>
 </div>
 <p>This will install <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code> and the required dependencies (see below).</p>
+</section>
+<section id="conda-installation-instructions">
+<span id="condaanchor"></span><h2>conda installation instructions<a class="headerlink" href="#conda-installation-instructions" title="Permalink to this headline">¶</a></h2>
+<p>Here, we assume you have created a conda environment with one of the
+accepted python versions, and you intend to install the <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code>
+into it.</p>
+<p>To install <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code> with conda, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install -c conda-forge mvlearn
+</pre></div>
+</div>
+<p>To list all versions of <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code> available on your platform, use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda search mvlearn --channel conda-forge
+</pre></div>
+</div>
 <section id="including-optional-dependencies-for-full-functionality">
 <span id="extradependencyanchor"></span><h3>Including optional dependencies for full functionality<a class="headerlink" href="#including-optional-dependencies-for-full-functionality" title="Permalink to this headline">¶</a></h3>
 <p>A small subset of functions require specific extra dependencies not installed
@@ -303,10 +318,11 @@ of functions, with corresponding keyword enclosed in the brackets [].</p>
 <li><p>[torch]: <code class="docutils literal notranslate"><span class="pre">DCCA</span></code>, <code class="docutils literal notranslate"><span class="pre">SplitAE</span></code></p></li>
 <li><p>[multiviewica]: <code class="docutils literal notranslate"><span class="pre">MultiviewICA</span></code>, <code class="docutils literal notranslate"><span class="pre">GroupICA</span></code></p></li>
 </ul>
-<p>If you wish to use these functions, you must install their required
-dependencies. These are listed in the package requirements folder
-with corresponding keyword names
-for manual installation or can be installed from PyPI by simply calling:</p>
+<p>If you want to use any of the above functionality within mvlearn, please
+follow the directions below to install the additional dependencies.
+These dependencies are listed in the package requirements folder
+with corresponding keyword names for manual installation.</p>
+<p>They can be installed from PyPI by simply calling:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install mvlearn[keyword]
 </pre></div>
 </div>
@@ -319,23 +335,23 @@ To upgrade the package and torch requirements:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install -e .[keyword]
 </pre></div>
 </div>
-</section>
-</section>
-<section id="installing-the-released-version-with-conda-forge">
-<span id="condaanchor"></span><h2>Installing the released version with conda-forge<a class="headerlink" href="#installing-the-released-version-with-conda-forge" title="Permalink to this headline">¶</a></h2>
-<p>Here, we assume you have created a conda environment with one of the
-accepted python versions, and you intend to install the full <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code>
-release into it (with extra dependencies included). For more information
-about using conda-forge feedstocks, see the <a class="reference external" href="https://conda-forge.org/">about page</a>,
-or the <a class="reference external" href="https://github.com/conda-forge/mvlearn-feedstock">mvlearn feedstock</a>.</p>
-<p>To install <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code> with conda, run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install -c conda-forge mvlearn
+<p>To install the optional dependencies in with conda, consult the following for the dependencies you need:</p>
+<ul class="simple">
+<li><p>[torch]: Please consult the <a class="reference external" href="https://pytorch.org/get-started/locally/">PyTorch Installation Guide</a></p></li>
+</ul>
+<p>to install it properly for your specific system specifications. Then, install tqdm:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install -c conda-forge tqdm
 </pre></div>
 </div>
-<p>To list all versions of <code class="docutils literal notranslate"><span class="pre">mvlearn</span></code> available on your platform, use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda search mvlearn --channel conda-forge
+<ul>
+<li><p>[multiviewica]: There are two package dependencies for this functionality, which can be installed through conda-forge:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install -c conda-forge python-picard
+$ conda install -c conda-forge multiviewica
 </pre></div>
 </div>
+</li>
+</ul>
+</section>
 </section>
 <section id="python-package-dependencies">
 <h2>Python package dependencies<a class="headerlink" href="#python-package-dependencies" title="Permalink to this headline">¶</a></h2>
@@ -344,7 +360,7 @@ or the <a class="reference external" href="https://github.com/conda-forge/mvlear
 <li><p>matplotlib &gt;=3.0.0</p></li>
 <li><p>numpy &gt;=1.17.0</p></li>
 <li><p>scikit-learn &gt;=0.19.1</p></li>
-<li><p>scipy &gt;=1.1.0</p></li>
+<li><p>scipy &gt;=1.5.0</p></li>
 <li><p>seaborn &gt;=0.9.0</p></li>
 <li><p>joblib &gt;=0.11</p></li>
 </ul>
